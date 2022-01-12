@@ -5,6 +5,7 @@ export default function HeadComponent({ head, children }) {
   return (
     <Head>
       <title>{head.title}</title>
+      <link rel='shortcut icon' href='/images/logo.png' />
       <link rel='preconnect' href='https://fonts.googleapis.com' />
       <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
       <link
