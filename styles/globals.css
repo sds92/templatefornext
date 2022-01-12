@@ -180,6 +180,9 @@ input {
 .trans-menu-item {
   transition: all 0.3s ease-in-out;
 }
+html {
+  font-family: 'Oswald';
+}
 
 @tailwind base;
 @tailwind components;

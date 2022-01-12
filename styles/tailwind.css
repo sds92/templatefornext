@@ -205,6 +205,10 @@ input {
   transition: all 0.3s ease-in-out;
 }
 
+html {
+  font-family: 'Oswald';
+}
+
 /* ! tailwindcss v3.0.12 | MIT License | https://tailwindcss.com */
 
 /*
