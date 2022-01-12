@@ -5,14 +5,8 @@ import '@szhsin/react-menu/dist/index.css';
 // etc
 import { Icons } from '../';
 
-export default function SM() {
-  const menu = [
-    ['Главная', '#Main'],
-    ['Цены', '#Catalog'],
-    ['Преимущества', '#advantages'],
-    ['Применение', '#gallery'],
-    ['Контакты', '#contacts'],
-  ];
+export default function SM({menu}) {
+  
   return (
     <nav className={`bg-belplit24 flex justify-between items-center h-16`}>
       <Menu

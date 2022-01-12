@@ -1,4 +1,5 @@
 import React from 'react';
+import { Title, SubTitle } from '../../../lib';
 
 export default function Advantages() {
   const textArr = [
@@ -60,50 +61,40 @@ export default function Advantages() {
   ];
   return (
     <div className={`bg-belplit24_3 flex flex-col`}>
-      <h3 className={`text-3xl text-slate-100 text-center`}>
-        <span className={``}>
-          Преимущества <span className={`font-bold text-belplit24_2`}>МДВП БЕЛТЕРМО</span>
-        </span>
-      </h3>
-
-      {/* <!-- Timeline Classic--> */}
-      <article className={``}>
-        {textArr.map((item, index) => (
-          <div className={`flex`} key={`TEXT1${index}`}>
-            <div className={`flex flex-col`}>
-              <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
-              <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
-              <div className={`w-0.5 mx-auto border grow `} />
+      <div className={`max-w-6xl mx-auto py-20`}>
+        <Title atc={`slate-100`} a={`Преимущества`} b={`МДВП БЕЛТЕРМО`} />
+        <article className={`py-10`}>
+          {textArr.map((item, index) => (
+            <div className={`flex`} key={`TEXT1${index}`}>
+              <div className={`flex flex-col`}>
+                <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
+                <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
+                <div className={`w-0.5 mx-auto border grow `} />
+              </div>
+              <div className={``}>
+                <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
+                <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+              </div>
             </div>
-            <div className={``}>
-              <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
-              <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+          ))}
+        </article>
+        <Title atc={`slate-100`} a={`Применение`} b={`МДВП БЕЛТЕРМО`} />
+        <article className={`py-10`}>
+          {textArr2.map((item, index) => (
+            <div className={`flex`} key={`TEXT1${index}`}>
+              <div className={`flex flex-col`}>
+                <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
+                <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
+                <div className={`w-0.5 mx-auto border grow `} />
+              </div>
+              <div className={``}>
+                <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
+                <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </article>
-      <h3 className={`text-3xl text-slate-100 text-center`}>
-        <span className={``}>
-          Применение <span className={`font-bold text-belplit24_2`}>МДВП БЕЛТЕРМО</span>
-        </span>
-      </h3>
-
-      {/* <!-- Timeline Classic--> */}
-      <article className={``}>
-        {textArr2.map((item, index) => (
-          <div className={`flex`} key={`TEXT1${index}`}>
-            <div className={`flex flex-col`}>
-            <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
-              <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
-              <div className={`w-0.5 mx-auto border grow `} />
-            </div>
-            <div className={``}>
-              <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
-              <p className={`text-slate-100 pl-2`}>{item[1]}</p>
-            </div>
-          </div>
-        ))}
-      </article>
+          ))}
+        </article>
+      </div>
     </div>
   );
 }

@@ -20,7 +20,6 @@ export default function (req, res) {
     text: `${JSON.stringify(req.body)}`,
     html: `<p>${JSON.stringify(req.body)}</p>`,
   };
-  console.log("🚀 ~ file: sendform.js ~ line 20 ~ mailData", mailData)
   transporter.sendMail(mailData, function (err, info) {
     if (err) res.status(500);
     else res.status(200);

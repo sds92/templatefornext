@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 const fontFamily = defaultTheme.fontFamily;
 fontFamily['sans'] = [
-  'Roboto', // <-- Fira Sans is a default sans font now
+  'Oswald', // <-- Fira Sans is a default sans font now
   'system-ui',
   // <-- you may provide more font fallbacks here
 ];
@@ -68,6 +68,7 @@ module.exports = {
       'belplit': '#38a000',
       'belplit24': '#1F1926',
       'belplit24_2': '#ff0000',
+      'belplit24_2_b': '#ac0909',
       'belplit24_3': '#454545',
       inherit: colors.inherit,
       current: colors.current,

@@ -1,0 +1,21 @@
+{
+  "title": "БЕЛТЕРМО",
+  "copyright": [
+    "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+  ],
+
+  "contacts": {
+    "phones": ["+7 (495) 120-27-35"],
+    "emails": ["stroyoptplit@mail.ru"],
+    "addresses": [
+      {
+        "title": "Офис",
+        "value": "Москва, Проектируемый проезд № 134, вл.4"
+      }
+    ]
+  },
+  "workingHoars": {
+    "title": "Время работы",
+    "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+  }
+}

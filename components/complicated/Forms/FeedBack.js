@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 export default function FeedBack(props) {
   const router = useRouter();
-  console.log('🚀 ~ file: FeedBack.js ~ line 6 ~ FeedBack ~ router', router);
   const [formStatus, setFormStatus] = React.useState('show');
   const [formState, setFormState] = React.useState({
     clientName: '',
@@ -17,6 +16,10 @@ export default function FeedBack(props) {
     2: false,
     3: false,
   });
+const classes = {
+  ff: `w-full md:w-1/2 my-1 px-1`
+}
+
 
   function checkForm() {
     let res = false;
@@ -101,10 +104,10 @@ export default function FeedBack(props) {
 
   return (
     <div>
-      <form className={`rd-mailform margin-top-20`}>
+      <form className={``}>
         {formStatus === 'show' && (
-          <div className={`row row-20 row-form-20`}>
-            <div className={`col-md-6`}>
+          <div className={`flex flex-wrap`}>
+            <div className={classes.ff}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
                 {checkFormStatus[0] && <p className={`user-form-alert`}>3 - 50 символов</p>}
                 <input
@@ -121,7 +124,7 @@ export default function FeedBack(props) {
                 />
               </div>
             </div>
-            <div className={`col-md-6`}>
+            <div className={classes.ff}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
                 {checkFormStatus[1] && <p className={`user-form-alert`}>Не верный номер</p>}
                 <input
@@ -138,7 +141,7 @@ export default function FeedBack(props) {
                 />
               </div>
             </div>
-            <div className={`col-sm-12`}>
+            <div className={`w-full px-1 my-1`}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
                 {checkFormStatus[2] && <p className={`user-form-alert`}>3 - 500 символов</p>}
                 <textarea
@@ -157,11 +160,11 @@ export default function FeedBack(props) {
               </div>
             </div>
 
-            <div className={`col-md-6`}>
+            <div className={classes.ff}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
                 {checkFormStatus[3] && <p className={`user-form-alert`}>Введите корректный email</p>}
                 <input
-                  className={`user-form-input ${checkFormStatus[3] ? `user-form-alert-borders` : ``}`}
+                  className={`h-14 user-form-input ${checkFormStatus[3] ? `user-form-alert-borders` : ``}`}
                   required
                   id='FeedBackFormClientEmail'
                   placeholder='E-mail'
@@ -174,10 +177,10 @@ export default function FeedBack(props) {
                 />
               </div>
             </div>
-            <div className={`col-md-6`}>
+            <div className={`${classes.ff} cursor-pointer`}>
               <div
                 onClick={sendForm}
-                className={`button button-block button-primary`}
+                className={`p-4 bg-belplit24_2 rounded-md text-slate-100 text-center`}
               >
                 Отправить
               </div>
