@@ -9,17 +9,7 @@ export default function Main() {
     <div className={`w-full flex user-main-fs relative`}>
       <div className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
         <div className={`max-w-xl ml-auto -mt-10 cursor-default`}>
-          <motion.div
-            className='page-wrap'
-            initial='initial'
-            animate='animate'
-            exit='exit'
-            variants={animations.slideRight.variants}
-            transition={animations.slideRight.transition}
-            
-          >
-            <span className={`font-bold text-3xl text-belplit24_2`}>МДВП БЕЛТЕРМО</span>
-          </motion.div>
+          <span className={`font-bold text-3xl text-belplit24_2`}>МДВП БЕЛТЕРМО</span>
           <br />
           <span className={``}>Экологичная тепло-звукоизоляция дома</span>
           <br /> <span className={`text-3xl`}>от 289 руб.</span>
