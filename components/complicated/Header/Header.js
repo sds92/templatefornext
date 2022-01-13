@@ -1,5 +1,4 @@
 import React from 'react';
-import { SizeMe } from 'react-sizeme';
 import SM from './SM';
 import LG from './LG';
 

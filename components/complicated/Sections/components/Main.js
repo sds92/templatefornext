@@ -42,7 +42,7 @@ export default function Main({ app, content, lgView }) {
           <span className={``}>{content[0]}</span>
           <br /> <span className={`text-3xl`}>{content[1]}</span>
           <p
-            className={`my-4 bg-slate-100 bg-opacity-50 rounded-md p-4 -mx-4 shadow-2xl md:mx-0 md:p-0 md:shadow-none md:bg-opacity-0 text-black md:text-slate-800 font-light`}
+            className={`my-4 text-black md:text-slate-800 font-light`}
           >
             {content[2]}
           </p>
@@ -62,7 +62,7 @@ export default function Main({ app, content, lgView }) {
           backgroundPosition: 'center',
         }}
       >
-        <div className={`absolute inset-0 bg-slate-900 bg-opacity-20 md:opacity-0 transition-all`}></div>
+        {/* <div className={`absolute inset-0 bg-slate-900 bg-opacity-20 md:opacity-0 transition-all`}></div> */}
       </div>
     </div>
   );

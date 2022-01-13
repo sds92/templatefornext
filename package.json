@@ -11,21 +11,14 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@headlessui/react": "^1.4.2",
-    "@mui/icons-material": "^5.2.5",
-    "@mui/material": "^5.2.5",
     "@szhsin/react-menu": "^2.3.0",
     "dotenv": "^10.0.0",
     "framer-motion": "^5.5.5",
     "next": "12.0.7",
     "nodemailer": "^6.7.2",
     "react": "17.0.2",
-    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "17.0.2",
-    "react-reveal": "^1.2.2",
-    "react-scroll": "^1.8.4",
-    "react-simple-image-viewer": "^1.1.1",
-    "react-sizeme": "^3.0.2",
-    "sass": "^1.47.0"
+    "react-reveal": "^1.2.2"
   },
   "devDependencies": {
     "eslint": "8.5.0",

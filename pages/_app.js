@@ -1,4 +1,4 @@
-import { SizeMe } from 'react-sizeme';
+
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
 import { useRouter } from 'next/router';
 import React from 'react';

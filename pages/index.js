@@ -3,10 +3,9 @@ import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { animations } from '../styles/animations';
 
-import * as Scroll from 'react-scroll';
 import React from 'react';
 
-function Home({ lgView, app, menu, input }) {
+export default function Home({ lgView, app, menu, input }) {
   const router = useRouter();
   return (
     <body>
@@ -41,4 +40,4 @@ function Home({ lgView, app, menu, input }) {
   );
 }
 
-export default Scroll.ScrollElement(Home);
+
