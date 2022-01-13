@@ -24,10 +24,13 @@ function MyApp({ Component, pageProps }) {
       },
       []
     );
-    document.onreadystatechange = function () {
-      if (document.readyState == "complete") {
+    document.onload = function () {
         alert('111')
-      }
+    }
+    document.onreadystatechange = function () {
+      // if (document.readyState == "complete") {
+      //   alert('111')
+      // }
     }
     
   }, []);
