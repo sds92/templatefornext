@@ -4,14 +4,14 @@ export default function Footer() {
   return (
     <>
       <div className={`h-96 cursor-default`}>
-        {/* <iframe
+        <iframe
           src='https://yandex.ru/map-widget/v1/-/CCUYiXRD-B'
           width='100%'
           height='100%'
           frameBorder='1'
           allowFullScreen='true'
           // style='position:relative;'
-        ></iframe> */}
+        ></iframe>
       </div>
       <footer className={`bg-belplit24 h-36`}>
         <div className={`flex justify-evenly items-center h-full`}>

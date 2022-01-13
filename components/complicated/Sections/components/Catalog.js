@@ -31,110 +31,106 @@ export default function Catalog({ lgView, content }) {
 
   return (
     <>
-
-    <div className={``}>
-      <Title a={`Размеры и цены`} b={`МДВП БЕЛТЕРМО`}></Title>
-      <SubTitle>{content[0]}</SubTitle>
-
       <div className={``}>
+        <Title a={`Размеры и цены`} b={`МДВП БЕЛТЕРМО`}></Title>
+        <SubTitle>{content[0]}</SubTitle>
+
         <div className={``}>
-          {!lgView ? (
-            <Menu
-              menuButton={({ open }) => {
-                open ? setOpenMenu(true) : setOpenMenu(false);
-                return (
-                  <MenuButton className={`ml-4 my-4`}>
-                    <Button
-                      style={{ border: 'none' }}
-                      onClick={() =>
-                        setState((state) => {
-                          return { ...state, show: !state.show };
-                        })
-                      }
-                    >
-                      Выбрать
-                      <Icons.ChevronDown
-                        extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
-                      />
-                    </Button>
-                  </MenuButton>
-                );
-              }}
-            >
-              {products.map((innerItem, index) => (
-                <MenuItem
-                  key={`NAVLGINNER${index}`}
-                  onClick={() => {
-                    setState((state) => {
-                      return { ...state, chosen: index };
-                    });
-                  }}
-                  className={``}
-                  // onMouseEnter={() => setHover({ [index]: true })}
-                  // onMouseLeave={() => setHover({ [index]: false })}
-                >
-                  &nbsp;{innerItem.title}
-                </MenuItem>
-              ))}
-            </Menu>
-          ) : (
-            <>
-              <ul className={`my-2 flex gap-6 justify-center`}>
-                {products.map((item, index) => (
-                  <li
-                    className={`${
-                      index === state.chosen ? 'user-catalog-active-link' : 'user-catalog-link'
-                    } cursor-pointer text-2xl text-slate-700 font-light`}
-                    key={`LINK${index}`}
+          <div className={``}>
+            {!lgView ? (
+              <Menu
+                menuButton={({ open }) => {
+                  open ? setOpenMenu(true) : setOpenMenu(false);
+                  return (
+                    <MenuButton className={`ml-4 my-4`}>
+                      <Button
+                        style={{ border: 'none' }}
+                        onClick={() =>
+                          setState((state) => {
+                            return { ...state, show: !state.show };
+                          })
+                        }
+                      >
+                        Выбрать
+                        <Icons.ChevronDown
+                          extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
+                        />
+                      </Button>
+                    </MenuButton>
+                  );
+                }}
+              >
+                {products.map((innerItem, index) => (
+                  <MenuItem
+                    key={`NAVLGINNER${index}`}
                     onClick={() => {
                       setState((state) => {
                         return { ...state, chosen: index };
                       });
                     }}
                   >
-                    {item.name.toUpperCase()}
-                  </li>
+                    &nbsp;{innerItem.title}
+                  </MenuItem>
                 ))}
-              </ul>
-            </>
-          )}
-        </div>
-        <hr />
-        <br />
-        <div className={`flex flex-wrap gap-6 w-full justify-center`}>
-          {arr.map((item, index) => {
-            return (
-              state.chosen === item.catId && (
-                <Fade key={`ITEM${index}`}>
-                  <div className={``}>
-                    <div className={`relative`}>
-                      <img
-                        className={``}
-                        src={`images/belplit-${item.category}-sp.jpg`}
-                        alt
-                        width='370'
-                        height='256'
-                      />
-                      <div className={`absolute inset-0 bg-black opacity-50`}></div>
-                      <div className={`absolute w-full bottom-6`}>
-                        <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-2`}>
-                          {item.price}руб./м2
-                        </p>
-                        <p className={`text-slate-100 pl-10 pt-2`}>{item.title}</p>
+              </Menu>
+            ) : (
+              <>
+                <ul className={`my-2 flex gap-6 justify-center`}>
+                  {products.map((item, index) => (
+                    <li
+                      className={`${
+                        index === state.chosen ? 'user-catalog-active-link' : 'user-catalog-link'
+                      } cursor-pointer text-2xl text-slate-700 font-light`}
+                      key={`LINK${index}`}
+                      onClick={() => {
+                        setState((state) => {
+                          return { ...state, chosen: index };
+                        });
+                      }}
+                    >
+                      {item.name.toUpperCase()}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+          <hr />
+          <br />
+          <div className={`flex flex-wrap gap-6 w-full justify-center`}>
+            {arr.map((item, index) => {
+              return (
+                state.chosen === item.catId && (
+                  <Fade key={`ITEM${index}`}>
+                    <div className={``}>
+                      <div className={`relative`}>
+                        <img
+                          className={``}
+                          src={`images/belplit-${item.category}-sp.jpg`}
+                          alt
+                          width='370'
+                          height='256'
+                        />
+                        <div className={`absolute inset-0 bg-black opacity-50`}></div>
+                        <div className={`absolute w-full bottom-6`}>
+                          <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-2`}>
+                            {item.price}руб./м2
+                          </p>
+                          <p className={`text-slate-100 pl-10 pt-2`}>{item.title}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Fade>
-              )
-            );
-          })}
+                  </Fade>
+                )
+              );
+            })}
+          </div>
+          <br />
+          <hr />
+          <br />
         </div>
-        <br />
-        <hr />
-        <br />
       </div>
-    </div>
-    <About content={content}/>
+      <About content={content} />
     </>
   );
 }
