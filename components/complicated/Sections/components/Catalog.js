@@ -40,7 +40,7 @@ export default function Catalog({ lgView }) {
               menuButton={({ open }) => {
                 open ? setOpenMenu(true) : setOpenMenu(false);
                 return (
-                  <MenuButton className={``}>
+                  <MenuButton className={`ml-4 my-4`}>
                     <Button
                       style={{ border: 'none' }}
                       onClick={() =>
@@ -93,11 +93,11 @@ export default function Catalog({ lgView }) {
                   </li>
                 ))}
               </ul>
-              <hr />
-              <br/>
             </>
           )}
         </div>
+        <hr />
+        <br />
         <div className={`flex flex-wrap gap-6 w-full justify-center`}>
           {arr.map((item, index) => {
             return (
@@ -126,9 +126,9 @@ export default function Catalog({ lgView }) {
             );
           })}
         </div>
-        <br/>
+        <br />
         <hr />
-        <br/>
+        <br />
       </div>
     </div>
   );

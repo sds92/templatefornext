@@ -61,7 +61,7 @@ export default function Advantages() {
   ];
   return (
     <div className={`bg-belplit24_3 flex flex-col`}>
-      <div className={`max-w-6xl mx-auto py-20`}>
+      <div className={`max-w-6xl mx-auto py-20 px-4`}>
         <Title atc={`slate-100`} a={`Преимущества`} b={`МДВП БЕЛТЕРМО`} />
         <article className={`py-10`}>
           {textArr.map((item, index) => (

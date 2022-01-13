@@ -1,18 +1,17 @@
-import { FeedBack, Icons, Catalog, Header, Section, Deviders } from '../components/complicated';
+import { Header, Section } from '../components/complicated';
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
 import { useRouter } from 'next/router';
-import app from '../data/app.json';
 import { animations } from '../styles/animations';
 
 import * as Scroll from 'react-scroll';
 import React from 'react';
 
-function Home({ lgView }) {
+function Home({ lgView, app, menu, input }) {
   const router = useRouter();
   return (
     <body>
       <>
-        <Header lgView={lgView} />
+        <Header lgView={lgView} menu={menu} />
         <LazyMotion features={domAnimation}>
           <AnimatePresence exitBeforeEnter>
             <m.div
@@ -24,13 +23,16 @@ function Home({ lgView }) {
               variants={animations.opacity.variants}
               transition={animations.opacity.transition}
             >
-              <Section className={lgView ? `mt-20` : `mt-16`} id={'Main'} />
-              <Section className={'pt-20 cursor-default'} id={'Catalog'} lgView={lgView} />
-              <Section className={'cursor-default'} id={'About'} />
-              <Deviders />
-              <Section className={'cursor-default'} id={'Advantages'} />
-              <Section className={'cursor-default'} id={'Gallery'} />
-              <Section className={'cursor-default'} id={'Contacts'} app={app} />
+              {menu.map((item, index) => (
+                <Section
+                  key={`SECTION${index}`}
+                  className={`${lgView ? 'pt-20' : 'pt-10'} cursor-default`}
+                  id={item[1].replaceAll('#', '')}
+                  app={app}
+                  lgView={lgView}
+                  content={input.content[item[1].replaceAll('#', '').toLowerCase()]}
+                />
+              ))}
             </m.div>
           </AnimatePresence>
         </LazyMotion>

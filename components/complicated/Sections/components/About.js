@@ -1,4 +1,5 @@
 import React from 'react';
+import Deviders from '../Deviders';
 import { Button, Title, SubTitle } from '../../../lib';
 
 export default function About() {
@@ -32,6 +33,7 @@ export default function About() {
           </div>
         ))}
       </div>
+      <Deviders />
     </div>
   );
 }

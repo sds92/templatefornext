@@ -21,7 +21,7 @@ export default function Gallery() {
       </SubTitle>
       <hr/>
       <br/>
-      <div className={`flex gap-4 flex-wrap w-8/12 mx-auto`}>
+      <div className={`flex gap-4 flex-wrap justify-center md:w-10/12 lg:w-8/12 mx-auto`}>
         {imgs.map((item, index) => (
           <div key={`IMG${index}`} className={`flex-none`}>
             <div className={`relative`}>
