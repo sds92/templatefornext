@@ -24,6 +24,12 @@ function MyApp({ Component, pageProps }) {
       },
       []
     );
+    document.onreadystatechange = function () {
+      if (document.readyState == "complete") {
+        alert('111')
+      }
+    }
+    
   }, []);
 
   const newProps = {
