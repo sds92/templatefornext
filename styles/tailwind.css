@@ -2069,6 +2069,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 0.5rem;
 }
 
+.-mb-20{
+  margin-bottom: -5rem;
+}
+
 .flex{
   display: flex;
 }

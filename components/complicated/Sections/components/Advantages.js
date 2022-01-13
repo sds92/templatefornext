@@ -7,7 +7,7 @@ export default function Advantages({content}) {
   const textArr2 = content[3]
   return (
     <>
-      <Deviders content={content}/>
+      
       <div className={`bg-belplit24_3 flex flex-col`}>
         <div className={`max-w-6xl mx-auto py-20 px-4`}>
           <Title atc={`slate-100`} a={`Преимущества`} b={`МДВП БЕЛТЕРМО`} />
