@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
       },
       []
     );
-    document.onload = function () {
+    window.onload = function () {
         alert('111')
     }
     document.onreadystatechange = function () {
