@@ -1,3 +1,4 @@
+
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -12,7 +13,10 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
   React.useEffect(() => {
-    setW(window.innerWidth);
+    setW(window.innerWidth)
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
     window.addEventListener(
       'resize',
       () => {
@@ -20,28 +24,10 @@ function MyApp({ Component, pageProps }) {
       },
       []
     );
-    // const timer = (a) =>
-    //   setTimeout(() => {
-    //     a();
-    //   }, 1000);
-
-    window.onload = function() {
-      setLoading(false);
-    }
-    // document.onreadystatechange = function () {
-    //   if (document.readyState === 'interactive') {
-    //     console.log("🚀 interactive ", document.readyState)
-    //     setLoading(false);
-    //   }
-    //   if (document.readyState === 'complete') {
-    //     console.log("🚀 complete", document.readyState)
-    //     setLoading(false);
-    //   }
-    // };
   }, []);
 
   const newProps = {
-    menu: [
+    menu:  [
       ['Главная', '#Main'],
       ['Цены', '#Catalog'],
       ['Преимущества', '#Advantages'],
@@ -57,13 +43,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       {loading && <Preloader />}
-      {/* {!loading && ( */}
-      <div>
-        <Head head={newProps.input.head}></Head>
-        <Component {...newProps} />
-        <Footer />
-      </div>
-      {/* )} */}
+      {!loading && (
+        <div>
+          <Head head={newProps.input.head}></Head>
+          <Component {...newProps} />
+          <Footer />
+        </div>
+      )}
     </>
   );
 }
