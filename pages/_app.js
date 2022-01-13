@@ -24,14 +24,6 @@ function MyApp({ Component, pageProps }) {
       },
       []
     );
-    window.onload = function () {
-        alert('111')
-    }
-    document.onreadystatechange = function () {
-      // if (document.readyState == "complete") {
-      //   alert('111')
-      // }
-    }
     
   }, []);
 
