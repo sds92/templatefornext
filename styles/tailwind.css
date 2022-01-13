@@ -4005,6 +4005,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(30 58 138 / var(--tw-border-opacity));
 }
 
+.border-sky-100{
+  --tw-border-opacity: 1;
+  border-color: rgb(224 242 254 / var(--tw-border-opacity));
+}
+
 .border-x-slate-100{
   --tw-border-opacity: 1;
   border-left-color: rgb(241 245 249 / var(--tw-border-opacity));
@@ -5701,6 +5706,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-belplit24_2_b{
   --tw-bg-opacity: 1;
   background-color: rgb(172 9 9 / var(--tw-bg-opacity));
+}
+
+.bg-transparent{
+  background-color: transparent;
 }
 
 .bg-opacity-30{
@@ -8705,6 +8714,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0.5;
 }
 
+.opacity-0{
+  opacity: 0;
+}
+
+.opacity-100{
+  opacity: 1;
+}
+
 .shadow-md{
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -9559,6 +9576,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:border-belplit24_2_b:hover{
   --tw-border-opacity: 1;
   border-color: rgb(172 9 9 / var(--tw-border-opacity));
+}
+
+.hover\:border-opacity-100:hover{
+  --tw-border-opacity: 1;
 }
 
 .hover\:bg-belplit24_2_b:hover{

@@ -1,21 +1,13 @@
 import React from 'react';
-import Deviders from '../Deviders';
-import { Button, Title, SubTitle } from '../../../lib';
+import { Title, SubTitle } from '../../../lib';
 
-export default function About() {
-  const imgs = [
-    ['images/icon1.png', 94, 'ВОЛОКНА ДРЕВЕСИНЫ СОСНЫ'],
-    ['images/icon2.png', 1.5, 'ПАРАФИНОВАЯ ЭМУЛЬСИЯ'],
-    ['images/icon3.png', 4, 'СИНТЕТИЧЕСКИЕ ВОЛОКНА'],
-  ];
+export default function About({content}) {
+  const imgs = content[2];
   return (
     <div className={``}>
       <Title a={`Что такое`} b={`МДВП БЕЛТЕРМО`}></Title>
       <SubTitle>
-        Плиты Белтермо - это природный материал на 94% состоящий из сосны! <br /> У нас представлены плиты
-        всех размеров, с толщиной МДВП плиты от 20 до 200 мм. <br /> Широкая линейка утеплителей БЕЛТЕРМО
-        позволяет выбрать материал по его назначению,опираясь на свойства, характеристики и особенности
-        исполнения каждого его вида.
+        {content[1]}
       </SubTitle>
 
       <div className={`flex flex-wrap justify-center gap-40 my-10`}>
@@ -33,7 +25,6 @@ export default function About() {
           </div>
         ))}
       </div>
-      <Deviders />
     </div>
   );
 }

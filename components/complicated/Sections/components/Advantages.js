@@ -1,100 +1,49 @@
 import React from 'react';
-import { Title, SubTitle } from '../../../lib';
+import { Title } from '../../../lib';
+import Deviders from '../Deviders';
 
-export default function Advantages() {
-  const textArr = [
-    [
-      'Защита от жары',
-      'Благодаря высокому значению теплоемкости (с=2100 Дж/(кг*К) в доме будет прохладно даже в жаркие дни, что позволяет сэкономить на использовании кондиционера.',
-    ],
-    [
-      'Защита от ветра',
-      'Высокое сопротивление продуванию потокам воздуха (50 - 100 (кПа*с)/м³) обеспечивает надёжную защиту от ветра.',
-    ],
-    [
-      'Отличная звукоизоляция',
-      'Высокая плотность (110-200 кг/м³) и однородность защищают от ударного шума внутри дома (Rw=23-27 Дб), а высокая пористость позволяет поглощать шум снаружи (άw=0,60-0,95).',
-    ],
-    [
-      'Пожарная безопасность',
-      'Инертность горения посредством обугливания не распространяет огонь (огнестойкость "E" (еврокласс по EN 13501-1).',
-    ],
-    [
-      'Комфортный микроклимат',
-      'Способность поглощать и отдавать атмосферную влагу (Sd=0,06-0,72 м) позволяет плитам «дышать», не теряя при этом своих технических характеристик, обеспечивая оптимальную влажность и предотвращая образование плесени или грибка на стенах и потолке.',
-    ],
-    [
-      'Защита от холода',
-      'Низкая теплопроводность (λD= 0,038-0,041 Вт/м*К) не позволяет теплу выходить наружу, а холоду - проникать внутрь.',
-    ],
-    [
-      'Простота монтажа',
-      'Удобный формат плит (прямая кромка/шип-паз/ступень) и экологичность материала позволяют производить монтаж вручную без использования защитных средств. Плиты плотно стыкуются и при необходимости легко нарезаются до нужного размера.',
-    ],
-    [
-      'Экологичность',
-      'Наличие в составе только натуральной древесины (сосны) и экологически чистых связующих компонентов (смолы на полиуретановой основе MDI 4%) обеспечивает абсолютную безопасность для человека и окружающей среды.',
-    ],
-  ];
-  const textArr2 = [
-    [
-      'Кровля',
-      'Подкровельное применение - обеспечивает сохранение тепла и шумоизоляцию. Теплоемкость с=2100 Дж/(кг*К).',
-    ],
-    [
-      'Ветрозащита',
-      'Высокая плотность отдельных моделей Белтермо обеспечивает защиту от проникновения ветра. Сопротивление продуванию: до 100 (кПа*с)/м³.',
-    ],
-    [
-      'Звукоизоляция',
-      'Пористость плит Белтермо дает высокие шумопоглощающие и звукоизолирующие характеристики. Rw=23-27 Дб, άw=0,60-0,95.',
-    ],
-    [
-      'Утепление',
-      'Полное утепление практически всех конструкций дома: кровли, стен, перегородок, потолка и др. Теплопроводность λ: от 0,038 Вт/м*К.',
-    ],
-    ['Мокрый фасад', 'Утепление стен плитами Белтермо позволяет использовать их "под штукатурку".'],
-    [
-      'Плавающий пол',
-      'Внутренняя изоляция напольных покрытий защищает от проникновения холода и обеспечивает звукоизоляцию.',
-    ],
-  ];
+export default function Advantages({content}) {
+  const textArr = content[2]
+  const textArr2 = content[3]
   return (
-    <div className={`bg-belplit24_3 flex flex-col`}>
-      <div className={`max-w-6xl mx-auto py-20 px-4`}>
-        <Title atc={`slate-100`} a={`Преимущества`} b={`МДВП БЕЛТЕРМО`} />
-        <article className={`py-10`}>
-          {textArr.map((item, index) => (
-            <div className={`flex`} key={`TEXT1${index}`}>
-              <div className={`flex flex-col`}>
-                <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
-                <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
-                <div className={`w-0.5 mx-auto border grow `} />
+    <>
+      <Deviders content={content}/>
+      <div className={`bg-belplit24_3 flex flex-col`}>
+        <div className={`max-w-6xl mx-auto py-20 px-4`}>
+          <Title atc={`slate-100`} a={`Преимущества`} b={`МДВП БЕЛТЕРМО`} />
+          <article className={`py-10`}>
+            {textArr.map((item, index) => (
+              <div className={`flex`} key={`TEXT1${index}`}>
+                <div className={`flex flex-col`}>
+                  <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
+                  <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
+                  <div className={`w-0.5 mx-auto border grow `} />
+                </div>
+                <div className={``}>
+                  <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
+                  <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+                </div>
               </div>
-              <div className={``}>
-                <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
-                <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+            ))}
+          </article>
+          <Title atc={`slate-100`} a={`Применение`} b={`МДВП БЕЛТЕРМО`} />
+          <article className={`py-10`}>
+            {textArr2.map((item, index) => (
+              <div className={`flex`} key={`TEXT1${index}`}>
+                <div className={`flex flex-col`}>
+                  <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
+                  <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
+                  <div className={`w-0.5 mx-auto border grow `} />
+                </div>
+                <div className={``}>
+                  <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
+                  <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </article>
-        <Title atc={`slate-100`} a={`Применение`} b={`МДВП БЕЛТЕРМО`} />
-        <article className={`py-10`}>
-          {textArr2.map((item, index) => (
-            <div className={`flex`} key={`TEXT1${index}`}>
-              <div className={`flex flex-col`}>
-                <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
-                <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
-                <div className={`w-0.5 mx-auto border grow `} />
-              </div>
-              <div className={``}>
-                <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
-                <p className={`text-slate-100 pl-2`}>{item[1]}</p>
-              </div>
-            </div>
-          ))}
-        </article>
+            ))}
+          </article>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

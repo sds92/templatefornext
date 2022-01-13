@@ -2,13 +2,14 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 import products from '../../../../data/products.json';
 import { Button, Title, SubTitle } from '../../../lib';
+import About from './About';
 // react-menu
 import { Menu, MenuItem, MenuButton, useMenuState } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
 
-export default function Catalog({ lgView }) {
+export default function Catalog({ lgView, content }) {
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -29,9 +30,11 @@ export default function Catalog({ lgView }) {
   });
 
   return (
+    <>
+
     <div className={``}>
       <Title a={`Размеры и цены`} b={`МДВП БЕЛТЕРМО`}></Title>
-      <SubTitle> У нас представлены плиты всех размеров, с толщиной МДВП плиты от 20 до 200 мм.</SubTitle>
+      <SubTitle>{content[0]}</SubTitle>
 
       <div className={``}>
         <div className={``}>
@@ -131,5 +134,7 @@ export default function Catalog({ lgView }) {
         <br />
       </div>
     </div>
+    <About content={content}/>
+    </>
   );
 }

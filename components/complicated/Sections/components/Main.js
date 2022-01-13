@@ -4,35 +4,48 @@ import Fade from 'react-reveal/Fade';
 import { Button } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
-export default function Main({ app, content }) {
+export default function Main({ app, content, lgView }) {
   return (
     <div className={`w-full flex user-main-fs relative`}>
       <div className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
         <div className={`max-w-xl ml-auto -mt-10 cursor-default`}>
           <div>
-            <motion.div
-              className='font-bold text-3xl text-belplit24_2'
-              initial='initial'
-              animate='animate'
-              exit='exit'
-              variants={animations.slideUp.variants}
-              transition={animations.slideUp.transition}
-            >
-              {app.title}
-            </motion.div>
-            <motion.div
-              style={{ height: '1px' }}
-              className={`my-4 bg-belplit24`}
-              initial='initial'
-              animate='animate'
-              exit='exit'
-              variants={animations.line.variants}
-              transition={animations.line.transition}
-            />
+            {lgView ? (
+              <>
+                <motion.div
+                  className='font-bold text-3xl text-belplit24_2'
+                  initial='initial'
+                  animate='animate'
+                  exit='exit'
+                  variants={animations.slideUp.variants}
+                  transition={animations.slideUp.transition}
+                >
+                  {app.title}
+                </motion.div>
+                <motion.div
+                  style={{ height: '1px' }}
+                  className={`my-4 bg-belplit24`}
+                  initial='initial'
+                  animate='animate'
+                  exit='exit'
+                  variants={animations.line.variants}
+                  transition={animations.line.transition}
+                />
+              </>
+            ) : (
+              <>
+                <div className='font-bold text-3xl text-belplit24_2'>{app.title}</div>
+                <div style={{ height: '1px' }} className={`my-4 bg-belplit24`}></div>
+              </>
+            )}
           </div>
           <span className={``}>{content[0]}</span>
           <br /> <span className={`text-3xl`}>{content[1]}</span>
-          <p className={`my-4 bg-slate-100 bg-opacity-50 rounded-md p-4 -mx-4 shadow-2xl md:mx-0 md:p-0 md:shadow-none md:bg-opacity-0 text-black md:text-slate-800 font-light`}>{content[2]}</p>
+          <p
+            className={`my-4 bg-slate-100 bg-opacity-50 rounded-md p-4 -mx-4 shadow-2xl md:mx-0 md:p-0 md:shadow-none md:bg-opacity-0 text-black md:text-slate-800 font-light`}
+          >
+            {content[2]}
+          </p>
           <div className={`font-bold text-2xl text-belplit24_2 my-4`}>
             <a className={``} href={`tel:${app.contacts.phones[0]}`}>
               {app.contacts.phones[0]}

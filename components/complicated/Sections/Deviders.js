@@ -1,30 +1,17 @@
 import React from 'react';
-import { Button } from '../../lib';
+import { Button, Text } from '../../lib';
 
-export default function Deviders() {
+export default function Deviders({ content }) {
   return (
-    <div className={`bg-belplit24_3 py-10`}>
-      <div className={`flex justify-evenly`}>
-        <div className={`text-slate-100`}>
-          <span
-            className={`font-bold text-xl`}
-            // style='visibility: visible; animation-name: slideInRight;'
-          >
-            Купить тепло-изоляционные плиты Белтермо —<span className={``}>не проблема</span>. Звоните нам!
-          </span>
-          <br />
-          <div className={`font-light py-2`}>
-            Доставка по Москве, Краснодару, Минску, Симферополю, Астрахани, Екатеринбургу и Санкт-Петербургу.
-          </div>
+    <div className={`bg-belplit24_3 py-10 px-4`}>
+      <div className={`flex flex-wrap justify-evenly`}>
+        <div className={`text-slate-100 text-justify`}>
+          <Text className={`font-bold text-xl`}>{content[0]}</Text>
+          <Text className={`font-light py-2`}>{content[1]}</Text>
         </div>
         <a className={``} href='#Contacts'>
-          <div
-            className={``}
-            // style='visibility: visible; animation-name: slideInLeft;'
-          >
-            <Button href={`#Contacts`}>
-              Заказать звонок
-            </Button>
+          <div className={`my-2`}>
+            <Button href={`#Contacts`}>Заказать звонок</Button>
           </div>
         </a>
       </div>
