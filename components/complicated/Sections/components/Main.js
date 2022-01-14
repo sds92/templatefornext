@@ -1,6 +1,5 @@
 import React from 'react';
 import { AnimatePresence, domAnimation, LazyMotion, m, motion } from 'framer-motion';
-import Fade from 'react-reveal/Fade';
 import { Button } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
@@ -41,11 +40,7 @@ export default function Main({ app, content, lgView }) {
           </div>
           <span className={``}>{content[0]}</span>
           <br /> <span className={`text-3xl`}>{content[1]}</span>
-          <p
-            className={`my-4 text-black md:text-slate-800 font-light`}
-          >
-            {content[2]}
-          </p>
+          <p className={`my-4 text-black md:text-slate-800 font-light`}>{content[2]}</p>
           <div className={`font-bold text-2xl text-belplit24_2 my-4`}>
             <a className={``} href={`tel:${app.contacts.phones[0]}`}>
               {app.contacts.phones[0]}
@@ -57,13 +52,11 @@ export default function Main({ app, content, lgView }) {
       <div
         className={`p-10 w-full md:w-6/12 h-full absolute right-0`}
         style={{
-          background: 'no-repeat url(images/main.png)',
+          background: `no-repeat url(${content[3]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-      >
-        {/* <div className={`absolute inset-0 bg-slate-900 bg-opacity-20 md:opacity-0 transition-all`}></div> */}
-      </div>
+      ></div>
     </div>
   );
 }

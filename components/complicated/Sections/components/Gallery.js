@@ -1,13 +1,12 @@
 import React from 'react';
-import Icons from '../..';
-import { Button, Title, SubTitle } from '../../../lib';
+import { Title, SubTitle } from '../../../lib';
 
 export default function Gallery({ content }) {
-  const imgs = content[1]
+  const imgs = content[2]
   return (
     <div className={`py-20`}>
-      <Title a={`Примеры использования`} b={`МДВП БЕЛТЕРМО`} />
-      <SubTitle>{content[0]}</SubTitle>
+      <Title a={content[0][0]} b={content[0][1]} />
+      <SubTitle>{content[1]}</SubTitle>
       <hr />
       <br />
       <div className={`flex gap-4 flex-wrap justify-center md:w-10/12 lg:w-8/12 mx-auto`}>

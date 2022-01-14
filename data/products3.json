@@ -1,0 +1,79 @@
+[
+  {
+    "id": 0,
+    "name": "талион",
+    "title": "ТАЛИОН",
+    "sizes": [
+      ["9x1220x2440мм", ""],
+      ["9x1250x2500мм", ""],
+      ["12x1220x2440мм", ""],
+      ["12x1250x2500мм", ""],
+      ["15x1250x2500мм", ""],
+      ["18x1250x2500мм", ""],
+      ["22x1250x2500мм", ""]
+    ],
+    "prices": [[[620, 620, 770, 770, 1040, 1345, 1775], "руб/шт"]],
+    "desc": {
+      "consists": [],
+      "options": [],
+      "advantages": [],
+      "functions": []
+    },
+    "files": { "techDesc": ["top-description.jpg", [702, 567]], "avatarSM": "top.jpg", "product": "osb.png" }
+  },
+  {
+    "id": 1,
+    "name": "Kronospan",
+    "title": "Kronospan",
+    "sizes": [
+      ["9x1250x2500мм", ""],
+      ["15x1250x2500мм", ""],
+      ["18x1250x2500мм", ""],
+      ["22x1250x2500мм", ""]
+    ],
+    "prices": [[[620, 1040, 1220, 1700], "руб/шт"]],
+    "desc": {
+      "consists": [],
+      "options": [],
+      "advantages": [],
+      "functions": []
+    },
+    "files": { "techDesc": ["top-description.jpg", [702, 567]], "avatarSM": "top.jpg", "product": "osb.png" }
+  },
+  {
+    "id": 2,
+    "name": "Калевала",
+    "title": "Калевала",
+    "sizes": [
+      ["9x1250x2500мм", ""],
+      ["15x1250x2500мм", ""],
+      ["18x1250x2500мм", ""],
+      ["22x1250x2500мм", ""]
+    ],
+    "prices": [[[620, 1040, 1220, 1700], "руб/шт"]],
+    "desc": {
+      "consists": [],
+      "options": [],
+      "advantages": [],
+      "functions": []
+    },
+    "files": { "techDesc": ["top-description.jpg", [702, 567]], "avatarSM": "top.jpg", "product": "osb.png" }
+  },
+  {
+    "id": 3,
+    "name": "Муром",
+    "title": "Муром",
+    "sizes": [
+      ["9x1250x2500мм", ""],
+      ["12x1250x2500мм", ""]
+    ],
+    "prices": [[[620, 790], "руб/шт"]],
+    "desc": {
+      "consists": [],
+      "options": [],
+      "advantages": [],
+      "functions": []
+    },
+    "files": { "techDesc": ["top-description.jpg", [702, 567]], "avatarSM": "top.jpg", "product": "osb.png" }
+  }
+]

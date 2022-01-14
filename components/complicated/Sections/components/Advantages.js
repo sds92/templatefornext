@@ -1,16 +1,15 @@
 import React from 'react';
 import { Title } from '../../../lib';
-import Deviders from '../Deviders';
 
 export default function Advantages({content}) {
-  const textArr = content[2]
+  const textArr = content[1]
   const textArr2 = content[3]
   return (
     <>
       
       <div className={`bg-belplit24_3 flex flex-col`}>
         <div className={`max-w-6xl mx-auto py-20 px-4`}>
-          <Title atc={`slate-100`} a={`Преимущества`} b={`МДВП БЕЛТЕРМО`} />
+          <Title atc={`slate-100`} a={content[0][0]} b={content[0][1]} />
           <article className={`py-10`}>
             {textArr.map((item, index) => (
               <div className={`flex`} key={`TEXT1${index}`}>
@@ -26,7 +25,7 @@ export default function Advantages({content}) {
               </div>
             ))}
           </article>
-          <Title atc={`slate-100`} a={`Применение`} b={`МДВП БЕЛТЕРМО`} />
+          <Title atc={`slate-100`} a={content[2][0]} b={content[2][1]} />
           <article className={`py-10`}>
             {textArr2.map((item, index) => (
               <div className={`flex`} key={`TEXT1${index}`}>

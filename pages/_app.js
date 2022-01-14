@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 
 import '../styles/tailwind.css';
-import { Header, Footer, Head, Preloader } from '../components/complicated';
+import { Footer, Head, Preloader } from '../components/complicated';
 import pages from '../data/pages.json';
 import app from '../data/app.json';
 import { animations } from '../styles/animations';
@@ -36,8 +36,8 @@ function MyApp({ Component, pageProps }) {
       ['Контакты', '#Contacts'],
     ],
     lgView: w >= 900,
-    app: app,
-    input: pages,
+    app: app[0],
+    input: pages[1],
     ...pageProps,
   };
 

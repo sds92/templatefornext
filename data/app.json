@@ -1,21 +1,65 @@
-{
-  "title": "МДВП БЕЛТЕРМО",
-  "copyright": [
-    "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
-  ],
-
-  "contacts": {
-    "phones": ["+7 (495) 120-27-35"],
-    "emails": ["stroyoptplit@mail.ru"],
-    "addresses": [
-      {
-        "title": "Офис",
-        "value": "Москва, Проектируемый проезд № 134, вл.4"
-      }
-    ]
+[
+  {
+    "title": "МДВП БЕЛТЕРМО",
+    "copyright": [
+      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    ],
+    "productTitle": "МДВП",
+    "contacts": {
+      "phones": ["+7 (495) 120-27-35"],
+      "emails": ["stroyoptplit@mail.ru"],
+      "addresses": [
+        {
+          "title": "Офис",
+          "value": "Москва, Проектируемый проезд № 134, вл.4"
+        }
+      ]
+    },
+    "workingHoars": {
+      "title": "Время работы",
+      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+    }
   },
-  "workingHoars": {
-    "title": "Время работы",
-    "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+  {
+    "title": "ОСП (OSB) ПЛИТЫ",
+    "copyright": [
+      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    ],
+    "productTitle": "OSB-3",
+    "contacts": {
+      "phones": ["+7 (800) 005-00-29"],
+      "emails": ["info.kz@td-csk.ru"],
+      "addresses": [
+        {
+          "title": "Офис",
+          "value": "Алматы, ул. Бокейханова, 147а"
+        }
+      ]
+    },
+    "workingHoars": {
+      "title": "Время работы",
+      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+    }
+  },
+  {
+    "title": "ОСП (OSB) ПЛИТЫ",
+    "copyright": [
+      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    ],
+    "productTitle": "OSB-3",
+    "contacts": {
+      "phones": ["+7 (495) 260-16-02"],
+      "emails": ["stroyoptplit@mail.ru"],
+      "addresses": [
+        {
+          "title": "Офис",
+          "value": "Москва, Проектируемый проезд № 134, вл 4"
+        }
+      ]
+    },
+    "workingHoars": {
+      "title": "Время работы",
+      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+    }
   }
-}
+]

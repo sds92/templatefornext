@@ -10,7 +10,7 @@ export default function Home({ lgView, app, menu, input }) {
   return (
     <body>
       <>
-        <Header lgView={lgView} menu={menu} />
+        <Header lgView={lgView} menu={menu} app={app} />
         <LazyMotion features={domAnimation}>
           <AnimatePresence exitBeforeEnter>
             <m.div
@@ -24,8 +24,9 @@ export default function Home({ lgView, app, menu, input }) {
             >
               {menu.map((item, index) => (
                 <Section
+                  // name={item[1].replaceAll('#', '')}
                   key={`SECTION${index}`}
-                  className={`${lgView ? 'pt-20' : 'pt-10'} cursor-default`}
+                  className={`cursor-default`}
                   id={item[1].replaceAll('#', '')}
                   app={app}
                   lgView={lgView}
@@ -39,5 +40,3 @@ export default function Home({ lgView, app, menu, input }) {
     </body>
   );
 }
-
-

@@ -1,15 +1,18 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade';
-import products from '../../../../data/products.json';
+import { useInView } from 'react-intersection-observer';
+
+import { AnimatePresence, domAnimation, LazyMotion, m, motion, useAnimation } from 'framer-motion';
+import { animations } from '../../../../styles/animations';
+import products from '../../../../data/products3.json';
 import { Button, Title, SubTitle } from '../../../lib';
 import About from './About';
 // react-menu
-import { Menu, MenuItem, MenuButton, useMenuState } from '@szhsin/react-menu';
+import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
 
-export default function Catalog({ lgView, content }) {
+export default function Catalog({ lgView, content, app }) {
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -23,42 +26,60 @@ export default function Catalog({ lgView, content }) {
       return arr.push({
         category: item.name,
         catId: item.id,
-        title: `МДВП ${item.name.toUpperCase()}, ${inner_item[1]} ${inner_item[0]}`,
-        price: item.prices.square[index],
+        title: `${app.productTitle} ${item.name.toUpperCase()}, ${inner_item[1]} ${inner_item[0]}`,
+        prices: item.prices.map((item_inner2) => [item_inner2[0][index], item_inner2[1]]),
+        img: item.files.product,
       });
     });
   });
+  const controls = useAnimation();
+  const { ref, inView, entry } = useInView({
+    threshold: 0,
+  });
+
+  // React.useEffect(() => {
+  //   if (inView) {
+  //     controls.start(animations.slideUp.variants.animate);
+  //   } else {
+  //     controls.start(animations.slideUp);
+  //   }
+  // }, [controls, inView]);
 
   return (
     <>
-      <div className={``}>
-        <Title a={`Размеры и цены`} b={`МДВП БЕЛТЕРМО`}></Title>
-        <SubTitle>{content[0]}</SubTitle>
+      <div ref={ref} className={``}>
+        <div
+          className={`transition-all duration-300 delay-100 ${inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`}`}
+        >
+          <Title a={content[0][0]} b={content[0][1]}></Title>
+        </div>
+        <div
+          className={`transition-all duration-300 delay-100 ${inView ? `translate-y-0 opacity-100` : `-translate-y-11 opacity-0`}`}
+        >
+          <SubTitle>{content[1]}</SubTitle>
+        </div>
 
         <div className={``}>
           <div className={``}>
             {!lgView ? (
               <Menu
-                menuButton={({ open }) => {
-                  open ? setOpenMenu(true) : setOpenMenu(false);
-                  return (
-                    <MenuButton className={`ml-4 my-4`}>
-                      <Button
-                        style={{ border: 'none' }}
-                        onClick={() =>
-                          setState((state) => {
-                            return { ...state, show: !state.show };
-                          })
-                        }
-                      >
-                        Выбрать
-                        <Icons.ChevronDown
-                          extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
-                        />
-                      </Button>
-                    </MenuButton>
-                  );
-                }}
+                menuButton={
+                  <MenuButton className={`ml-4 my-4`}>
+                    <Button
+                      style={{ border: 'none' }}
+                      onClick={() =>
+                        setState((state) => {
+                          return { ...state, show: !state.show };
+                        })
+                      }
+                    >
+                      Выбрать
+                      <Icons.ChevronDown
+                        extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
+                      />
+                    </Button>
+                  </MenuButton>
+                }
               >
                 {products.map((innerItem, index) => (
                   <MenuItem
@@ -75,12 +96,12 @@ export default function Catalog({ lgView, content }) {
               </Menu>
             ) : (
               <>
-                <ul className={`my-2 flex gap-6 justify-center`}>
+                <ul className={`my-2 flex gap-6 justify-center relative max-w-3xl mx-auto`}>
                   {products.map((item, index) => (
                     <li
                       className={`${
-                        index === state.chosen ? 'user-catalog-active-link' : 'user-catalog-link'
-                      } cursor-pointer text-2xl text-slate-700 font-light`}
+                        index === state.chosen ? 'user-catalog-active-link font-normal' : 'user-catalog-link'
+                      } cursor-pointer text-2xl text-slate-700 font-light relative w-full h-8`}
                       key={`LINK${index}`}
                       onClick={() => {
                         setState((state) => {
@@ -88,7 +109,11 @@ export default function Catalog({ lgView, content }) {
                         });
                       }}
                     >
-                      {item.name.toUpperCase()}
+                      <div
+                        className={`absolute inset-0 text-center active:scale-x-105 transition-all duration-75 active:text-belplit24_2 active:font-normal`}
+                      >
+                        {item.name.toUpperCase()}
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -101,26 +126,49 @@ export default function Catalog({ lgView, content }) {
             {arr.map((item, index) => {
               return (
                 state.chosen === item.catId && (
-                  <Fade key={`ITEM${index}`}>
-                    <div className={``}>
-                      <div className={`relative`}>
-                        <img
-                          className={``}
-                          src={`images/belplit-${item.category}-sp.jpg`}
-                          alt
-                          width='370'
-                          height='256'
-                        />
-                        <div className={`absolute inset-0 bg-black opacity-50`}></div>
-                        <div className={`absolute w-full bottom-6`}>
-                          <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-2`}>
-                            {item.price}руб./м2
-                          </p>
-                          <p className={`text-slate-100 pl-10 pt-2`}>{item.title}</p>
-                        </div>
+                  <motion.div
+                    // className='font-bold text-3xl text-belplit24_2'
+                    initial='initial'
+                    animate='animate'
+                    variants={animations.opacity.variants}
+                    transition={animations.opacity.transition}
+                  >
+                    <div
+                      onMouseEnter={() =>
+                        setState((state) => {
+                          return { ...state, hover: index };
+                        })
+                      }
+                      onMouseLeave={() =>
+                        setState((state) => {
+                          return { ...state, hover: null };
+                        })
+                      }
+                      className={`relative hover:scale-110 transition-all`}
+                    >
+                      <img className={``} src={`images/${item.img}`} alt width='370' height='256' />
+                      <div
+                        className={`absolute inset-0 bg-black opacity-50 ${
+                          state.hover === index && `opacity-0`
+                        } transition-all`}
+                      ></div>
+                      <div className={`absolute w-full bottom-6 text-slate-100`}>
+                        <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
+                          {item.prices.map((item_inner, index_inner) => {
+                            return (
+                              <span key={`ITEMPRICE${index}`}>
+                                {item_inner[0]}
+                                {item_inner[1]}{' '}
+                              </span>
+                            );
+                          })}
+                        </p>
+                        <p className={`pl-10 pt-2 ${state.hover === index && `text-slate-800`}`}>
+                          {item.title}
+                        </p>
                       </div>
                     </div>
-                  </Fade>
+                  </motion.div>
                 )
               );
             })}
