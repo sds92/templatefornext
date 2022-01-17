@@ -5,34 +5,49 @@ import { useInView } from 'react-intersection-observer';
 
 export default function About({ content }) {
   const imgs = content[4];
+  const state = {};
+  imgs.map((item, index) => {
+    return (state[index] = 0);
+  });
   const { ref, inView, entry } = useInView({
     threshold: 0,
   });
-  const [counter, setCounter] = React.useState({});
 
-  React.useEffect(() => {
-    if (!inView) {
-      imgs.map((item, index) => {
-        return setCounter((state) => {
-          return { ...state, [index]: 0 };
+  const [counter, setCounter] = React.useState(state);
+
+  const requestRef = React.useRef();
+  const previousCountRef = React.useRef();
+  const count = React.useRef(true);
+
+  const animate = (time) => {
+    if (previousCountRef.current != undefined) {
+      count.current++;
+      content[4].forEach((item, index) => {
+        setCounter((prevCount) => {
+          if (prevCount[index] <= item[1]) {
+            return { ...prevCount, [index]: prevCount[index] + item[1] / 100 };
+          } else {
+            count.current = false;
+            return { ...prevCount, [index]: item[1] };
+          }
         });
       });
     }
-    if (inView) {
-      imgs.forEach((item, index) => {
-        console.log('🚀 ~ inView', i, counter[index]);
-        let i = 0;
-        // while (i < item[1]) {
-        // выводит 0, затем 1, затем 2
+    previousCountRef.current = time;
+    if (count.current) {
+      requestRef.current = requestAnimationFrame(animate);
+    }
+  };
 
-        console.log('🚀 ~ inView', i);
-        // i + item[1] / 10;
-        // }
-        // return;
-      });
+  React.useEffect(() => {
+    if (inView) {
+      requestRef.current = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(requestRef.current);
+    }
+    if (!inView) {
+      setCounter(state)
     }
   }, [inView]);
-
   return (
     <>
       <div ref={ref} className={``}>
@@ -60,11 +75,7 @@ export default function About({ content }) {
                     <img src={item[0]} alt='' />
                   </div>
                   <div className={`flex text-3xl justify-center`}>
-                    <div className={``}>
-                      {counter[index]}
-                      {/* {item[1]} */}
-                    </div>
-                    %
+                    <div className={``}>{Math.round(counter[index])}</div>%
                   </div>
                   <h5 className={``}>{item[2]}</h5>
                 </article>

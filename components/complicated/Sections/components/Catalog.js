@@ -49,12 +49,16 @@ export default function Catalog({ lgView, content, app }) {
     <>
       <div ref={ref} className={``}>
         <div
-          className={`transition-all duration-300 delay-100 ${inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`}`}
+          className={`transition-all duration-300 delay-100 ${
+            inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`
+          }`}
         >
           <Title a={content[0][0]} b={content[0][1]}></Title>
         </div>
         <div
-          className={`transition-all duration-300 delay-100 ${inView ? `translate-y-0 opacity-100` : `-translate-y-11 opacity-0`}`}
+          className={`transition-all duration-300 delay-100 ${
+            inView ? `translate-y-0 opacity-100` : `-translate-y-11 opacity-0`
+          }`}
         >
           <SubTitle>{content[1]}</SubTitle>
         </div>
@@ -63,23 +67,25 @@ export default function Catalog({ lgView, content, app }) {
           <div className={``}>
             {!lgView ? (
               <Menu
-                menuButton={
-                  <MenuButton className={`ml-4 my-4`}>
-                    <Button
-                      style={{ border: 'none' }}
-                      onClick={() =>
-                        setState((state) => {
-                          return { ...state, show: !state.show };
-                        })
-                      }
-                    >
-                      Выбрать
-                      <Icons.ChevronDown
-                        extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
-                      />
-                    </Button>
-                  </MenuButton>
-                }
+                menuButton={({open}) => {
+                  return (
+                    <MenuButton className={`ml-4 my-4`}>
+                      <Button
+                        style={{ border: 'none' }}
+                        onClick={() =>
+                          setState((state) => {
+                            return { ...state, show: !state.show };
+                          })
+                        }
+                      >
+                        Выбрать
+                        <Icons.ChevronDown
+                          extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
+                        />
+                      </Button>
+                    </MenuButton>
+                  );
+                }}
               >
                 {products.map((innerItem, index) => (
                   <MenuItem
@@ -149,7 +155,7 @@ export default function Catalog({ lgView, content, app }) {
                       <img className={``} src={`images/${item.img}`} alt width='370' height='256' />
                       <div
                         className={`absolute inset-0 bg-black opacity-50 ${
-                          state.hover === index && `opacity-0`
+                          state.hover === index && `opacity-0 bg-opacity-0`
                         } transition-all`}
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
