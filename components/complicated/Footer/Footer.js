@@ -16,12 +16,12 @@ export default function Footer() {
         <div className={`flex justify-between items-center h-full`}>
           <div className={`ml-4 sm:ml-10 md:ml-36`}>
             <a href='index.html'>
-             <Icons.Belplit24 extraClasses={`w-10 h-10 rotate-45`}/>
+             <Icons.Belplit24 extraClasses={`w-10 h-10 `}/>
             </a>
           </div>
 
           <div className={`flex items-center gap-6 text-slate-100 cursor-default mr-2`}>
-            <img width='50' height='50' src='images/roboweb-lite.png' alt='' />
+            <Icons.Roboweb extraClasses={`w-10 h-10`} />
             <p>
               2021. Сайт создан с помощью <a href='https://roboweb.site/'>RoboWeb</a>
             </p>

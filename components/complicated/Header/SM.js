@@ -11,10 +11,13 @@ import { Icons } from '../';
 import { animations } from '../../../styles/animations';
 
 export default function SM({ menu, app }) {
-  const [openMenu, setOpenMenu] = React.useState(false);
+  const [state, setState] = React.useState({scroll: false});
+  React.useEffect(() => {
+    document.addEventListener('scroll', () => setState((state) => ({...state, scroll: true})))
+  }, []);
   return (
-    <nav className={`bg-belplit24 flex justify-between items-center h-16`}>
-      <div className={`basis-1/3 justify-start`}>
+    <nav className={`bg-belplit24 flex justify-between items-center h-16 ${state.scroll && 'bg-opacity-20'}`}>
+      <div className={`justify-start`}>
         <Menu
           menuClassName={`menu`}
           menuButton={
@@ -45,35 +48,40 @@ export default function SM({ menu, app }) {
                 key={`MenuItem${index}`}
                 className={`text-slate-100 bg-belplit24 hover:bg-belplit24_2`}
               >
-                <span className={`w-7`}/>{item[0]}
+                <span className={`w-7`} />
+                {item[0]}
               </MenuItem>
             </Link>
           ))}
           <hr className='mt-2' />
-          <MenuItem className={`mt-2 flex gap-1 items-center justify-center bg-belplit24 hover:bg-belplit24_2`}>
+          <MenuItem
+            className={`mt-2 flex gap-1 items-center justify-center bg-belplit24 hover:bg-belplit24_2`}
+          >
             <Icons.Phone extraClasses={`w-6 h-6 text-slate-100`} />
             <a href={`tel:${app.contacts.phones[0]}`} className={`text-slate-100`}>
               {app.contacts.phones[0]}
             </a>
           </MenuItem>
-          <MenuItem className={`mb-2 flex gap-1 items-center justify-center bg-belplit24 hover:bg-belplit24_2`}>
+          <MenuItem
+            className={`mb-2 flex gap-1 items-center justify-center bg-belplit24 hover:bg-belplit24_2`}
+          >
             <Icons.Location extraClasses={`w-6 h-6 text-slate-100`} />
             <p className={`text-slate-100 w-36`}>{app.contacts.addresses[0].value}</p>
           </MenuItem>
           <hr />
           <div className={`flex justify-center items-center h-20`}>
             <a href='#main'>
-              <Icons.Belplit24 extraClasses={`w-10 h-10 rotate-45 mt-2`} />
+              <Icons.Belplit24 extraClasses={`w-10 h-10 mt-2`} />
             </a>
           </div>
         </Menu>
       </div>
-      <div className={`basis-1/3 flex justify-center`}>
+      <div className={`flex justify-center`}>
         <a className={`self-center`} href='#main'>
-          <Icons.Belplit24 extraClasses={`w-10 h-10 rotate-45`} />
+          <Icons.Belplit24 extraClasses={`w-10 h-10`} />
         </a>
       </div>
-      <div className={`basis-1/3 flex justify-end`}>
+      <div className={`flex justify-end`}>
         <div className={`text-slate-100`}>
           <a className={``} href={`tel:${app.contacts.phones[0]}`}>
             {app.contacts.phones[0]}

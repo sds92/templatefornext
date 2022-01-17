@@ -6,7 +6,7 @@ export default function LG({ menu, app }) {
   return (
     <nav className={`bg-belplit24 flex justify-evenly items-center h-20`}>
       <a href='#Main'>
-        <Icons.Belplit24 extraClasses={`w-10 h-10 rotate-45`}/>
+        <Icons.Belplit24 extraClasses={`w-10 h-10`}/>
       </a>
       <ul className={`flex`}>
         {menu.map((item, index) => (

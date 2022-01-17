@@ -3,8 +3,8 @@ import * as React from "react";
 function Logo_belplit(props) {
   return (
     <svg
-      width={198}
-      height={198}
+      width={512}
+      height={512}
       shapeRendering="geometricPrecision"
       textRendering="geometricPrecision"
       imageRendering="optimizeQuality"
@@ -13,10 +13,9 @@ function Logo_belplit(props) {
       {...props}
     >
       <path
-        d="M0 198h198v-22H22V0H0v198zM44 22h66V0H44v22zm0 44h66V44H44v22zm0 44h154V88H44v22zm0 44h154v-22H44v22zm88-88h66V0h-66v66z"
+        d="M0 256l256 256 28.44-28.44L56.89 256 284.44 28.44 256 0 0 256zM284.44 85.33l85.34 85.34 28.44-28.45-85.33-85.33-28.45 28.44zm-56.88 56.89l85.33 85.34 28.44-28.45L256 113.78l-28.44 28.44zm-56.89 56.89l199.11 199.11 28.44-28.44-199.11-199.11-28.44 28.44zM113.78 256l199.11 199.11 28.44-28.44-199.11-199.11L113.78 256zm227.55 0l85.34 85.33L512 256l-85.33-85.33L341.33 256z"
         fill="red"
       />
-      <path fill="none" d="M-157 355H41" />
     </svg>
   );
 }
