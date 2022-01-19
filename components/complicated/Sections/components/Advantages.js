@@ -14,9 +14,9 @@ export default function Advantages({content}) {
             {textArr.map((item, index) => (
               <div className={`flex`} key={`TEXT1${index}`}>
                 <div className={`flex flex-col`}>
-                  <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
-                  <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
-                  <div className={`w-0.5 mx-auto border grow `} />
+                  <div className={`mx-auto h-1.5 ${index === 0 ? `` : `bg-slate-100`}`} style={{width: '1px'}}/>
+                  <div className={`rounded-full border w-4 h-4 flex-none`} />
+                  <div className={`mx-auto bg-slate-100 grow`} style={{width: '1px'}}/>
                 </div>
                 <div className={``}>
                   <p className={`text-slate-300 pl-2 rd-nav-link text-lg tracking-tight font-light`}>{item[0].toUpperCase()}</p>
@@ -30,9 +30,9 @@ export default function Advantages({content}) {
             {textArr2.map((item, index) => (
               <div className={`flex`} key={`TEXT1${index}`}>
                 <div className={`flex flex-col`}>
-                  <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `border`}`} />
-                  <div className={`rounded-full border-2 w-4 h-4 flex-none`} />
-                  <div className={`w-0.5 mx-auto border grow `} />
+                  <div className={`w-0.5 mx-auto h-1.5 ${index === 0 ? `` : `bg-slate-100`}`} style={{width: '1px'}} />
+                  <div className={`rounded-full border w-4 h-4 flex-none`} />
+                  <div className={`mx-auto bg-slate-100 grow`} style={{width: '1px'}}/>
                 </div>
                 <div className={``}>
                   <p className={`text-slate-300 pl-2 rd-nav-link text-lg tracking-tight font-light`}>{item[0].toUpperCase()}</p>

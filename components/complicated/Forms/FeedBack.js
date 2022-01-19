@@ -16,10 +16,9 @@ export default function FeedBack(props) {
     2: false,
     3: false,
   });
-const classes = {
-  ff: `w-full md:w-1/2 my-1 px-1`
-}
-
+  const classes = {
+    ff: `w-full md:w-1/2 my-1 px-1`,
+  };
 
   function checkForm() {
     let res = false;
@@ -180,7 +179,7 @@ const classes = {
             <div className={`${classes.ff} cursor-pointer`}>
               <div
                 onClick={sendForm}
-                className={`p-4 bg-belplit24_2 rounded-md text-slate-100 text-center`}
+                className={`w-full h-full pt-5 form-button bg-belplit24_2 rounded-md text-slate-100 text-center`}
               >
                 Отправить
               </div>
