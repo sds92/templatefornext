@@ -59,7 +59,7 @@ export default function About({ content }) {
           <Title a={content[2][0]} b={content[2][1]}></Title>
         </div>
         <div
-          className={`transition-all duration-300 delay-100 ${
+          className={`transition-all duration-300 delay-100 mx-1 ${
             inView ? `translate-y-0 opacity-100` : `-translate-y-11 opacity-0`
           }`}
         >

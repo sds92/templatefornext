@@ -2102,6 +2102,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.25rem;
 }
 
+.ml-10{
+  margin-left: 2.5rem;
+}
+
+.-mt-4{
+  margin-top: -1rem;
+}
+
+.-mt-12{
+  margin-top: -3rem;
+}
+
+.-mt-14{
+  margin-top: -3.5rem;
+}
+
+.-mt-16{
+  margin-top: -4rem;
+}
+
 .flex{
   display: flex;
 }
@@ -2254,6 +2274,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .-translate-y-11{
   --tw-translate-y: -2.75rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-10{
+  --tw-translate-x: 2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-x-60{
+  --tw-translate-x: -15rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-x-72{
+  --tw-translate-x: -18rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-0{
+  --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -7301,6 +7341,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   letter-spacing: -0.05em;
 }
 
+.tracking-tight{
+  letter-spacing: -0.025em;
+}
+
 .text-slate-800{
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
@@ -9659,6 +9703,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 75ms;
 }
 
+.duration-1000{
+  transition-duration: 1000ms;
+}
+
 .hover\:scale-110:hover{
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -9689,6 +9737,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(255 0 0 / var(--tw-text-opacity));
 }
 
+.hover\:text-belplit:hover{
+  --tw-text-opacity: 1;
+  color: rgb(56 160 0 / var(--tw-text-opacity));
+}
+
 .hover\:opacity-100:hover{
   opacity: 1;
 }
@@ -9696,6 +9749,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .active\:scale-125:active{
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.active\:scale-110:active{
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 

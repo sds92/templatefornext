@@ -1,17 +1,14 @@
 .burger
+  display: flex
   position: absolute
-  display: none
   height: 100%
   background-color: #1a1520
   top: 60px
   left: 0
   height: 100vh
-  display: none
   flex-direction: column
   max-width: 260px
   z-index: 2
-  opacity: 0
-  transition: 0.5s
 
   &_icon
     position: absolute
@@ -67,7 +64,7 @@
 
 .active
   display: flex
-  opacity: 1
+  transform: translate(100)
 .margin
   margin: 0
 

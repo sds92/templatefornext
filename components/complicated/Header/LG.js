@@ -1,12 +1,13 @@
 import React from 'react';
 import { Icons } from '..';
 import { Link } from 'react-scroll';
+import Social from '../Social/Social';
 
 export default function LG({ menu, app }) {
   return (
     <nav className={`bg-belplit24 flex justify-evenly items-center h-20`}>
       <a href='#Main'>
-        <Icons.Belplit24 extraClasses={`w-10 h-10`}/>
+        <Icons.Belplit24 extraClasses={`w-10 h-10`} />
       </a>
       <ul className={`flex`}>
         {menu.map((item, index) => (
@@ -34,10 +35,10 @@ export default function LG({ menu, app }) {
           </li>
         ))}
       </ul>
-      <div className={`text-slate-100 hover:text-belplit24_2 transition-all`}>
-        <a href={`tel:${app.contacts.phones[0]}`}>
-        {app.contacts.phones[0]}
-        </a>
+      <div className={`flex`}>
+        <div className={`flex gap-2`}>
+          <Social app={app} />
+        </div>
       </div>
     </nav>
   );

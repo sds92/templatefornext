@@ -1,13 +1,10 @@
 
-import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
-import { useRouter } from 'next/router';
 import React from 'react';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
 import pages from '../data/pages.json';
 import app from '../data/app.json';
-import { animations } from '../styles/animations';
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);

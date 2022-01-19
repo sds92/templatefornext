@@ -13,6 +13,10 @@
           "title": "Офис",
           "value": "Москва, Проектируемый проезд № 134, вл.4"
         }
+      ],
+      "socials": [
+        ["Telegram", "https://t.me/+79151012913"],
+        ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
       ]
     },
     "workingHoars": {
@@ -34,6 +38,10 @@
           "title": "Офис",
           "value": "Алматы, ул. Бокейханова, 147а"
         }
+      ],
+      "socials": [
+        ["Telegram", "https://t.me/+79585815196"],
+        ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
       ]
     },
     "workingHoars": {
@@ -55,6 +63,10 @@
           "title": "Офис",
           "value": "Москва, Проектируемый проезд № 134, вл 4"
         }
+      ],
+      "socials": [
+        ["Telegram", "https://t.me/+79585815196"],
+        ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
       ]
     },
     "workingHoars": {

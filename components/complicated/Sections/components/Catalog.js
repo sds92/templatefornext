@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
-import products from '../../../../data/products3.json';
+import products from '../../../../data/products.json';
 import { Button, Title, SubTitle } from '../../../lib';
 import About from './About';
 // react-menu
@@ -50,7 +50,7 @@ export default function Catalog({ lgView, content, app }) {
           <Title a={content[0][0]} b={content[0][1]}></Title>
         </div>
         <div
-          className={`transition-all duration-300 delay-100 ${
+          className={`transition-all duration-300 mx-1 delay-100 ${
             inView ? `translate-y-0 opacity-100` : `-translate-y-11 opacity-0`
           }`}
         >
