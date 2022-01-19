@@ -15,7 +15,7 @@ export default function Social({app}) {
             </div>
           );
         })}
-      <div className={`text-slate-100 hover:text-belplit transition-all `}>
+      <div className={`text-slate-100 hover:text-belplit24_2 transition-all `}>
         <a href={`tel:${app.contacts.phones[0]}`}>{app.contacts.phones[0]}</a>
       </div>
     </>
