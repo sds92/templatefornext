@@ -19,8 +19,8 @@ export default function Advantages({content}) {
                   <div className={`w-0.5 mx-auto border grow `} />
                 </div>
                 <div className={``}>
-                  <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
-                  <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+                  <p className={`text-slate-300 pl-2 text-xl font-light tracking-tighter`}>{item[0].toUpperCase()}</p>
+                  <p className={`text-slate-100 pl-2 pb-4`}>{item[1]}</p>
                 </div>
               </div>
             ))}
@@ -35,8 +35,8 @@ export default function Advantages({content}) {
                   <div className={`w-0.5 mx-auto border grow `} />
                 </div>
                 <div className={``}>
-                  <p className={`text-slate-300 pl-2 text-xl`}>{item[0].toUpperCase()}</p>
-                  <p className={`text-slate-100 pl-2`}>{item[1]}</p>
+                  <p className={`text-slate-300 pl-2 text-xl font-light tracking-tighter`}>{item[0].toUpperCase()}</p>
+                  <p className={`text-slate-100 pl-2 pb-4`}>{item[1]}</p>
                 </div>
               </div>
             ))}

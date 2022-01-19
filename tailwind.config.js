@@ -65,7 +65,7 @@ module.exports = {
     colors: ({ colors }) => ({
       'footer': '#848484',
       'belplit': '#38a000',
-      'belplit24': '#1F1926',
+      'belplit24': '#1a1520',
       'belplit24_2': '#ff0000',
       'belplit24_2_b': '#ac0909',
       'belplit24_3': '#454545',

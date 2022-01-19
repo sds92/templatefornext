@@ -14,8 +14,9 @@
 
 
 .rd-nav-link {
-  font: 400 14px/20px "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: .08em;
+  font: 400 14px/20px 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 

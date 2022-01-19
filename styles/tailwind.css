@@ -15,8 +15,9 @@
 @import './Preloader.css';
 
 .rd-nav-link {
-  font: 400 14px/20px "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: .08em;
+  font: 400 14px/20px 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1484,6 +1485,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: -0.875rem;
 }
 
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .my-1{
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -1502,11 +1508,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
-}
-
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 .mx-0\.5{
@@ -2049,12 +2050,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: -0.875rem;
 }
 
-.ml-4{
-  margin-left: 1rem;
+.ml-0{
+  margin-left: 0px;
 }
 
 .mr-2{
   margin-right: 0.5rem;
+}
+
+.mt-16{
+  margin-top: 4rem;
 }
 
 .mt-2{
@@ -2063,6 +2068,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-2{
   margin-bottom: 0.5rem;
+}
+
+.ml-4{
+  margin-left: 1rem;
 }
 
 .ml-auto{
@@ -2089,16 +2098,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 0.5rem;
 }
 
+.mt-1{
+  margin-top: 0.25rem;
+}
+
 .flex{
   display: flex;
 }
 
 .h-96{
   height: 24rem;
-}
-
-.h-24{
-  height: 6rem;
 }
 
 .h-full{
@@ -2121,8 +2130,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 4rem;
 }
 
-.h-6{
-  height: 1.5rem;
+.h-screen{
+  height: 100vh;
+}
+
+.h-24{
+  height: 6rem;
 }
 
 .h-1\.5{
@@ -2135,6 +2148,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-4{
   height: 1rem;
+}
+
+.h-6{
+  height: 1.5rem;
 }
 
 .h-8{
@@ -2153,12 +2170,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 3.5rem;
 }
 
-.w-7{
-  width: 1.75rem;
+.w-20{
+  width: 5rem;
 }
 
-.w-6{
-  width: 1.5rem;
+.w-7{
+  width: 1.75rem;
 }
 
 .w-36{
@@ -2179,6 +2196,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-4{
   width: 1rem;
+}
+
+.w-6{
+  width: 1.5rem;
 }
 
 .w-1\/2{
@@ -2215,6 +2236,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .grow{
   flex-grow: 1;
+}
+
+.basis-1\/3{
+  flex-basis: 33.333333%;
 }
 
 .translate-y-0{
@@ -5539,7 +5564,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-belplit24{
   --tw-bg-opacity: 1;
-  background-color: rgb(31 25 38 / var(--tw-bg-opacity));
+  background-color: rgb(26 21 32 / var(--tw-bg-opacity));
 }
 
 .bg-belplit24_2{
@@ -5782,16 +5807,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
 
-.bg-opacity-20{
-  --tw-bg-opacity: 0.2;
-}
-
 .bg-opacity-0{
   --tw-bg-opacity: 0;
 }
 
 .bg-opacity-30{
   --tw-bg-opacity: 0.3;
+}
+
+.bg-opacity-20{
+  --tw-bg-opacity: 0.2;
 }
 
 .from-slate-100{
@@ -7163,6 +7188,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 0px;
 }
 
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
+.pb-4{
+  padding-bottom: 1rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -7262,6 +7295,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .tracking-wide{
   letter-spacing: 0.025em;
+}
+
+.tracking-tighter{
+  letter-spacing: -0.05em;
 }
 
 .text-slate-800{
@@ -8776,6 +8813,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0.5;
 }
 
+.opacity-30{
+  opacity: 0.3;
+}
+
 .shadow-md{
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -9663,6 +9704,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.active\:bg-belplit24_2:active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+}
+
 .active\:font-normal:active{
   font-weight: 400;
 }
@@ -9733,6 +9779,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-6\/12{
     width: 50%;
+  }
+
+  .md\:flex-row{
+    flex-direction: row;
   }
 
   .md\:gap-40{
