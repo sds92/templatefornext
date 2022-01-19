@@ -6,11 +6,7 @@ import { Icons } from '../';
 import { Link } from 'react-scroll';
 
 export default function SM({ menu, app }) {
-  const [state, setState] = React.useState({ scroll: false });
   const [isActive, setIsActive] = React.useState(false);
-  React.useEffect(() => {
-    document.addEventListener('scroll', () => setState((state) => ({ ...state, scroll: true })));
-  }, []);
   return (
     <>
       <nav className={`bg-belplit24 flex justify-between items-center h-16`}>

@@ -11,48 +11,6 @@ module.exports = {
   presets: [],
   darkMode: 'media', // or 'class'
 
-  safelist: [
-    'flex',
-    'text-2xl',
-    'text-3xl',
-    'border-opacity-0',
-    'bg-opacity-20',
-    'border-opacity-100',
-    'max-w-xl',
-    'max-w-7xl',
-    'max-w-sx',
-    'max-w-lg',
-    'max-w-md',
-    'indent-8',
-    'font-bold',
-    'text-white',
-    'shadow-md',
-    'ordinal',
-    'border-l',
-    'ml-2',
-    'text-justify',
-    'text-xs',
-    'p-0.5',
-    'm-0.5',
-    'py-2',
-
-    {
-      pattern: /(mx|my|px|py|p|m)-(0|1|2|3|4|5|6)/,
-    },
-    {
-      pattern: /(align)-(top|middle|bottom)/,
-    },
-    {
-      pattern: /(text)-(center|left|right|sm|md|lg|xl|2xl|3xl|4xl|5xl)/,
-    },
-    {
-      pattern: /(font)-(bold|semibold|light|medium)/,
-    },
-    {
-      pattern: /(bg|text|)-(red|green|blue|zinc|slate)-(100|200|300|400|500|600|700|800|900)/,
-    },
-  ],
-
   theme: {
     screens: {
       'zero': '0px',

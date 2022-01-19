@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icons } from '../../';
-import { Title, SubTitle, Text } from '../../../lib';
+import { Title, Text } from '../../../lib';
 import { FeedBack } from '../../';
 
 export default function Contacts({ app }) {
