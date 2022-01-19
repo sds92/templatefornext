@@ -1,7 +1,7 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { AnimatePresence, domAnimation, LazyMotion, m, motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
 import products from '../../../../data/products3.json';
 import { Button, Title, SubTitle } from '../../../lib';
@@ -32,18 +32,12 @@ export default function Catalog({ lgView, content, app }) {
       });
     });
   });
-  const controls = useAnimation();
+  
   const { ref, inView, entry } = useInView({
     threshold: 0,
   });
 
-  // React.useEffect(() => {
-  //   if (inView) {
-  //     controls.start(animations.slideUp.variants.animate);
-  //   } else {
-  //     controls.start(animations.slideUp);
-  //   }
-  // }, [controls, inView]);
+
 
   return (
     <>
