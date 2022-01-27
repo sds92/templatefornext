@@ -36,7 +36,7 @@ export default function SM({ menu, app }) {
                 spy={true}
                 smooth={true}
                 hashSpy={true}
-                offset={0}
+                offset={-75}
                 duration={500}
                 delay={0}
                 isDynamic={true}
