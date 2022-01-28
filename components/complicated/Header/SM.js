@@ -5,11 +5,11 @@ import styles from './Burger.module.sass';
 import { Icons } from '../';
 import { Link } from 'react-scroll';
 
-export default function SM({ menu, app }) {
+export default function SM({ menu, app, theme }) {
   const [isActive, setIsActive] = React.useState(false);
   return (
     <>
-      <nav className={`bg-belplit24 flex justify-between items-center h-16`}>
+      <nav className={`${theme.bg} flex justify-between items-center h-16`}>
         <div className='basis-1/3'>
           <Icons.Menu
             extraClasses={`w-14 h-14 px-2 py-4 cursor-pointer active:scale-125 transition-all text-slate-100`}
@@ -26,8 +26,8 @@ export default function SM({ menu, app }) {
         {isActive ? <div onClick={() => setIsActive(!isActive)} className={styles.overlay}></div> : ''}
       </nav>
       <div className={`relative`} style={{marginTop: "-60px"}}>
-        <nav className={`${isActive ? `${styles.burger} translate-x-0` : `${styles.burger} -translate-x-72`} bg-belplit24 transition-all`}>
-          <ul className={styles.burger_list + ' bg-belplit24'}>
+        <nav className={`${isActive ? `${styles.burger} translate-x-0` : `${styles.burger} -translate-x-72`} ${theme.bg} transition-all`}>
+          <ul className={styles.burger_list + ` ${theme.bg}`}>
             {menu.map((item, index) => (
               <Link
                 key={`MENUITEM${index}`}
@@ -47,7 +47,7 @@ export default function SM({ menu, app }) {
                   onClick={() => setIsActive(!isActive)}
                   className={
                     styles.burger_list_item +
-                    ' text-slate-100 rd-nav-link bg-belplit24 hover:bg-belplit24_2 active:bg-belplit24_2'
+                    ` text-slate-100 rd-nav-link ${theme.bg} hover:bg-belplit24_2 active:bg-belplit24_2`
                   }
                 >
                   <a href='#main'>{item[0]}</a>
@@ -55,7 +55,7 @@ export default function SM({ menu, app }) {
               </Link>
             ))}
           </ul>
-          <ul className={`${styles.burger_list} ${styles.margin}` + ' bg-belplit24'}>
+          <ul className={`${styles.burger_list} ${styles.margin}` + ` ${theme.bg}`}>
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}

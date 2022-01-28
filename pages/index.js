@@ -5,12 +5,12 @@ import { animations } from '../styles/animations';
 
 import React from 'react';
 
-export default function Home({ lgView, app, menu, input }) {
+export default function Home({ lgView, app, menu, input, theme }) {
   const router = useRouter();
   return (
     <body>
       <>
-        <Header lgView={lgView} menu={menu} app={app} />
+        <Header lgView={lgView} menu={menu} app={app} theme={theme}/>
         <motion.div
           key={router.route.concat(animations.opacity)}
           className='page-wrap'
@@ -28,6 +28,7 @@ export default function Home({ lgView, app, menu, input }) {
               app={app}
               lgView={lgView}
               content={input.content[item[1].replaceAll('#', '').toLowerCase()]}
+              theme={theme}
             />
           ))}
         </motion.div>

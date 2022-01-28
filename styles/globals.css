@@ -31,8 +31,8 @@
 .button.button-primary,
 .button.button-primary:focus {
   color: #fff;
-  background-color: #ff0000;
-  border-color: #ff0000;
+  /* background-color: #ff0000;
+  border-color: #ff0000; */
 }
 /* .button-winona:hover {
   opacity: 0;
@@ -41,8 +41,8 @@
 .button.button-primary,
 .button.button-primary:focus {
   color: #fff;
-  background-color: #ff0000;
-  border-color: #ff0000;
+  /* background-color: #ff0000;
+  border-color: #ff0000; */
 }
 .button-winona {
   vertical-align: middle;

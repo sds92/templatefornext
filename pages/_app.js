@@ -5,6 +5,7 @@ import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
 import pages from '../data/pages.json';
 import app from '../data/app.json';
+import theme from '../utils/theme';
 
 function MyApp({ Component, pageProps }) {
 
@@ -34,8 +35,9 @@ function MyApp({ Component, pageProps }) {
       ['Контакты', '#Contacts'],
     ],
     lgView: w >= 900,
-    app: app[0],
-    input: pages[0],
+    app: app[1],
+    input: pages[1],
+    theme: theme('black'),
     ...pageProps,
   };
 

@@ -3,9 +3,9 @@ import { Icons } from '..';
 import { Link } from 'react-scroll';
 import Social from '../Social/Social';
 
-export default function LG({ menu, app }) {
+export default function LG({ menu, app, theme }) {
   return (
-    <nav className={`bg-belplit24 flex justify-evenly items-center h-20`}>
+    <nav className={`${theme.bg} flex justify-evenly items-center h-20`}>
       <a href='#Main'>
         <Icons.Belplit24 extraClasses={`w-10 h-10`} />
       </a>
@@ -13,10 +13,10 @@ export default function LG({ menu, app }) {
         {menu.map((item, index) => (
           <li
             key={`MENUITEM${index}`}
-            className={`text-slate-100 rd-nav-link hover:text-belplit24_2 transition-all duration-300`}
+            className={`${theme.text} rd-nav-link hover:${theme.hoverText} transition-all duration-300`}
           >
             <Link
-              activeClass='text-belplit24_2'
+              activeClass={theme.hoverText}
               to={item[1].replaceAll('#', '')}
               spy={true}
               smooth={true}

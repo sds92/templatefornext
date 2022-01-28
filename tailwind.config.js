@@ -10,10 +10,17 @@ module.exports = {
   content: ['./pages/**/*.{html,js}', './components/**/*.{html,js}'],
   presets: [],
   darkMode: 'media', // or 'class'
-
+  safelist: [
+    'bg-slate-400',
+    'pb-5',
+    'text-white',
+    {
+      pattern: /(bg|text|)-(red|green|blue|zinc|slate|amber|yellow)-(100|200|300|400|500|600|700|800|900)/,
+    },
+  ],
   theme: {
     screens: {
-      'zero': '0px',
+      zero: '0px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
@@ -21,12 +28,12 @@ module.exports = {
       '2xl': '1536px',
     },
     colors: ({ colors }) => ({
-      'footer': '#848484',
-      'belplit': '#38a000',
-      'belplit24': '#1a1520',
-      'belplit24_2': '#ff0000',
-      'belplit24_2_b': '#ac0909',
-      'belplit24_3': '#454545',
+      footer: '#848484',
+      belplit: '#38a000',
+      belplit24: '#1a1520',
+      belplit24_2: '#ff0000',
+      belplit24_2_b: '#ac0909',
+      belplit24_3: '#454545',
       inherit: colors.inherit,
       current: colors.current,
       transparent: colors.transparent,
