@@ -7,6 +7,7 @@ import pages from '../data/pages.json';
 import app from '../data/app.json';
 
 function MyApp({ Component, pageProps }) {
+
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
   React.useEffect(() => {

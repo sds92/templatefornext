@@ -32,12 +32,10 @@ export default function Catalog({ lgView, content, app }) {
       });
     });
   });
-  
+
   const { ref, inView, entry } = useInView({
     threshold: 0,
   });
-
-
 
   return (
     <>
@@ -61,7 +59,7 @@ export default function Catalog({ lgView, content, app }) {
           <div className={``}>
             {!lgView ? (
               <Menu
-                menuButton={({open}) => {
+                menuButton={({ open }) => {
                   return (
                     <MenuButton className={`ml-4 my-4`}>
                       <Button
@@ -96,12 +94,10 @@ export default function Catalog({ lgView, content, app }) {
               </Menu>
             ) : (
               <>
-                <ul className={`my-2 flex gap-6 justify-center relative max-w-3xl mx-auto`}>
+                <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
                   {products.map((item, index) => (
                     <li
-                      className={`${
-                        index === state.chosen ? 'user-catalog-active-link font-normal' : 'user-catalog-link'
-                      } cursor-pointer text-2xl text-slate-700 font-light relative w-full h-8`}
+                      className={`cursor-pointer text-2xl text-slate-700 font-light relative h-8`}
                       key={`LINK${index}`}
                       onClick={() => {
                         setState((state) => {
@@ -110,9 +106,12 @@ export default function Catalog({ lgView, content, app }) {
                       }}
                     >
                       <div
-                        className={`absolute inset-0 text-center active:scale-x-105 transition-all duration-75 active:text-belplit24_2 active:font-normal`}
+                        className={`whitespace-nowrap text-transparent inset-0 text-center `}
                       >
                         {item.name.toUpperCase()}
+                        <div className={`${
+                        index === state.chosen ? 'user-catalog-active-link font-normal' : 'user-catalog-link'
+                      } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}>{item.name.toUpperCase()}</div>
                       </div>
                     </li>
                   ))}
@@ -149,7 +148,7 @@ export default function Catalog({ lgView, content, app }) {
                       <img className={``} src={`images/${item.img}`} alt width='370' height='256' />
                       <div
                         className={`absolute inset-0 bg-black opacity-50 ${
-                          state.hover === index && `opacity-0 bg-opacity-0`
+                          state.hover === index && `opacity-0 bg-white`
                         } transition-all`}
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
