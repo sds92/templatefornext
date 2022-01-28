@@ -1,5 +1,7 @@
 [
   {
+    "id": 0,
+    "url": "belplit24.ru",
     "title": "МДВП БЕЛТЕРМО",
     "copyright": [
       "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
@@ -25,6 +27,8 @@
     }
   },
   {
+    "id": 1,
+    "url": "plitaosb-3.ru",
     "title": "ОСП (OSB) ПЛИТЫ",
     "copyright": [
       "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
@@ -50,6 +54,8 @@
     }
   },
   {
+    "id": 2,
+    "url": "plitaosb-3.kz",
     "title": "ОСП (OSB) ПЛИТЫ",
     "copyright": [
       "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
@@ -67,6 +73,87 @@
       "socials": [
         ["Telegram", "https://t.me/+79585815196"],
         ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
+      ]
+    },
+    "workingHoars": {
+      "title": "Время работы",
+      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+    }
+  },
+  {
+    "id": 3,
+    "url": "",
+    "title": "Пиломатериалы",
+    "copyright": [
+      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    ],
+    "productTitle": "Пиломатериалы",
+    "contacts": {
+      "phones": ["+00000000000"],
+      "emails": ["email@email.ru"],
+      "addresses": [
+        {
+          "title": "Офис",
+          "value": "Город, Улица, Дом"
+        }
+      ],
+      "socials": [
+        ["Telegram", "https://t.me/+00000000000"],
+        ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
+      ]
+    },
+    "workingHoars": {
+      "title": "Время работы",
+      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+    }
+  },
+  {
+    "id": 4,
+    "url": "",
+    "title": "Пленки",
+    "copyright": [
+      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    ],
+    "productTitle": "Пленки",
+    "contacts": {
+      "phones": ["+00000000000"],
+      "emails": ["email@email.ru"],
+      "addresses": [
+        {
+          "title": "Офис",
+          "value": "Город, Улица, Дом"
+        }
+      ],
+      "socials": [
+        ["Telegram", "https://t.me/+00000000000"],
+        ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
+      ]
+    },
+    "workingHoars": {
+      "title": "Время работы",
+      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+    }
+  },
+  {
+    "id": 5,
+    "url": "",
+    "title": "Сухие смеси",
+    "copyright": [
+      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    ],
+    "productTitle": "Пленки \"ИЗОСПАН\"",
+    "contacts": {
+      "phones": ["+00000000000"],
+      "emails": ["email@email.ru"],
+      "addresses": [
+        {
+          "title": "Офис",
+          "value": "Город, Улица, Дом"
+        }
+      ],
+      "socials": [
+        ["Telegram", "https://t.me/+00000000000"],
+        ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
       ]
     },
     "workingHoars": {
