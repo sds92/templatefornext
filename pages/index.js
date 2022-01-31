@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { animations } from '../styles/animations';
 import { normalizeData } from '../utils/functions';
 
-import productsInit from '../data/products0.json';
+import productsInit from '../data/products2.json';
 
 export default function Home({ lgView, app, menu, input, theme, products }) {
   const router = useRouter();

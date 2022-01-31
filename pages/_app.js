@@ -35,8 +35,8 @@ function MyApp({ Component, pageProps }) {
       ['Контакты', '#Contacts'],
     ],
     lgView: w >= 900,
-    app: app[0],
-    input: pages[0],
+    app: app[1],
+    input: pages[1],
     theme: theme('black'),
     ...pageProps,
   };
