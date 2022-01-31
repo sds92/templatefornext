@@ -13,6 +13,7 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ lgView, content, app, theme, products }) {
+  console.log("🚀 ~ file: Catalog.js ~ line 16 ~ Catalog ~ products", products)
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -21,12 +22,12 @@ export default function Catalog({ lgView, content, app, theme, products }) {
 
   const arr = [];
   products.map((item) => {
-    return item.sizes.map((inner_item, index) => {
+    return item.sizes.map((sizesItem, index) => {
       return arr.push({
         category: item.name,
         catId: item.id,
-        title: `${app.productTitle} ${item.name.toUpperCase()}, ${inner_item[1]} ${inner_item[0]}`,
-        prices: item.prices.map((item_inner2) => [item_inner2[0][index], item_inner2[1]]),
+        title: `${app.productTitle} ${item.name.toUpperCase()}, ${sizesItem}`,
+        prices: item.prices.map((pricesItem) => [pricesItem[0][index], pricesItem[1]]),
         img: item.files.product,
       });
     });

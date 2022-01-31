@@ -73,14 +73,19 @@ export const normalizeData = (inputArr, appArr) => {
       });
       if (temp) {
         temp.density = cur.density;
-        temp.sizes = cur.sizes;
+        temp.sizesA = cur.sizes;
+        temp.sizes = cur.sizes.map((item) => `${item.a}x${item.b}x${item.h}мм`);
         temp.connectionType = cur.connectionType;
-        temp.prices = {
-          bar: cur.prices.map((item, i) => {
-            return item * cur.coef[i];
-          }),
-          square: cur.prices,
-        };
+        temp.prices = [
+          [
+            cur.prices,
+            'руб/м2',
+            cur.prices.map((item, i) => {
+              return item * cur.coef[i];
+            }),
+            'руб/шт',
+          ],
+        ];
         pre.splice(index, 1, temp);
       }
       return pre;

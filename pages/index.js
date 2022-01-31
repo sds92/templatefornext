@@ -50,6 +50,7 @@ export async function getStaticProps(context) {
     res.json()
   );
   const products = normalizeData(res, productsInit);
+  console.log("🚀 ~ file: index.js ~ line 53 ~ getStaticProps ~ products", products)
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {
