@@ -142,6 +142,7 @@ export default function FeedBack(props) {
                   required
                   id='FeedBackFormClientPhone'
                   placeholder='Телефон'
+                  type='tel'
                   value={formState.clientPhone}
                   onChange={(e) =>
                     setFormState((state) => {
@@ -176,6 +177,7 @@ export default function FeedBack(props) {
                 <input
                   className={`h-14 user-form-input ${checkFormStatus[3] ? `user-form-alert-borders` : ``}`}
                   required
+                  type='email'
                   id='FeedBackFormClientEmail'
                   placeholder='E-mail'
                   value={formState.clientEmail}
@@ -190,7 +192,7 @@ export default function FeedBack(props) {
             <div className={`${classes.ff} cursor-pointer`}>
               <div
                 onClick={sendForm}
-                className={`w-full h-full pt-5 form-button bg-belplit24_2 rounded-md text-slate-100 text-center`}
+                className={`w-full h-full pt-5 pb-4 form-button bg-belplit24_2 rounded-md text-slate-100 text-center hover:bg-belplit24_2_b hover:font-bold transition-all`}
               >
                 Отправить
               </div>
