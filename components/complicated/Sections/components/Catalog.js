@@ -31,7 +31,6 @@ export default function Catalog({ lgView, content, app, theme, products }) {
       });
     });
   });
-    console.log("🚀 ~ file: Catalog.js ~ line 34 ~ products.map ~ products", products)
 
   const { ref, inView, entry } = useInView({
     threshold: 0,
@@ -105,13 +104,17 @@ export default function Catalog({ lgView, content, app, theme, products }) {
                         });
                       }}
                     >
-                      <div
-                        className={`whitespace-nowrap text-transparent inset-0 text-center `}
-                      >
+                      <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
                         {item.name.toUpperCase()}
-                        <div className={`${
-                        index === state.chosen ? 'user-catalog-active-link font-normal' : 'user-catalog-link'
-                      } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}>{item.name.toUpperCase()}</div>
+                        <div
+                          className={`${
+                            index === state.chosen
+                              ? 'user-catalog-active-link font-normal'
+                              : 'user-catalog-link'
+                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
+                        >
+                          {item.name.toUpperCase()}
+                        </div>
                       </div>
                     </li>
                   ))}
@@ -143,12 +146,18 @@ export default function Catalog({ lgView, content, app, theme, products }) {
                           return { ...state, hover: null };
                         })
                       }
-                      className={`relative hover:scale-110 transition-all`}
+                      className={`relative overflow-hidden`}
                     >
-                      <img className={``} src={`images/${item.img}`} alt width='370' height='256' />
+                      <img
+                        className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
+                        src={`images/${item.img}`}
+                        alt
+                        width='370'
+                        height='256'
+                      />
                       <div
-                        className={`absolute inset-0 bg-black opacity-50 ${
-                          state.hover === index && `opacity-0 bg-white`
+                        className={`absolute inset-0 bg-black ${
+                          state.hover === index ? `opacity-0` : `opacity-50`
                         } transition-all`}
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
@@ -162,7 +171,7 @@ export default function Catalog({ lgView, content, app, theme, products }) {
                             );
                           })}
                         </p>
-                        <p className={`pl-10 pt-2 ${state.hover === index && `text-slate-800`}`}>
+                        <p className={`pl-10 py-1.5 ${state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`}`}>
                           {item.title}
                         </p>
                       </div>

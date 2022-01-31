@@ -20,9 +20,7 @@
           "value": "Москва, Проектируемый проезд № 134, вл 4"
         }
       ],
-      "socials": [
-        ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
-      ]
+      "socials": [["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]]
     },
     "workingHoars": {
       "title": "Время работы",
@@ -50,9 +48,7 @@
           "value": "Алматы, ул. Бокейханова, 147а"
         }
       ],
-      "socials": [
-        ["Whatsapp", "https://wa.me/+77010124276?text=Здравствуйте..."]
-      ]
+      "socials": [["Whatsapp", "https://wa.me/+77010124276?text=Здравствуйте..."]]
     },
     "workingHoars": {
       "title": "Время работы",
@@ -80,9 +76,7 @@
           "value": "Москва, Проектируемый проезд № 134, вл.4"
         }
       ],
-      "socials": [
-        ["Whatsapp", "https://wa.me/+79151012913?text=Здравствуйте!"]
-      ]
+      "socials": [["Whatsapp", "https://wa.me/+79151012913?text=Здравствуйте!"]]
     },
     "workingHoars": {
       "title": "Время работы",

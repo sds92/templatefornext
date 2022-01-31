@@ -69,7 +69,7 @@ export default function FeedBack(props) {
       props.onFulfilled('loading');
     } catch (err) {}
 
-    fetch(`${app.api.email}`, {
+    fetch(`${props.app.api.email}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -78,7 +78,7 @@ export default function FeedBack(props) {
       body: JSON.stringify({
         ...formState,
         fromSite: props.app.url,
-        to: app.contacts.emails[0],
+        to: props.app.contacts.emails[0],
       }),
     })
       .then((res) => {
@@ -102,7 +102,14 @@ export default function FeedBack(props) {
         setTimeout(() => {
           setFormStatus('show');
         }, 4000);
-      });
+      })
+      .catch((err) => {
+        setFormStatus('error');
+        setTimeout(() => {
+          setFormStatus('show');
+        }, 3000);
+        
+      })
   }
 
   return (
@@ -193,6 +200,9 @@ export default function FeedBack(props) {
         {formStatus === 'pending' && <p className={`text-center py-10`}>Отправка запроса</p>}
         {formStatus === 'complete' && (
           <p className={`text-center py-10`}>Запрос успешно отправлен. Спасибо за обращение!</p>
+        )}
+        {formStatus === 'error' && (
+          <p className={`text-center py-10`}>Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.</p>
         )}
       </form>
     </div>

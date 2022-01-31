@@ -13,6 +13,7 @@ export default function Home({ lgView, app, menu, input, theme, products }) {
     <body>
       <>
         <Header lgView={lgView} menu={menu} app={app} theme={theme}/>
+        <div className='h-5'></div>
         <motion.div
           key={router.route.concat(animations.opacity)}
           className='page-wrap'
