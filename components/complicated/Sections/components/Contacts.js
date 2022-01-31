@@ -16,7 +16,7 @@ export default function Contacts({ app }) {
           {/* FORM */}
           <div className={`w-full flex flex-col ml-auto sm:w-2/3 md:w-7/12 max-w-xl`}>
             <Title ats={`xl`} a={`Свяжитесь с нами`}></Title>
-            <FeedBack />
+            <FeedBack app={app} />
           </div>
 
           {/* CONTACTS */}

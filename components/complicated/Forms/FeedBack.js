@@ -69,13 +69,17 @@ export default function FeedBack(props) {
       props.onFulfilled('loading');
     } catch (err) {}
 
-    fetch('/api/sendform', {
+    fetch(`${app.api}/sendform`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ...formState, path: router.asPath, to: 'belplit.order@gmal.com' }),
+      body: JSON.stringify({
+        ...formState,
+        fromSite: props.app.url,
+        to: app.contacts.emails[0],
+      }),
     })
       .then((res) => {
         if (res.ok) {
