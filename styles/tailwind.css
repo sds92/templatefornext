@@ -5534,6 +5534,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 400;
 }
 
+.uppercase{
+  text-transform: uppercase;
+}
+
 .tracking-wide{
   letter-spacing: 0.025em;
 }
@@ -8810,6 +8814,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .duration-300{
   transition-duration: 300ms;
+}
+
+.duration-500{
+  transition-duration: 500ms;
 }
 
 .hover\:scale-110:hover{

@@ -6,7 +6,8 @@ const theme = (name) => {
       theme.text = 'text-white';
       theme.textDark = 'text-zinc-800';
       theme.hoverText = 'text-belplit24_2';
-      theme.buttonColours = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b';
+      theme.buttonColours = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md';
+      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
       break;
     case 'blue':
       theme.bg = 'bg-slate-500';
@@ -14,6 +15,7 @@ const theme = (name) => {
       theme.textDark = 'text-blue-800';
       theme.hoverText = 'text-blue-900';
       theme.buttonColours = 'bg-amber-800 text-white';
+      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
       break;
     case 'yellow':
       theme.bg = 'bg-amber-800';
@@ -21,6 +23,7 @@ const theme = (name) => {
       theme.textDark = 'text-yellow-400';
       theme.hoverText = 'text-amber-300';
       theme.buttonColours = 'bg-amber-800 text-white';
+      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
       break;
     default:
       break;

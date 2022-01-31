@@ -75,7 +75,7 @@ export default function FeedBack(props) {
         Accept: 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ ...formState, path: router.asPath }),
+      body: JSON.stringify({ ...formState, path: router.asPath, to: 'belplit.order@gmal.com' }),
     })
       .then((res) => {
         if (res.ok) {

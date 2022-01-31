@@ -15,10 +15,10 @@ export default function Gallery({ content }) {
             <div className={`relative`}>
               <img className={``} src={item[0]} alt width='370' height='256' />
               <div
-                className={`absolute inset-0 bg-black bg-opacity-30 md:bg-opacity-0 hover:bg-opacity-30 transition-all`}
+                className={`absolute inset-0 bg-black bg-opacity-30 md:bg-opacity-0 hover:bg-opacity-30 duration-500 transition-all`}
               >
                 <p
-                  className={`absolute inset-0 user-pt-1/2 text-center text-slate-100 md:opacity-0 hover:opacity-100 transition-all`}
+                  className={`uppercase absolute inset-0 user-pt-1/2 text-center text-slate-100 md:opacity-0 hover:opacity-100 transition-all`}
                 >
                   {item[1]}
                 </p>

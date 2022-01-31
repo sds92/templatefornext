@@ -12,7 +12,7 @@ export default function Main({ app, content, lgView, theme }) {
             {lgView ? (
               <>
                 <motion.div
-                  className={`font-bold text-3xl ${theme.textDark}`}
+                  className={`font-bold text-3xl text-belplit24_2`}
                   initial='initial'
                   animate='animate'
                   exit='exit'

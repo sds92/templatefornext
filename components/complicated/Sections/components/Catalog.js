@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
-import products from '../../../../data/products.json';
+// import products from '../../../../data/products.json';
 import { Button, Title, SubTitle } from '../../../lib';
 import About from './About';
 // react-menu
@@ -12,13 +12,12 @@ import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
 
-export default function Catalog({ lgView, content, app }) {
+export default function Catalog({ lgView, content, app, theme, products }) {
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
     show: false,
   });
-  const [openMenu, setOpenMenu] = React.useState(false);
 
   const arr = [];
   products.map((item) => {
@@ -32,6 +31,7 @@ export default function Catalog({ lgView, content, app }) {
       });
     });
   });
+    console.log("🚀 ~ file: Catalog.js ~ line 34 ~ products.map ~ products", products)
 
   const { ref, inView, entry } = useInView({
     threshold: 0,
@@ -55,13 +55,13 @@ export default function Catalog({ lgView, content, app }) {
           <SubTitle>{content[1]}</SubTitle>
         </div>
 
-        <div className={``}>
-          <div className={``}>
-            {!lgView ? (
+        <div className={`w-full`}>
+          <div className={`flex items-center justify-center`}>
+            {products.length >= 5 || !lgView ? (
               <Menu
                 menuButton={({ open }) => {
                   return (
-                    <MenuButton className={`ml-4 my-4`}>
+                    <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
                       <Button
                         style={{ border: 'none' }}
                         onClick={() =>
