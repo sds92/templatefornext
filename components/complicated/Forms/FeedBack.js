@@ -69,7 +69,7 @@ export default function FeedBack(props) {
       props.onFulfilled('loading');
     } catch (err) {}
 
-    fetch(`${app.api}/sendform`, {
+    fetch(`${app.api.email}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',

@@ -44,7 +44,7 @@ export default function Home({ lgView, app, menu, input, theme, products }) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch('https://xn--j1ano.com/uploads/staticsites/beltermo.json').then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/beltermo.json`).then((res) =>
     res.json()
   );
   const products = normalizeData(res, productsInit);
