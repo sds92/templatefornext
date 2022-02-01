@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer';
 
 import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
-// import products from '../../../../data/products.json';
 import { Button, Title, SubTitle } from '../../../lib';
 import About from './About';
 // react-menu
@@ -13,7 +12,6 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ lgView, content, app, theme, products }) {
-  console.log("🚀 ~ file: Catalog.js ~ line 16 ~ Catalog ~ products", products)
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
