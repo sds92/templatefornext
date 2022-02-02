@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import { normalizeData } from '../utils/functions';
 
-import productsInit from '../data/plitaosb-3.kz.json';
+import productsInit from '../data/belplit24.ru.json';
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
   const router = useRouter();
