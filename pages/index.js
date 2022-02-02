@@ -1,20 +1,25 @@
 import React from 'react';
+import dynamic from "next/dynamic";
+import { useRouter } from 'next/router';
+
 import { Header, Section } from '../components/complicated';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 import { animations } from '../styles/animations';
 import { normalizeData } from '../utils/functions';
 
+
 import productsInit from '../data/products3.json';
 
+const FullPage = dynamic(() => import("../components/complicated/Sections/FullPage"));
+
 export default function Home({ lgView, app, menu, input, theme, products }) {
-  console.log("🚀 ~ file: index.js ~ line 11 ~ Home ~ products", products)
   const router = useRouter();
   return (
     <body>
       <>
         <Header lgView={lgView} menu={menu} app={app} theme={theme}/>
         <div className='h-16'></div>
+        {/* <FullPage/> */}
         <motion.div
           key={router.route.concat(animations.opacity)}
           className='page-wrap'
@@ -50,7 +55,6 @@ export async function getStaticProps(context) {
     res.json()
   );
   const products = normalizeData(res, productsInit);
-  console.log("🚀 ~ file: index.js ~ line 53 ~ getStaticProps ~ products", products)
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {

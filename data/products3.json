@@ -51,7 +51,7 @@
     "files": {
       "techDesc": ["top-description.jpg", [702, 567]],
       "avatarSM": "top.jpg",
-      "product": "belplit-top-sp.jpg"
+      "product": "belplit-top.avif"
     }
   },
   {
@@ -87,7 +87,7 @@
     "files": {
       "techDesc": ["kombi-description.jpg", [770, 575]],
       "avatarSM": "kombi.jpg",
-      "product": "belplit-kombi-sp.jpg"
+      "product": "belplit-kombi.avif"
     }
   },
   {
@@ -126,7 +126,7 @@
     "files": {
       "techDesc": ["floor-description.jpg", [759, 510]],
       "avatarSM": "floor.jpg",
-      "product": "belplit-floor-sp.jpg"
+      "product": "belplit-floor.avif"
     }
   },
   {
@@ -181,7 +181,7 @@
     "files": {
       "techDesc": ["ultra-description.jpg", [699, 541]],
       "avatarSM": "ultra.jpg",
-      "product": "belplit-ultra-sp.jpg"
+      "product": "belplit-ultra.avif"
     }
   },
   {
@@ -219,7 +219,7 @@
     "files": {
       "techDesc": ["instal-description.jpg", [699, 504]],
       "avatarSM": "instal.jpg",
-      "product": "belplit-instal-sp.jpg"
+      "product": "belplit-instal.avif"
     }
   },
   {
@@ -255,7 +255,7 @@
     "files": {
       "techDesc": ["multi-description.jpg", [741, 468]],
       "avatarSM": "multi.jpg",
-      "product": "belplit-multi-sp.jpg"
+      "product": "belplit-multi.avif"
     }
   },
   {
@@ -292,7 +292,7 @@
     "files": {
       "techDesc": ["top-description.jpg", [702, 567]],
       "avatarSM": "room.jpg",
-      "product": "belplit-room-sp.jpg"
+      "product": "belplit-room.avif"
     }
   }
 ]

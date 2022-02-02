@@ -7,3 +7,4 @@ export { default as Head } from './Head/Head';
 export { default as Footer } from './Footer/Footer';
 export { default as Preloader } from './Preloader/Preloader';
 export { default as Social } from './Social/Social';
+export { default as FullPage } from './Sections/FullPage';
