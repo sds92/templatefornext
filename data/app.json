@@ -17,7 +17,8 @@
       "addresses": [
         {
           "title": "Офис",
-          "value": "Москва, Проектируемый проезд № 134, вл 4"
+          "value": "Москва, Проектируемый проезд № 134, вл 4",
+          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
         }
       ],
       "socials": [["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]]
@@ -45,7 +46,8 @@
       "addresses": [
         {
           "title": "Офис",
-          "value": "Алматы, ул. Бокейханова, 147а"
+          "value": "Алматы, ул. Бокейханова, 147а",
+          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCU5a0Bt9A"
         }
       ],
       "socials": [["Whatsapp", "https://wa.me/+77010124276?text=Здравствуйте..."]]
@@ -73,7 +75,8 @@
       "addresses": [
         {
           "title": "Офис",
-          "value": "Москва, Проектируемый проезд № 134, вл.4"
+          "value": "Москва, Проектируемый проезд № 134, вл.4",
+          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
         }
       ],
       "socials": [["Whatsapp", "https://wa.me/+79151012913?text=Здравствуйте!"]]
@@ -101,7 +104,8 @@
       "addresses": [
         {
           "title": "Офис",
-          "value": "Город, Улица, Дом"
+          "value": "Город, Улица, Дом",
+          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
         }
       ],
       "socials": [
@@ -132,7 +136,8 @@
       "addresses": [
         {
           "title": "Офис",
-          "value": "Город, Улица, Дом"
+          "value": "Город, Улица, Дом",
+          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
         }
       ],
       "socials": [
@@ -163,7 +168,8 @@
       "addresses": [
         {
           "title": "Офис",
-          "value": "Город, Улица, Дом"
+          "value": "Город, Улица, Дом",
+          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
         }
       ],
       "socials": [

@@ -5,12 +5,13 @@ import { Icons } from '..';
 
 const Map = React.lazy(() => import('./Map'));
 
-export default function Footer() {
+export default function Footer({app}) {
+  console.log("🚀 ~ file: Footer.js ~ line 9 ~ Footer ~ app", app)
   return (
     <>
       <div className={`h-96 cursor-default`}>
       <React.Suspense fallback={<div>Загрузка...</div>}>
-        <Map />
+        <Map app={app}/>
       </React.Suspense>
       </div>
       <footer className={`bg-belplit24`}>

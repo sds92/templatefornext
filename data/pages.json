@@ -226,12 +226,12 @@
         ["Примеры использования", "ОСП (OSB)"],
         "МДВП Талион применяются в самых разных областях строительства, для самых разных целей.",
         [
-          ["images/plitaosb-3.kz/example1.jpeg", "Декоративная обработка"],
-          ["images/plitaosb-3.kz/example2.jpeg", "Каркасное домостроение"],
-          ["images/plitaosb-3.kz/example3.jpeg", "Внутренние перегородки"],
-          ["images/plitaosb-3.kz/example4.jpeg", "Установка полов"],
-          ["images/plitaosb-3.kz/example5.jpeg", "Сооружение крыши"],
-          ["images/plitaosb-3.kz/example6.jpeg", "Создания опалубки"]
+          ["images/plitaosb-3.kz/examples/example1", "Декоративная обработка"],
+          ["images/plitaosb-3.kz/examples/example2", "Каркасное домостроение"],
+          ["images/plitaosb-3.kz/examples/example3", "Внутренние перегородки"],
+          ["images/plitaosb-3.kz/examples/example4", "Установка полов"],
+          ["images/plitaosb-3.kz/examples/example5", "Сооружение крыши"],
+          ["images/plitaosb-3.kz/examples/example6", "Создания опалубки"]
         ]
       ]
     }

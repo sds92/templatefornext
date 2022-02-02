@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function Map() {
+export default function Map({ app }) {
+  console.log('🚀 ~ file: Map.js ~ line 7 ~ Map ~ app.contacts.addresses.iframe', app);
   return (
     <iframe
-      src='https://yandex.ru/map-widget/v1/-/CCUYiXRD-B'
+      src={app.contacts.addresses[0].iframe}
       width='100%'
       height='100%'
       frameBorder='1'

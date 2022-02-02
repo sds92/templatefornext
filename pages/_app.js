@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
         <div>
           <Head head={newProps.input.head}></Head>
           <Component {...newProps} />
-          <Footer />
+          <Footer app={newProps.app}/>
         </div>
       )}
     </>
