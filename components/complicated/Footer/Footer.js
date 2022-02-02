@@ -5,7 +5,6 @@ import { Icons } from '..';
 
 const Map = dynamic(() => import('./Map'));
 
-
 export default function Footer() {
   return (
     <>
