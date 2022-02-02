@@ -149,7 +149,7 @@ export default function Catalog({ lgView, content, app, theme, products }) {
                     >
                       <img
                         className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                        src={`images/belplit24.ru/products/${item.img}`}
+                        src={`images/belplit24.ru/products/${item.img}.jpg`}
                         alt
                         width='370'
                         height='256'

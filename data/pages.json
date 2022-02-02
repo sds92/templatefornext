@@ -259,7 +259,7 @@
         "Экологичная тепло-звукоизоляция дома",
         "от 289 руб.",
         "Плиты Белтермо - это природный материал на 94% состоящий из сосны! Предназначен для создания эффективной и экологически-чистой звуко/теплоизоляции дома, а также его ветрозащиты",
-        "images/belplit24.ru/main.avif"
+        "images/belplit24.ru/main"
       ],
       "catalog": [
         ["Размеры и цены", "МДВП БЕЛТЕРМО"],
@@ -343,14 +343,14 @@
 
         [
           [
-            "images/belplit24.ru/examples/example1.avif",
+            "images/belplit24.ru/examples/example1",
             "Внутренняя изоляции перекрытий под стяжку бесшовных полов (ламинат, паркетная доска)"
           ],
-          ["images/belplit24.ru/examples/example2.avif", "Внутренняя изоляция стен"],
-          ["images/belplit24.ru/examples/example3.avif", "Утепление зданий"],
-          ["images/belplit24.ru/examples/example4.avif", "Внешняя изоляция крыш каркасных домов"],
-          ["images/belplit24.ru/examples/example5.avif", "Утепление внешних стен (мокрый фасад) плитами Белтермо"],
-          ["images/belplit24.ru/examples/example6.avif", "Изоляция межэтажных перекрытий и потолка"]
+          ["images/belplit24.ru/examples/example2", "Внутренняя изоляция стен"],
+          ["images/belplit24.ru/examples/example3", "Утепление зданий"],
+          ["images/belplit24.ru/examples/example4", "Внешняя изоляция крыш каркасных домов"],
+          ["images/belplit24.ru/examples/example5", "Утепление внешних стен (мокрый фасад) плитами Белтермо"],
+          ["images/belplit24.ru/examples/example6", "Изоляция межэтажных перекрытий и потолка"]
         ]
       ]
     }
