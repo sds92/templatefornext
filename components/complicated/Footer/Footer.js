@@ -1,16 +1,16 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
+
 import { Icons } from '..';
+
+const Map = dynamic(() => import('./Map'));
+
+
 export default function Footer() {
   return (
     <>
       <div className={`h-96 cursor-default`}>
-        <iframe
-          src='https://yandex.ru/map-widget/v1/-/CCUYiXRD-B'
-          width='100%'
-          height='100%'
-          frameBorder='1'
-          allowFullScreen='true'
-        ></iframe>
+        <Map/>
       </div>
       <footer className={`bg-belplit24`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
