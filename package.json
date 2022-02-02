@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@szhsin/react-menu": "^2.3.0",
-    "device-detector-js": "^3.0.1",
     "dotenv": "^10.0.0",
     "framer-motion": "^5.5.5",
     "next": "12.0.7",
@@ -22,6 +21,7 @@
     "react-scroll": "^1.8.4"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
     "tailwindcss": "^3.0.7"

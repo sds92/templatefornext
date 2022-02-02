@@ -1,5 +1,4 @@
 import React from 'react';
-// import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import { Header, Section } from '../components/complicated';
@@ -8,8 +7,6 @@ import { animations } from '../styles/animations';
 import { normalizeData } from '../utils/functions';
 
 import productsInit from '../data/products3.json';
-
-// const FullPage = dynamic(() => import('../components/complicated/Sections/FullPage'));
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
   const router = useRouter();
