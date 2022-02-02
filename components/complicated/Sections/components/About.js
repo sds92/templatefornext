@@ -3,7 +3,7 @@ import Deviders from '../Deviders';
 import { Title, SubTitle } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
-export default function About({ content }) {
+export default function About({ content, w }) {
   const imgs = content[4];
   const state = {};
   imgs.map((item, index) => {
@@ -18,6 +18,10 @@ export default function About({ content }) {
   const requestRef = React.useRef();
   const previousCountRef = React.useRef();
   const count = React.useRef(true);
+
+  const textAnimation = `${
+    w >= 500 ? (inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`) : ``
+  }`;
 
   const animate = (time) => {
     if (previousCountRef.current != undefined) {
@@ -45,23 +49,17 @@ export default function About({ content }) {
       return () => cancelAnimationFrame(requestRef.current);
     }
     if (!inView) {
-      setCounter(state)
+      setCounter(state);
     }
   }, [inView]);
   return (
     <>
       <div ref={ref} className={``}>
-        <div
-          className={`transition-all duration-300 delay-100 ${
-            inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`
-          }`}
-        >
+        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
           <Title a={content[2][0]} b={content[2][1]}></Title>
         </div>
         <div
-          className={`transition-all duration-300 delay-100 mx-1 ${
-            inView ? `translate-y-0 opacity-100` : `-translate-y-11 opacity-0`
-          }`}
+          className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}
         >
           <SubTitle className={`max-w-3xl`}>{content[3]}</SubTitle>
         </div>

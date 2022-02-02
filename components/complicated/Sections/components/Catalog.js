@@ -11,7 +11,7 @@ import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
 
-export default function Catalog({ lgView, content, app, theme, products }) {
+export default function Catalog({ w, lgView, content, app, theme, products }) {
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -34,22 +34,17 @@ export default function Catalog({ lgView, content, app, theme, products }) {
   const { ref, inView, entry } = useInView({
     threshold: 0,
   });
+  const textAnimation = `${
+    w >= 500 ? (inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`) : ``
+  }`;
 
   return (
     <>
       <div ref={ref} className={``}>
-        <div
-          className={`transition-all duration-300 delay-100 ${
-            inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`
-          }`}
-        >
+        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
           <Title a={content[0][0]} b={content[0][1]}></Title>
         </div>
-        <div
-          className={`transition-all duration-300 mx-1 delay-100 ${
-            inView ? `translate-y-0 opacity-100` : `-translate-y-11 opacity-0`
-          }`}
-        >
+        <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
           <SubTitle>{content[1]}</SubTitle>
         </div>
 
@@ -170,7 +165,11 @@ export default function Catalog({ lgView, content, app, theme, products }) {
                             );
                           })}
                         </p>
-                        <p className={`pl-10 py-1.5 ${state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`}`}>
+                        <p
+                          className={`pl-10 py-1.5 ${
+                            state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
+                          }`}
+                        >
                           {item.title}
                         </p>
                       </div>
@@ -185,7 +184,7 @@ export default function Catalog({ lgView, content, app, theme, products }) {
           <br />
         </div>
       </div>
-      <About content={content} />
+      <About content={content} w={w} />
     </>
   );
 }

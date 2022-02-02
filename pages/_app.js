@@ -6,11 +6,15 @@ import { Footer, Head, Preloader } from '../components/complicated';
 import pages from '../data/pages.json';
 import app from '../data/app.json';
 import theme from '../utils/theme';
+ 
 
 function MyApp({ Component, pageProps }) {
 
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
+  
+
+
   React.useEffect(() => {
     setW(window.innerWidth)
     setTimeout(() => {
@@ -34,6 +38,7 @@ function MyApp({ Component, pageProps }) {
       ['Применение', '#Gallery'],
       ['Контакты', '#Contacts'],
     ],
+    w: w,
     lgView: w >= 900,
     app: app[2],
     input: pages[2],

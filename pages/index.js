@@ -1,5 +1,5 @@
 import React from 'react';
-import dynamic from "next/dynamic";
+// import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import { Header, Section } from '../components/complicated';
@@ -7,17 +7,16 @@ import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import { normalizeData } from '../utils/functions';
 
-
 import productsInit from '../data/products3.json';
 
-const FullPage = dynamic(() => import("../components/complicated/Sections/FullPage"));
+// const FullPage = dynamic(() => import('../components/complicated/Sections/FullPage'));
 
-export default function Home({ lgView, app, menu, input, theme, products }) {
+export default function Home({ w, lgView, app, menu, input, theme, products }) {
   const router = useRouter();
   return (
     <body>
       <>
-        <Header lgView={lgView} menu={menu} app={app} theme={theme}/>
+        <Header lgView={lgView} menu={menu} app={app} theme={theme} />
         <div className='h-16'></div>
         {/* <FullPage/> */}
         <motion.div
@@ -39,6 +38,7 @@ export default function Home({ lgView, app, menu, input, theme, products }) {
               content={input.content[item[1].replaceAll('#', '').toLowerCase()]}
               theme={theme}
               products={products}
+              w={w}
             />
           ))}
         </motion.div>
@@ -46,7 +46,6 @@ export default function Home({ lgView, app, menu, input, theme, products }) {
     </body>
   );
 }
-
 
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
