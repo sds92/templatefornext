@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Header, Section } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
-import { plitaosb3ru } from '../utils/functions';
+import { belplit24ru } from '../utils/functions';
 
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
@@ -45,11 +45,11 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/plitaosb-3.kz.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/belplit24.ru.json`).then((res) =>
     res.json()
   );
-  const products = plitaosb3ru(res);
-  // console.log("🚀 ~ file: index.js ~ line 54 ~ getStaticProps ~ products", products)
+  const products = belplit24ru(res);
+  console.log("🚀 ~ file: index.js ~ line 54 ~ getStaticProps ~ products", products)
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {

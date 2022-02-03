@@ -86,7 +86,7 @@ export const plitaosb3ru = (inputArr) => {
   // });
 };
 
-export const normalizeData = (inputArr, appArr) => {
+export const belplit24ru = (inputArr, appArr) => {
   let arr = [];
   return inputArr
     .map((item) => ({
