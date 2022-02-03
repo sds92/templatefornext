@@ -120,7 +120,6 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <br />
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
             {arr.map((item, index) => {
-              console.log("🚀 ~ file: Catalog.js ~ line 125 ~ {arr.map ~ item", item.imgs)
               return (
                 state.chosen === item.catId && (
                   <motion.div

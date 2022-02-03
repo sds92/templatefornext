@@ -1,12 +1,10 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-
 import { Header, Section } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
-import { normalizeData, plitaosb3ru } from '../utils/functions';
+import { plitaosb3ru } from '../utils/functions';
 
-import productsInit from '../data/plitaosb-3.ru.json';
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
   const router = useRouter();
@@ -51,7 +49,6 @@ export async function getStaticProps(context) {
     res.json()
   );
   const products = plitaosb3ru(res);
-  console.log("🚀 ~ file: index.js ~ line 54 ~ getStaticProps ~ products", products)
   // console.log("🚀 ~ file: index.js ~ line 54 ~ getStaticProps ~ products", products)
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
