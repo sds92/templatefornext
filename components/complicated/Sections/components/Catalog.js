@@ -24,7 +24,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${app.productTitle} ${item.title.toUpperCase()}, ${sizesItem}`,
+        title: `${app.productTitle}, ${sizesItem}`,
         prices: [item.prices[index], item.priceFor[index]],
         imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
       });
@@ -159,7 +159,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                           {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
                               <span key={`ITEMPRICE${index}`}>
-                                {item.prices[0]}{' '}
+                                {item.prices[0]}{' руб. '}
                                 {item.prices[1]}
                               </span>
                             {/* );
