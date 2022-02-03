@@ -24,9 +24,10 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${app.productTitle} ${item.title.toUpperCase()}, ${sizesItem}`,
+        title:
+          `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
         prices: [item.prices[index], item.priceFor[index]],
-        imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
+        img: `/images/belplit24.ru/products/belplit-${item.title}.jpg`,
       });
     });
   });
@@ -144,7 +145,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     >
                       <img
                         className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                        src={item.imgs}
+                        src={item.img}
                         alt
                         width='370'
                         height='256'
@@ -158,11 +159,12 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
                           {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
-                              <span key={`ITEMPRICE${index}`}>
-                                {item.prices[0]}{' руб. '}
-                                {item.prices[1]}
-                              </span>
-                            {/* );
+                          <span key={`ITEMPRICE${index}`}>
+                            {item.prices[0]}
+                            {' руб. '}
+                            {item.prices[1]}
+                          </span>
+                          {/* );
                           })} */}
                         </p>
                         <p
