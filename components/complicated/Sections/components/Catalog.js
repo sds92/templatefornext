@@ -27,7 +27,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         title:
           `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
         prices: [item.prices[index], item.priceFor[index]],
-        img: `/images/belplit24.ru/products/belplit-${item.title}.jpg`,
+        img: `/images/belplit24.ru/products/belplit-${item.title.toLowerCase()}.jpg`,
       });
     });
   });
