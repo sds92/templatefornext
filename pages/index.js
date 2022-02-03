@@ -45,11 +45,11 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/plitaosb-3.kz.json`).then((res) =>
     res.json()
   );
   const products = plitaosb3ru(res);
-  // console.log("🚀 ~ file: index.js ~ line 54 ~ getStaticProps ~ products", products)
+  console.log("🚀 ~ file: index.js ~ line 54 ~ getStaticProps ~ products", products)
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {
