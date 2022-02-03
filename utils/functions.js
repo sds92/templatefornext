@@ -1,4 +1,5 @@
 export const plitaosb3ru = (inputArr) => {
+  // console.log('🚀 ~ file: functions.js ~ line 2 ~ plitaosb3ru ~ inputArr', inputArr);
   let arr = [];
   return inputArr
     .map((item) => ({
@@ -18,6 +19,7 @@ export const plitaosb3ru = (inputArr) => {
       imgs: item.images,
       paths: item.path,
     }))
+
     .sort((a, b) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
     })
@@ -40,7 +42,7 @@ export const plitaosb3ru = (inputArr) => {
         .reduce(
           (pre, cur) => {
             // pre.sizes.push(cur.sizes);
-            pre.infos.push(cur.infos)
+            pre.infos.push(cur.infos);
             pre.prices.push(cur.prices);
             pre.priceFor.push(cur.priceFor);
             pre.show.push(cur.show);
