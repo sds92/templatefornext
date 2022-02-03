@@ -99,7 +99,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                       }}
                     >
                       <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
-                        {item.name.toUpperCase()}
+                        {item.title.toUpperCase()}
                         <div
                           className={`${
                             index === state.chosen
@@ -107,7 +107,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                               : 'user-catalog-link'
                           } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
                         >
-                          {item.name.toUpperCase()}
+                          {item.title.toUpperCase()}
                         </div>
                       </div>
                     </li>
