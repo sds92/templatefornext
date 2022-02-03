@@ -20,7 +20,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
   const arr = [];
   products.map((item, i) => {
-    return item.infos.map((sizesItem, index) => {
+    return item.sizes.map((sizesItem, index) => {
       return arr.push({
         category: item.title,
         catId: i,
@@ -159,7 +159,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                           {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
                               <span key={`ITEMPRICE${index}`}>
-                                {item.prices[0]}{' ₸ '}
+                                {item.prices[0]}{' руб. '}
                                 {item.prices[1]}
                               </span>
                             {/* );

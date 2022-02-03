@@ -5,11 +5,6 @@ export const plitaosb3ru = (inputArr) => {
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Производитель').value,
       infos: item.title,
-      // sizes: {
-      //   a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
-      //   b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
-      //   h: parseInt(item.options.find(({ key }) => key === 'Толщина').value.replace(' мм', '')),
-      // },
       prices: item.cost,
       priceFor: item.unit,
       show: item.visible,
@@ -38,10 +33,8 @@ export const plitaosb3ru = (inputArr) => {
     })
     .map((item) =>
       item
-        // .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
         .reduce(
           (pre, cur) => {
-            // pre.sizes.push(cur.sizes);
             pre.infos.push(cur.infos);
             pre.prices.push(cur.prices);
             pre.priceFor.push(cur.priceFor);
@@ -86,11 +79,13 @@ export const plitaosb3ru = (inputArr) => {
   // });
 };
 
-export const belplit24ru = (inputArr, appArr) => {
+export const belplit24ru = (inputArr) => {
+console.log("🚀 ~ file: functions.js ~ line 83 ~ belplit24ru ~ inputArr", inputArr)
   let arr = [];
   return inputArr
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Серия').value,
+      infos: item.title,
       sizes: {
         a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
         b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
@@ -104,6 +99,8 @@ export const belplit24ru = (inputArr, appArr) => {
       articles: item.article,
       ids: item.id,
       coef: item.coef,
+      imgs: item.images,
+      paths: item.path,
     }))
     .sort((a, b) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
@@ -126,6 +123,7 @@ export const belplit24ru = (inputArr, appArr) => {
         .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
         .reduce(
           (pre, cur) => {
+            pre.infos.push(cur.infos);
             pre.sizes.push(cur.sizes);
             pre.prices.push(cur.prices);
             pre.density.push(cur.density);
@@ -135,9 +133,12 @@ export const belplit24ru = (inputArr, appArr) => {
             pre.articles.push(cur.articles);
             pre.ids.push(cur.ids);
             pre.coef.push(cur.coef);
+            pre.imgs.push(cur.imgs);
+            pre.paths.push(cur.paths);
             return pre;
           },
           {
+            infos: [],
             title: item[0].title,
             sizes: [],
             prices: [],
@@ -148,6 +149,8 @@ export const belplit24ru = (inputArr, appArr) => {
             articles: [],
             ids: [],
             coef: [],
+            imgs: [],
+            paths: [],
           }
         )
     );
