@@ -19,14 +19,14 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
   });
 
   const arr = [];
-  products.map((item) => {
-    return item.sizes.map((sizesItem, index) => {
+  products.map((item, i) => {
+    return item.infos.map((sizesItem, index) => {
       return arr.push({
-        category: item.name,
-        catId: item.id,
-        title: `${app.productTitle} ${item.name.toUpperCase()}, ${sizesItem}`,
-        prices: item.prices.map((pricesItem) => [pricesItem[0][index], pricesItem[1]]),
-        img: item.files.product,
+        category: item.title,
+        catId: i,
+        title: `${app.productTitle} ${item.title.toUpperCase()}, ${sizesItem}`,
+        prices: [item.prices[index], item.priceFor[index]],
+        imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
       });
     });
   });
@@ -120,6 +120,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <br />
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
             {arr.map((item, index) => {
+              console.log("🚀 ~ file: Catalog.js ~ line 125 ~ {arr.map ~ item", item.imgs)
               return (
                 state.chosen === item.catId && (
                   <motion.div
@@ -144,7 +145,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     >
                       <img
                         className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                        src={`images/${item.img}.jpg`}
+                        src={item.imgs}
                         alt
                         width='370'
                         height='256'
@@ -156,14 +157,14 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
                         <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
-                          {item.prices.map((item_inner, index_inner) => {
-                            return (
+                          {/* {item.prices.map((item_inner, index_inner) => {
+                            return ( */}
                               <span key={`ITEMPRICE${index}`}>
-                                {item_inner[0]}
-                                {item_inner[1]}{' '}
+                                {item.prices[0]}{' '}
+                                {item.prices[1]}
                               </span>
-                            );
-                          })}
+                            {/* );
+                          })} */}
                         </p>
                         <p
                           className={`pl-10 py-1.5 ${
