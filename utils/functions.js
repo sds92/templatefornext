@@ -104,7 +104,8 @@ export const belplit24ru = (inputArr) => {
     .sort((a, b) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
     })
-    .reduce((pre, cur, i) => {let preTitle = null;
+    .reduce((pre, cur, i) => {
+      let preTitle = null;
       if (pre.title) {
         preTitle = pre.title;
       }
@@ -122,7 +123,7 @@ export const belplit24ru = (inputArr) => {
         if (pre[0]) {
           arr.push(pre);
         } else {
-          arr.push([pre])
+          arr.push([pre]);
         }
         return cur;
       }
