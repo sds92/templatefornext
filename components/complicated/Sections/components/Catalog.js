@@ -51,7 +51,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
         <div className={`w-full`}>
           <div className={`flex items-center justify-center`}>
-            {products.length >= 5 || !lgView ? (
+            {!lgView ? (
               <Menu
                 menuButton={({ open }) => {
                   return (
@@ -104,7 +104,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         <div
                           className={`${
                             index === state.chosen
-                              ? 'user-catalog-active-link font-normal'
+                              ? 'user-catalog-active-link font-normal -mr-1 border-b border-belplit24_2'
                               : 'user-catalog-link'
                           } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
                         >

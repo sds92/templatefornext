@@ -749,6 +749,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 10;
 }
 
+.-m-1{
+  margin: -0.25rem;
+}
+
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -819,6 +823,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .-mt-10{
   margin-top: -2.5rem;
+}
+
+.-mr-1{
+  margin-right: -0.25rem;
 }
 
 .flex{
@@ -5885,6 +5893,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(30 58 138 / var(--tw-text-opacity));
 }
 
+.underline{
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .decoration-slate-100{
   -webkit-text-decoration-color: #f1f5f9;
           text-decoration-color: #f1f5f9;
@@ -6198,6 +6211,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .decoration-blue-900{
   -webkit-text-decoration-color: #1e3a8a;
           text-decoration-color: #1e3a8a;
+}
+
+.decoration-1{
+  text-decoration-thickness: 1px;
+}
+
+.underline-offset-4{
+  text-underline-offset: 4px;
 }
 
 .placeholder-slate-100::-moz-placeholder{
