@@ -12,6 +12,7 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
+  console.log('🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ products', products);
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -20,13 +21,19 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
   const arr = [];
   products.map((item, i) => {
-    return item.infos.map((sizesItem, index) => {
+    // console.log('🚀 ~ file: Catalog.js ~ line 23 ~ products.map ~ item', item);
+    return item.infos.map((infosItem, index) => {
+      // item.imgs[index][0]
+      console.log("🚀 ~ file: Catalog.js ~ line 27 ~ returnitem.infos.map ~ item.imgs[index][0]", item.imgs[index][0])
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${app.productTitle}, ${sizesItem}`,
+        title: `${app.productTitle}, ${infosItem}`,
         prices: [item.prices[index], item.priceFor[index]],
-        imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
+        imgs: item.imgs[index][0]
+          ? app.api.serv + item.paths[index] + item.imgs[index][0]
+          : 'https://xn--j1ano.com//uploads/catalog/5f85ba274a9a5d34e0a45fed/categories/5fb3766c5225b630baf84756/610a632c9f01f210be9c5ec9/bac3642e-42ee-497f-8757-881eb7b72744.jpg',
+        //
       });
     });
   });
@@ -158,11 +165,12 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
                           {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
-                              <span key={`ITEMPRICE${index}`}>
-                                {item.prices[0]}{' руб. '}
-                                {item.prices[1]}
-                              </span>
-                            {/* );
+                          <span key={`ITEMPRICE${index}`}>
+                            {item.prices[0]}
+                            {' руб. '}
+                            {item.prices[1]}
+                          </span>
+                          {/* );
                           })} */}
                         </p>
                         <p
