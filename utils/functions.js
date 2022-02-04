@@ -24,7 +24,14 @@ export const plitaosb3ru = (inputArr) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
     })
     .reduce((pre, cur, i) => {
-      if (cur.title === pre.title || cur.title === pre.reverse()[0]?.title) {
+      let preTitle = null;
+      if (pre.title) {
+        preTitle = pre.title;
+      }
+      if (pre[0]?.title) {
+        preTitle = pre[0]?.title;
+      }
+      if (cur.title === preTitle) {
         if (i === inputArr.length - 1) {
           arr.push(Array.prototype.concat(cur, pre));
           return arr;
@@ -32,7 +39,11 @@ export const plitaosb3ru = (inputArr) => {
           return Array.prototype.concat(cur, pre);
         }
       } else {
-        arr.push(pre);
+        if (pre[0]) {
+          arr.push(pre);
+        } else {
+          arr.push([pre]);
+        }
         return cur;
       }
     })
