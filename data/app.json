@@ -94,28 +94,29 @@
   },
   {
     "id": 3,
-    "url": "",
+    "url": "https://fanera.site",
     "api": {
+      "ym": "",
       "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/beltermo.json"
+      "products": "https://xn--j1ano.com/uploads/staticsites/fanera.site.json",
+      "serv": "https://xn--j1ano.com/"
     },
-    "title": "Пиломатериалы",
+    "title": "Фанера",
     "copyright": [
       "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
     ],
-    "productTitle": "Пиломатериалы",
+    "productTitle": "Фанера",
     "contacts": {
-      "phones": ["+00000000000"],
-      "emails": ["email@email.ru"],
+      "phones": ["+7 (495) 120-03-15"],
+      "emails": ["fanera.site@yandex.ru"],
       "addresses": [
         {
           "title": "Офис",
-          "value": "Город, Улица, Дом",
+          "value": "Москва, Проектируемый проезд № 134, вл 4",
           "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
         }
       ],
       "socials": [
-        ["Telegram", "https://t.me/+00000000000"],
         ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
       ]
     },

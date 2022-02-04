@@ -37,8 +37,8 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
-    app: app[0],
-    input: pages[0],
+    app: app[3],
+    input: pages[3],
     theme: theme('black'),
     ...pageProps,
   };
@@ -57,5 +57,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default withYM(app[0].api.ym, Router)(MyApp);
+export default withYM(app[3].api.ym, Router)(MyApp);
 
