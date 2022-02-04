@@ -12,7 +12,6 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
-  console.log('🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ products', products);
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -21,10 +20,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
   const arr = [];
   products.map((item, i) => {
-    // console.log('🚀 ~ file: Catalog.js ~ line 23 ~ products.map ~ item', item);
     return item.infos.map((infosItem, index) => {
-      // item.imgs[index][0]
-      console.log("🚀 ~ file: Catalog.js ~ line 27 ~ returnitem.infos.map ~ item.imgs[index][0]", item.imgs[index][0])
       return arr.push({
         category: item.title,
         catId: i,
@@ -57,71 +53,55 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
         <div className={`w-full`}>
           <div className={`flex items-center justify-center`}>
-            {products.length >= 5 || !lgView ? (
-              <Menu
-                menuButton={({ open }) => {
-                  return (
-                    <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
-                      <Button
-                        style={{ border: 'none' }}
-                        onClick={() =>
-                          setState((state) => {
-                            return { ...state, show: !state.show };
-                          })
-                        }
-                      >
-                        Выбрать
-                        <Icons.ChevronDown
-                          extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
-                        />
-                      </Button>
-                    </MenuButton>
-                  );
-                }}
-              >
-                {products.map((innerItem, index) => (
-                  <MenuItem
-                    key={`NAVLGINNER${index}`}
-                    onClick={() => {
-                      setState((state) => {
-                        return { ...state, chosen: index };
-                      });
-                    }}
-                  >
-                    &nbsp;{innerItem.title}
-                  </MenuItem>
-                ))}
-              </Menu>
-            ) : (
-              <>
-                <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
-                  {products.map((item, index) => (
-                    <li
-                      className={`cursor-pointer text-2xl text-slate-700 font-light relative h-8`}
-                      key={`LINK${index}`}
-                      onClick={() => {
-                        setState((state) => {
-                          return { ...state, chosen: index };
-                        });
-                      }}
-                    >
-                      <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
-                        {item.title.toUpperCase()}
-                        <div
-                          className={`${
-                            index === state.chosen
-                              ? 'user-catalog-active-link font-normal'
-                              : 'user-catalog-link'
-                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
+            {[
+              { title: 'ФК', key: 'ФК' },
+              { title: 'ФСФ', key: 'ФСФ' },
+              { title: 'ЛФСФ', key: 'Ламинированная' },
+            ].map((item, index) => {
+              return (
+                <Menu
+                  key={`MENU${index}`}
+                  menuButton={({ open }) => {
+                    return (
+                      <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
+                        <Button
+                          style={{ border: 'none' }}
+                          onClick={() =>
+                            setState((state) => {
+                              return { ...state, show: !state.show };
+                            })
+                          }
                         >
-                          {item.title.toUpperCase()}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
+                          {item.title}
+                          <Icons.ChevronDown
+                            extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
+                          />
+                        </Button>
+                      </MenuButton>
+                    );
+                  }}
+                >
+                  {products
+                    .filter((item2) => {
+                      console.log('🚀 ~ file: Catalog.js ~ line 86 ~ .filter ~ item2', item2.title);
+
+                      return item2.title.includes(`${item.key}`);
+                    })
+                    .map((innerItem, index) => (
+                      <MenuItem
+                        key={`NAVLGINNER${index}`}
+                        onClick={() => {
+                          setState((state) => {
+                            return { ...state, chosen: index };
+                          });
+                        }}
+                      >
+                        &nbsp;{innerItem.title}
+                      </MenuItem>
+                    ))}
+                </Menu>
+              );
+            })}
           </div>
           <hr />
           <br />
