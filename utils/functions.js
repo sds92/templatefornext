@@ -32,34 +32,33 @@ export const plitaosb3ru = (inputArr) => {
       }
     })
     .map((item) =>
-      item
-        .reduce(
-          (pre, cur) => {
-            pre.infos.push(cur.infos);
-            pre.prices.push(cur.prices);
-            pre.priceFor.push(cur.priceFor);
-            pre.show.push(cur.show);
-            pre.articles.push(cur.articles);
-            pre.ids.push(cur.ids);
-            pre.coef.push(cur.coef);
-            pre.imgs.push(cur.imgs);
-            pre.paths.push(cur.paths);
-            return pre;
-          },
-          {
-            title: item[0].title,
-            // sizes: [],
-            infos: [],
-            prices: [],
-            priceFor: [],
-            show: [],
-            articles: [],
-            ids: [],
-            coef: [],
-            imgs: [],
-            paths: [],
-          }
-        )
+      item.reduce(
+        (pre, cur) => {
+          pre.infos.push(cur.infos);
+          pre.prices.push(cur.prices);
+          pre.priceFor.push(cur.priceFor);
+          pre.show.push(cur.show);
+          pre.articles.push(cur.articles);
+          pre.ids.push(cur.ids);
+          pre.coef.push(cur.coef);
+          pre.imgs.push(cur.imgs);
+          pre.paths.push(cur.paths);
+          return pre;
+        },
+        {
+          title: item[0].title,
+          // sizes: [],
+          infos: [],
+          prices: [],
+          priceFor: [],
+          show: [],
+          articles: [],
+          ids: [],
+          coef: [],
+          imgs: [],
+          paths: [],
+        }
+      )
     );
   // return inputArr.map((inputArrItem) => {
   //   let tmpSizes = inputArrItem.sizes.map((tmpSizesItem) => {
@@ -80,7 +79,7 @@ export const plitaosb3ru = (inputArr) => {
 };
 
 export const belplit24ru = (inputArr) => {
-console.log("🚀 ~ file: functions.js ~ line 83 ~ belplit24ru ~ inputArr", inputArr)
+  // console.log("🚀 ~ file: functions.js ~ line 83 ~ belplit24ru ~ inputArr", inputArr)
   let arr = [];
   return inputArr
     .map((item) => ({
@@ -105,8 +104,14 @@ console.log("🚀 ~ file: functions.js ~ line 83 ~ belplit24ru ~ inputArr", inpu
     .sort((a, b) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
     })
-    .reduce((pre, cur, i) => {
-      if (cur.title === pre.title || cur.title === pre.reverse()[0]?.title) {
+    .reduce((pre, cur, i) => {let preTitle = null;
+      if (pre.title) {
+        preTitle = pre.title;
+      }
+      if (pre[0]?.title) {
+        preTitle = pre[0]?.title;
+      }
+      if (cur.title === preTitle) {
         if (i === inputArr.length - 1) {
           arr.push(Array.prototype.concat(cur, pre));
           return arr;
@@ -114,7 +119,11 @@ console.log("🚀 ~ file: functions.js ~ line 83 ~ belplit24ru ~ inputArr", inpu
           return Array.prototype.concat(cur, pre);
         }
       } else {
-        arr.push(pre);
+        if (pre[0]) {
+          arr.push(pre);
+        } else {
+          arr.push([pre])
+        }
         return cur;
       }
     })
