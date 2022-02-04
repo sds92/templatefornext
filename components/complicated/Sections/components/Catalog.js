@@ -12,8 +12,6 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
-  console.log("🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ products", products)
-  // let productId = null
   const [state, setState] = React.useState({
     chosen: products.map((item, i) => ({prTitle: item.title, num: i})).find(({prTitle}) => prTitle === 'Top').num,
     hover: null,
