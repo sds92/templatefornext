@@ -13,7 +13,7 @@ import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
   const [state, setState] = React.useState({
-    chosen: products.map((item, i) => ({prTitle: item.title, num: i})).find(({prTitle}) => prTitle === 'Top').num,
+    chosen: 0,
     hover: null,
     show: false,
   });
