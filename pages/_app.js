@@ -49,8 +49,8 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
-    app: app[siteId],
-    input: pages[siteId],
+    app: app.find(({id}) => id === siteId),
+    input: pages.find(({id}) => id === siteId),
     theme: theme('black'),
     ...pageProps,
   };
@@ -69,5 +69,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default withYM(app[siteId].api.ym, Router)(MyApp);
+export default withYM(app.find(({id}) => id === siteId).api.ym, Router)(MyApp);
 
