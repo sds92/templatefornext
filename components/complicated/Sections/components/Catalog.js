@@ -20,14 +20,13 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
   const arr = [];
   products.map((item, i) => {
-    return item.sizes.map((sizesItem, index) => {
+    return item.infos.map((sizesItem, index) => {
       return arr.push({
         category: item.title,
         catId: i,
-        title:
-          `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
+        title: `${app.productTitle}, ${sizesItem}`,
         prices: [item.prices[index], item.priceFor[index]],
-        img: `/images/belplit24.ru/products/belplit-${item.title.toLowerCase()}.jpg`,
+        imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
       });
     });
   });
@@ -145,7 +144,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     >
                       <img
                         className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                        src={item.img}
+                        src={item.imgs}
                         alt
                         width='370'
                         height='256'

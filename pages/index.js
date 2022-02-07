@@ -49,6 +49,7 @@ export async function getStaticProps(context) {
     res.json()
   );
   const products = plitaosb3ru(res);
+  console.log("🚀 ~ file: index.js ~ line 52 ~ getStaticProps ~ products", products[0].imgs[0], products[0].paths[0])
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {
