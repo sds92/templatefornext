@@ -83,8 +83,6 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                 >
                   {products
                     .filter((item2) => {
-                      console.log('🚀 ~ file: Catalog.js ~ line 86 ~ .filter ~ item2', item2.title);
-
                       return item2.title.includes(`${item.key}`);
                     })
                     .map((innerItem, index) => (
