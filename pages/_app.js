@@ -9,9 +9,10 @@ import app from '../data/app.json';
 import theme from '../utils/theme';
 
 /**
- * 1 - plitaosb-3.ru
- * 2 - plitaosb-3.kz
- * 3 - belplit24.ru
+ * 0 - plitaosb-3.ru
+ * 1 - plitaosb-3.kz
+ * 2 - belplit24.ru
+ * 3 - fanera.site
  * 4 - csptamak.site
  * 5 - pilomateriali.site
  * 
