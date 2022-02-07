@@ -8,6 +8,17 @@ import pages from '../data/pages.json';
 import app from '../data/app.json';
 import theme from '../utils/theme';
 
+/**
+ * 1 - plitaosb-3.ru
+ * 2 - plitaosb-3.kz
+ * 3 - belplit24.ru
+ * 4 - csptamak.site
+ * 5 - pilomateriali.site
+ * 
+ */
+
+const siteId = 5
+
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
@@ -37,8 +48,8 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
-    app: app[5],
-    input: pages[5],
+    app: app[siteId],
+    input: pages[siteId],
     theme: theme('black'),
     ...pageProps,
   };
@@ -57,5 +68,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default withYM(app[5].api.ym, Router)(MyApp);
+export default withYM(app[siteId].api.ym, Router)(MyApp);
 
