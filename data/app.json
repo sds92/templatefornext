@@ -157,11 +157,12 @@
     }
   },
   {
-    "id": 3,
-    "url": "",
+    "id": 5,
+    "url": "pilomateriali.site",
     "api": {
       "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/beltermo.json"
+      "products": "https://xn--j1ano.com/uploads/staticsites/csptamak.ru.json",
+      "serv": "https://xn--j1ano.com/"
     },
     "title": "Пиломатериалы",
     "copyright": [
