@@ -11,7 +11,9 @@ import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
 
-export default function CatalogAlt1({ w, lgView, content, app, theme, products }) {
+export default function CatalogAlt1(props) {
+  const { w, lgView, app, theme, products } = props
+  const content = props.content.content.catalog
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -41,7 +43,7 @@ export default function CatalogAlt1({ w, lgView, content, app, theme, products }
 
   return (
     <>
-      <div ref={ref} className={``}>
+      <div ref={ref} id={`Catalog`} className={`mt-20`}>
         <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
           <Title a={content[0][0]} b={content[0][1]}></Title>
         </div>
@@ -186,7 +188,7 @@ export default function CatalogAlt1({ w, lgView, content, app, theme, products }
           <br />
         </div>
       </div>
-      <About content={content} w={w} />
+      {/* <About content={content} w={w} /> */}
     </>
   );
 }

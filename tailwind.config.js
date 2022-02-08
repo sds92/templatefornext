@@ -19,6 +19,9 @@ module.exports = {
     'max-w-sm',
     'text-3xl',
     {
+      pattern: /(text)-(belplit24_2_b|belplit24_2)/,
+    },
+    {
       pattern: /(font)-(light|bold|semibold|medium)/,
     },
     {

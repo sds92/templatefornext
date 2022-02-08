@@ -3,7 +3,9 @@ import Deviders from '../Deviders';
 import { Title, SubTitle, Text } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
-export default function About({ content, w }) {
+export default function About(props) {
+  const { w } = props;
+  const content = props.content.content.catalog;
   const imgs = content[4];
   const state = {};
   imgs.map((item, index) => {
@@ -54,7 +56,7 @@ export default function About({ content, w }) {
   }, [inView]);
   return (
     <>
-      <div ref={ref} className={``}>
+      <div ref={ref} id={`Advantages`}>
         <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
           <Title a={content[2][0]} b={content[2][1]}></Title>
         </div>
@@ -81,9 +83,9 @@ export default function About({ content, w }) {
             );
           })}
         </div>
-        <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>
-          {content[7]}
-        </Text>
+        <div className={`bg-belplit24_3 text-slate-100 pt-10`}>
+          <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>{content[7]}</Text>
+        </div>
       </div>
       <Deviders content={content} />
     </>

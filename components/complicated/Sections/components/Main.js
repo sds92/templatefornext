@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import { Button, Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
-export default function Main({ app, content, lgView, theme }) {
+export default function Main(props) {
+  const { w, lgView, app, theme, products } = props
+  const content = props.content.content.main
   return (
-    <div className={`w-full flex user-main-fs relative`}>
+    <div className={`w-full flex user-main-fs relative`} id={`Main`}>
       <div className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
         <div className={`max-w-xl ml-auto -mt-10 cursor-default`}>
           <div>

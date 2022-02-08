@@ -827,6 +827,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: -2.5rem;
 }
 
+.mt-20{
+  margin-top: 5rem;
+}
+
 .flex{
   display: flex;
 }
@@ -927,6 +931,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 48rem;
 }
 
+.max-w-5xl{
+  max-width: 64rem;
+}
+
 .max-w-6xl{
   max-width: 72rem;
 }
@@ -943,10 +951,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 24rem;
 }
 
-.max-w-5xl{
-  max-width: 64rem;
-}
-
 .flex-none{
   flex: none;
 }
@@ -957,6 +961,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .basis-1\/3{
   flex-basis: 33.333333%;
+}
+
+.basis-1\/2{
+  flex-basis: 50%;
 }
 
 .translate-y-0{
@@ -1023,12 +1031,12 @@ Ensure the default browser behavior of the `hidden` attribute.
           animation: bounce 1s infinite;
 }
 
-.cursor-default{
-  cursor: default;
-}
-
 .cursor-pointer{
   cursor: pointer;
+}
+
+.cursor-default{
+  cursor: default;
 }
 
 .resize{
@@ -5517,6 +5525,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1.25rem;
 }
 
+.pt-10{
+  padding-top: 2.5rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -5619,6 +5631,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-belplit24_2_b{
+  --tw-text-opacity: 1;
+  color: rgb(172 9 9 / var(--tw-text-opacity));
 }
 
 .text-slate-200{
@@ -8825,16 +8842,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-offset-color: #1e3a8a;
 }
 
-.transition{
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+.transition-all{
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-.transition-all{
-  transition-property: all;
+.transition{
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -9011,5 +9028,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 1024px){
   .lg\:w-8\/12{
     width: 66.666667%;
+  }
+
+  .lg\:w-6\/12{
+    width: 50%;
   }
 }
