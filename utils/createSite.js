@@ -1,10 +1,10 @@
 const fs = require('fs');
-const createSite = (data) => {
+const createSite = ({ url, ym, title, productTitle, contacts, ...data }) => {
   let raw = fs.readFileSync(`./data/app.json`);
   let jsonAppData = JSON.parse(raw);
   let newId = jsonAppData.reverse()[0].id + 1;
   jsonAppData.reverse()
-  const { url, ym, title, productTitle, contacts } = data;
+  
   const newSite = {
     id: newId,
     url: url,
@@ -39,24 +39,24 @@ const updateSite = (urlToUpdate, data) => {
 };
 
 createSite({
-  url: 'newsite.ru',
-  desc: 'Сухие смеси CERESIT и VOLMA',
+  url: 'shinglas-rus.ru',
+  desc: 'Гибкая черепица Shinglas',
   ym: '',
-  title: 'Сухие смеси CERESIT и VOLMA',
-  productTitle: 'Сухие смеси',
+  title: 'Гибкая черепица Shinglas',
+  productTitle: 'Гибкая черепица',
   contacts: {
-    phones: ['+00000000000'],
-    emails: ['email@email.ru'],
+    phones: ['+8 (495) 846-73-75'],
+    emails: ['shinglas-rus@yandex.ru'],
     addresses: [
       {
         title: 'Офис',
-        value: 'Город, Улица, Дом',
+        value: 'г. Москва, Проектируемый проезд № 134, вл 4',
         iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B',
       },
     ],
     socials: [
       ['Telegram', 'https://t.me/+00000000000'],
-      ['Whatsapp', 'https://wa.me/+00000000000?text=Здравствуйте...'],
+      ['Whatsapp', 'https://wa.me/+79585815196?text=Здравствуйте...'],
     ],
   },
   v: '1.4',

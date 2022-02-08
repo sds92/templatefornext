@@ -15,10 +15,11 @@ import theme from '../utils/theme';
  * 3 - fanera.site
  * 4 - csptamak.site
  * 5 - pilomateriali.site
+ * 6 - shinglas-rus.ru
  * 
  */
 
-const siteId = 4
+const siteId = 6
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);

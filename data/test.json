@@ -129,7 +129,7 @@
     "api": {
       "ym": "",
       "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/csptamak.ru.json",
+      "products": "https://xn--j1ano.com/uploads/staticsites/csptamak.json",
       "serv": "https://xn--j1ano.com/"
     },
     "title": "ЦСП ТАМАК",
@@ -190,39 +190,38 @@
   },
   {
     "id": 6,
-    "url": "newsite.ru",
+    "url": "shinglas-rus.ru",
     "api": {
       "ym": "",
       "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/newsite.ru.json",
+      "products": "https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json",
       "serv": "https://xn--j1ano.com/"
     },
-    "title": "Сухие смеси CERESIT и VOLMA",
+    "title": "Гибкая черепица Shinglas",
     "copyright": [
       "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
     ],
-    "productTitle": "Сухие смеси",
+    "productTitle": "Гибкая черепица",
     "contacts": {
-      "phones": ["+00000000000"],
-      "emails": ["email@email.ru"],
+      "phones": ["+8 (495) 846-73-75"],
+      "emails": ["shinglas-rus@yandex.ru"],
       "addresses": [
         {
           "title": "Офис",
-          "value": "Город, Улица, Дом",
+          "value": "г. Москва, Проектируемый проезд № 134, вл 4",
           "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
         }
       ],
       "socials": [
         ["Telegram", "https://t.me/+00000000000"],
-        ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
+        ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
       ]
     },
     "workingHoars": {
       "title": "Время работы",
       "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
     },
-    "desc": "Сухие смеси CERESIT и VOLMA",
-    "ym": "",
+    "desc": "Гибкая черепица Shinglas",
     "v": "1.4"
   }
 ]

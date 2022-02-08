@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '../../../lib';
+import { Button, Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
 export default function Main({ app, content, lgView, theme }) {
@@ -40,7 +40,7 @@ export default function Main({ app, content, lgView, theme }) {
           </div>
           <span className={``}>{content[0]}</span>
           <br /> <span className={`text-3xl`}>{content[1]}</span>
-          <p className={`my-4 text-black md:text-slate-800 font-light`}>{content[2]}</p>
+          <Text className={`my-4 text-black md:text-slate-800 font-light`}>{content[2]}</Text>
           <div className={`font-bold text-2xl ${theme.textDark} my-4`}>
             <a className={``} href={`tel:${app.contacts.phones[0]}`}>
               {app.contacts.phones[0]}

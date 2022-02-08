@@ -2,7 +2,10 @@ import React from 'react';
 import Sections from './components';
 
 export default function Section(props) {
-  const SectionContent = Sections[props.id] || <></>;
+  console.log('🚀 ~ file: Section.js ~ line 5 ~ Section ~ props', props);
+  let id = props.id;
+  props.app.url === 'shinglas-rus.ru' && props.id === 'Catalog' ? (id = 'CatalogAlt1') : (id = props.id);
+  const SectionContent = Sections[id] || <></>;
   const app = props.app;
   return (
     <section name={props.name} id={props.id} className={props.className}>

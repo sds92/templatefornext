@@ -3,7 +3,7 @@ export const plitaosb3ru = (inputArr) => {
   let arr = [];
   return inputArr
     .map((item) => ({
-      title: item.options.find(({ key }) => key === 'Производитель').value,
+      title: item.options.find(({ key }) => key === 'Коллекция').value,
       infos: item.title,
       prices: item.cost,
       priceFor: item.unit,

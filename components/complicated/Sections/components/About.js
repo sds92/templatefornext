@@ -1,6 +1,6 @@
 import React from 'react';
 import Deviders from '../Deviders';
-import { Title, SubTitle } from '../../../lib';
+import { Title, SubTitle, Text } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
 export default function About({ content, w }) {
