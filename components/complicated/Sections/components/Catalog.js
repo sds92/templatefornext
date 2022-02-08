@@ -56,7 +56,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
             {[
               { title: 'ФК', key: 'ФК' },
               { title: 'ФСФ', key: 'ФСФ' },
-              { title: 'ЛФСФ', key: 'Ламинированная' },
+              { title: 'ЛФСФ', key: 'Ламинированная', add: 'Китай' },
             ].map((item, index) => {
               return (
                 <Menu
@@ -65,6 +65,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     return (
                       <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
                         <Button
+                        className={`text-xl px-4 py-2`}
                           style={{ border: 'none' }}
                           onClick={() =>
                             setState((state) => {
@@ -72,7 +73,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                             })
                           }
                         >
-                          {item.title}
+                          {item.title.toLocaleUpperCase()}
                           <Icons.ChevronDown
                             extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
                           />
@@ -85,18 +86,21 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     .filter((item2) => {
                       return item2.title.includes(`${item.key}`);
                     })
-                    .map((innerItem, index) => (
-                      <MenuItem
-                        key={`NAVLGINNER${index}`}
-                        onClick={() => {
-                          setState((state) => {
-                            return { ...state, chosen: index };
-                          });
-                        }}
-                      >
-                        &nbsp;{innerItem.title}
-                      </MenuItem>
-                    ))}
+                    .map((innerItem, index) => {
+                      return (
+                        <MenuItem
+                          key={`NAVLGINNER${index}`}
+                          onClick={() => {
+                            setState((state) => {
+                              return { ...state, chosen: index };
+                            });
+                          }}
+                        >
+                          &nbsp;{innerItem.title}
+                          &nbsp;{/китай/.test(innerItem.infos) && 'Китай'}
+                        </MenuItem>
+                      );
+                    })}
                 </Menu>
               );
             })}
