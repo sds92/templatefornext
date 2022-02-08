@@ -64,7 +64,7 @@ export default function About(props) {
           <SubTitle className={`max-w-3xl`}>{content[3]}</SubTitle>
         </div>
 
-        <div className={`flex flex-wrap justify-center gap-10 md:gap-40 my-10`}>
+        <div className={`flex flex-wrap justify-center gap-4 md:gap-10 my-10 max-w-7xl mx-auto`}>
           {imgs.map((item, index) => {
             return (
               <div key={`ADVIMG${index}`} className={``}>

@@ -23,16 +23,18 @@ export default function CatalogAlt1(props) {
   const arr = [];
   products.map((item, i) => {
     return item.infos.map((sizesItem, index) => {
+      console.log("🚀 ~ file: CatalogAlt1.js ~ line 35 ~ returnitem.infos.map ~ item", item)
       return arr.push({
         category: item.title,
         catId: i,
         title:
           `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
         prices: [item.prices[index], item.priceFor[index]],
-        img: `/images/belplit24.ru/products/belplit-${item.title.toLowerCase()}.jpg`,
+        img: item.imgs[index][0],
       });
     });
   });
+    console.log("🚀 ~ file: CatalogAlt1.js ~ line 36 ~ products.map ~ products", products)
 
   const { ref, inView, entry } = useInView({
     threshold: 0,
