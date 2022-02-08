@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { FullPage, Header, Section } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
-import { plitaosb3ru } from '../utils/functions';
+import { v2 } from '../utils/functions';
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
   const router = useRouter();
@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
   const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
     res.json()
   );
-  const products = plitaosb3ru(res);
+  const products = v2(res);
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {

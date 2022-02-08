@@ -12,8 +12,8 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function CatalogAlt1(props) {
-  const { w, lgView, app, theme, products } = props
-  const content = props.content.content.catalog
+  const { w, lgView, app, theme, products } = props;
+  const content = props.content.content.catalog;
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -23,18 +23,17 @@ export default function CatalogAlt1(props) {
   const arr = [];
   products.map((item, i) => {
     return item.infos.map((sizesItem, index) => {
-      console.log("🚀 ~ file: CatalogAlt1.js ~ line 35 ~ returnitem.infos.map ~ item", item)
       return arr.push({
         category: item.title,
         catId: i,
-        title:
-          `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
+        type: item.options[index].find(({key}) => key === "Количество слоев" ).value,
+        title: item.title,
         prices: [item.prices[index], item.priceFor[index]],
-        img: item.imgs[index][0],
+        img: app.api.serv + item.paths[index] + item.imgs[index][0],
       });
     });
   });
-    console.log("🚀 ~ file: CatalogAlt1.js ~ line 36 ~ products.map ~ products", products)
+  console.log('🚀 ~ file: CatalogAlt1.js ~ line 36 ~ products.map ~ products', products);
 
   const { ref, inView, entry } = useInView({
     threshold: 0,
@@ -91,9 +90,9 @@ export default function CatalogAlt1(props) {
                 ))}
               </Menu>
             ) : (
-              <>
+              <div>
                 <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
-                  {products.map((item, index) => (
+                  {products.map(item => ({...item, type: item.type[0]})).filter(item => item.type === 'Однослойная').map((item, index) => (
                     <li
                       className={`cursor-pointer text-2xl text-slate-700 font-light relative h-8`}
                       key={`LINK${index}`}
@@ -118,7 +117,33 @@ export default function CatalogAlt1(props) {
                     </li>
                   ))}
                 </ul>
-              </>
+                <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
+                  {products.map(item => ({...item, type: item.type[0]})).filter(item => item.type === 'Многослойная').map((item, index) => (
+                    <li
+                      className={`cursor-pointer text-2xl text-slate-700 font-light relative h-8`}
+                      key={`LINK${index}`}
+                      onClick={() => {
+                        setState((state) => {
+                          return { ...state, chosen: index };
+                        });
+                      }}
+                    >
+                      <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
+                        {item.title.toUpperCase()}
+                        <div
+                          className={`${
+                            index === state.chosen
+                              ? 'user-catalog-active-link font-normal -mr-1 border-b border-belplit24_2'
+                              : 'user-catalog-link'
+                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
+                        >
+                          {item.title.toUpperCase()}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
           <hr />

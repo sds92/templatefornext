@@ -1,6 +1,6 @@
 import React from 'react';
-import Router from "next/router";
-import withYM from "next-ym";
+import Router from 'next/router';
+import withYM from 'next-ym';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -16,16 +16,13 @@ import theme from '../utils/theme';
  * 4 - csptamak.site
  * 5 - pilomateriali.site
  * 6 - shinglas-rus.ru
- * 
+ *
  */
 
-const siteId = 6
-
+const siteId = 6;
 function MyApp({ Component, pageProps }) {
-  console.log("🚀 ~ file", app[6])
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-
 
   React.useEffect(() => {
     setW(window.innerWidth);
@@ -64,7 +61,7 @@ function MyApp({ Component, pageProps }) {
         <div>
           <Head head={newProps.input.head}></Head>
           <Component {...newProps} />
-          <Footer app={newProps.app}/>
+          <Footer app={newProps.app} />
         </div>
       )}
     </>
@@ -72,4 +69,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default withYM(app[siteId].api.ym, Router)(MyApp);
-

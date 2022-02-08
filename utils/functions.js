@@ -1,9 +1,11 @@
-export const plitaosb3ru = (inputArr) => {
+export const v2 = (inputArr) => {
   // console.log('🚀 ~ file: functions.js ~ line 2 ~ plitaosb3ru ~ inputArr', inputArr);
   let arr = [];
   return inputArr
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Коллекция').value,
+      type: item.options.find(({ key }) => key === 'Количество слоев').value,
+      options: item.options,
       infos: item.title,
       prices: item.cost,
       priceFor: item.unit,
@@ -34,6 +36,8 @@ export const plitaosb3ru = (inputArr) => {
     .map((item) =>
       item.reduce(
         (pre, cur) => {
+          pre.type.push(cur.type)
+          pre.options.push(cur.options)
           pre.infos.push(cur.infos);
           pre.prices.push(cur.prices);
           pre.priceFor.push(cur.priceFor);
@@ -46,6 +50,8 @@ export const plitaosb3ru = (inputArr) => {
           return pre;
         },
         {
+          type: [],
+          options: [],
           title: item[0].title,
           // sizes: [],
           infos: [],
