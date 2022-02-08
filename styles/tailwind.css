@@ -935,6 +935,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 36rem;
 }
 
+.max-w-md{
+  max-width: 28rem;
+}
+
+.max-w-sm{
+  max-width: 24rem;
+}
+
+.max-w-5xl{
+  max-width: 64rem;
+}
+
 .flex-none{
   flex: none;
 }
@@ -5543,6 +5555,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-normal{
   font-weight: 400;
+}
+
+.font-medium{
+  font-weight: 500;
+}
+
+.font-semibold{
+  font-weight: 600;
 }
 
 .uppercase{

@@ -20,9 +20,9 @@ import theme from '../utils/theme';
  */
 
 const siteId = 6
-// console.log("🚀 ~ file", app.find(item => item.id === siteId).api.ym)
 
 function MyApp({ Component, pageProps }) {
+  console.log("🚀 ~ file", app[6])
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
 
@@ -51,8 +51,8 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
-    app: app.find(item => item.id === siteId),
-    input: pages.find(item => item.id === siteId),
+    app: app[siteId],
+    input: pages[siteId],
     theme: theme('black'),
     ...pageProps,
   };
@@ -71,5 +71,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default withYM('', Router)(MyApp);
+export default withYM(app[siteId].api.ym, Router)(MyApp);
 

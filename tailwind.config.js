@@ -14,6 +14,13 @@ module.exports = {
     'bg-slate-400',
     'pb-5',
     'text-white',
+    'max-w-xl',
+    'max-w-md',
+    'max-w-sm',
+    'text-3xl',
+    {
+      pattern: /(font)-(light|bold|semibold|medium)/,
+    },
     {
       pattern: /(bg|text|)-(red|green|blue|zinc|slate|amber|yellow)-(100|200|300|400|500|600|700|800|900)/,
     },

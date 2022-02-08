@@ -58,9 +58,7 @@ export default function About({ content, w }) {
         <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
           <Title a={content[2][0]} b={content[2][1]}></Title>
         </div>
-        <div
-          className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}
-        >
+        <div className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}>
           <SubTitle className={`max-w-3xl`}>{content[3]}</SubTitle>
         </div>
 
@@ -72,15 +70,20 @@ export default function About({ content, w }) {
                   <div>
                     <img src={item[0]} alt='' />
                   </div>
-                  <div className={`flex text-3xl justify-center`}>
-                    <div className={``}>{Math.round(counter[index])}</div>%
-                  </div>
-                  <h5 className={``}>{item[2]}</h5>
+                  {counter[index] !== 0 && (
+                    <div className={`flex text-3xl justify-center`}>
+                      <div className={``}>{Math.round(counter[index])}</div>%
+                    </div>
+                  )}
+                  <Text className={``}>{item[2]}</Text>
                 </article>
               </div>
             );
           })}
         </div>
+        <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>
+          {content[7]}
+        </Text>
       </div>
       <Deviders content={content} />
     </>
