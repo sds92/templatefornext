@@ -45,7 +45,7 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/csptamak.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/csptamak.ru.json`).then((res) =>
     res.json()
   );
   const products = plitaosb3ru(res);
