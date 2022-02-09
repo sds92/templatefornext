@@ -46,6 +46,7 @@ export default function CatalogAlt1(props) {
                               ...state,
                               chosen: item.productIndex,
                               chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
+                              chosenColor: [0, products[item.productIndex].options.item.find(({ key }) => key === 'Цвет').value]
                             };
                           });
                         }}
