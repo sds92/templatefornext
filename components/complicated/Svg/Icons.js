@@ -1,4 +1,19 @@
 import { SVGImage } from './Svg';
+
+export const Ok = ({ w = 1, h = 1, ...props }) => {
+  return (
+    <SVGImage
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke={props.stroke || 'currentColor'}
+      xmlns='http://www.w3.org/2000/svg'
+      {...props}
+    >
+      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
+    </SVGImage>
+  );
+};
+
 export const Whatsapp = ({ w = 1, h = 1, ...props }) => {
   return (
     <SVGImage viewBox='0 0 128 128' width={`${w}rem`} height={`${h}rem`} {...props}>
@@ -52,9 +67,9 @@ export const Belplit24 = ({ w = 6, h = 6, ...props }) => {
       xmlns='http://www.w3.org/2000/svg'
       {...props}
     >
-       <path
-        d="M0 256l256 256 28.44-28.44L56.89 256 284.44 28.44 256 0 0 256zM284.44 85.33l85.34 85.34 28.44-28.45-85.33-85.33-28.45 28.44zm-56.88 56.89l85.33 85.34 28.44-28.45L256 113.78l-28.44 28.44zm-56.89 56.89l199.11 199.11 28.44-28.44-199.11-199.11-28.44 28.44zM113.78 256l199.11 199.11 28.44-28.44-199.11-199.11L113.78 256zm227.55 0l85.34 85.33L512 256l-85.33-85.33L341.33 256z"
-        fill="red"
+      <path
+        d='M0 256l256 256 28.44-28.44L56.89 256 284.44 28.44 256 0 0 256zM284.44 85.33l85.34 85.34 28.44-28.45-85.33-85.33-28.45 28.44zm-56.88 56.89l85.33 85.34 28.44-28.45L256 113.78l-28.44 28.44zm-56.89 56.89l199.11 199.11 28.44-28.44-199.11-199.11-28.44 28.44zM113.78 256l199.11 199.11 28.44-28.44-199.11-199.11L113.78 256zm227.55 0l85.34 85.33L512 256l-85.33-85.33L341.33 256z'
+        fill='red'
       />
     </SVGImage>
   );
@@ -208,6 +223,7 @@ export const Clock = ({ w = 6, h = 6, ...props }) => {
 };
 
 const Icons = {
+  Ok,
   Whatsapp,
   Telegram,
   Clock,
@@ -221,7 +237,7 @@ const Icons = {
   Close,
   Location,
   Belplit24,
-  Roboweb
+  Roboweb,
 };
 
 export default Icons;

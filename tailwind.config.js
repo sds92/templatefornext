@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 const fontFamily = defaultTheme.fontFamily;
 fontFamily['sans-serif'] = [
-  'Oswald', // <-- Fira Sans is a default sans font now
+  'Montserrat', // <-- Fira Sans is a default sans font now
   // <-- you may provide more font fallbacks here
 ];
 

@@ -5,6 +5,7 @@ export const v2 = (inputArr) => {
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Коллекция').value,
       type: item.options.find(({ key }) => key === 'Количество слоев').value,
+      // colours: item.options.find(({ key }) => key ===  'Цвет').value,
       options: item.options,
       infos: item.title,
       prices: item.cost,
@@ -17,6 +18,9 @@ export const v2 = (inputArr) => {
       paths: item.path,
     }))
 
+    // .sort((a, b) => {
+    //   return a.options.find(({ key }) => key ===  'Цвет').value === b.options.find(({ key }) => key ===  'Цвет').value ? 0 : a.options.find(({ key }) => key ===  'Цвет').value < b.options.find(({ key }) => key ===  'Цвет').value ? -1 : 1;
+    // })
     .sort((a, b) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
     })
