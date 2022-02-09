@@ -36,7 +36,7 @@ export default function CatalogAlt1(props) {
                   {products
                     .map((item, productIndex) => ({ ...item, type: item.type[0], productIndex }))
                     .filter((item) => item.type === 'Однослойная')
-                    .map((item) => (
+                    .map((item, index) => (
                       <div
                         className={`cursor-pointer text-xl text-slate-700 font-light px-2`}
                         key={`LINK${item.productIndex}`}
@@ -46,7 +46,7 @@ export default function CatalogAlt1(props) {
                               ...state,
                               chosen: item.productIndex,
                               chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
-                              chosenColor: [0, products[item.productIndex].options.item.find(({ key }) => key === 'Цвет').value]
+                              chosenColor: [0, products[item.productIndex].options[state.chosenOption].find(({ key }) => key === 'Цвет').value]
                             };
                           });
                         }}
