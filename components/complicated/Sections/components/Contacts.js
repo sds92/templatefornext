@@ -8,7 +8,7 @@ export default function Contacts({ app }) {
     contactsTitle: `pl-2 border-b border-slate-300 w-full`,
   };
   return (
-    <div className={`bg-slate-100 py-10`}>
+    <div className={`bg-slate-100 py-10`} id={`Contacts`}>
       <Title a={`Контакты`} />
 
       <div className={`flex flex-col w-full`}>

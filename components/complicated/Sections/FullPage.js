@@ -22,6 +22,7 @@ export default function FullPage({ ...props }) {
         <Sections.CatalogAlt1 {...props}/>
         <Sections.About {...props}/>
         <Sections.Gallery {...props}/>
+        <Sections.Contacts {...props}/>
       </motion.div>
     </div>
   );

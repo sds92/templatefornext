@@ -56,38 +56,39 @@ export default function About(props) {
   }, [inView]);
   return (
     <>
+      <Deviders content={content} />
       <div ref={ref} id={`Advantages`}>
-        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
+        <div className={`pt-10`}>
+          <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>{content[7]}</Text>
+        </div>
+        <div className={`transition-all duration-300 delay-100  pt-20 ${textAnimation}`}>
           <Title a={content[2][0]} b={content[2][1]}></Title>
         </div>
         <div className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}>
           <SubTitle className={`max-w-3xl`}>{content[3]}</SubTitle>
         </div>
-
-        <div className={`flex flex-wrap justify-center gap-4 md:gap-10 my-10 max-w-7xl mx-auto`}>
-          {imgs.map((item, index) => {
-            return (
-              <div key={`ADVIMG${index}`} className={``}>
-                <article className={`flex flex-col justify-center items-center`}>
-                  <div>
-                    <img src={item[0]} alt='' />
-                  </div>
-                  {counter[index] !== 0 && (
-                    <div className={`flex text-3xl justify-center`}>
-                      <div className={``}>{Math.round(counter[index])}</div>%
+        <div className={`w-full bg-belplit24_3`}>
+          <div className={`py-20 flex flex-wrap justify-center gap-4 md:gap-10 my-10 max-w-7xl mx-auto`}>
+            {imgs.map((item, index) => {
+              return (
+                <div key={`ADVIMG${index}`} className={``}>
+                  <article className={`flex flex-col justify-center items-center`}>
+                    <div>
+                      <img src={item[0]} alt='' />
                     </div>
-                  )}
-                  <Text className={``}>{item[2]}</Text>
-                </article>
-              </div>
-            );
-          })}
-        </div>
-        <div className={`bg-belplit24_3 text-slate-100 pt-10`}>
-          <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>{content[7]}</Text>
+                    {counter[index] !== 0 && (
+                      <div className={`flex text-3xl justify-center`}>
+                        <div className={``}>{Math.round(counter[index])}</div>%
+                      </div>
+                    )}
+                    <Text className={``}>{item[2]}</Text>
+                  </article>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-      <Deviders content={content} />
     </>
   );
 }
