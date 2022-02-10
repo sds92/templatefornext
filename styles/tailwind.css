@@ -764,6 +764,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mx-1{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -772,11 +777,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-10{
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-}
-
-.mx-auto{
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .mx-0\.5{
@@ -801,6 +801,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 1rem;
 }
 
+.-mr-1{
+  margin-right: -0.25rem;
+}
+
 .ml-auto{
   margin-left: auto;
 }
@@ -821,8 +825,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: -2.5rem;
 }
 
-.-mr-1{
-  margin-right: -0.25rem;
+.inline-block{
+  display: inline-block;
 }
 
 .flex{
@@ -917,6 +921,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 50%;
 }
 
+.max-w-7xl{
+  max-width: 80rem;
+}
+
 .max-w-3xl{
   max-width: 48rem;
 }
@@ -929,8 +937,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 36rem;
 }
 
-.max-w-7xl{
-  max-width: 80rem;
+.max-w-md{
+  max-width: 28rem;
+}
+
+.max-w-sm{
+  max-width: 24rem;
 }
 
 .flex-none{
@@ -1396,10 +1408,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
-.border-0{
-  border-width: 0px;
-}
-
 .border{
   border-width: 1px;
 }
@@ -1413,9 +1421,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
 }
 
-.border-belplit24_2{
+.border-belplit_2{
   --tw-border-opacity: 1;
-  border-color: rgb(255 0 0 / var(--tw-border-opacity));
+  border-color: rgb(98 160 68 / var(--tw-border-opacity));
 }
 
 .border-slate-100{
@@ -3744,19 +3752,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-left-color: rgb(30 58 138 / var(--tw-border-opacity));
 }
 
-.bg-belplit24_2{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-belplit24{
   --tw-bg-opacity: 1;
   background-color: rgb(26 21 32 / var(--tw-bg-opacity));
-}
-
-.bg-belplit24_3{
-  --tw-bg-opacity: 1;
-  background-color: rgb(69 69 69 / var(--tw-bg-opacity));
 }
 
 .bg-slate-100{
@@ -3777,6 +3775,41 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-slate-400{
   --tw-bg-opacity: 1;
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
+.bg-belplit{
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 160 0 / var(--tw-bg-opacity));
+}
+
+.bg-belplit_2{
+  --tw-bg-opacity: 1;
+  background-color: rgb(98 160 68 / var(--tw-bg-opacity));
+}
+
+.bg-bp_3{
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 147 62 / var(--tw-bg-opacity));
+}
+
+.bg-belplit_dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(66 109 46 / var(--tw-bg-opacity));
+}
+
+.bg-belplit24_2{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-belplit24_2_b{
+  --tw-bg-opacity: 1;
+  background-color: rgb(172 9 9 / var(--tw-bg-opacity));
+}
+
+.bg-belplit24_3{
+  --tw-bg-opacity: 1;
+  background-color: rgb(69 69 69 / var(--tw-bg-opacity));
 }
 
 .bg-slate-200{
@@ -5418,6 +5451,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 2.5rem;
 }
 
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -5475,6 +5518,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 0.5rem;
 }
 
+.pt-2{
+  padding-top: 0.5rem;
+}
+
 .pl-10{
   padding-left: 2.5rem;
 }
@@ -5511,9 +5558,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: justify;
 }
 
+.align-middle{
+  vertical-align: middle;
+}
+
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-5xl{
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .text-3xl{
@@ -5531,6 +5587,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2rem;
 }
 
+.text-8xl{
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-6xl{
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-7xl{
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
 .font-light{
   font-weight: 300;
 }
@@ -5541,6 +5617,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-normal{
   font-weight: 400;
+}
+
+.font-medium{
+  font-weight: 500;
+}
+
+.font-semibold{
+  font-weight: 600;
 }
 
 .uppercase{
@@ -5575,6 +5659,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
+.text-transparent{
+  color: transparent;
+}
+
+.text-zinc-800{
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -5583,6 +5676,41 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-belplit{
+  --tw-text-opacity: 1;
+  color: rgb(56 160 0 / var(--tw-text-opacity));
+}
+
+.text-belplit_2{
+  --tw-text-opacity: 1;
+  color: rgb(98 160 68 / var(--tw-text-opacity));
+}
+
+.text-bp_3{
+  --tw-text-opacity: 1;
+  color: rgb(89 147 62 / var(--tw-text-opacity));
+}
+
+.text-belplit_dark{
+  --tw-text-opacity: 1;
+  color: rgb(66 109 46 / var(--tw-text-opacity));
+}
+
+.text-belplit24{
+  --tw-text-opacity: 1;
+  color: rgb(26 21 32 / var(--tw-text-opacity));
+}
+
+.text-belplit24_2_b{
+  --tw-text-opacity: 1;
+  color: rgb(172 9 9 / var(--tw-text-opacity));
+}
+
+.text-belplit24_3{
+  --tw-text-opacity: 1;
+  color: rgb(69 69 69 / var(--tw-text-opacity));
 }
 
 .text-slate-200{
@@ -5648,11 +5776,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-zinc-700{
   --tw-text-opacity: 1;
   color: rgb(63 63 70 / var(--tw-text-opacity));
-}
-
-.text-zinc-800{
-  --tw-text-opacity: 1;
-  color: rgb(39 39 42 / var(--tw-text-opacity));
 }
 
 .text-zinc-900{
@@ -5883,10 +6006,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-blue-900{
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity));
-}
-
-.text-transparent{
-  color: transparent;
 }
 
 .decoration-slate-100{
@@ -8803,10 +8922,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-offset-color: #1e3a8a;
 }
 
-.filter{
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .transition{
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -8848,9 +8963,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(172 9 9 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-belplit24_2:hover{
+.hover\:bg-belplit_dark:hover{
   --tw-bg-opacity: 1;
-  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+  background-color: rgb(66 109 46 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-belplit_2:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(98 160 68 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-belplit:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 160 0 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-opacity-30:hover{
@@ -8887,18 +9012,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.active\:bg-belplit24_2:active{
+.active\:bg-belplit:active{
   --tw-bg-opacity: 1;
-  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+  background-color: rgb(56 160 0 / var(--tw-bg-opacity));
 }
 
 .active\:font-normal:active{
   font-weight: 400;
 }
 
-.active\:text-belplit24_2:active{
+.active\:text-belplit_2:active{
   --tw-text-opacity: 1;
-  color: rgb(255 0 0 / var(--tw-text-opacity));
+  color: rgb(98 160 68 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px){

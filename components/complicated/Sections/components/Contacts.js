@@ -3,12 +3,13 @@ import { Icons } from '../../';
 import { Title, Text } from '../../../lib';
 import { FeedBack } from '../../';
 
-export default function Contacts({ app }) {
+export default function Contacts(props) {
+  const { app, theme } = props;
   const classes = {
     contactsTitle: `pl-2 border-b border-slate-300 w-full`,
   };
   return (
-    <div className={`bg-slate-100 py-10`}>
+    <div className={`${theme.bg.footer} py-10`}>
       <Title a={`Контакты`} />
 
       <div className={`flex flex-col w-full`}>
@@ -16,7 +17,7 @@ export default function Contacts({ app }) {
           {/* FORM */}
           <div className={`w-full flex flex-col ml-auto sm:w-2/3 md:w-7/12 max-w-xl`}>
             <Title ats={`xl`} a={`Свяжитесь с нами`}></Title>
-            <FeedBack app={app} />
+            <FeedBack app={app} theme={theme} />
           </div>
 
           {/* CONTACTS */}
@@ -25,7 +26,7 @@ export default function Contacts({ app }) {
           >
             <div className={`sm:w-full w-1/2 my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
-                <Icons.Phone extraClasses={`pl-1 w-6 h-6 border-b border-belplit24_2 text-belplit24_2`} />
+                <Icons.Phone extraClasses={`pl-1 w-6 h-6 border-b  ${theme.borders.icons}`} />
                 <p className={classes.contactsTitle}>Телефон:</p>
               </div>
               <div className={`ml-8 font-light`}>
@@ -36,7 +37,7 @@ export default function Contacts({ app }) {
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
-                <Icons.Mail extraClasses={`pl-1 text-center w-6 h-6 border-b border-belplit24_2 text-belplit24_2`} />
+                <Icons.Mail extraClasses={`pl-1 text-center w-6 h-6 border-b  ${theme.borders.icons}`} />
                 <p className={classes.contactsTitle}>EMAIL:</p>
               </div>
               <Text className={`ml-8 font-light`}>{app.contacts.emails[0]}</Text>
@@ -44,7 +45,7 @@ export default function Contacts({ app }) {
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
                 <Icons.Location
-                  extraClasses={`pl-1 w-6 h-6 pt-0.5 border-b border-belplit24_2 text-belplit24_2`}
+                  extraClasses={`pl-1 w-6 h-6 pt-0.5 border-b  ${theme.borders.icons}`}
                 />
                 <p className={classes.contactsTitle}>АДРЕС:</p>
               </div>
@@ -52,7 +53,7 @@ export default function Contacts({ app }) {
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
-                <Icons.Clock extraClasses={`pl-0.5 w-6 h-6 border-b border-belplit24_2 text-belplit24_2`} />
+                <Icons.Clock extraClasses={`pl-0.5 w-6 h-6 border-b  ${theme.borders.icons}`} />
                 <p className={classes.contactsTitle}>ВРЕМЯ РАБОТЫ:</p>
               </div>
               <Text className={`ml-8 font-light`}>{app.workingHoars.value}</Text>

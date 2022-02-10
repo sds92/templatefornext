@@ -12,14 +12,14 @@ export default function Main({ app, content, lgView, theme }) {
             {lgView ? (
               <>
                 <motion.div
-                  className={`font-bold text-3xl text-belplit24_2`}
+                  className={`font-bold text-8xl ${theme.text.color.title}`}
                   initial='initial'
                   animate='animate'
                   exit='exit'
                   variants={animations.slideUp.variants}
                   transition={animations.slideUp.transition}
                 >
-                  {app.title}
+                  <div className={`text-zinc-800`}>МДВП </div>{app.title}
                 </motion.div>
                 <motion.div
                   style={{ height: '1px' }}

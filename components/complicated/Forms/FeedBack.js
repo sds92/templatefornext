@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 export default function FeedBack(props) {
+  const { theme } = props;
   const router = useRouter();
   const [formStatus, setFormStatus] = React.useState('show');
   const [formState, setFormState] = React.useState({
@@ -108,8 +109,7 @@ export default function FeedBack(props) {
         setTimeout(() => {
           setFormStatus('show');
         }, 3000);
-        
-      })
+      });
   }
 
   return (
@@ -192,7 +192,7 @@ export default function FeedBack(props) {
             <div className={`${classes.ff} cursor-pointer`}>
               <div
                 onClick={sendForm}
-                className={`w-full h-full pt-5 pb-4 form-button bg-belplit24_2 rounded-md text-slate-100 text-center hover:bg-belplit24_2_b hover:font-bold transition-all`}
+                className={`w-full h-full pt-5 pb-4 form-button ${theme.bg.buttons} rounded-md text-slate-100 text-center hover:bg-belplit24_2_b hover:font-bold transition-all`}
               >
                 Отправить
               </div>
@@ -204,7 +204,9 @@ export default function FeedBack(props) {
           <p className={`text-center py-10`}>Запрос успешно отправлен. Спасибо за обращение!</p>
         )}
         {formStatus === 'error' && (
-          <p className={`text-center py-10`}>Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.</p>
+          <p className={`text-center py-10`}>
+            Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.
+          </p>
         )}
       </form>
     </div>

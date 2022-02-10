@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
-import { Button, Title, SubTitle } from '../../../lib';
+import { Button, Title, SubTitle, Text } from '../../../lib';
 import About from './About';
 // react-menu
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
@@ -13,7 +13,9 @@ import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
   const [state, setState] = React.useState({
-    chosen: products.map((item, i) => ({prTitle: item.title, num: i})).find(({prTitle}) => prTitle === 'Top').num,
+    chosen: products
+      .map((item, i) => ({ prTitle: item.title, num: i }))
+      .find(({ prTitle }) => prTitle === 'Top').num,
     hover: null,
     show: false,
   });
@@ -25,7 +27,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         category: item.title,
         catId: i,
         title:
-          `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
+          `${app.productTitle} ${item.title.toUpperCase()}` +
+          ', ' +
+          `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
         prices: [item.prices[index], item.priceFor[index]],
         img: `/images/belplit24.ru/products/belplit-${item.title.toLowerCase()}.jpg`,
       });
@@ -42,11 +46,12 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
   return (
     <>
       <div ref={ref} className={``}>
-        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
-          <Title a={content[0][0]} b={content[0][1]}></Title>
+        <div className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}>
+          <Text className={`text-5xl`}>Размеры и цены МДВП</Text>&nbsp;
+          <Text className={`text-5xl ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
         <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
-          <SubTitle>{content[1]}</SubTitle>
+          <Text className={`font-light max-w-7xl mx-auto text-center text-lg pt-2`}>{content[1]}</Text>
         </div>
 
         <div className={`w-full`}>
@@ -55,8 +60,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
               <Menu
                 menuButton={({ open }) => {
                   return (
-                    <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
+                    <MenuButton className={`ml-4 my-4 ${theme.ui.buttons.bg}`}>
                       <Button
+                        theme={theme}
                         style={{ border: 'none' }}
                         onClick={() =>
                           setState((state) => {
@@ -91,7 +97,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                 <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
                   {products.map((item, index) => (
                     <li
-                      className={`cursor-pointer text-2xl text-slate-700 font-light relative h-8`}
+                      className={`cursor-pointer text-2xl ${theme.text.catalog} font-light relative h-8`}
                       key={`LINK${index}`}
                       onClick={() => {
                         setState((state) => {
@@ -104,9 +110,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         <div
                           className={`${
                             index === state.chosen
-                              ? 'user-catalog-active-link font-normal -mr-1 border-b border-belplit24_2'
-                              : 'user-catalog-link'
-                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
+                              ? `${theme.text.color.title} font-normal -mr-1 border-b ${theme.borders.catalogMenuItem}`
+                              : ''
+                          } absolute inset-0 ${theme.text.catalog} active:scale-x-105  active:${theme.text.color.title} active:font-normal`}
                         >
                           {item.title.toUpperCase()}
                         </div>
@@ -156,7 +162,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         } transition-all`}
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
-                        <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
+                        <p className={`${theme.bg.productLine} text-slate-100 font-bold pl-10 text-xl py-1`}>
                           {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
                           <span key={`ITEMPRICE${index}`}>
@@ -186,7 +192,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <br />
         </div>
       </div>
-      <About content={content} w={w} />
+      <About content={content} w={w} theme={theme} />
     </>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import Deviders from '../Deviders';
-import { Title, SubTitle } from '../../../lib';
+import { Title, SubTitle, Text } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
-export default function About({ content, w }) {
+export default function About({ content, w, theme }) {
   const imgs = content[4];
   const state = {};
   imgs.map((item, index) => {
@@ -55,12 +55,13 @@ export default function About({ content, w }) {
   return (
     <>
       <div ref={ref} className={``}>
-        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
-          <Title a={content[2][0]} b={content[2][1]}></Title>
-        </div>
         <div
-          className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}
+          className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}
         >
+          <Text className={`text-5xl`}>Что такое МДВП</Text>&nbsp;
+          <Text className={`text-5xl ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
+        </div>
+        <div className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}>
           <SubTitle className={`max-w-3xl`}>{content[3]}</SubTitle>
         </div>
 
@@ -82,7 +83,7 @@ export default function About({ content, w }) {
           })}
         </div>
       </div>
-      <Deviders content={content} />
+      <Deviders content={content} theme={theme} />
     </>
   );
 }
