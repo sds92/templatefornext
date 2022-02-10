@@ -18,19 +18,6 @@ export default function CatalogAlt1(props) {
     menuOpen: false,
   });
 
-
-  let r = products[state.chosen].colours.reduce((p, c, i) => {
-  console.log("🚀 ~ file: CatalogAlt1.js ~ line 23 ~ r ~ products[state.chosen].colours", state.chosenColor)
-    console.log(
-      '🚀 ',
-      p, c
-    );
-
-    return p === state.chosenColor[1] ? i : c;
-  })
-  console.log("🚀 ~ file: CatalogAlt1.js ~ line 31 ~ r ~ r", r)
-
-
   return (
     <>
       <div id={`Catalog`} className={`mt-20`}>
