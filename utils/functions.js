@@ -5,7 +5,7 @@ export const v2 = (inputArr) => {
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Коллекция').value,
       type: item.options.find(({ key }) => key === 'Количество слоев').value,
-      // colours: item.options.find(({ key }) => key ===  'Цвет').value,
+      colours: item.options.find(({ key }) => key ===  "Цвет").value,
       options: item.options,
       infos: item.title,
       prices: item.cost,
@@ -22,7 +22,7 @@ export const v2 = (inputArr) => {
     //   return a.options.find(({ key }) => key ===  'Цвет').value === b.options.find(({ key }) => key ===  'Цвет').value ? 0 : a.options.find(({ key }) => key ===  'Цвет').value < b.options.find(({ key }) => key ===  'Цвет').value ? -1 : 1;
     // })
     .sort((a, b) => {
-      return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
+      return a.title === b.title && a.colours === b.colours ? 0 : a.title < b.title && a.colours < b.colours ? -1 : 1;
     })
     .reduce((pre, cur, i) => {
       if (cur.title === pre.title || cur.title === pre.reverse()[0]?.title) {
@@ -40,6 +40,7 @@ export const v2 = (inputArr) => {
     .map((item) =>
       item.reduce(
         (pre, cur) => {
+          pre.colours.push(cur.colours)
           pre.type.push(cur.type)
           pre.options.push(cur.options)
           pre.infos.push(cur.infos);
@@ -54,6 +55,7 @@ export const v2 = (inputArr) => {
           return pre;
         },
         {
+          colours: [],
           type: [],
           options: [],
           title: item[0].title,
@@ -112,8 +114,11 @@ export const belplit24ru = (inputArr) => {
       paths: item.path,
     }))
     .sort((a, b) => {
-      return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
+      return a.colours === b.colours ? 0 : a.colours < b.colours ? -1 : 1;
     })
+    // .sort((a, b) => {
+    //   return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
+    // })
     .reduce((pre, cur, i) => {
       let preTitle = null;
       if (pre.title) {
