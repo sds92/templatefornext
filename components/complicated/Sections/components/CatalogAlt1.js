@@ -10,7 +10,7 @@ export default function CatalogAlt1(props) {
   const content = props.content.content.catalog;
   const [state, setState] = React.useState({
     chosenType: products[0].options[0][0].value === 'Однослойная' ? 'flexible' : 'multilayer',
-    chosenColor: [0, products[0].options[0][4].value],
+    chosenColor: [0, products[0].options[0].find((item) => item.key === 'Цвет').value],
     chosenOption: 0,
     chosen: 0,
     hover: null,
