@@ -67,7 +67,7 @@ export default function CatalogAlt1(props) {
                           } text-left `}
                         >
                           <div className={`text-base`}>{item.title}</div>
-                          <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
+                          <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div>
                         </div>
                       </div>
                     ))}
@@ -99,7 +99,7 @@ export default function CatalogAlt1(props) {
                           } text-left `}
                         >
                           <div className={`text-base`}>{item.title}</div>
-                          <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
+                          <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div>
                         </div>
                       </div>
                     ))}
@@ -264,7 +264,7 @@ export default function CatalogAlt1(props) {
               </div>
               <div className={`font-bold ml-4 text-3xl flex flex-col mb-2`}>
                 {
-                  products[state.chosen].prices[products[state.chosen].colours.indexOf(state.chosenColor[1])]
+                  products[state.chosen].prices[products[state.chosen].colours.indexOf(state.chosenColor[1]) || 0]
                 }
                 ₽/м²
               </div>
