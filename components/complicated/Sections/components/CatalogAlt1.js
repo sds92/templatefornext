@@ -10,13 +10,15 @@ export default function CatalogAlt1(props) {
   const content = props.content.content.catalog;
   const [state, setState] = React.useState({
     chosenType: products[0].options[0][0].value === 'Однослойная' ? 'flexible' : 'multilayer',
-    chosenColor: [0, products[0].options[0].find((item) => item.key === 'Цвет').value],
+    chosenColor: [0, 'Зеленый'],
     chosenOption: 0,
     chosen: 0,
     hover: null,
     show: false,
     menuOpen: false,
   });
+
+  const price = products[state.chosen].prices[products[state.chosen].colours.indexOf(state.chosenColor[1])]
 
   return (
     <>
@@ -264,7 +266,7 @@ export default function CatalogAlt1(props) {
               </div>
               <div className={`font-bold ml-4 text-3xl flex flex-col mb-2`}>
                 {
-                  products[state.chosen].prices[products[state.chosen].colours.indexOf(state.chosenColor[1]) || 0]
+                  price
                 }
                 ₽/м²
               </div>
