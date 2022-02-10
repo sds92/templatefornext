@@ -1,5 +1,4 @@
 export const v2 = (inputArr) => {
-  // console.log('🚀 ~ file: functions.js ~ line 2 ~ plitaosb3ru ~ inputArr', inputArr);
   let arr = [];
   return inputArr
     .map((item) => ({
@@ -17,17 +16,13 @@ export const v2 = (inputArr) => {
       imgs: item.images,
       paths: item.path,
     }))
-
-    // .sort((a, b) => {
-    //   return a.options.find(({ key }) => key ===  'Цвет').value === b.options.find(({ key }) => key ===  'Цвет').value ? 0 : a.options.find(({ key }) => key ===  'Цвет').value < b.options.find(({ key }) => key ===  'Цвет').value ? -1 : 1;
-    // })
     .sort((a, b) => {
-      return a.title === b.title && a.colours === b.colours ? 0 : a.title < b.title && a.colours < b.colours ? -1 : 1;
+      return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
     })
     .reduce((pre, cur, i) => {
       if (cur.title === pre.title || cur.title === pre.reverse()[0]?.title) {
         if (i === inputArr.length - 1) {
-          arr.push(Array.prototype.concat(cur, pre));
+          arr.push(Array.prototype.concat(cur, pre).sort((a, b) => a.colours === b.colours ? 0 : a.colours < b.colours ? -1 : 1));
           return arr;
         } else {
           return Array.prototype.concat(cur, pre);
