@@ -18,14 +18,30 @@ export default function CatalogAlt1(props) {
     menuOpen: false,
   });
 
+
+  let r = products[state.chosen].colours.reduce((p, c, i) => {
+  console.log("🚀 ~ file: CatalogAlt1.js ~ line 23 ~ r ~ products[state.chosen].colours", state.chosenColor)
+    console.log(
+      '🚀 ',
+      p, c
+    );
+
+    return p === state.chosenColor[1] ? i : c;
+  })
+  console.log("🚀 ~ file: CatalogAlt1.js ~ line 31 ~ r ~ r", r)
+
+
   return (
     <>
       <div id={`Catalog`} className={`mt-20`}>
         <div
           className={`max-w-7xl mx-auto my-10 flex flex-wrap justify-center transition-all duration-300 delay-100`}
         >
-          <Text className={`zero:text-3xl sm:text-5xl font-bold whitespace-nowrap`}>{content[0][0]}</Text>&nbsp;
-          <Text className={`zero:text-3xl sm:text-5xl font-bold text-belplit24_2 whitespace-nowrap`}>{content[0][1]}</Text>
+          <Text className={`zero:text-3xl sm:text-5xl font-bold whitespace-nowrap`}>{content[0][0]}</Text>
+          &nbsp;
+          <Text className={`zero:text-3xl sm:text-5xl font-bold text-belplit24_2 whitespace-nowrap`}>
+            {content[0][1]}
+          </Text>
         </div>
         <div className={`w-full`}>
           {lgView ? (
@@ -46,7 +62,12 @@ export default function CatalogAlt1(props) {
                               ...state,
                               chosen: item.productIndex,
                               chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
-                              chosenColor: [0, products[item.productIndex].options[state.chosenOption].find(({ key }) => key === 'Цвет').value]
+                              chosenColor: [
+                                0,
+                                products[item.productIndex].options[state.chosenOption].find(
+                                  ({ key }) => key === 'Цвет'
+                                ).value,
+                              ],
                             };
                           });
                         }}
@@ -99,57 +120,6 @@ export default function CatalogAlt1(props) {
               </div>
 
               <br />
-              <div className={`max-w-7xl mx-auto text-3xl font-bold my-4 px-4`}>
-                <div className={`my-4`}>
-                  Коллекция {products.find((item, index) => index === state.chosen).title}
-                </div>
-                <div className={`text-xl font-light flex flex-wrap gap-2`}>
-                  {products
-                    .find((item, i) => i === state.chosen)
-                    .options.sort((a, b) =>
-                      a.find(({ key }) => key === 'Цвет').value === b.find(({ key }) => key === 'Цвет').value
-                        ? 0
-                        : a.find(({ key }) => key === 'Цвет').value <
-                          b.find(({ key }) => key === 'Цвет').value
-                        ? -1
-                        : 1
-                    )
-                    .filter((item) => item.find(({ key }) => key === 'Цвет').value !== 'Огайо')
-                    .map((item, i) => {
-                      return (
-                        <div
-                          key={`COLOR${i}`}
-                          className={``}
-                          onClick={() => {
-                            setState((state) => {
-                              return {
-                                ...state,
-                                chosenColor: [i, item.find(({ key }) => key === 'Цвет').value],
-                              };
-                            });
-                          }}
-                        >
-                          <div className={`relative flex`}>
-                            <img
-                              className={`rounded-full overflow-hidden cursor-pointer`}
-                              src={`images/shinglas-rus.ru/products/${state.chosenType}/${
-                                products[state.chosen].title
-                              }/${i + 1}sm.jpg`}
-                            ></img>
-
-                            {state.chosenColor[0] === i && (
-                              <Icons.Ok stroke='white' extraClasses={`absolute`} />
-                            )}
-                          </div>
-
-                          <div className={`text-base text-center cursor-pointer`}>
-                            {item.find((option, ii) => option.key === 'Цвет').value}
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
             </>
           ) : (
             <>
@@ -238,70 +208,57 @@ export default function CatalogAlt1(props) {
               )}
             </>
           )}
-           <br />
-              <div className={`max-w-7xl mx-auto text-3xl font-bold my-4 px-4`}>
-                <div className={`my-4`}>
-                  Коллекция {products.find((item, index) => index === state.chosen).title}
-                </div>
-                <div className={`text-xl font-light flex flex-wrap gap-2`}>
-                  {products
-                    .find((item, i) => i === state.chosen)
-                    .options.sort((a, b) =>
-                      a.find(({ key }) => key === 'Цвет').value === b.find(({ key }) => key === 'Цвет').value
-                        ? 0
-                        : a.find(({ key }) => key === 'Цвет').value <
-                          b.find(({ key }) => key === 'Цвет').value
-                        ? -1
-                        : 1
-                    )
-                    .filter((item) => item.find(({ key }) => key === 'Цвет').value !== 'Огайо')
-                    .map((item, i) => {
-                      return (
-                        <div
-                          key={`COLOR${i}`}
-                          className={``}
-                          onClick={() => {
-                            setState((state) => {
-                              return {
-                                ...state,
-                                chosenColor: [i, item.find(({ key }) => key === 'Цвет').value],
-                              };
-                            });
-                          }}
-                        >
-                          <div className={`relative flex`}>
-                            <img
-                              className={`rounded-full overflow-hidden cursor-pointer`}
-                              src={`images/shinglas-rus.ru/products/${state.chosenType}/${
-                                products[state.chosen].title
-                              }/${i + 1}sm.jpg`}
-                            ></img>
+          <br />
+          <div className={`max-w-7xl mx-auto text-3xl font-bold my-4 px-4`}>
+            <div className={`my-4`}>
+              Коллекция {products.find((item, index) => index === state.chosen).title}
+            </div>
+            <div className={`text-xl font-light flex flex-wrap gap-2`}>
+              {products
+                .find((item, i) => i === state.chosen)
+                .options.sort((a, b) =>
+                  a.find(({ key }) => key === 'Цвет').value === b.find(({ key }) => key === 'Цвет').value
+                    ? 0
+                    : a.find(({ key }) => key === 'Цвет').value < b.find(({ key }) => key === 'Цвет').value
+                    ? -1
+                    : 1
+                )
+                .filter((item) => item.find(({ key }) => key === 'Цвет').value !== 'Огайо')
+                .map((item, i) => {
+                  return (
+                    <div
+                      key={`COLOR${i}`}
+                      className={``}
+                      onClick={() => {
+                        setState((state) => {
+                          return {
+                            ...state,
+                            chosenColor: [i, item.find(({ key }) => key === 'Цвет').value],
+                          };
+                        });
+                      }}
+                    >
+                      <div className={`relative flex`}>
+                        <img
+                          className={`rounded-full overflow-hidden cursor-pointer`}
+                          src={`images/shinglas-rus.ru/products/${state.chosenType}/${
+                            products[state.chosen].title
+                          }/${i + 1}sm.jpg`}
+                        ></img>
 
-                            {state.chosenColor[0] === i && (
-                              <Icons.Ok stroke='white' extraClasses={`absolute`} />
-                            )}
-                          </div>
+                        {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
+                      </div>
 
-                          <div className={`text-base text-center cursor-pointer`}>
-                            {item.find((option, ii) => option.key === 'Цвет').value}
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
+                      <div className={`text-base text-center cursor-pointer`}>
+                        {item.find((option, ii) => option.key === 'Цвет').value}
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
           <div className={`max-w-7xl mx-auto z-10 my-4 flex flex-wrap px-4`}>
             <div
-              onMouseEnter={() =>
-                setState((state) => {
-                  return { ...state, hover: true };
-                })
-              }
-              onMouseLeave={() =>
-                setState((state) => {
-                  return { ...state, hover: false };
-                })
-              }
               className={`relative overflow-hidden zero:w-full sm:w-2/3`}
               style={{ height: lgView ? w / 3 : w / 1.5 }}
             >
@@ -314,9 +271,15 @@ export default function CatalogAlt1(props) {
               />
             </div>
             <div className={`flex flex-col`}>
-              <div className={`font-light ml-4 text-2xl flex flex-col my-2`}> Коллекция {products[state.chosen].title}</div>
+              <div className={`font-light ml-4 text-2xl flex flex-col my-2`}>
+                {' '}
+                Коллекция {products[state.chosen].title}
+              </div>
               <div className={`font-bold ml-4 text-3xl flex flex-col mb-2`}>
-                {products[state.chosen].prices[state.chosenOption]}₽/м²
+                {
+                  products[state.chosen].prices[products[state.chosen].colours.indexOf(state.chosenColor[1])]
+                }
+                ₽/м²
               </div>
               <div className={`ml-4`}>
                 <Button theme={theme} href={'#Contacts'}>
