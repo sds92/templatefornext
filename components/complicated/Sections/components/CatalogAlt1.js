@@ -235,7 +235,7 @@ export default function CatalogAlt1(props) {
                         {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
                       </div>
 
-                      <div className={`text-base text-center cursor-pointer`}>{product.colours[i+1]}</div>
+                      <div className={`text-base text-center cursor-pointer`}>{product.options[i].find(({ key }) => key === 'Цвет').value}</div>
                     </div>
                   );
                 })}
