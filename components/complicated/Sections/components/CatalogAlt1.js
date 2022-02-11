@@ -7,9 +7,10 @@ import { Icons } from '../../';
 
 export default function CatalogAlt1(props) {
   const { w, lgView, app, theme, products } = props;
+  console.log('🚀 ~ file: CatalogAlt1.js ~ line 10 ~ CatalogAlt1 ~ products', products);
   const content = props.content.content.catalog;
   const [state, setState] = React.useState({
-    chosenType: products[0].options[0][0].value === 'Однослойная' ? 'flexible' : 'multilayer',
+    chosenType: 'flexible',
     chosenColor: [0, 'Зеленый'],
     chosenOption: 0,
     chosen: 0,
@@ -18,7 +19,15 @@ export default function CatalogAlt1(props) {
     menuOpen: false,
   });
 
-  const price = products[state.chosen].prices[products[state.chosen].colours.indexOf(state.chosenColor[1])]
+  const product = products[state.chosen];
+  const price = products[state.chosen].prices[state.chosenOption];
+  console.log('🚀 ~ file: CatalogAlt1.js ~ line 24 ~ CatalogAlt1 ~ price', price);
+  const title = product.titles[state.chosenOption];
+  const color = product.colours[state.chosenOption];
+
+  React.useEffect(() => {
+    console.log('🚀 ~ file: CatalogAlt1.js ~ line 31 ~ CatalogAlt1 ~ price', price);
+  }, [price]);
 
   return (
     <>
@@ -51,12 +60,7 @@ export default function CatalogAlt1(props) {
                               ...state,
                               chosen: item.productIndex,
                               chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
-                              chosenColor: [
-                                0,
-                                products[item.productIndex].options[state.chosenOption].find(
-                                  ({ key }) => key === 'Цвет'
-                                ).value,
-                              ],
+                              chosenColor: [0, product.colours[0]],
                             };
                           });
                         }}
@@ -155,7 +159,7 @@ export default function CatalogAlt1(props) {
                               state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
                             } text-left `}
                           >
-                            <div className={`text-base`}>{item.title}</div>
+                            <div className={`text-base`}>{title}</div>
                             <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
                           </div>
                         </div>
@@ -187,7 +191,7 @@ export default function CatalogAlt1(props) {
                               state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
                             } text-left `}
                           >
-                            <div className={`text-base`}>{item.title}</div>
+                            <div className={`text-base`}>{title}</div>
                             <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
                           </div>
                         </div>
@@ -199,9 +203,7 @@ export default function CatalogAlt1(props) {
           )}
           <br />
           <div className={`max-w-7xl mx-auto text-3xl font-bold my-4 px-4`}>
-            <div className={`my-4`}>
-              Коллекция {products.find((item, index) => index === state.chosen).title}
-            </div>
+            <div className={`my-4`}>Коллекция {title}</div>
             <div className={`text-xl font-light flex flex-wrap gap-2`}>
               {products
                 .find((item, i) => i === state.chosen)
@@ -230,17 +232,13 @@ export default function CatalogAlt1(props) {
                       <div className={`relative flex`}>
                         <img
                           className={`rounded-full overflow-hidden cursor-pointer`}
-                          src={`images/shinglas-rus.ru/products/${state.chosenType}/${
-                            products[state.chosen].title
-                          }/${i + 1}sm.jpg`}
+                          src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${i + 1}sm.jpg`}
                         ></img>
 
                         {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
                       </div>
 
-                      <div className={`text-base text-center cursor-pointer`}>
-                        {item.find((option, ii) => option.key === 'Цвет').value}
-                      </div>
+                      <div className={`text-base text-center cursor-pointer`}>{item.title}</div>
                     </div>
                   );
                 })}
@@ -253,21 +251,16 @@ export default function CatalogAlt1(props) {
             >
               <img
                 className={`w-full`}
-                src={`images/shinglas-rus.ru/products/${state.chosenType}/${products[state.chosen].title}/${
+                src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${
                   state.chosenColor[0] + 1
                 }.jpg`}
                 alt
               />
             </div>
             <div className={`flex flex-col`}>
-              <div className={`font-light ml-4 text-2xl flex flex-col my-2`}>
-                {' '}
-                Коллекция {products[state.chosen].title}
-              </div>
+              <div className={`font-light ml-4 text-2xl flex flex-col my-2`}> Коллекция {title}</div>
               <div className={`font-bold ml-4 text-3xl flex flex-col mb-2`}>
-                {
-                  price
-                }
+                {price}
                 ₽/м²
               </div>
               <div className={`ml-4`}>

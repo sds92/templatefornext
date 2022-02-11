@@ -11,7 +11,7 @@ export default function Gallery(props) {
       <SubTitle>{content[1]}</SubTitle>
       <hr />
       <br />
-      <div className={`flex gap-4 flex-wrap justify-center md:w-10/12 lg:w-6/12 mx-auto`}>
+      <div className={`flex gap-4 flex-wrap justify-center max-w-5xl mx-auto`}>
         {imgs.map((item, index) => (
           <div key={`IMG${index}`} className={`flex-none`}>
             <div className={`relative`}>

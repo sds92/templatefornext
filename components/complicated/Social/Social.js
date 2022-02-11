@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icons } from '..';
 
-export default function Social({app}) {
+export default function Social({app, theme}) {
   return (
     <>
       {app.contacts.socials &&
@@ -15,7 +15,7 @@ export default function Social({app}) {
             </div>
           );
         })}
-      <div className={`text-slate-100 hover:text-belplit24_2 transition-all `}>
+      <div className={`${theme.text.color.} hover:text-belplit24_2 transition-all `}>
         <a href={`tel:${app.contacts.phones[0]}`}>{app.contacts.phones[0]}</a>
       </div>
     </>

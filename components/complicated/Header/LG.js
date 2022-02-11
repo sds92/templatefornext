@@ -37,7 +37,7 @@ export default function LG({ menu, app, theme }) {
       </ul>
       <div className={`flex`}>
         <div className={`flex gap-2`}>
-          <Social app={app} />
+          <Social app={app} theme={theme}/>
         </div>
       </div>
     </nav>

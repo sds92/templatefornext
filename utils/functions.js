@@ -10,9 +10,6 @@ export const v2 = (inputArr) => {
       prices: item.cost,
       priceFor: item.unit,
       show: item.visible,
-      articles: item.article,
-      ids: item.id,
-      coef: item.coef,
       imgs: item.images,
       paths: item.path,
     }))
@@ -35,6 +32,7 @@ export const v2 = (inputArr) => {
     .map((item) =>
       item.reduce(
         (pre, cur) => {
+          pre.titles.push(cur.title)
           pre.colours.push(cur.colours)
           pre.type.push(cur.type)
           pre.options.push(cur.options)
@@ -42,26 +40,21 @@ export const v2 = (inputArr) => {
           pre.prices.push(cur.prices);
           pre.priceFor.push(cur.priceFor);
           pre.show.push(cur.show);
-          pre.articles.push(cur.articles);
-          pre.ids.push(cur.ids);
-          pre.coef.push(cur.coef);
           pre.imgs.push(cur.imgs);
           pre.paths.push(cur.paths);
           return pre;
         },
         {
+          title: item[0].title,
+          titles: [],
           colours: [],
           type: [],
           options: [],
-          title: item[0].title,
           // sizes: [],
           infos: [],
           prices: [],
           priceFor: [],
           show: [],
-          articles: [],
-          ids: [],
-          coef: [],
           imgs: [],
           paths: [],
         }
