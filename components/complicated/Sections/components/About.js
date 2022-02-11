@@ -63,7 +63,7 @@ export default function About({ content, w, theme }) {
           <Text className={`zero:text-3xl sm:text-5xl ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
         <div className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}>
-          <Text className={`max-w-3xl text-center font-light mx-auto my-2 px-10`}>{content[3]}</Text>
+          <Text className={`max-w-3xl text-center font-light mx-auto my-2 px-4`}>{content[3]}</Text>
         </div>
 
         <div className={`flex flex-wrap justify-center gap-10 md:gap-40 my-10`}>

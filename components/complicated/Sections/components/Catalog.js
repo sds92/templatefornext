@@ -51,7 +51,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <Text className={`zero:text-3xl sm:text-5xl text-center ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
         <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
-          <Text className={`font-light max-w-7xl mx-auto text-center text-lg pt-2`}>{content[1]}</Text>
+          <Text className={`font-light max-w-7xl mx-auto text-center text-lg pt-2 px-4`}>{content[1]}</Text>
         </div>
 
         <div className={`w-full`}>
