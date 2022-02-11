@@ -7,12 +7,11 @@ import { Icons } from '../../';
 
 export default function CatalogAlt1(props) {
   const { w, lgView, app, theme, products } = props;
-  console.log('🚀 ~ file: CatalogAlt1.js ~ line 10 ~ CatalogAlt1 ~ products', products);
   const content = props.content.content.catalog;
   const [state, setState] = React.useState({
     chosenType: 'flexible',
     chosenColor: [0, 'Зеленый'],
-    chosenOption: 0,
+    chosenOption: 1,
     chosen: 0,
     hover: null,
     show: false,
@@ -21,13 +20,8 @@ export default function CatalogAlt1(props) {
 
   const product = products[state.chosen];
   const price = products[state.chosen].prices[state.chosenOption];
-  console.log('🚀 ~ file: CatalogAlt1.js ~ line 24 ~ CatalogAlt1 ~ price', price);
   const title = product.titles[state.chosenOption];
   const color = product.colours[state.chosenOption];
-
-  React.useEffect(() => {
-    console.log('🚀 ~ file: CatalogAlt1.js ~ line 31 ~ CatalogAlt1 ~ price', price);
-  }, [price]);
 
   return (
     <>
@@ -224,6 +218,7 @@ export default function CatalogAlt1(props) {
                         setState((state) => {
                           return {
                             ...state,
+                            chosenOption: product.colours.indexOf(item.find(({ key }) => key === 'Цвет').value),
                             chosenColor: [i, item.find(({ key }) => key === 'Цвет').value],
                           };
                         });
@@ -252,7 +247,7 @@ export default function CatalogAlt1(props) {
               <img
                 className={`w-full`}
                 src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${
-                  state.chosenColor[0] + 1
+                  state.chosenColor[0] +1
                 }.jpg`}
                 alt
               />
