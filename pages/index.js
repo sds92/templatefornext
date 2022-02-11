@@ -4,9 +4,10 @@ import { Header, Section } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import { plitaosb3ru } from '../utils/functions';
+import { FullPage } from '../components/complicated';
 
-
-export default function Home({ w, lgView, app, menu, input, theme, products }) {
+export default function Home(props) {
+  const { w, lgView, app, menu, input, theme, products } = props;
   const router = useRouter();
   return (
     <body>
@@ -23,19 +24,7 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
           variants={animations.opacity.variants}
           transition={animations.opacity.transition}
         >
-          {menu.map((item, index) => (
-            <Section
-              key={`SECTION${index}`}
-              className={`cursor-default`}
-              id={item[1].replaceAll('#', '')}
-              app={app}
-              lgView={lgView}
-              content={input.content[item[1].replaceAll('#', '').toLowerCase()]}
-              theme={theme}
-              products={products}
-              w={w}
-            />
-          ))}
+          <FullPage {...props}/>
         </motion.div>
       </>
     </body>
