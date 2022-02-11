@@ -112,7 +112,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                             index === state.chosen
                               ? `${theme.text.color.title} font-normal -mr-1 border-b ${theme.borders.catalogMenuItem}`
                               : ''
-                          } absolute inset-0 ${theme.text.catalog} active:scale-x-105  active:${theme.text.color.title} active:font-normal`}
+                          } absolute hover:font-normal inset-0 ${theme.text.catalog} active:scale-x-105  active:${theme.text.color.title} active:font-normal`}
                         >
                           {item.title.toUpperCase()}
                         </div>

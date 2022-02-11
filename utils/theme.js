@@ -65,7 +65,7 @@ const theme = (name) => {
         productLine: 'bg-belplit'
       };
       theme.text = {
-        header: 'text-zinc-100 hover:text-belplit',
+        header: 'text-zinc-100 hover:text-belplit_2',
         footer: 'text-zinc-100',
         main: 'text-zinc-800',
         devider: 'text-zinc-100',

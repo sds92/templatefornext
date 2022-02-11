@@ -18,6 +18,7 @@ module.exports = {
     'max-w-md',
     'max-w-sm',
     'text-3xl',
+    'hover:text-belplit_2',
     'hover:text-belplit',
     'hover:bg-belplit_dark',
     'hover:bg-belplit_2',
