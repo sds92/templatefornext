@@ -197,8 +197,8 @@ export default function CatalogAlt1(props) {
           )}
           <br />
           <div className={`max-w-7xl mx-auto text-3xl font-bold my-4 px-4`}>
-            <div className={`my-4`}>Коллекция {title}</div>
-            <div className={`text-xl font-light flex flex-wrap gap-2`}>
+            <div className={`my-4 zero:text-center sm:text-left`}>Коллекция {title}</div>
+            <div className={`text-xl font-light flex flex-wrap gap-2 zero:justify-center sm:justify-start`}>
               {products
                 .find((item, i) => i === state.chosen)
                 .options.sort((a, b) =>
@@ -218,7 +218,9 @@ export default function CatalogAlt1(props) {
                         setState((state) => {
                           return {
                             ...state,
-                            chosenOption: product.colours.indexOf(item.find(({ key }) => key === 'Цвет').value),
+                            chosenOption: product.colours.indexOf(
+                              item.find(({ key }) => key === 'Цвет').value
+                            ),
                             chosenColor: [i, item.find(({ key }) => key === 'Цвет').value],
                           };
                         });
@@ -233,7 +235,7 @@ export default function CatalogAlt1(props) {
                         {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
                       </div>
 
-                      <div className={`text-base text-center cursor-pointer`}>{item.title}</div>
+                      <div className={`text-base text-center cursor-pointer`}>{product.colours[i+1]}</div>
                     </div>
                   );
                 })}
@@ -242,12 +244,12 @@ export default function CatalogAlt1(props) {
           <div className={`max-w-7xl mx-auto z-10 my-4 flex flex-wrap px-4`}>
             <div
               className={`relative overflow-hidden zero:w-full sm:w-2/3`}
-              style={{ height: lgView ? w / 3 : w / 1.5 }}
+              // style={{ height: lgView ? w / 3 : w / 1.5 }}
             >
               <img
                 className={`w-full`}
                 src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${
-                  state.chosenColor[0] +1
+                  state.chosenColor[0] + 1
                 }.jpg`}
                 alt
               />
