@@ -13,10 +13,10 @@ export default function LG({ menu, app, theme }) {
         {menu.map((item, index) => (
           <li
             key={`MENUITEM${index}`}
-            className={`${theme.text.header} rd-nav-link hover:${theme.hoverText} transition-all duration-300`}
+            className={`${theme.text.header} rd-nav-link transition-all duration-300`}
           >
             <Link
-              activeClass={theme.hoverText}
+              activeClass={theme.text.color.title}
               to={item[1].replaceAll('#', '')}
               spy={true}
               smooth={true}

@@ -5,7 +5,7 @@ import { Icons } from '..';
 
 const Map = React.lazy(() => import('./Map'));
 
-export default function Footer({ app }) {
+export default function Footer({ app, theme }) {
   return (
     <>
       <div className={`h-96 cursor-default`}>
@@ -13,7 +13,7 @@ export default function Footer({ app }) {
           <Map app={app} />
         </React.Suspense>
       </div>
-      <footer className={`bg-belplit24`}>
+      <footer className={`${theme.bg.footer}`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
           <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
             <a href='index.html'>

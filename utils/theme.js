@@ -53,14 +53,14 @@ const theme = (name) => {
     case 'green':
       theme.bg = {
         header: 'bg-zinc-900',
-        footer: 'bg-zinc-300',
+        footer: 'bg-zinc-900',
         main: 'bg-white',
         devider: 'bg-zinc-800',
         advantages: 'bg-zinc-800',
         catalog: 'bg-white',
         about: 'bg-white',
         gallery: 'bg-white',
-        contacts: 'bg-zinc-100',
+        contacts: 'bg-zinc-800',
         buttons: 'bg-belplit hover:bg-belplit_2',
         productLine: 'bg-belplit'
       };
@@ -84,12 +84,13 @@ const theme = (name) => {
       theme.ui = {
         text: { title: 'text-belplit24 font-bold' },
         buttons: {
-          bg: 'bg-belplit24_2 hover:bg-belplit24_2_b',
+          bg: 'bg-belplit hover:bg-belplit_2',
         },
       };
       theme.borders = {
         catalogMenuItem: `border-belplit_2`,
-        icons: `border-belplit_2 text-belplit_2`
+        icons: `border-belplit_2 text-belplit_2`,
+        contacts: `border-belplit_dark`
       }
       break;
     default:

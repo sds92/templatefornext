@@ -1,5 +1,6 @@
 import React from 'react';
 import Deviders from '../Deviders';
+import { Special } from '../..';
 import { Title, SubTitle, Text } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
@@ -67,11 +68,12 @@ export default function About({ content, w, theme }) {
 
         <div className={`flex flex-wrap justify-center gap-10 md:gap-40 my-10`}>
           {imgs.map((item, index) => {
+            const Icon = Special[`Icon${index+1}`]
             return (
               <div key={`ADVIMG${index}`} className={``}>
                 <article className={`flex flex-col justify-center items-center`}>
                   <div>
-                    <img src={item[0]} alt='' />
+                    <Icon/>
                   </div>
                   <div className={`flex text-3xl justify-center`}>
                     <div className={``}>{Math.round(counter[index])}</div>%

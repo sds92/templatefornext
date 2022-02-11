@@ -18,18 +18,16 @@ module.exports = {
     'max-w-md',
     'max-w-sm',
     'text-3xl',
+    'hover:text-belplit',
     'hover:bg-belplit_dark',
     'hover:bg-belplit_2',
     'hover:bg-belplit',
     'border-belplit_2',
+    'border-belplit_dark',
     'active:text-belplit_2',
     'active:bg-belplit',
     {
       pattern: /(text)-(xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl)/,
-    },
-    {
-      pattern:
-        /(hover:text|hover:bg)-(belplit|belplit_2|bp_3|belplit_dark|belplit24|belplit24_2|belplit24_2_b|belplit24_3)/,
     },
     {
       pattern:

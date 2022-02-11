@@ -33,7 +33,7 @@ export default function Main({ app, content, lgView, theme }) {
               </>
             ) : (
               <>
-                <div className='font-bold text-3xl text-belplit24_2'>{app.title}</div>
+                <div className={`font-bold text-5xl  ${theme.text.color.title}`}><div className={`text-zinc-800`}>МДВП </div>{app.title}</div>
                 <div style={{ height: '1px' }} className={`my-4 bg-belplit24`}></div>
               </>
             )}

@@ -8,8 +8,8 @@ export default function Gallery({ content, theme }) {
       <div
         className={`flex ${theme.text.color} font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 `}
       >
-        <Text className={`text-3xl  ${theme.text.color.normal}`}>Примеры использования МДВП</Text>&nbsp;
-        <Text className={`text-3xl ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
+        <Text className={`text-3xl text-center ${theme.text.color.normal}`}>Примеры использования МДВП</Text>&nbsp;
+        <Text className={`text-3xl text-center ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
       </div>
       <hr />
       <br />
