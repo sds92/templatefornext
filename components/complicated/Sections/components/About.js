@@ -59,11 +59,11 @@ export default function About({ content, w, theme }) {
         <div
           className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}
         >
-          <Text className={`text-5xl`}>Что такое МДВП</Text>&nbsp;
-          <Text className={`text-5xl ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
+          <Text className={`zero:text-3xl sm:text-5xl`}>Что такое МДВП</Text>&nbsp;
+          <Text className={`zero:text-3xl sm:text-5xl ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
         <div className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}>
-          <SubTitle className={`max-w-3xl`}>{content[3]}</SubTitle>
+          <Text className={`max-w-3xl text-center font-light mx-auto my-2 px-10`}>{content[3]}</Text>
         </div>
 
         <div className={`flex flex-wrap justify-center gap-10 md:gap-40 my-10`}>

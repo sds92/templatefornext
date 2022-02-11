@@ -47,8 +47,8 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
     <>
       <div ref={ref} className={``}>
         <div className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}>
-          <Text className={`text-5xl text-center`}>Размеры и цены МДВП</Text>&nbsp;
-          <Text className={`text-5xl text-center ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
+          <Text className={`zero:text-3xl sm:text-5xl text-center`}>Размеры и цены МДВП</Text>&nbsp;
+          <Text className={`zero:text-3xl sm:text-5xl text-center ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
         <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
           <Text className={`font-light max-w-7xl mx-auto text-center text-lg pt-2`}>{content[1]}</Text>
@@ -60,7 +60,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
               <Menu
                 menuButton={({ open }) => {
                   return (
-                    <MenuButton className={`ml-4 my-4`}>
+                    <MenuButton className={`my-4`}>
                       <Button
                         theme={theme}
                         style={{ border: 'none' }}
