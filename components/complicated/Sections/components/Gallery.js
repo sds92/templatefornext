@@ -2,9 +2,9 @@ import React from 'react';
 import { Title, SubTitle } from '../../../lib';
 
 export default function Gallery(props) {
-  const { w, lgView, app, theme, products } = props
-  const content = props.content.content.gallery
-  const imgs = content[2]
+  const { w, lgView, app, theme, products } = props;
+  const content = props.content.content.gallery;
+  const imgs = content[2];
   return (
     <div id={`Gallery`} className={`py-20`}>
       <Title a={content[0][0]} b={content[0][1]} />

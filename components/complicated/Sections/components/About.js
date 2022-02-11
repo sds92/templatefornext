@@ -56,7 +56,6 @@ export default function About(props) {
   }, [inView]);
   return (
     <>
-      <Deviders content={content} />
       <div ref={ref} id={`Advantages`}>
         <div className={`pt-10`}>
           <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>{content[7]}</Text>
@@ -88,6 +87,7 @@ export default function About(props) {
             })}
           </div>
         </div>
+        <Deviders content={content} />
       </div>
     </>
   );

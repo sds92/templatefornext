@@ -135,7 +135,7 @@ export default function CatalogAlt1(props) {
                       .filter((item) => item.type === 'Однослойная')
                       .map((item, index) => (
                         <div
-                          className={`cursor-pointer text-xl  font-light px-2`}
+                          className={`cursor-pointer text-xl font-light px-2`}
                           key={`LINK${item.productIndex}`}
                           onClick={() => {
                             setState((state) => {
@@ -213,7 +213,7 @@ export default function CatalogAlt1(props) {
                   return (
                     <div
                       key={`COLOR${i}`}
-                      className={``}
+                      className={`flex flex-col items-center justify-center`}
                       onClick={() => {
                         setState((state) => {
                           return {
@@ -226,7 +226,7 @@ export default function CatalogAlt1(props) {
                         });
                       }}
                     >
-                      <div className={`relative flex`}>
+                      <div className={`relative`}>
                         <img
                           className={`rounded-full overflow-hidden cursor-pointer`}
                           src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${i + 1}sm.jpg`}
@@ -245,6 +245,7 @@ export default function CatalogAlt1(props) {
             <div
               className={`relative overflow-hidden zero:w-full sm:w-2/3`}
               // style={{ height: lgView ? w / 3 : w / 1.5 }}
+              style={{height: '307px'}}
             >
               <img
                 className={`w-full`}
@@ -252,9 +253,10 @@ export default function CatalogAlt1(props) {
                   state.chosenColor[0] + 1
                 }.jpg`}
                 alt
+                
               />
             </div>
-            <div className={`flex flex-col`}>
+            <div className={`flex flex-col zero:w-full sm:w-1/3`}>
               <div className={`font-light ml-4 text-2xl flex flex-col my-2`}> Коллекция {title}</div>
               <div className={`font-bold ml-4 text-3xl flex flex-col mb-2`}>
                 {price}
