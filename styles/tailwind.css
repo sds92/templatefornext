@@ -1432,8 +1432,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
+.rounded-xl{
+  border-radius: 0.75rem;
+}
+
 .border{
   border-width: 1px;
+}
+
+.border-2{
+  border-width: 2px;
 }
 
 .border-b{
@@ -3781,6 +3789,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-left-color: rgb(30 58 138 / var(--tw-border-opacity));
 }
 
+.border-opacity-50{
+  --tw-border-opacity: 0.5;
+}
+
+.border-opacity-10{
+  --tw-border-opacity: 0.1;
+}
+
+.border-opacity-0{
+  --tw-border-opacity: 0;
+}
+
 .bg-slate-100{
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
@@ -5482,6 +5502,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .p-1{
   padding: 0.25rem;
+}
+
+.p-0\.5{
+  padding: 0.125rem;
+}
+
+.p-0{
+  padding: 0px;
 }
 
 .px-6{

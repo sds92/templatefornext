@@ -62,7 +62,8 @@ const theme = (name) => {
         gallery: 'bg-white',
         contacts: 'bg-zinc-800',
         buttons: 'bg-belplit hover:bg-belplit_2',
-        productLine: 'bg-belplit'
+        productLine: 'bg-belplit',
+        choose: 'bg-belplit hover:bg-belplit_2'
       };
       theme.text = {
         header: 'text-zinc-100 hover:text-belplit_2',

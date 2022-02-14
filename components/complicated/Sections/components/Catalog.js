@@ -57,43 +57,53 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         </div>
 
         <div className={`w-full`}>
-          <div className={`flex items-center justify-center`}>
+          <div className={`flex items-center justify-center gap-1`}>
             {!lgView ? (
-              <Menu
-                menuButton={({ open }) => {
-                  return (
-                    <MenuButton className={`my-4`}>
-                      <Button
-                        theme={theme}
-                        style={{ border: 'none' }}
-                        onClick={() =>
-                          setState((state) => {
-                            return { ...state, show: !state.show };
-                          })
-                        }
-                      >
-                        Выбрать
-                        <Icons.ChevronDown
-                          extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
-                        />
-                      </Button>
-                    </MenuButton>
-                  );
-                }}
-              >
-                {products.map((innerItem, index) => (
-                  <MenuItem
-                    key={`NAVLGINNER${index}`}
-                    onClick={() => {
-                      setState((state) => {
-                        return { ...state, chosen: index };
-                      });
-                    }}
+              <>
+                <Menu
+                  menuButton={({ open }) => {
+                    return (
+                      <MenuButton className={`my-4`}>
+                        <Button
+                          theme={theme}
+                          style={{ border: 'none' }}
+                          onClick={() =>
+                            setState((state) => {
+                              return { ...state, show: !state.show };
+                            })
+                          }
+                        >
+                          Выбрать
+                          <Icons.ChevronDown
+                            extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
+                          />
+                        </Button>
+                      </MenuButton>
+                    );
+                  }}
+                >
+                  {products.map((innerItem, index) => (
+                    <MenuItem
+                      key={`NAVLGINNER${index}`}
+                      onClick={() => {
+                        setState((state) => {
+                          return { ...state, chosen: index };
+                        });
+                      }}
+                    >
+                      &nbsp;{innerItem.title}
+                    </MenuItem>
+                  ))}
+                </Menu>
+                <a className={`${theme.bg.buttons} rounded-xl`} href={`tel:${app.contacts.phones[0]}`}>
+                  <div
+                    className={` ${theme.text.buttons} rounded-md  p-2 w-40 mx-auto flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
                   >
-                    &nbsp;{innerItem.title}
-                  </MenuItem>
-                ))}
-              </Menu>
+                    <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} />
+                    Заказать
+                  </div>
+                </a>
+              </>
             ) : (
               <>
                 <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
@@ -191,16 +201,20 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
               );
             })}
           </div>
-          <br />
+          {lgView && (
+            <>
+              <br />
 
-          <a href={`tel:${app.contacts.phones[0]}`}>
-            <div
-              className={`${theme.bg.buttons} ${theme.text.buttons} w-40 mx-auto rounded-md p-2 flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
-            >
-              <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} />
-              Заказать
-            </div>
-          </a>
+              <a href={`tel:${app.contacts.phones[0]}`}>
+                <div
+                  className={`${theme.bg.buttons} ${theme.text.buttons} w-40 mx-auto rounded-md p-2 flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
+                >
+                  <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} />
+                  Заказать
+                </div>
+              </a>
+            </>
+          )}
           <br />
           <hr />
           <br />
