@@ -46,7 +46,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
   return (
     <>
       <div ref={ref} className={``}>
-        <div className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}>
+        <div
+          className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}
+        >
           <Text className={`zero:text-3xl sm:text-5xl text-center`}>Размеры и цены МДВП</Text>&nbsp;
           <Text className={`zero:text-3xl sm:text-5xl text-center ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
@@ -112,7 +114,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                             index === state.chosen
                               ? `${theme.text.color.title} font-normal -mr-1 border-b ${theme.borders.catalogMenuItem}`
                               : ''
-                          } absolute hover:font-normal inset-0 ${theme.text.catalog} active:scale-x-105  active:${theme.text.color.title} active:font-normal`}
+                          } absolute hover:font-normal inset-0 ${
+                            theme.text.catalog
+                          } active:scale-x-105  active:${theme.text.color.title} active:font-normal`}
                         >
                           {item.title.toUpperCase()}
                         </div>
@@ -187,6 +191,16 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
               );
             })}
           </div>
+          <br />
+
+          <a href={`tel:${app.contacts.phones[0]}`}>
+            <div
+              className={`${theme.bg.buttons} ${theme.text.buttons} w-40 mx-auto rounded-md p-2 flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
+            >
+              <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} />
+              Заказать
+            </div>
+          </a>
           <br />
           <hr />
           <br />

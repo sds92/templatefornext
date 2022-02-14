@@ -147,7 +147,6 @@ export const Phone = ({ w = 6, h = 6, ...props }) => {
     </SVGImage>
   );
 };
-
 export const Mail = ({ w = 6, h = 6, ...props }) => {
   return (
     <SVGImage
