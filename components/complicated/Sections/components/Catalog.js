@@ -205,7 +205,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
             <>
               <br />
 
-              <a href={`tel:${app.contacts.phones[0]}`}>
+              <a href={`#Contacts`}>
                 <div
                   className={`${theme.bg.buttons} ${theme.text.buttons} w-40 mx-auto rounded-md p-2 flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
                 >
