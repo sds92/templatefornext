@@ -18,7 +18,6 @@ import theme from '../utils/theme';
  */
 
 const siteId = 6
-
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
@@ -37,7 +36,7 @@ function MyApp({ Component, pageProps }) {
       []
     );
   }, []);
-
+  const data = require(`../data/${process.env.SITE_URL}.js`)
   const newProps = {
     menu: [
       ['Главная', '#Main'],
@@ -48,8 +47,7 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
-    app: app[siteId],
-    input: pages[siteId],
+    data,
     theme: theme('black'),
     ...pageProps,
   };
@@ -59,7 +57,7 @@ function MyApp({ Component, pageProps }) {
       {loading && <Preloader />}
       {!loading && (
         <div>
-          <Head head={newProps.input.head}></Head>
+          <Head head={newProps.data.head}></Head>
           <Component {...newProps} />
           <Footer app={newProps.app}/>
         </div>
@@ -68,5 +66,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default withYM(app[siteId].api.ym, Router)(MyApp);
+export default MyApp
 
