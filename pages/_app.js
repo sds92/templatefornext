@@ -4,8 +4,6 @@ import withYM from "next-ym";
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
-import pages from '../data/pages.json';
-import app from '../data/app.json';
 import theme from '../utils/theme';
 
 /**
@@ -22,7 +20,6 @@ import theme from '../utils/theme';
 const siteId = 6
 
 function MyApp({ Component, pageProps }) {
-  console.log("🚀 ~ file", app[6])
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
 
