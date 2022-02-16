@@ -207,9 +207,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
               <a href={`#Contacts`}>
                 <div
-                  className={`${theme.bg.buttons} ${theme.text.buttons} w-40 mx-auto rounded-md p-2 flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
+                  className={`${theme.bg.buttons} ${theme.text.buttons} w-40 mx-auto rounded-md p-2 flex text-2xl font-light items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
                 >
-                  <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} />
+                  {/* <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} /> */}
                   Заказать
                 </div>
               </a>
