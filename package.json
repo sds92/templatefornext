@@ -20,6 +20,7 @@
     "react-intersection-observer": "^8.33.1",
     "react-reveal": "^1.2.2",
     "react-scroll": "^1.8.4",
+    "react-yandex-metrika": "^2.6.0",
     "sass": "^1.49.7"
   },
   "devDependencies": {

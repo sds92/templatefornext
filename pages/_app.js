@@ -1,7 +1,5 @@
 import React from 'react';
-import Router from 'next/router';
-import Script from 'next/script';
-// import withYM from 'next-ym';
+import Router from "next/router";
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -12,6 +10,7 @@ import theme from '../utils/theme';
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
+
 
   React.useEffect(() => {
     setW(window.innerWidth);
@@ -37,6 +36,7 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
+    ym: app[2].api.ym,
     app: app[2],
     input: pages[2],
     theme: theme('green'),
@@ -47,17 +47,15 @@ function MyApp({ Component, pageProps }) {
     <>
       {loading && <Preloader />}
       {!loading && (
-        <>
-          <div>
-            <Head head={newProps.input.head}></Head>
-            <Component {...newProps} />
-            <Footer app={newProps.app} theme={newProps.theme} />
-          </div>
-          
-        </>
+        <div>
+          <Head ym={newProps.ym} head={newProps.input.head}></Head>
+          <Component {...newProps} />
+          <Footer app={newProps.app} theme={newProps.theme}/>
+        </div>
       )}
     </>
   );
 }
 
 export default MyApp;
+
