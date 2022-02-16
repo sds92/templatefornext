@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 
 export default function HeadComponent({ head, children }) {
   return (
@@ -16,6 +17,7 @@ export default function HeadComponent({ head, children }) {
         rel='stylesheet'
       ></link>
       {children && children}
+      
     </Head>
   );
 }
