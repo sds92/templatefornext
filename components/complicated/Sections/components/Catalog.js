@@ -66,7 +66,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                       <MenuButton className={`ml-4 zero:my-1 sm:my-2 w-72 rounded-md text-zinc-100 ${theme.bg.buttons}`}>
                         <Button
                         
-                          className={`text-xl px-4 py-2 font-semibold tracking-tight flex justify-center`}
+                          className={`text-xl px-4 py-2 font-semibold tracking-tight flex justify-center whitespace-nowrap`}
                           style={{ border: 'none' }}
                           onClick={() =>
                             setState((state) => {
