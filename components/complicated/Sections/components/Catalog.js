@@ -63,7 +63,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   key={`MENU${index}`}
                   menuButton={({ open }) => {
                     return (
-                      <MenuButton className={`ml-4 zero:my-1 sm:my-2 w-64 rounded-md text-zinc-100 ${theme.bg.buttons}`}>
+                      <MenuButton className={`ml-4 zero:my-1 sm:my-2 w-72 rounded-md text-zinc-100 ${theme.bg.buttons}`}>
                         <Button
                         
                           className={`text-xl px-4 py-2 font-semibold tracking-tight flex justify-center`}
