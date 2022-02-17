@@ -733,30 +733,35 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 1.5rem;
 }
 
-.right-0{
-  right: 0px;
-}
-
 .top-0{
   top: 0px;
 }
 
-.z-10{
-  z-index: 10;
+.right-0{
+  right: 0px;
 }
 
 .z-50{
   z-index: 50;
 }
 
-.mx-auto{
-  margin-left: auto;
-  margin-right: auto;
+.z-10{
+  z-index: 10;
 }
 
 .mx-1{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
+}
+
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .my-4{
@@ -784,11 +789,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0px;
 }
 
-.my-10{
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
 .ml-4{
   margin-left: 1rem;
 }
@@ -809,16 +809,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 2rem;
 }
 
-.-mt-10{
-  margin-top: -2.5rem;
-}
-
 .ml-0{
   margin-left: 0px;
 }
 
 .mr-2{
   margin-right: 0.5rem;
+}
+
+.-mt-10{
+  margin-top: -2.5rem;
 }
 
 .flex{
@@ -857,12 +857,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.5rem;
 }
 
-.h-full{
-  height: 100%;
-}
-
 .h-96{
   height: 24rem;
+}
+
+.h-full{
+  height: 100%;
 }
 
 .h-24{
@@ -909,16 +909,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 6rem;
 }
 
+.max-w-3xl{
+  max-width: 48rem;
+}
+
 .max-w-6xl{
   max-width: 72rem;
 }
 
 .max-w-xl{
   max-width: 36rem;
-}
-
-.max-w-3xl{
-  max-width: 48rem;
 }
 
 .flex-none{
@@ -933,16 +933,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-basis: 33.333333%;
 }
 
-.translate-x-0{
-  --tw-translate-x: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-translate-x-72{
-  --tw-translate-x: -18rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .translate-y-0{
   --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -950,6 +940,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .translate-y-11{
   --tw-translate-y: 2.75rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-0{
+  --tw-translate-x: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-x-72{
+  --tw-translate-x: -18rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1033,6 +1033,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-evenly;
 }
 
+.gap-10{
+  gap: 2.5rem;
+}
+
 .gap-2{
   gap: 0.5rem;
 }
@@ -1043,10 +1047,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-4{
   gap: 1rem;
-}
-
-.gap-10{
-  gap: 2.5rem;
 }
 
 .divide-slate-100 > :not([hidden]) ~ :not([hidden]){
@@ -5495,6 +5495,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: justify;
 }
 
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -5503,11 +5508,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-2xl{
@@ -8914,6 +8914,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 41.666667%;
   }
 
+  .md\:w-1\/2{
+    width: 50%;
+  }
+
   .md\:w-10\/12{
     width: 83.333333%;
   }
@@ -8922,20 +8926,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 50%;
   }
 
-  .md\:w-1\/2{
-    width: 50%;
-  }
-
   .md\:flex-row{
     flex-direction: row;
   }
 
-  .md\:gap-10{
-    gap: 2.5rem;
-  }
-
   .md\:gap-40{
     gap: 10rem;
+  }
+
+  .md\:gap-10{
+    gap: 2.5rem;
   }
 
   .md\:bg-opacity-0{

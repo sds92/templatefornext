@@ -85,6 +85,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                 >
                   {products
                     .map((product, index) => {
+                      console.log("🚀 ~ file: Catalog.js ~ line 88 ~ .map ~ product", product)
                       if (product.title.includes(`${item.key}`)) {
                         return (
                           <MenuItem
@@ -95,7 +96,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                               });
                             }}
                           >
-                            {product.title}
+                            {product.infos[0].includes(`китай`) ? 'Китай' : product.title.includes(`Ламинированная`) ? 'Россия' : product.title}
                           </MenuItem>
                         );
                       }
