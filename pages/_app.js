@@ -1,9 +1,8 @@
 import React from 'react';
 import Router from "next/router";
-import withYM from "next-ym";
 
 import '../styles/tailwind.css';
-import { Footer, Head, Preloader } from '../components/complicated';
+import { Footer, Head, Preloader, Context } from '../components/complicated';
 import theme from '../utils/theme';
 
 /**
@@ -56,11 +55,11 @@ function MyApp({ Component, pageProps }) {
     <>
       {loading && <Preloader />}
       {!loading && (
-        <div>
+        <Context.Provider ctx={data}>
           <Head head={newProps.data.head}></Head>
           <Component {...newProps} />
           <Footer app={newProps.app}/>
-        </div>
+        </Context.Provider>
       )}
     </>
   );
