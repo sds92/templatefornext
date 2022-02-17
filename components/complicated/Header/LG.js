@@ -5,7 +5,7 @@ import Social from '../Social/Social';
 
 export default function LG({ menu, app, theme }) {
   return (
-    <nav className={`${theme.bg} flex justify-evenly items-center h-20`}>
+    <nav className={`${theme.bg.header} flex justify-evenly items-center h-20`}>
       <a href='#Main'>
         <Icons.Belplit24 extraClasses={`w-10 h-10`} />
       </a>

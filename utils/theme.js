@@ -2,12 +2,37 @@ const theme = (name) => {
   let theme = {};
   switch (name) {
     case 'black':
-      theme.bg = 'bg-belplit24';
-      theme.text = 'text-white';
-      theme.textDark = 'text-zinc-800';
-      theme.hoverText = 'text-belplit24_2';
-      theme.buttonColours = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md';
-      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
+      theme.bg = {
+        header: 'bg-zinc-800',
+        footer: 'bg-zinc-800',
+        main: 'bg-white',
+        devider: 'bg-zinc-800',
+        advantages: 'bg-zinc-800',
+        catalog: 'bg-white',
+        about: 'bg-white',
+        gallery: 'bg-white',
+        contacts: 'bg-zinc-100',
+        buttons: 'bg-belplit24_2 hover:bg-belplit24_2_b',
+      };
+
+      theme.text = {
+        header: 'text-zinc-100',
+        footer: 'text-zinc-100',
+        main: 'text-zinc-800',
+        devider: 'text-zinc-100',
+        advantages: 'text-zinc-100',
+        catalog: 'text-zinc-800',
+        about: 'text-zinc-800',
+        gallery: 'text-zinc-800',
+        contacts: 'text-zinc-800',
+        buttons: 'text-zinc-100',
+      };
+      theme.ui = {
+        text: { title: 'text-belplit24 font-bold text-3xl' },
+        buttons: {
+          bg: 'bg-belplit24_2 hover:bg-belplit24_2_b',
+        },
+      };
       break;
     case 'blue':
       theme.bg = 'bg-slate-500';
