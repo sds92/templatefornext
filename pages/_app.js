@@ -1,6 +1,5 @@
 import React from 'react';
 import Router from 'next/router';
-import withYM from 'next-ym';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -77,4 +76,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default withYM(app[1].api.ym, Router)(MyApp);
+export default MyApp;
