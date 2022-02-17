@@ -1,5 +1,6 @@
 import React from 'react';
 import Router from 'next/router';
+import Script from 'next/script';
 import ym from 'react-yandex-metrika';
 
 import '../styles/tailwind.css';
@@ -43,9 +44,6 @@ function MyApp({ Component, pageProps }) {
     ...pageProps,
   };
 
-  // ym('hit', '/');
-  // ym('reachGoal', 'whateverGoal', {awesomeParameter: 42});
-
   return (
     <>
       {loading && <Preloader />}
@@ -73,7 +71,7 @@ function MyApp({ Component, pageProps }) {
              });
   `,
             }}
-          ></script>
+          />
         </>
       )}
     </>

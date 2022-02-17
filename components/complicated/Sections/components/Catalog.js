@@ -49,9 +49,11 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         <div
           className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}
         >
-          <Text className={`zero:text-3xl sm:text-5xl text-center`}>Размеры и цены МДВП</Text>&nbsp;
+          <Text className={`zero:text-3xl sm:text-5xl text-center`}>МДВП</Text>&nbsp;
           <Text className={`zero:text-3xl sm:text-5xl text-center ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
+        <Text className={`zero:text-2xl sm:text-3xl font-bold text-center `}>Найдете дешевле мы купим у Вас!</Text>
+        {/* <Text className={`zero:text-2xl sm:text-3xl font-bold text-center`}>Размеры и цены:</Text> */}
         <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
           <Text className={`font-light max-w-7xl mx-auto text-center text-lg pt-2 px-4`}>{content[1]}</Text>
         </div>
