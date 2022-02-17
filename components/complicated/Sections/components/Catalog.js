@@ -12,6 +12,7 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
+  console.log("🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ products", products)
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -85,7 +86,6 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                 >
                   {products
                     .map((product, index) => {
-                      console.log("🚀 ~ file: Catalog.js ~ line 88 ~ .map ~ product", product)
                       if (product.title.includes(`${item.key}`)) {
                         return (
                           <MenuItem

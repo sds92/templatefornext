@@ -16,6 +16,10 @@ export const fanerasite = (inputArr) => {
         ? 'Фанера хвойная ФСФ 3/3 НШ'
         : item.title.includes('ФК 4/4 НШ')
         ? 'Фанера березовая ФК 4/4 НШ'
+        : item.title.includes('итай')
+        ? 'Ламинированная фанера, Китай'
+        : item.title.includes('аминированная')
+        ? 'Ламинированная фанера, Россия'
         : item.title.slice(0, item.title.indexOf(',')),
       // cat: item.title.includes('Фанера березовая ФК 2/3 Ш2')
       //     ? 'Фанера березовая ФК 2/3 Ш2'
