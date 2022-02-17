@@ -21,27 +21,7 @@ export const fanerasite = (inputArr) => {
         : item.title.includes('аминированная')
         ? 'Ламинированная фанера, Россия'
         : item.title.slice(0, item.title.indexOf(',')),
-      // cat: item.title.includes('Фанера березовая ФК 2/3 Ш2')
-      //     ? 'Фанера березовая ФК 2/3 Ш2'
-      //     : item.title.includes('Фанера березовая ФК 3/4 Ш2')
-      //     ? 'Фанера березовая ФК 3/4 Ш2'
-      //     : item.title.includes('Фанера березовая ФСФ 4/4 НШ')
-      //     ? 'Фанера березовая ФСФ 4/4 НШ'
-      //     : item.title.includes('Фанера хвойная ФСФ 3/3 НШ')
-      //     ? 'Фанера хвойная ФСФ 3/3 НШ'
-      //     : item.title.includes('Фанера хвойная ФСФ 3/4 НШ')
-      //     ? 'Фанера хвойная ФСФ 3/4 НШ'
-      //     : item.title.includes('Фанера хвоя ФСФ 3/3 НШ')
-      //     ? 'Фанера хвойная ФСФ 3/3 НШ'
-      //     : item.title.includes('ФК 4/4 НШ')
-      //     ? 'Фанера березовая ФК 4/4 НШ'
-      //     : item.title.slice(0, item.title.indexOf(',')),
       infos: item.title,
-      // sizes: {
-      //   a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
-      //   b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
-      //   h: parseInt(item.options.find(({ key }) => key === 'Толщина').value.replace(' мм', '')),
-      // },
       prices: item.cost,
       priceFor: item.unit,
       show: item.visible,
