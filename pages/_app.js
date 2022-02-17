@@ -1,6 +1,6 @@
 import React from 'react';
-import Router from "next/router";
-import withYM from "next-ym";
+import Router from 'next/router';
+import withYM from 'next-ym';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -11,7 +11,6 @@ import theme from '../utils/theme';
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-
 
   React.useEffect(() => {
     setW(window.innerWidth);
@@ -47,15 +46,34 @@ function MyApp({ Component, pageProps }) {
     <>
       {loading && <Preloader />}
       {!loading && (
-        <div>
-          <Head head={newProps.input.head}></Head>
-          <Component {...newProps} />
-          <Footer app={newProps.app}/>
-        </div>
+        <>
+          <div>
+            <Head head={newProps.input.head}></Head>
+            <Component {...newProps} />
+            <Footer app={newProps.app} />
+          </div>
+          <script
+            type='text/javascript'
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+          (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
+          
+          ym(${newProps.ymNum}, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true,
+            trackHash:true
+          });
+          `,
+            }}
+          ></script>
+        </>
       )}
     </>
   );
 }
 
 export default withYM(app[1].api.ym, Router)(MyApp);
-
