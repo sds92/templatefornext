@@ -4,7 +4,7 @@ import { Title, SubTitle } from '../../../lib';
 export default function Gallery({ content }) {
   const imgs = content[2]
   return (
-    <div className={`py-20`}>
+    <div className={`py-20 overflow-hidden`}>
       <Title a={content[0][0]} b={content[0][1]} />
       <SubTitle>{content[1]}</SubTitle>
       <hr />

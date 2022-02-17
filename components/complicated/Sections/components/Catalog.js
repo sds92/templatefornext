@@ -12,6 +12,7 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
+  console.log('🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ products', products);
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -24,11 +25,11 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${app.productTitle}, ${infosItem}`,
+        title: infosItem,
         prices: [item.prices[index], item.priceFor[index]],
         imgs: item.imgs[index][0]
           ? app.api.serv + item.paths[index] + item.imgs[index][0]
-          : 'https://xn--j1ano.com//uploads/catalog/5f85ba274a9a5d34e0a45fed/categories/5fb3766c5225b630baf84756/610a632c9f01f210be9c5ec9/bac3642e-42ee-497f-8757-881eb7b72744.jpg',
+          : 'https://xn--j1ano.com//uploads/catalog/5f85ba274a9a5d34e0a45fed/categories/5fb3766c5225b630baf84756/60d04233c8194826c85c9cf6/bbab89d0-17c8-431d-ace3-9976834a5785.jpg',
         //
       });
     });
@@ -43,7 +44,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
   return (
     <>
-      <div ref={ref} className={``}>
+      <div ref={ref} className={`overflow-hidden`}>
         <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
           <Title a={content[0][0]} b={content[0][1]}></Title>
         </div>
@@ -52,11 +53,11 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         </div>
 
         <div className={`w-full`}>
-          <div className={`flex items-center justify-center`}>
+          <div className={`flex flex-wrap items-center justify-center`}>
             {[
-              { title: 'ФК', key: 'ФК' },
-              { title: 'ФСФ', key: 'ФСФ' },
-              { title: 'ЛФСФ', key: 'Ламинированная', add: 'Китай' },
+              { title: 'ФК (1525x1525мм)', items: ['2/4', '3/4', '4/4'], key: 'ФК' },
+              { title: 'ФСФ (1220x2440мм)', items: ['3/3'], key: 'ФСФ' },
+              { title: 'ЛФСФ (1220x2440мм)', items: ['Китай', 'Россия'], key: 'Ламинированная', add: 'Китай' },
             ].map((item, index) => {
               return (
                 <Menu
@@ -65,7 +66,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     return (
                       <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
                         <Button
-                        className={`text-xl px-4 py-2`}
+                          className={`text-xl px-4 py-2 font-semibold tracking-tight`}
                           style={{ border: 'none' }}
                           onClick={() =>
                             setState((state) => {
@@ -73,7 +74,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                             })
                           }
                         >
-                          {item.title.toLocaleUpperCase()}
+                          {item.title}
                           <Icons.ChevronDown
                             extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
                           />
@@ -83,23 +84,25 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   }}
                 >
                   {products
-                    .filter((item2) => {
-                      return item2.title.includes(`${item.key}`);
-                    })
-                    .map((innerItem, index) => {
-                      return (
-                        <MenuItem
-                          key={`NAVLGINNER${index}`}
-                          onClick={() => {
-                            setState((state) => {
-                              return { ...state, chosen: index };
-                            });
-                          }}
-                        >
-                          &nbsp;{innerItem.title}
-                          &nbsp;{/китай/.test(innerItem.infos) && 'Китай'}
-                        </MenuItem>
-                      );
+                    // .filter((product) => {
+                    //   return product.title.includes(`${item.key}`);
+                    // })
+                    .map((product, index) => {
+                      if (product.title.includes(`${item.key}`)) {
+                        return (
+                          <MenuItem
+                            key={`NAVLGINNER${index}`}
+                            onClick={() => {
+                              setState((state) => {
+                                return { ...state, chosen: index };
+                              });
+                            }}
+                          >
+                            {product.title}
+                          </MenuItem>
+                        );
+                      }
+                      else return null
                     })}
                 </Menu>
               );

@@ -8,7 +8,7 @@ export default function Contacts({ app }) {
     contactsTitle: `pl-2 border-b border-slate-300 w-full`,
   };
   return (
-    <div className={`bg-slate-100 py-10`}>
+    <div className={`bg-slate-100 py-10 overflow-hidden`}>
       <Title a={`Контакты`} />
 
       <div className={`flex flex-col w-full`}>
@@ -21,7 +21,7 @@ export default function Contacts({ app }) {
 
           {/* CONTACTS */}
           <div
-            className={`flex w-full flex-wrap sm:max-w-xl sm:flex-col sm:w-1/3 md:w-5/12 p-2 mr-auto mt-10`}
+            className={`overflow-hidden flex w-full flex-wrap sm:max-w-xl sm:flex-col sm:w-1/3 md:w-5/12 p-2 mr-auto mt-10`}
           >
             <div className={`sm:w-full w-1/2 my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>

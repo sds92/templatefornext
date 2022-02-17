@@ -54,7 +54,7 @@ export default function About({ content, w }) {
   }, [inView]);
   return (
     <>
-      <div ref={ref} className={``}>
+      <div ref={ref} className={`overflow-hidden`}>
         <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
           <Title a={content[2][0]} b={content[2][1]}></Title>
         </div>
