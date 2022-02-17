@@ -1,6 +1,5 @@
 import React from 'react';
 import Router from "next/router";
-import withYM from "next-ym";
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -51,7 +50,7 @@ function MyApp({ Component, pageProps }) {
         <div>
           <Head head={newProps.input.head}></Head>
           <Component {...newProps} />
-          <Footer app={newProps.app}/>
+          <Footer app={newProps.app} theme={newProps.theme}/>
           <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
