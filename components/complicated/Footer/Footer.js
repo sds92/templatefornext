@@ -1,5 +1,4 @@
 import React from 'react';
-// import dynamic from 'next/dynamic';
 
 import { Icons } from '..';
 
@@ -24,7 +23,7 @@ export default function Footer({ app, theme }) {
           <div className={`my-4 flex items-center gap-6 text-slate-100 cursor-default mr-2`}>
             <Icons.Roboweb extraClasses={`w-10 h-10`} />
             <p>
-              2021. Сайт создан с помощью <a href='https://roboweb.team'>RoboWeb.Team</a>
+              © 2022. Сайт создан с помощью <a href='https://roboweb.team'>RoboWeb.Team</a>
             </p>
           </div>
         </div>
