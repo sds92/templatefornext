@@ -12,7 +12,6 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog({ w, lgView, content, app, theme, products }) {
-  console.log("🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ products", products)
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -64,10 +63,10 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   key={`MENU${index}`}
                   menuButton={({ open }) => {
                     return (
-                      <MenuButton className={`ml-4 my-4 rounded-md text-zinc-100 ${theme.bg.buttons}`}>
+                      <MenuButton className={`ml-4 zero:my-1 sm:my-2 w-64 rounded-md text-zinc-100 ${theme.bg.buttons}`}>
                         <Button
                         
-                          className={`text-xl px-4 py-2 font-semibold tracking-tight`}
+                          className={`text-xl px-4 py-2 font-semibold tracking-tight flex justify-center`}
                           style={{ border: 'none' }}
                           onClick={() =>
                             setState((state) => {
