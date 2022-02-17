@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
+    ymNum: app[2].api.ym,
     app: app[1],
     input: pages[1],
     theme: theme('black'),
