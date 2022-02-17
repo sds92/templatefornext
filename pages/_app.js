@@ -1,5 +1,6 @@
 import React from 'react';
-import Router from "next/router";
+import Router from 'next/router';
+import ym from 'react-yandex-metrika';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -10,7 +11,6 @@ import theme from '../utils/theme';
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-
 
   React.useEffect(() => {
     setW(window.innerWidth);
@@ -43,6 +43,9 @@ function MyApp({ Component, pageProps }) {
     ...pageProps,
   };
 
+  // ym('hit', '/');
+  // ym('reachGoal', 'whateverGoal', {awesomeParameter: 42});
+
   return (
     <>
       {loading && <Preloader />}
@@ -50,7 +53,7 @@ function MyApp({ Component, pageProps }) {
         <div>
           <Head ym={newProps.ym} head={newProps.input.head}></Head>
           <Component {...newProps} />
-          <Footer app={newProps.app} theme={newProps.theme}/>
+          <Footer app={newProps.app} theme={newProps.theme} />
         </div>
       )}
     </>
@@ -58,4 +61,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
