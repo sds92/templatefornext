@@ -9,7 +9,7 @@ export default function HeadComponent({ head, children, ...props }) {
       {head.meta.map((item, index) => (
         <meta name={item.name} content={item.content} key={`META${index}`} />
       ))}
-      <script
+      {/* <script
         type='text/javascript'
         dangerouslySetInnerHTML={{
           __html: `
@@ -26,7 +26,7 @@ export default function HeadComponent({ head, children, ...props }) {
              });
   `,
         }}
-      ></script>
+      ></script> */}
       {/* <YMInitializer accounts={[ymNum]} options={{webvisor: true}}/> */}
       {children && children}
     </Head>
