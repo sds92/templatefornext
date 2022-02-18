@@ -16,11 +16,7 @@ const theme = (name) => {
       };
 
       theme.text = {
-<<<<<<< HEAD
         header: 'text-zinc-100 hover:text-belplit24_2',
-=======
-        header: 'text-zinc-100',
->>>>>>> 3a3dde6e04fea13d765d5e6d2cfdf85550d33ea1
         footer: 'text-zinc-100',
         main: 'text-zinc-800',
         devider: 'text-zinc-100',
