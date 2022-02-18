@@ -9,7 +9,7 @@ export default function SM({ menu, app, theme }) {
   const [isActive, setIsActive] = React.useState(false);
   return (
     <>
-      <nav className={`${theme.bg} flex justify-between items-center h-16`}>
+      <nav className={`${theme.bg.header} flex justify-between items-center h-16`}>
         <div className='basis-1/3'>
           <Icons.Menu
             extraClasses={`w-14 h-14 px-2 py-4 cursor-pointer active:scale-125 transition-all text-slate-100`}
