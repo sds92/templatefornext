@@ -1,5 +1,4 @@
 import React from 'react';
-import Router from 'next/router';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
