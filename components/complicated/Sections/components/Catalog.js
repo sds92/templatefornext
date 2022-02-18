@@ -24,7 +24,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${app.productTitle} ${item.title.toUpperCase()}, ${sizesItem}`,
+        title: ` ${item.title.toUpperCase()}, ${sizesItem}`,
         prices: [item.prices[index], item.priceFor[index]],
         imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
       });

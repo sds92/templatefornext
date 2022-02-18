@@ -114,6 +114,42 @@ export default function FeedBack(props) {
           setFormStatus('show');
         }, 3000);
       });
+<<<<<<< HEAD
+=======
+  }
+
+  let keyCode;
+  let selectionStart;
+  let value;
+  function mask(e) {
+    console.log('🚀 ~ file: FeedBack.js ~ line 120 ~ mask ~ e', e.nativeEvent.data);
+
+    // event.keyCode && (keyCode = event.keyCode);
+    let pos = selectionStart;
+    if (pos < 3) e.preventDefault();
+    let matrix = '+7 (___) ___ ____';
+    let i = 0;
+    let def = matrix.replace(/\D/g, '');
+    let val = value.replace(/\D/g, '');
+    let new_value = matrix.replace(/[_\d]/g, function (a) {
+      return i < val.length ? val.charAt(i++) || def.charAt(i) : a;
+    });
+    // i = new_value.indexOf('_');
+    // if (i != -1) {
+    //   i < 5 && (i = 3);
+    //   new_value = new_value.slice(0, i);
+    // }
+    // var reg = matrix
+    //   .substr(0, this.value.length)
+    //   .replace(/_+/g, function (a) {
+    //     return '\\d{1,' + a.length + '}';
+    //   })
+    //   .replace(/[+()]/g, '\\$&');
+    // reg = new RegExp('^' + reg + '$');
+    // if (!reg.test(this.value) || this.value.length < 5 || (keyCode > 47 && keyCode < 58))
+    //   this.value = new_value;
+    // if (event.type == 'blur' && this.value.length < 5) this.value = '';
+>>>>>>> 3a3dde6e04fea13d765d5e6d2cfdf85550d33ea1
   }
 
   return (
@@ -154,8 +190,11 @@ export default function FeedBack(props) {
                       return { ...state, clientPhone: e.target.value };
                     });
                   }}
+<<<<<<< HEAD
                   mask='+7\ (999) 999 99 99'
                   maskChar='_'
+=======
+>>>>>>> 3a3dde6e04fea13d765d5e6d2cfdf85550d33ea1
                 />
               </div>
             </div>
@@ -208,12 +247,21 @@ export default function FeedBack(props) {
             </div>
           </div>
         )}
+<<<<<<< HEAD
         {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-100`}>Отправка запроса</p>}
         {formStatus === 'complete' && (
           <p className={`text-center py-10 text-zinc-100`}>Запрос успешно отправлен. Спасибо за обращение!</p>
         )}
         {formStatus === 'error' && (
           <p className={`text-center py-10 text-zinc-100`}>
+=======
+        {formStatus === 'pending' && <p className={`text-center py-10 `}>Отправка запроса</p>}
+        {formStatus === 'complete' && (
+          <p className={`text-center py-10 `}>Запрос успешно отправлен. Спасибо за обращение!</p>
+        )}
+        {formStatus === 'error' && (
+          <p className={`text-center py-10 `}>
+>>>>>>> 3a3dde6e04fea13d765d5e6d2cfdf85550d33ea1
             Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.
           </p>
         )}
