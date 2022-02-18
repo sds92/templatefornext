@@ -1,12 +1,8 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import { FullPage, Header, Section } from '../components/complicated';
-import { motion } from 'framer-motion';
-import { animations } from '../styles/animations';
+import { FullPage, Header } from '../components/complicated';
 import { v2 } from '../utils/functions';
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
-  const router = useRouter();
   return (
     <body>
       <>
@@ -34,7 +30,6 @@ export async function getStaticProps(context) {
     res.json()
   );
   const products = v2(res);
-  console.log("🚀 ~ file: index.js ~ line 37 ~ getStaticProps ~ products", products)
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {
