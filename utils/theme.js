@@ -3,7 +3,7 @@ const theme = (name) => {
   switch (name) {
     case 'black':
       theme.bg = {
-        header: 'bg-zinc-800',
+        header: 'bg-belplit24',
         footer: 'bg-zinc-800',
         main: 'bg-white',
         devider: 'bg-zinc-800',
@@ -16,7 +16,7 @@ const theme = (name) => {
       };
 
       theme.text = {
-        header: 'text-zinc-100',
+        header: 'text-zinc-100 hover:text-belplit24_2',
         footer: 'text-zinc-100',
         main: 'text-zinc-800',
         devider: 'text-zinc-100',
