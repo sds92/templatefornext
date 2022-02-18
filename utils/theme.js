@@ -2,20 +2,36 @@ const theme = (name) => {
   let theme = {};
   switch (name) {
     case 'black':
-      theme.bg = 'bg-belplit24';
-      theme.text = 'text-white';
-      theme.textDark = 'text-zinc-800';
-      theme.hoverText = 'text-belplit24_2';
-      theme.buttonColours = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md';
-      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
+      theme.metaThemeColor = '#1a1520';
+      theme.color1 = {
+        light: 'zinc-800',
+        dark: 'belplit24'
+      };
+      theme.color2 = {
+        light: 'belplit24_2',
+        dark: 'belplit24_2_b'
+      };
+      theme.commonText = {
+        header: 'zinc-100',
+        body: 'zinc-800',
+        hover: 'belplit24_2',
+      }
       break;
-    case 'blue':
-      theme.bg = 'bg-slate-500';
-      theme.text = 'text-zinc-100';
-      theme.textDark = 'text-blue-800';
-      theme.hoverText = 'text-blue-900';
-      theme.buttonColours = 'bg-amber-800 text-white';
-      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
+    case 'green':
+      theme.metaThemeColor = '#62a044';
+      theme.color1 = {
+        light: 'zinc-800',
+        dark: 'belplit24'
+      };
+      theme.color2 = {
+        light: 'belplit24_2',
+        dark: 'belplit24_2_b'
+      };
+      theme.commonText = {
+        header: 'zinc-100',
+        body: 'zinc-800',
+        hover: 'belplit24_2',
+      }
       break;
     case 'yellow':
       theme.bg = 'bg-amber-800';

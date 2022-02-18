@@ -2,21 +2,25 @@ import React from 'react';
 import { Icons } from '..';
 import { Link } from 'react-scroll';
 import Social from '../Social/Social';
+import styles from './LG.module.scss';
 
-export default function LG({ menu, app, theme }) {
+export default function LG(props) {
+  const { theme, data, menu } = props;
+  console.log("🚀 ~ file: LG.js ~ line 9 ~ LG ~ data", data)
+  
   return (
-    <nav className={`${theme.bg} flex justify-evenly items-center h-20`}>
+    <nav className={`bg-${theme.color1.dark} flex justify-evenly items-center h-20`}>
       <a href='#Main'>
         <Icons.Belplit24 extraClasses={`w-10 h-10`} />
       </a>
-      <ul className={`flex`}>
+      <div className={`flex flex-row`}>
         {menu.map((item, index) => (
-          <li
+          <div
             key={`MENUITEM${index}`}
-            className={`${theme.text} rd-nav-link hover:${theme.hoverText} transition-all duration-300`}
+            className={`${styles.menuitem} text-${theme.commonText.header} hover:${theme.hoverText} transition-all duration-300`}
           >
             <Link
-              activeClass={theme.hoverText}
+              activeClass={`text-${theme.commonText.hover}`}
               to={item[1].replaceAll('#', '')}
               spy={true}
               smooth={true}
@@ -32,12 +36,12 @@ export default function LG({ menu, app, theme }) {
                 {item[0].toUpperCase()}
               </a>
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       <div className={`flex`}>
         <div className={`flex gap-2`}>
-          <Social app={app} />
+          <Social contacts={data.contacts} theme={theme} />
         </div>
       </div>
     </nav>

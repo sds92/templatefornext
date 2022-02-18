@@ -37,6 +37,8 @@ module.exports = {
     colors: ({ colors }) => ({
       footer: '#848484',
       belplit: '#38a000',
+      belplit_2: '#62a044',
+      belplit_dark: '#426d2e',
       belplit24: '#1a1520',
       belplit24_2: '#ff0000',
       belplit24_2_b: '#ac0909',

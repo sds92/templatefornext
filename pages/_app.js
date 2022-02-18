@@ -1,12 +1,10 @@
 import React from 'react';
-import Router from "next/router";
-import withYM from "next-ym";
 
 import '../styles/tailwind.css';
-import { Footer, Head, Preloader } from '../components/complicated';
-import pages from '../data/pages.json';
-import app from '../data/app.json';
+import { Footer, Head, Preloader, YM } from '../components/complicated';
 import theme from '../utils/theme';
+
+import { upload } from '../utils/pre';
 
 /**
  * 0 - plitaosb-3.ru
@@ -16,16 +14,13 @@ import theme from '../utils/theme';
  * 4 - csptamak.site
  * 5 - pilomateriali.site
  * 6 - shinglas-rus.ru
- * 
+ *
  */
 
-const siteId = 6
-
 function MyApp({ Component, pageProps }) {
-  console.log("🚀 ~ file", app[6])
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-
+  const data = upload(`${process.env.NEXT_PUBLIC_SITE_URL}`);
 
   React.useEffect(() => {
     setW(window.innerWidth);
@@ -50,9 +45,8 @@ function MyApp({ Component, pageProps }) {
       ['Контакты', '#Contacts'],
     ],
     w: w,
+    data: data,
     lgView: w >= 900,
-    app: app[siteId],
-    input: pages[siteId],
     theme: theme('black'),
     ...pageProps,
   };
@@ -61,15 +55,14 @@ function MyApp({ Component, pageProps }) {
     <>
       {loading && <Preloader />}
       {!loading && (
-        <div>
-          <Head head={newProps.input.head}></Head>
+        <>
+          <Head head={newProps.data.content.head} theme={newProps.theme}></Head>
           <Component {...newProps} />
-          <Footer app={newProps.app}/>
-        </div>
+        </>
       )}
+      <YM ymNum={newProps.data.api.ym}/>
     </>
   );
 }
 
-export default withYM(app[siteId].api.ym, Router)(MyApp);
-
+export default MyApp;
