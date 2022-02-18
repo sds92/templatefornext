@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../styles/tailwind.css';
-import { Footer, Head, Preloader, YM } from '../components/complicated';
+import { Head, Preloader, YM } from '../components/complicated';
 import theme from '../utils/theme';
 
 import { upload } from '../utils/pre';

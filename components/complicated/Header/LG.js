@@ -6,7 +6,6 @@ import styles from './LG.module.scss';
 
 export default function LG(props) {
   const { theme, data, menu } = props;
-  console.log("🚀 ~ file: LG.js ~ line 9 ~ LG ~ data", data)
   
   return (
     <nav className={`bg-${theme.color1.dark} flex justify-evenly items-center h-20`}>
@@ -17,7 +16,7 @@ export default function LG(props) {
         {menu.map((item, index) => (
           <div
             key={`MENUITEM${index}`}
-            className={`${styles.menuitem} text-${theme.commonText.header} hover:${theme.hoverText} transition-all duration-300`}
+            className={`${styles.menuitem} text-${theme.commonText.header} hover:text-${theme.commonText.hover} transition-all duration-300`}
           >
             <Link
               activeClass={`text-${theme.commonText.hover}`}

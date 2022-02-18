@@ -18,6 +18,7 @@ module.exports = {
     'max-w-md',
     'max-w-sm',
     'text-3xl',
+    'hover:text-belplit24_2',
     {
       pattern: /(font)-(light|bold|semibold|medium)/,
     },
