@@ -51,7 +51,10 @@ function MyApp({ Component, pageProps }) {
             <Component {...newProps} />
             <Footer app={newProps.app} theme={newProps.theme} />
           </div>
-          <script
+          
+        </>
+      )}
+      <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
               __html: `
@@ -69,8 +72,6 @@ function MyApp({ Component, pageProps }) {
   `,
             }}
           />
-        </>
-      )}
     </>
   );
 }
