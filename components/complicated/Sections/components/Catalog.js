@@ -108,7 +108,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <hr />
           <br />
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
-            {arr.map((item, index) => {
+            {arr.sort((a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]).map((item, index) => {
               return (
                 state.chosen === item.catId && (
                   <motion.div
