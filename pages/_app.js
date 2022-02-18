@@ -1,7 +1,4 @@
 import React from 'react';
-import Router from 'next/router';
-import Script from 'next/script';
-import ym from 'react-yandex-metrika';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
