@@ -16,7 +16,7 @@ export default function Social(props) {
             </div>
           );
         })}
-      <div className={`text-${theme.commonText.header} hover:text-${theme.commonText.hover} transition-all `}>
+      <div className={`text-${theme.text.header} hover:text-${theme.text.hover} transition-all `}>
         <a href={`tel:${contacts.phones[0]}`}>{contacts.phones[0]}</a>
       </div>
     </>

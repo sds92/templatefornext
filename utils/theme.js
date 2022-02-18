@@ -1,37 +1,30 @@
 const theme = (name) => {
-  let theme = {};
+  let theme = {
+    colors: {},
+    text: {},
+  };
   switch (name) {
     case 'black':
+      theme.logo = '#ff0000',
       theme.metaThemeColor = '#1a1520';
-      theme.color1 = {
-        light: 'zinc-800',
-        dark: 'belplit24'
-      };
-      theme.color2 = {
-        light: 'belplit24_2',
-        dark: 'belplit24_2_b'
-      };
-      theme.commonText = {
-        header: 'zinc-100',
-        body: 'zinc-800',
-        hover: 'belplit24_2',
-      }
+      theme.colors.header = 'bp_black';
+      theme.text.header = 'zinc-100';
+      theme.text.body = 'zinc-800';
+      theme.text.bodyTitle = 'bp_red';
+      theme.text.hover = 'bp_red';
+      theme.text.active = 'bp_red_2';
+
       break;
     case 'green':
+      theme.logo = '#62a044',
       theme.metaThemeColor = '#62a044';
-      theme.color1 = {
-        light: 'zinc-800',
-        dark: 'belplit24'
-      };
-      theme.color2 = {
-        light: 'belplit24_2',
-        dark: 'belplit24_2_b'
-      };
-      theme.commonText = {
-        header: 'zinc-100',
-        body: 'zinc-800',
-        hover: 'belplit24_2',
-      }
+      theme.colors.header = 'zinc-100';
+      theme.text.header = 'zinc-800';
+      theme.text.body = 'zinc-800';
+      theme.text.bodyTitle = 'bp_green_2';
+      theme.text.hover = 'bp_green';
+      theme.text.active = 'bp_green_2';
+      
       break;
     case 'yellow':
       theme.bg = 'bg-amber-800';
@@ -39,7 +32,7 @@ const theme = (name) => {
       theme.textDark = 'text-yellow-400';
       theme.hoverText = 'text-amber-300';
       theme.buttonColours = 'bg-amber-800 text-white';
-      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
+      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md';
       break;
     default:
       break;
