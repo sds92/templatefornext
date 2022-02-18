@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from "next/router";
+import Router from 'next/router';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -10,7 +10,6 @@ import theme from '../utils/theme';
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-
 
   React.useEffect(() => {
     setW(window.innerWidth);
@@ -50,11 +49,13 @@ function MyApp({ Component, pageProps }) {
         <div>
           <Head head={newProps.input.head}></Head>
           <Component {...newProps} />
-          <Footer app={newProps.app} theme={newProps.theme}/>
-          <script
-            type='text/javascript'
-            dangerouslySetInnerHTML={{
-              __html: `
+          <Footer app={newProps.app} theme={newProps.theme} />
+        </div>
+      )}
+      <script
+        type='text/javascript'
+        dangerouslySetInnerHTML={{
+          __html: `
              (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
              m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
              (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
@@ -67,13 +68,10 @@ function MyApp({ Component, pageProps }) {
                   trackHash:true
              });
   `,
-            }}
-          />
-        </div>
-      )}
+        }}
+      />
     </>
   );
 }
 
 export default MyApp;
-
