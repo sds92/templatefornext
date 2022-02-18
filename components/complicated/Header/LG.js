@@ -16,7 +16,7 @@ export default function LG({ menu, app, theme }) {
             className={`${theme.text.header} rd-nav-link transition-all duration-300`}
           >
             <Link
-              activeClass={theme.hoverText}
+              activeClass={`text-belplit24_2`}
               to={item[1].replaceAll('#', '')}
               spy={true}
               smooth={true}
