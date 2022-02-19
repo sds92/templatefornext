@@ -14,6 +14,7 @@ import { Icons } from '../../';
 export default function Catalog(props) {
   const { theme, lgView, w, products, data } = props;
   const {catalog} = data.content
+  
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -26,9 +27,9 @@ export default function Catalog(props) {
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
+        title: `${sizesItem}`,
         prices: [item.prices[index], item.priceFor[index]],
-        img: `/images/belplit24.ru/products/belplit-${item.title.toLowerCase()}.jpg`,
+        img: data.api.serv + item.paths[index]+item.imgs[index][0],
       });
     });
   });
@@ -45,10 +46,11 @@ export default function Catalog(props) {
       <div ref={ref} className={``}>
         <Text className={`text-5xl text-center font-bold`}>{catalog.title}</Text>
         <Text className={`mt-2 text-xl text-center font-light`}>{catalog.subTitle}</Text>
-        <Text>{catalog.text}</Text>
+        <Text className={`text-xl text-center font-light`}>{catalog.text}</Text>
 
         <div className={`w-full`}>
           <div className={`flex items-center justify-center`}>
+            
             {!lgView ? (
               <Menu
                 menuButton={({ open }) => {
@@ -154,7 +156,7 @@ export default function Catalog(props) {
                         } transition-all`}
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
-                        <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
+                        <p className={`bg-${theme.bg.productcardPrice} text-slate-100 font-bold pl-10 text-xl py-1`}>
                           {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
                           <span key={`ITEMPRICE${index}`}>

@@ -3,6 +3,7 @@ import { Header, FullPage, Footer } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import { plitaosb3ru } from '../utils/functions';
+import { transform } from '../utils/transform';
 
 export default function Home(props) {
   return (
@@ -29,6 +30,7 @@ export async function getStaticProps(context) {
     res.json()
   );
   const products = plitaosb3ru(res);
+  const check = transform(res);
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {

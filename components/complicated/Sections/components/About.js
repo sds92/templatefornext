@@ -3,10 +3,11 @@ import Deviders from '../Deviders';
 import { Title, SubTitle, Text } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
-export default function About({ content, w }) {
-  const imgs = content[4];
+export default function About(props) {
+  const { theme, data, w } = props;
+  const { about } = data.content;
   const state = {};
-  imgs.map((item, index) => {
+  about.animatedStats.map((item, index) => {
     return (state[index] = 0);
   });
   const { ref, inView, entry } = useInView({
@@ -26,7 +27,7 @@ export default function About({ content, w }) {
   const animate = (time) => {
     if (previousCountRef.current != undefined) {
       count.current++;
-      content[4].forEach((item, index) => {
+      about.animatedStats.forEach((item, index) => {
         setCounter((prevCount) => {
           if (prevCount[index] <= item[1]) {
             return { ...prevCount, [index]: prevCount[index] + item[1] / 100 };
@@ -55,15 +56,19 @@ export default function About({ content, w }) {
   return (
     <>
       <div ref={ref} className={``}>
-        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
-          <Title a={content[2][0]} b={content[2][1]}></Title>
-        </div>
-        <div className={`transition-all duration-300 delay-100 mx-1 ${textAnimation}`}>
-          <SubTitle className={`max-w-3xl`}>{content[3]}</SubTitle>
-        </div>
+        <Text
+          className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-bold text-${theme.text.bodyTitle} ${textAnimation}`}
+        >
+          {about.title}
+        </Text>
+        <Text
+          className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-light ${textAnimation}`}
+        >
+          {about.subTitle}
+        </Text>
 
         <div className={`flex flex-wrap justify-center gap-10 md:gap-40 my-10`}>
-          {imgs.map((item, index) => {
+          {about.animatedStats.map((item, index) => {
             return (
               <div key={`ADVIMG${index}`} className={``}>
                 <article className={`flex flex-col justify-center items-center`}>
@@ -81,11 +86,8 @@ export default function About({ content, w }) {
             );
           })}
         </div>
-        <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>
-          {content[7]}
-        </Text>
+        <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>{about.text}</Text>
       </div>
-      <Deviders content={content} />
     </>
   );
 }

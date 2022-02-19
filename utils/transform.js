@@ -1,3 +1,30 @@
+export const transform = (input) => {
+console.log("🚀 ~ file: transform.js ~ line 2 ~ transform ~ input", input)
+  let res = [];
+  // here we should transform all options to obj entries
+  // sort by title
+  // sort by sizes or if no sizes - by price
+  // group by product
+
+  return input.map((item) => ({
+    category: item.options.find(({ key }) => key === 'Производитель').value,
+    // infos: item.title,
+    // sizes: {
+    //   a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
+    //   b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
+    //   h: parseInt(item.options.find(({ key }) => key === 'Толщина').value.replace(' мм', '')),
+    // },
+    // prices: item.cost,
+    // priceFor: item.unit,
+    // show: item.visible,
+    // articles: item.article,
+    // ids: item.id,
+    // coef: item.coef,
+    // imgs: item.images,
+    // paths: item.path,
+  }));
+};
+
 export const plitaosb3ru = (inputArr) => {
   let arr = [];
   return inputArr
@@ -51,7 +78,7 @@ export const plitaosb3ru = (inputArr) => {
         .reduce(
           (pre, cur) => {
             // pre.sizes.push(cur.sizes);
-            pre.infos.push(cur.infos)
+            pre.infos.push(cur.infos);
             pre.prices.push(cur.prices);
             pre.priceFor.push(cur.priceFor);
             pre.show.push(cur.show);
@@ -227,4 +254,3 @@ export const normalizeData2 = (inputArr) => {
     return inputArrItem;
   });
 };
-
