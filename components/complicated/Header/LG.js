@@ -8,9 +8,9 @@ export default function LG(props) {
   const { theme, data, menu } = props;
   
   return (
-    <nav className={`bg-${theme.colors.header} flex justify-evenly items-center h-20`}>
+    <nav className={`bg-${theme.bg.header} flex justify-evenly items-center h-20`}>
       <a href='#Main'>
-        <Icons.Belplit24 extraClasses={`w-10 h-10 text-${theme.text.bodyTitle}`} fill={theme.logo} />
+        <Icons.Belplit24 fill={`#62a044`} extraClasses={`w-10 h-10`}  />
       </a>
       <div className={`flex flex-row`}>
         {menu.map((item, index) => (

@@ -3,7 +3,13 @@ import { motion } from 'framer-motion';
 import { Button, Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
-export default function Main({ app, content, lgView, theme }) {
+export default function Main(props) {
+  const { theme, data, lgView } = props;
+  const { main } = data.content;
+  const { contacts } = data;
+  console.log('🚀 ~ file: Main.js ~ line 9 ~ Main ~ main', main);
+  console.log('🚀 ~ file: Main.js ~ line 8 ~ Main ~ data', data);
+  
   return (
     <div className={`w-full flex user-main-fs relative`}>
       <div className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
@@ -12,18 +18,18 @@ export default function Main({ app, content, lgView, theme }) {
             {lgView ? (
               <>
                 <motion.div
-                  className={`font-bold text-3xl text-belplit24_2`}
+                  className={`font-bold text-3xl text-${theme.text.bodyTitle}`}
                   initial='initial'
                   animate='animate'
                   exit='exit'
                   variants={animations.slideUp.variants}
                   transition={animations.slideUp.transition}
                 >
-                  {app.title}
+                  <Text>{main.title}</Text>
                 </motion.div>
                 <motion.div
                   style={{ height: '1px' }}
-                  className={`my-4 ${theme.bg}`}
+                  className={`my-4 bg-${theme.text.body}`}
                   initial='initial'
                   animate='animate'
                   exit='exit'
@@ -33,26 +39,28 @@ export default function Main({ app, content, lgView, theme }) {
               </>
             ) : (
               <>
-                <div className='font-bold text-3xl text-belplit24_2'>{app.title}</div>
-                <div style={{ height: '1px' }} className={`my-4 bg-belplit24`}></div>
+                <Text className={`font-bold text-3xl text-${theme.text.bodyTitle}`}>{data.title}</Text>
+                <div style={{ height: '1px' }} className={`my-4 bg-${theme.text.body}`}></div>
               </>
             )}
           </div>
-          <span className={``}>{content[0]}</span>
-          <br /> <span className={`text-3xl`}>{content[1]}</span>
-          <Text className={`my-4 text-black md:text-slate-800 font-light`}>{content[2]}</Text>
+          <Text>{main.subTitle}</Text>
+          <br /> <Text className={`text-3xl`}>{main.price}</Text>
+          <Text className={`my-4 font-light`}>{main.text}</Text>
           <div className={`font-bold text-2xl ${theme.textDark} my-4`}>
-            <a className={``} href={`tel:${app.contacts.phones[0]}`}>
-              {app.contacts.phones[0]}
+            <a className={``} href={`tel:${contacts.phones[0]}`}>
+              {contacts.phones[0]}
             </a>
           </div>
-          <Button theme={theme} href={'#Contacts'}>Оставить заявку</Button>
+          <div className={`${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons}`} href={'#Contacts'}>
+            Оставить заявку
+          </div>
         </div>
       </div>
       <div
         className={`p-10 w-full md:w-6/12 h-full absolute right-0 ${!lgView && 'opacity-30'}`}
         style={{
-          background: `no-repeat url(${content[3]}.png)`,
+          background: `no-repeat url(${main.img}.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

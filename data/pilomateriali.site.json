@@ -1,9 +1,8 @@
 {
 	"url": "pilomateriali.site",
 	"api": {
-		"ym": "",
 		"email": "https://xn--j1ano.com/sendmail",
-		"products": "https://xn--j1ano.com/uploads/staticsites/pilomateriali.site.json",
+		"products": "https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json",
 		"serv": "https://xn--j1ano.com/"
 	},
 	"title": "Пиломатериалы",
@@ -58,17 +57,19 @@
 			]
 		},
 		"main": {
-			"title": "Высокое качество по доступной цене",
+			"title": [
+				"<div class=\"text-6xl\">Пиломатериалы</div>"
+			],
+			"subTitle": "Высокое качество по доступной цене",
 			"price": "от 770 руб/шт",
 			"text": "В основном используется в качестве отделочного материала для внешней облицовки зданий, но также подходит для дизайна внутренних интерьеров, обустройства бань, саун и беседок. Он имеет оптимальную ширину, поэтому в точности имитирует брус, при этом стоит недорого.",
 			"img": "images/main.png"
 		},
 		"catalog": {
 			"title": [
-				"Размеры и цены",
-				"пиломатериала"
+				"Размеры и цены <span class=\"uppercase text-bp_green_2\">пиломатериала<span>"
 			],
-			"text": "У нас представлены товары разных размеров"
+			"subTitle": "У нас представлены товары разных размеров"
 		},
 		"about": {
 			"title": [

@@ -8,7 +8,7 @@ export default function Home(props) {
   return (
     <>
       <Header {...props} />
-      {/* <motion.div
+      <motion.div
         initial='initial'
         animate='animate'
         exit='exit'
@@ -17,7 +17,7 @@ export default function Home(props) {
       >
         <FullPage {...props} />
       </motion.div>
-      <Footer /> */}
+      {/* <Footer /> */}
     </>
   );
 }
@@ -25,7 +25,7 @@ export default function Home(props) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json`).then((res) =>
     res.json()
   );
   const products = plitaosb3ru(res);

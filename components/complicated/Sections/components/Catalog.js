@@ -11,7 +11,9 @@ import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
 
-export default function Catalog({ w, lgView, content, app, theme, products }) {
+export default function Catalog(props) {
+  const { theme, lgView, w, products, data } = props;
+  const {catalog} = data.content
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,
@@ -24,8 +26,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
       return arr.push({
         category: item.title,
         catId: i,
-        title:
-          `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
+        title: `${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
         prices: [item.prices[index], item.priceFor[index]],
         img: `/images/belplit24.ru/products/belplit-${item.title.toLowerCase()}.jpg`,
       });
@@ -42,12 +43,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
   return (
     <>
       <div ref={ref} className={``}>
-        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
-          <Title a={content[0][0]} b={content[0][1]}></Title>
-        </div>
-        <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
-          <SubTitle>{content[1]}</SubTitle>
-        </div>
+        <Text className={`text-5xl text-center font-bold`}>{catalog.title}</Text>
+        <Text className={`mt-2 text-xl text-center font-light`}>{catalog.subTitle}</Text>
+        <Text>{catalog.text}</Text>
 
         <div className={`w-full`}>
           <div className={`flex items-center justify-center`}>
@@ -186,7 +184,6 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <br />
         </div>
       </div>
-      <About content={content} w={w} />
     </>
   );
 }

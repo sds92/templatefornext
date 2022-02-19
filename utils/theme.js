@@ -1,16 +1,21 @@
 const theme = (name) => {
   let theme = {
-    colors: {},
+    styles: {
+      buttons: `font-bold max-w-xs whitespace-nowrap rounded-md shadow-md p-2 uppercase text-xl text-center`
+    },
+    bg: {},
     text: {},
   };
   switch (name) {
     case 'black':
       theme.logo = '#ff0000',
       theme.metaThemeColor = '#1a1520';
-      theme.colors.header = 'bp_black';
+      theme.bg.header = 'bp_black';
+      theme.bg.buttons = 'bp_red'
       theme.text.header = 'zinc-100';
       theme.text.body = 'zinc-800';
       theme.text.bodyTitle = 'bp_red';
+      theme.text.buttons = 'zinc-100';
       theme.text.hover = 'bp_red';
       theme.text.active = 'bp_red_2';
 
@@ -18,10 +23,12 @@ const theme = (name) => {
     case 'green':
       theme.logo = '#62a044',
       theme.metaThemeColor = '#62a044';
-      theme.colors.header = 'zinc-100';
+      theme.bg.header = 'zinc-100';
+      theme.bg.buttons = 'bp_green';
       theme.text.header = 'zinc-800';
       theme.text.body = 'zinc-800';
       theme.text.bodyTitle = 'bp_green_2';
+      theme.text.buttons = 'zinc-100';
       theme.text.hover = 'bp_green';
       theme.text.active = 'bp_green_2';
       

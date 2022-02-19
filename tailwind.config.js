@@ -16,19 +16,31 @@ module.exports = {
     'max-w-xl',
     'max-w-md',
     'max-w-sm',
-    'text-3xl',
+    'max-w-xs',
+    'whitespace-nowrap',
+    'uppercase',
     'hover:text-bp_red',
     'active:text-bp-red_2',
     'hover:text-bp_green',
     'active:text-bp-green_2',
     {
+      pattern: /(p|m|px|mx|py|my|pt|mt|pr|mr|pb|mb|pl|mr)-(0.5|1|2|3|4|5|6)/,
+    },
+    {
+      pattern: /(shadow|rounded)-(sm|md|xl)/,
+    },
+    {
+      pattern: /(text)-(xl|2xl|3xl|4xl|5xl|6xl|7xl|center|left|right)/,
+    },
+    {
       pattern: /(font)-(light|bold|semibold|medium)/,
     },
     {
-      pattern: /(bg|text|)-(red|green|blue|zinc|slate|amber|yellow)-(100|200|300|400|500|600|700|800|900)/,
+      pattern: /(bg|text|)-(zinc)-(100|200|300|400|500|600|700|800|900)/,
     },
     {
-      pattern: /(bg|text|hover:bg|active:bg|hover:text|active:text)-(bp_green|bp_green_2|bp_green_3|bp_black|bp_red|bp_red_2|bp_gray|bp_gray_2)/,
+      pattern:
+        /(bg|text|hover:bg|active:bg|hover:text|active:text)-(bp_green|bp_green_2|bp_green_3|bp_black|bp_red|bp_red_2|bp_gray|bp_gray_2)/,
     },
   ],
   theme: {
