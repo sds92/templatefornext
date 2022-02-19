@@ -1870,6 +1870,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0.5rem;
 }
 
+.mt-2{
+  margin-top: 0.5rem;
+}
+
 .ml-auto{
   margin-left: auto;
 }
@@ -1892,10 +1896,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-1{
   margin-top: 0.25rem;
-}
-
-.mt-2{
-  margin-top: 0.5rem;
 }
 
 .mt-3{
@@ -6785,14 +6785,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-5xl{
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-6xl{
