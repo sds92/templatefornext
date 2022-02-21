@@ -28,7 +28,7 @@ export default function FeedBack(props) {
   async function checkForm() {
     let res = false;
     let a = Promise.resolve(/^[а-я, А-Я, a-z, A-Z]{3,20}$/.test(formState.clientName));
-    let b = Promise.resolve(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(formState.clientPhone));
+    let b = Promise.resolve(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(formState.clientPhone.replaceAll(' ', '')));
     let c = formState.body === '' ? true : Promise.resolve(/.{3,500}/.test(formState.body));
     let d =
       formState.clientEmail === ''
