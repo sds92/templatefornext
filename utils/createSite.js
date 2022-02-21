@@ -14,10 +14,7 @@ const createSite = ({ url, ym, title, productTitle, contacts, ...data }) => {
     ],
     productTitle: productTitle,
     contacts: contacts,
-    workingHoars: {
-      title: 'Время работы',
-      value: ['Ежедневно: <span class="font-bold">8:00–20:00</span>'],
-    },
+    
     ...data,
   };
 
@@ -38,7 +35,7 @@ const updateSite = (urlToUpdate, data) => {
  * ********************************************
  * Заполняем инфу
  * Запускаем вручную
- * На сервере создаем файл файл .env с переменной NEXT_PUBLIC_SITE_URL=<наш url>
+ * На сервере создаем файл .env с переменной NEXT_PUBLIC_SITE_URL=<наш url>
  *
  * ********************************************
  */
@@ -68,6 +65,10 @@ createSite({
       ['Telegram', 'https://t.me/+00000000000'],
       ['Whatsapp', 'https://wa.me/+00000000000?text=Здравствуйте...'],
     ],
+    workingHoars: {
+      title: 'Время работы',
+      value: ['Ежедневно: <span class="font-bold">8:00–20:00</span>'],
+    }
   },
   content: {
     head: {
@@ -93,7 +94,7 @@ createSite({
       img: 'images/main.png',
     },
     catalog: {
-      title: ['Размеры и цены <span class="uppercase text-bp_green_2">пиломатериала<span>'],
+      title: ['Размеры и цены на <span class="uppercase text-bp_green_2">пиломатериал<span>'],
       subTitle: 'У нас представлены товары разных размеров',
     },
     about: {
@@ -109,7 +110,7 @@ createSite({
       subTitle: 'Доставка по Москве и Московской обл.',
     },
     advantages: {
-      title: ['Преимущества', 'пиломатериала'],
+      title: ['Преимущества <span class="uppercase text-bp_green_2">пиломатериала<span>'],
       items: [
         [
           'Высокая несущая способность',
@@ -140,7 +141,7 @@ createSite({
           'Это свойство достигается за счет того, что древесина имеет пористую структуру.',
         ],
       ],
-      title2: ['Применение', 'пиломатериала'],
+      title2: ['Применение <span class="uppercase text-bp_green_2">пиломатериала<span>'],
       items2: [
         [
           'Отборный сорт',
@@ -165,15 +166,15 @@ createSite({
       ],
     },
     gallery: {
-      title: ['Примеры использования', 'пиломатериала'],
+      title: ['Примеры использования <span class="uppercase text-bp_green_2">пиломатериала<span>'],
       text: 'Пиломатериал применяется в самых разных областях строительства, для самых разных целей.',
       imgs: [
-        ['images/example1.jpg', 'Бани'],
-        ['images/example2.jpg', 'Каркасное домостроение'],
-        ['images/example3.jpg', 'Внутренние перегородки'],
-        ['images/example4.jpg', 'Установка полов'],
-        ['images/example5.jpg', 'Сооружение крыши'],
-        ['images/example6.jpg', 'Создания опалубки'],
+        ['examples/example1.jpg', 'Бани'],
+        ['examples/example2.jpg', 'Каркасное домостроение'],
+        ['examples/example3.jpg', 'Внутренние перегородки'],
+        ['examples/example4.jpg', 'Установка полов'],
+        ['examples/example5.jpg', 'Сооружение крыши'],
+        ['examples/example6.jpg', 'Создания опалубки'],
       ],
     },
   },

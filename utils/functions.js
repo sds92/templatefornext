@@ -47,8 +47,8 @@ export const plitaosb3ru = (inputArr) => {
     })
     .map((item) =>
       item
-        // .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
-        .reduce(
+      // .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
+      .reduce(
           (pre, cur) => {
             // pre.sizes.push(cur.sizes);
             pre.infos.push(cur.infos)

@@ -1,6 +1,5 @@
 import React from 'react';
-import Deviders from '../Deviders';
-import { Title, SubTitle, Text } from '../../../lib';
+import { Text } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
 export default function About(props) {
@@ -57,7 +56,7 @@ export default function About(props) {
     <>
       <div ref={ref} className={``}>
         <Text
-          className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-bold text-${theme.text.bodyTitle} ${textAnimation}`}
+          className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-bold text-5xl text-${theme.text.bodyTitle} ${textAnimation}`}
         >
           {about.title}
         </Text>

@@ -1,7 +1,11 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import styles from './FeedBack.module.css';
+
+import InputMask from 'react-input-mask';
 
 export default function FeedBack(props) {
+  const { theme, data } = props;
   const router = useRouter();
   const [formStatus, setFormStatus] = React.useState('show');
   const [formState, setFormState] = React.useState({
@@ -20,34 +24,36 @@ export default function FeedBack(props) {
     ff: `w-full md:w-1/2 my-1 px-1`,
   };
 
-  function checkForm() {
+  // TODO: beautify the logic of processing the unrequired fields
+  async function checkForm() {
     let res = false;
     let a = Promise.resolve(/^[а-я, А-Я, a-z, A-Z]{3,20}$/.test(formState.clientName));
     let b = Promise.resolve(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(formState.clientPhone));
-    let c = Promise.resolve(/.{3,500}/.test(formState.body));
-    let d = Promise.resolve(
-      /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(
-        formState.clientEmail
-      )
-    );
-    return Promise.all([a, b, c, d]).then((values) => {
-      console.log(values);
-      res = true;
-      values.map((item, index) => {
-        if (!item) {
-          res = false;
-          setCheckFormStatus((state) => {
-            return { ...state, [index]: true };
+    let c = formState.body === '' ? true : Promise.resolve(/.{3,500}/.test(formState.body));
+    let d =
+      formState.clientEmail === ''
+        ? true
+        : Promise.resolve(
+            /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(
+              formState.clientEmail
+            )
+          );
+    const values_1 = await Promise.all([a, b, c, d]);
+    res = true;
+    values_1.map((item, index) => {
+      if (!item) {
+        res = false;
+        setCheckFormStatus((state) => {
+          return { ...state, [index]: true };
+        });
+        setTimeout(() => {
+          setCheckFormStatus((state_1) => {
+            return { ...state_1, [index]: false };
           });
-          setTimeout(() => {
-            setCheckFormStatus((state) => {
-              return { ...state, [index]: false };
-            });
-          }, 3000);
-        }
-      });
-      return res;
+        }, 3000);
+      }
     });
+    return res;
   }
 
   function resetForm() {
@@ -69,7 +75,7 @@ export default function FeedBack(props) {
       props.onFulfilled('loading');
     } catch (err) {}
 
-    fetch(`${props.app.api.email}`, {
+    fetch(`${data.api.email}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -77,8 +83,8 @@ export default function FeedBack(props) {
       },
       body: JSON.stringify({
         ...formState,
-        fromSite: props.app.url,
-        to: props.app.contacts.emails[0],
+        fromSite: data.url,
+        to: data.contacts.emails[0],
       }),
     })
       .then((res) => {
@@ -108,8 +114,7 @@ export default function FeedBack(props) {
         setTimeout(() => {
           setFormStatus('show');
         }, 3000);
-        
-      })
+      });
   }
 
   return (
@@ -119,9 +124,9 @@ export default function FeedBack(props) {
           <div className={`flex flex-wrap`}>
             <div className={classes.ff}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
-                {checkFormStatus[0] && <p className={`user-form-alert`}>3 - 50 символов</p>}
+                {checkFormStatus[0] && <p className={styles.userFormAlert}>3 - 50 символов</p>}
                 <input
-                  className={`user-form-input ${checkFormStatus[0] ? `user-form-alert-borders` : ``}`}
+                  className={`${styles.userFormInput} ${checkFormStatus[0] ? `${styles.userFormAlertBorders}` : ``}`}
                   required
                   id='FeedBackFormClientName'
                   placeholder='Имя'
@@ -136,28 +141,32 @@ export default function FeedBack(props) {
             </div>
             <div className={classes.ff}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
-                {checkFormStatus[1] && <p className={`user-form-alert`}>Не верный номер</p>}
-                <input
-                  className={`user-form-input ${checkFormStatus[1] ? `user-form-alert-borders` : ``}`}
+                {checkFormStatus[1] && <p className={styles.userFormAlert}>Не верный номер</p>}
+                <InputMask
+                  className={`${styles.userFormInput} ${checkFormStatus[1] ? `${styles.userFormAlertBorders}` : ``}`}
                   required
                   id='FeedBackFormClientPhone'
                   placeholder='Телефон'
                   type='tel'
                   value={formState.clientPhone}
-                  onChange={(e) =>
+                  onChange={(e) => {
+                    // mask(e);
                     setFormState((state) => {
                       return { ...state, clientPhone: e.target.value };
-                    })
-                  }
+                    });
+                  }}
+                  mask='+7\ (999) 999 99 99'
+                  maskChar='_'
                 />
               </div>
             </div>
             <div className={`w-full px-1 my-1`}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
-                {checkFormStatus[2] && <p className={`user-form-alert`}>3 - 500 символов</p>}
+                {checkFormStatus[2] && (
+                  <p className={styles.userFormAlert}>3 - 500 символов или оставьте поле пустым</p>
+                )}
                 <textarea
-                  className={`user-form-input ${checkFormStatus[2] ? `user-form-alert-borders` : ``}`}
-                  required
+                  className={`${styles.userFormInput} ${checkFormStatus[2] ? `${styles.userFormAlertBorders}` : ``}`}
                   id='FeedBackFormBody'
                   placeholder='Сообщение'
                   rows={4}
@@ -173,10 +182,11 @@ export default function FeedBack(props) {
 
             <div className={classes.ff}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
-                {checkFormStatus[3] && <p className={`user-form-alert`}>Введите корректный email</p>}
+                {checkFormStatus[3] && (
+                  <p className={styles.userFormAlert}>Введите корректный email или оставьте поле пустым</p>
+                )}
                 <input
-                  className={`h-14 user-form-input ${checkFormStatus[3] ? `user-form-alert-borders` : ``}`}
-                  required
+                  className={`h-14 ${styles.userFormInput} ${checkFormStatus[3] ? `${styles.userFormAlertBorders}` : ``}`}
                   type='email'
                   id='FeedBackFormClientEmail'
                   placeholder='E-mail'
@@ -192,19 +202,21 @@ export default function FeedBack(props) {
             <div className={`${classes.ff} cursor-pointer`}>
               <div
                 onClick={sendForm}
-                className={`w-full h-full pt-5 pb-4 form-button bg-belplit24_2 rounded-md text-slate-100 text-center hover:bg-belplit24_2_b hover:font-bold transition-all`}
+                className={`w-full h-full pt-5 pb-4 form-button ${theme.bg.buttons} rounded-md text-slate-100 text-center hover:font-bold transition-all`}
               >
                 Отправить
               </div>
             </div>
           </div>
         )}
-        {formStatus === 'pending' && <p className={`text-center py-10`}>Отправка запроса</p>}
+        {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-100`}>Отправка запроса</p>}
         {formStatus === 'complete' && (
-          <p className={`text-center py-10`}>Запрос успешно отправлен. Спасибо за обращение!</p>
+          <p className={`text-center py-10 text-zinc-100`}>Запрос успешно отправлен. Спасибо за обращение!</p>
         )}
         {formStatus === 'error' && (
-          <p className={`text-center py-10`}>Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.</p>
+          <p className={`text-center py-10 text-zinc-100`}>
+            Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.
+          </p>
         )}
       </form>
     </div>
