@@ -24,7 +24,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${app.productTitle}, ${sizesItem}`,
+        title: `${sizesItem}`,
         prices: [item.prices[index], item.priceFor[index]],
         imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
       });
@@ -119,7 +119,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <hr />
           <br />
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
-            {arr.sort((a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]).map((item, index) => {
+            {arr.sort((a, b) => a.title === b.title ? 0 : a.title < b.title ? -1 : 1).sort((a, b) => a.prices[0] - b.prices[0]).map((item, index) => {
               return (
                 state.chosen === item.catId && (
                   <motion.div
@@ -166,7 +166,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                           })} */}
                         </p>
                         <p
-                          className={`pl-10 py-1.5 ${
+                          className={`pl-10 py-1.5 pr-2 ${
                             state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
                           }`}
                         >
