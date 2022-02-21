@@ -8,7 +8,8 @@ const theme = (name) => {
   };
   switch (name) {
     case 'black':
-      (theme.logo = '#ff0000'), (theme.metaThemeColor = '#1a1520');
+      theme.logo = '#ff0000'; 
+      theme.metaThemeColor = '#1a1520';
       theme.bg.header = 'bp_black';
       theme.bg.buttons = 'bp_red';
       theme.bg.productcardPrice = 'bp_red';
@@ -21,7 +22,8 @@ const theme = (name) => {
 
       break;
     case 'green':
-      (theme.logo = '#62a044'), (theme.metaThemeColor = '#62a044');
+      theme.logo = '#62a044'; 
+      theme.metaThemeColor = '#62a044';
       theme.bg.header = 'zinc-100';
       theme.bg.buttons = 'bp_green';
       theme.bg.productcardPrice = 'bp_green';

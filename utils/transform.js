@@ -1,28 +1,55 @@
+import { INTERNALS } from 'next/dist/server/web/spec-extension/request';
+
 export const transform = (input) => {
-console.log("🚀 ~ file: transform.js ~ line 2 ~ transform ~ input", input)
+  console.log('🚀 ~ file: transform.js ~ line 2 ~ transform ~ input', input);
   let res = [];
   // here we should transform all options to obj entries
   // sort by title
   // sort by sizes or if no sizes - by price
   // group by product
-
-  return input.map((item) => ({
-    category: item.options.find(({ key }) => key === 'Производитель').value,
-    // infos: item.title,
-    // sizes: {
-    //   a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
-    //   b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
-    //   h: parseInt(item.options.find(({ key }) => key === 'Толщина').value.replace(' мм', '')),
-    // },
-    // prices: item.cost,
-    // priceFor: item.unit,
-    // show: item.visible,
-    // articles: item.article,
-    // ids: item.id,
-    // coef: item.coef,
-    // imgs: item.images,
-    // paths: item.path,
-  }));
+  let temp = [];
+  temp = input
+    .map((item) => {
+      let category = '';
+      if (item.options.find(({ key }) => key === 'Производитель')) {
+        category = item.options.find(({ key }) => key === 'Производитель').value;
+      }
+      if (item.options.find(({ key }) => key === 'Серия')) {
+        category = item.options.find(({ key }) => key === 'Серия').value;
+      }
+      return {
+        category: category,
+        title: item.title,
+        price: item.cost,
+        priceFor: item.unit,
+        show: item.visible,
+        article: item.article,
+        id: item.id,
+        coef: item.coef,
+        imgs: item.images,
+        path: item.path,
+      };
+    })
+    .sort((a, b) => {
+      return a.category === b.category ? 0 : a.category < b.category ? -1 : 1;
+    })
+    .reduce((pre, cur, i) => {
+      // console.log("🚀 ~ file: transform.js ~ line 37 ~ .reduce ~ pre", pre)
+      let preCategory = null;
+      if (pre.category) {
+        preCategory = pre.category;
+      } else if (pre.reverse()[0].category) {
+        preCategory = pre[0]?.category;
+      }
+      if (preCategory === cur.category) {
+        console.log("🚀 ~ file ~ preCategory", i, preCategory)
+        return Array.prototype.concat(cur, pre);
+      }
+      res.push(pre)
+      console.log("🚀 ~ file ~ preCategory", i, res)
+      return cur
+    });
+  // console.log('🚀 ~ file: transform.js ~ line 26 ~ temp=input.map ~ temp', temp);
 };
 
 export const plitaosb3ru = (inputArr) => {

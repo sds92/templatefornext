@@ -48,7 +48,7 @@ createSite({
   desc: 'Пиломатериалы',
   ym: '',
   title: 'Пиломатериалы',
-  productTitle: 'Пиломатериалы',
+  productPrefix: '',
   api: {
     email: 'https://xn--j1ano.com/sendmail',
     products: 'https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json',
