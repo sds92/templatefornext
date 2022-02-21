@@ -5,26 +5,30 @@ import { Icons } from '..';
 
 const Map = React.lazy(() => import('./Map'));
 
-export default function Footer({ app }) {
+export default function Footer(props) {
+  const { theme, data } = props;
   return (
     <>
       <div className={`h-96 cursor-default`}>
         <React.Suspense fallback={<div>Загрузка...</div>}>
-          <Map app={app} />
+          <Map contacts={data.contacts} />
         </React.Suspense>
       </div>
-      <footer className={`bg-belplit24`}>
+      <footer className={`bg-${theme.bg.footer}`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
           <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
             <a href='index.html'>
-              <Icons.Belplit24 extraClasses={`w-10 h-10 `} />
+              <Icons.Belplit24 extraClasses={`w-10 h-10 `} fill={`${theme.logo}`}/>
             </a>
           </div>
 
-          <div className={`my-4 flex items-center gap-6 text-slate-100 cursor-default mr-2`}>
-            <Icons.Roboweb extraClasses={`w-10 h-10`} />
+          <div className={`my-4 flex items-center gap-6 text-${theme.text.footer} cursor-default mr-2`}>
+            <Icons.Roboweb extraClasses={`w-10 h-10`} fill={`${theme.logoRoboWeb}`}/>
             <p>
-              2021. Сайт создан с помощью <a href='https://roboweb.site/'>RoboWeb</a>
+              © 2022. Сайт создан с помощью{' '}
+              <a className={`font-bold`} href='https://roboweb.team'>
+                RoboWeb.Team
+              </a>
             </p>
           </div>
         </div>

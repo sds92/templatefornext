@@ -5284,11 +5284,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-bottom-width: 1px;
 }
 
-.border-slate-300{
-  --tw-border-opacity: 1;
-  border-color: rgb(203 213 225 / var(--tw-border-opacity));
-}
-
 .border-bp_green{
   --tw-border-opacity: 1;
   border-color: rgb(56 160 0 / var(--tw-border-opacity));
@@ -6918,6 +6913,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
+.text-zinc-100{
+  --tw-text-opacity: 1;
+  color: rgb(244 244 245 / var(--tw-text-opacity));
+}
+
 .text-slate-300{
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
@@ -6966,11 +6966,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-bp_gray_2{
   --tw-text-opacity: 1;
   color: rgb(69 69 69 / var(--tw-text-opacity));
-}
-
-.text-zinc-100{
-  --tw-text-opacity: 1;
-  color: rgb(244 244 245 / var(--tw-text-opacity));
 }
 
 .text-zinc-200{
@@ -7507,6 +7502,27 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:scale-105:hover{
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:bg-bp_green_2:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(98 160 68 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-bp_green_3:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(66 109 46 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-bp_red_2:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(172 9 9 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-opacity-30:hover{
   --tw-bg-opacity: 0.3;
 }
@@ -7523,6 +7539,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-bp_green:hover{
   --tw-text-opacity: 1;
   color: rgb(56 160 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-bp_green_2:hover{
+  --tw-text-opacity: 1;
+  color: rgb(98 160 68 / var(--tw-text-opacity));
 }
 
 .active\:scale-105:active{

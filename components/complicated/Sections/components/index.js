@@ -5,6 +5,7 @@ import Gallery from './Gallery';
 import Contacts from './Contacts';
 import Catalog from './Catalog';
 import CatalogAlt1 from './CatalogAlt1';
+import OrderClick from './OrderClick';
 
 const Sections = {
   Main,
@@ -14,6 +15,7 @@ const Sections = {
   Contacts,
   Catalog,
   CatalogAlt1,
+  OrderClick,
 };
 
 export default Sections;

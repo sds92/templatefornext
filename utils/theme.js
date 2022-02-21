@@ -1,7 +1,7 @@
 const theme = (name) => {
   let theme = {
     styles: {
-      buttons: `font-bold max-w-xs whitespace-nowrap rounded-md shadow-md p-2 uppercase text-xl text-center`,
+      buttons: `cursor-pointer font-bold max-w-xs whitespace-nowrap rounded-md shadow-md py-2 px-4 uppercase text-xl text-center`,
     },
     bg: {},
     text: {},
@@ -9,14 +9,19 @@ const theme = (name) => {
   };
   switch (name) {
     case 'black':
-      theme.logo = '#ff0000'; 
+      theme.logo = '#ff0000';
+      theme.logoRoboWeb = '#ffffff'; 
       theme.metaThemeColor = '#1a1520';
       theme.bg.header = 'bp_black';
+      theme.bg.footer = 'bp_black';
       theme.bg.buttons = 'bp_red';
+      theme.bg.buttonsHover = 'bp_red_2';
       theme.bg.productcardPrice = 'bp_red';
       theme.bg.advantages = 'zinc-800';
       theme.bg.contacts = 'zinc-800';
+      theme.bg.orderClick = 'zinc-800';
       theme.text.header = 'zinc-100';
+      theme.text.footer = 'zinc-100';
       theme.text.advantages = 'zinc-100';
       theme.text.contactsTitle = 'zinc-100';
       theme.text.contactsSubTitle = 'zinc-100';
@@ -31,13 +36,18 @@ const theme = (name) => {
       break;
     case 'green':
       theme.logo = '#62a044'; 
+      theme.logoRoboWeb = '#1a1520'; 
       theme.metaThemeColor = '#62a044';
       theme.bg.header = 'zinc-100';
+      theme.bg.footer = 'zinc-100';
       theme.bg.buttons = 'bp_green';
+      theme.bg.buttonsHover = 'bp_green_3';
       theme.bg.productcardPrice = 'bp_green';
       theme.bg.advantages = 'zinc-800';
       theme.bg.contacts = 'zinc-800';
+      theme.bg.orderClick = 'zinc-800';
       theme.text.header = 'zinc-800';
+      theme.text.footer = 'zinc-800';
       theme.text.advantages = 'zinc-100';
       theme.text.contactsTitle = 'bp_green_2';
       theme.text.contactsSubTitle = 'zinc-100';

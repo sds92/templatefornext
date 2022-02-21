@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Map({ app }) {
+export default function Map(props) {
   return (
     <iframe
-      src={app.contacts.addresses[0].iframe}
+      src={props.contacts.addresses[0].iframe}
       width='100%'
       height='100%'
       frameBorder='1'

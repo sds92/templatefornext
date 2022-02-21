@@ -18,7 +18,7 @@ export default function Home(props) {
       >
         <FullPage {...props} />
       </motion.div>
-      {/* <Footer /> */}
+      <Footer {...props}/>
     </>
   );
 }

@@ -7,8 +7,6 @@ export default function Main(props) {
   const { theme, data, lgView } = props;
   const { main } = data.content;
   const { contacts } = data;
-  console.log('🚀 ~ file: Main.js ~ line 9 ~ Main ~ main', main);
-  console.log('🚀 ~ file: Main.js ~ line 8 ~ Main ~ data', data);
   
   return (
     <div className={`w-full flex user-main-fs relative`}>
@@ -52,7 +50,7 @@ export default function Main(props) {
               {contacts.phones[0]}
             </a>
           </div>
-          <div className={`${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons}`} href={'#Contacts'}>
+          <div className={`${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons} hover:bg-${theme.bg.buttonsHover} active:scale-105`} href={'#Contacts'}>
             Оставить заявку
           </div>
         </div>

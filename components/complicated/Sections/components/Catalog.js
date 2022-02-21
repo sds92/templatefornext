@@ -3,8 +3,8 @@ import { useInView } from 'react-intersection-observer';
 
 import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
-import { Button, Title, SubTitle, Text } from '../../../lib';
-import About from './About';
+import { Button, Text } from '../../../lib';
+
 // react-menu
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
