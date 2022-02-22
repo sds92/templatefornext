@@ -94,7 +94,7 @@ createSite({
       img: 'images/main.png',
     },
     catalog: {
-      title: ['Размеры и цены на <span class="uppercase text-bp_green_2">пиломатериал<span>'],
+      title: ['Размеры и цены на <span class="uppercase text-bp_red">пиломатериалы<span>'],
       subTitle: 'У нас представлены товары разных размеров',
     },
     about: {
@@ -110,7 +110,7 @@ createSite({
       subTitle: 'Доставка по Москве и Московской обл.',
     },
     advantages: {
-      title: ['Преимущества <span class="uppercase text-bp_green_2">пиломатериала<span>'],
+      title: ['Преимущества <span class="uppercase text-bp_red">пиломатериала<span>'],
       items: [
         [
           'Высокая несущая способность',
@@ -141,7 +141,7 @@ createSite({
           'Это свойство достигается за счет того, что древесина имеет пористую структуру.',
         ],
       ],
-      title2: ['Применение <span class="uppercase text-bp_green_2">пиломатериала<span>'],
+      title2: ['Применение <span class="uppercase text-bp_red">пиломатериала<span>'],
       items2: [
         [
           'Отборный сорт',
@@ -166,7 +166,7 @@ createSite({
       ],
     },
     gallery: {
-      title: ['Примеры использования <span class="uppercase text-bp_green_2">пиломатериала<span>'],
+      title: ['Примеры использования <span class="uppercase text-bp_red">пиломатериала<span>'],
       text: 'Пиломатериал применяется в самых разных областях строительства, для самых разных целей.',
       imgs: [
         ['examples/example1.jpg', 'Бани'],

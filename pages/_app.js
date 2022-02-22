@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
     w: w,
     data: data,
     lgView: w >= 900,
-    theme: theme('green'),
+    theme: theme('black'),
     ...pageProps,
   };
 

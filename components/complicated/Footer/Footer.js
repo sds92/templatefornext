@@ -9,12 +9,12 @@ export default function Footer(props) {
   const { theme, data } = props;
   return (
     <>
-      <div className={`h-96 cursor-default`}>
+      <div className={`h-96 cursor-default overflow-hidden`}>
         <React.Suspense fallback={<div>Загрузка...</div>}>
           <Map contacts={data.contacts} />
         </React.Suspense>
       </div>
-      <footer className={`bg-${theme.bg.footer}`}>
+      <footer className={`bg-${theme.bg.footer} overflow-hidden`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
           <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
             <a href='index.html'>

@@ -11,8 +11,8 @@ export default function Gallery(props) {
   });
   return (
     <div id={`Gallery`} className={`py-20`}>
-      <Text className={`text-5xl text-center font-bold`}>{gallery.title}</Text>
-      <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>{gallery.text}</Text>
+      <Text className={`zero:text-xl sm:text-5xl text-center font-bold`}>{gallery.title}</Text>
+      <Text className={`zero:text-sm sm:text-xl text-center py-4 max-w-5xl mx-auto font-light`}>{gallery.text}</Text>
       <hr />
       <br />
       <div className={`flex gap-4 flex-wrap justify-center md:w-10/12 lg:w-8/12 mx-auto`}>

@@ -5,7 +5,7 @@ export default function OrderClick(props) {
   const { theme, data } = props;
   const { orderClick } = data.content;
   return (
-    <div className={`bg-${theme.bg.orderClick} py-10 px-4`}>
+    <div className={`bg-${theme.bg.orderClick} py-10 px-4 overflow-hidden`}>
       <div className={`flex flex-wrap justify-evenly`}>
         <div className={`text-slate-100 text-justify flex flex-col items-center justify-center`}>
           <Text className={`font-bold text-xl`}>{orderClick.title}</Text>

@@ -32,6 +32,7 @@ module.exports = {
     'hover:bg-bp_green_2',
     'hover:bg-bp_green_3',
     'hover:bg-bp_red_2',
+    'hover:bg-bp_red',
     {
       pattern: /(p|m|px|mx|py|my|pt|mt|pr|mr|pb|mb|pl|mr)-(0.5|1|2|3|4|5|6)/,
     },

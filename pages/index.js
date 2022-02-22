@@ -9,6 +9,7 @@ export default function Home(props) {
     <>
       <Header {...props} />
       <motion.div
+      className={``}
         initial='initial'
         animate='animate'
         exit='exit'

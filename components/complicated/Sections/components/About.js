@@ -54,14 +54,14 @@ export default function About(props) {
   }, [inView]);
   return (
     <>
-      <div ref={ref} id={`About`}>
+      <div ref={ref} id={`About`} className={``}>
         <Text
-          className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-bold text-5xl text-${theme.text.bodyTitle} ${textAnimation}`}
+          className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-bold zero:text-xl sm:text-5xl text-${theme.text.bodyTitle} ${textAnimation}`}
         >
           {about.title}
         </Text>
         <Text
-          className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-light ${textAnimation}`}
+          className={`zero:text-sm sm:text-xl transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-light ${textAnimation}`}
         >
           {about.subTitle}
         </Text>

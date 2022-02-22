@@ -8,7 +8,7 @@ export default function Advantages(props) {
     <>
       <div id={`Advantages`} className={`bg-${theme.bg.advantages} flex flex-col`}>
         <div className={`max-w-6xl mx-auto py-20 px-4`}>
-          <Text className={`text-5xl text-center font-bold text-${theme.text.advantages}`}>{advantages.title}</Text>
+          <Text className={`zero:text-xl sm:text-5xl text-center font-bold text-${theme.text.advantages}`}>{advantages.title}</Text>
           <article className={`py-10`}>
             {advantages.items.map((item, index) => (
               <div className={`flex`} key={`TEXT1${index}`}>
@@ -29,7 +29,7 @@ export default function Advantages(props) {
               </div>
             ))}
           </article>
-          <Text className={`text-5xl text-center font-bold text-${theme.text.advantages}`}>{advantages.title2}</Text>
+          <Text className={`zero:text-xl sm:text-5xl text-center font-bold text-${theme.text.advantages}`}>{advantages.title2}</Text>
           <article className={`py-10`}>
             {advantages.items2.map((item, index) => (
               <div className={`flex`} key={`TEXT1${index}`}>

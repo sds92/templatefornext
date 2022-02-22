@@ -51,14 +51,14 @@ export default function SM(props) {
               >
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className={`h-10 pl-4 uppercase flex items-center hover:text-${theme.text.buttons} hover:bg-${theme.bg.headerHoverLink} active:bg-${theme.bg.headerActiveLink}`}
+                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.buttons} hover:bg-${theme.bg.headerHoverLink} active:bg-${theme.bg.headerActiveLink}`}
                 >
                   <a href='#main'>{item[0]}</a>
                 </div>
               </Link>
             ))}
           </div>
-          <div className={`flex flex-col mt-10`}>
+          <div className={`flex flex-col mt-10 text-${theme.text.header}`}>
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}

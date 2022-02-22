@@ -25,9 +25,9 @@ export default function Catalog(props) {
 
   return (
     <>
-      <div id={`Catalog`}>
-        <Text className={`text-5xl text-center font-bold`}>{catalog.title}</Text>
-        <Text className={`mt-2 text-xl text-center font-light`}>{catalog.subTitle}</Text>
+      <div id={`Catalog`} className={``}>
+        <Text className={`zero:text-xl sm:text-5xl text-center font-bold`}>{catalog.title}</Text>
+        <Text className={`zero:text-sm sm:text-xl mt-2  text-center font-light`}>{catalog.subTitle}</Text>
         <Text className={`text-xl text-center font-light`}>{catalog.text}</Text>
 
         <div className={`w-full`}>
@@ -143,18 +143,14 @@ export default function Catalog(props) {
                         <p
                           className={`bg-${theme.bg.productcardPrice} text-slate-100 font-bold pl-10 text-xl py-1`}
                         >
-                          {/* {item.prices.map((item_inner, index_inner) => {
-                            return ( */}
                           <span key={`ITEMPRICE${index}`}>
                             {item.price}
                             {' руб. '}
                             {item.priceFor}
                           </span>
-                          {/* );
-                          })} */}
                         </p>
                         <p
-                          className={`pl-10 py-1.5 ${
+                          className={`pl-10 pr-4 py-1.5 ${
                             state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
                           }`}
                         >

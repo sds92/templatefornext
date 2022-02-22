@@ -27,14 +27,14 @@ const theme = (name) => {
       theme.text.advantages = 'zinc-100';
       theme.text.contactsTitle = 'zinc-100';
       theme.text.contactsSubTitle = 'zinc-100';
-      theme.text.contactsIcon = 'bp_red';
+      theme.text.contactsIcon = 'bp_red_2';
       theme.text.body = 'zinc-800';
       theme.text.bodyTitle = 'bp_red';
       theme.text.buttons = 'zinc-100';
       theme.text.hover = 'bp_red';
       theme.text.active = 'bp_red_2';
       theme.borders.contacts = 'bp_red_2';
-      theme.borders.catalogActive = 'bp_red_2';
+      theme.borders.catalogActive = 'bp_red';
 
       break;
     case 'green':
