@@ -6,26 +6,30 @@ export const transform = (input) => {
   // sort by sizes or if no sizes - by price
   // group by product
   let temp = [];
-  return input
+  input
     .map((item) => {
       // specifying category
       // trying different options
       let category = '';
-      if (item.options.find(({ key }) => key === 'Производитель')) {
-        category = item.options.find(({ key }) => key === 'Производитель').value;
-      }
-      if (item.options.find(({ key }) => key === 'Серия')) {
-        category = item.options.find(({ key }) => key === 'Серия').value;
-      }
-      if (item.options.find(({ key }) => key === 'Сорт')) {
-        category = item.options.find(({ key }) => key === 'Сорт').value;
-      }
-      if (item.options.find(({ key }) => key === 'Тип')) {
-        category = item.options.find(({ key }) => key === 'Тип').value;
-      }
+      // if (item.options.find(({ key }) => key === 'Производитель')) {
+      //   category = item.options.find(({ key }) => key === 'Производитель').value;
+      // }
+      // if (item.options.find(({ key }) => key === 'Серия')) {
+      //   category = item.options.find(({ key }) => key === 'Серия').value;
+      // }
+      // if (item.options.find(({ key }) => key === 'Сорт')) {
+      //   category = item.options.find(({ key }) => key === 'Сорт').value;
+      // }
+      // if (item.options.find(({ key }) => key === 'Тип')) {
+      //   category = item.options.find(({ key }) => key === 'Тип').value;
+      // }
       switch (process.env.NEXT_PUBLIC_SITE_URL) {
         case 'pilomateriali.site':
-          
+          item.title.includes('Брус стро')
+        ? category = 'Брус стороганый'
+        : item.title.includes('Евровагонка из хвои')
+        ? category = 'Евровагонка из хвои'
+        : category = 'aaa'
           break;
       
         default:
