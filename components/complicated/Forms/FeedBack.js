@@ -150,7 +150,6 @@ export default function FeedBack(props) {
                   type='tel'
                   value={formState.clientPhone}
                   onChange={(e) => {
-                    // mask(e);
                     setFormState((state) => {
                       return { ...state, clientPhone: e.target.value };
                     });
@@ -202,7 +201,7 @@ export default function FeedBack(props) {
             <div className={`${classes.ff} cursor-pointer`}>
               <div
                 onClick={sendForm}
-                className={`w-full h-full pt-5 pb-4 form-button ${theme.bg.buttons} rounded-md text-slate-100 text-center hover:font-bold transition-all`}
+                className={`cursor-pointer font-bold w-full whitespace-nowrap rounded-md shadow-md py-2 px-4 uppercase text-xl text-center text-${theme.text.buttons} bg-${theme.bg.buttons} hover:bg-${theme.bg.buttonsHover} active:scale-105`}
               >
                 Отправить
               </div>

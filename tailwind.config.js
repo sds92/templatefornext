@@ -22,12 +22,16 @@ module.exports = {
     'cursor-pointer',
     'hover:text-bp_red',
     'active:text-bp-red_2',
+    'active:text-bp-green_2',
+    'active:bg-bp_green_2',
+    'active:bg-bp_red_2',
+    'hover:text-zinc-100',
     'hover:text-bp_green',
     'hover:text-bp_green_2',
+    'hover:bg-bp_green',
     'hover:bg-bp_green_2',
     'hover:bg-bp_green_3',
     'hover:bg-bp_red_2',
-    'active:text-bp-green_2',
     {
       pattern: /(p|m|px|mx|py|my|pt|mt|pr|mr|pb|mb|pl|mr)-(0.5|1|2|3|4|5|6)/,
     },
@@ -45,7 +49,7 @@ module.exports = {
     },
     {
       pattern:
-        /(bg|text|hover:bg|active:bg|hover:text|active:text|border)-(bp_green|bp_green_2|bp_green_3|bp_black|bp_red|bp_red_2|bp_gray|bp_gray_2)/,
+        /(bg|text|hover:bg|active:bg|hover:text|active:text|border|decoration)-(bp_green|bp_green_2|bp_green_3|bp_black|bp_red|bp_red_2|bp_gray|bp_gray_2)/,
     },
   ],
   theme: {

@@ -6,7 +6,7 @@ export default function Advantages(props) {
   const { advantages } = data.content;
   return (
     <>
-      <div className={`bg-${theme.bg.advantages} flex flex-col`}>
+      <div id={`Advantages`} className={`bg-${theme.bg.advantages} flex flex-col`}>
         <div className={`max-w-6xl mx-auto py-20 px-4`}>
           <Text className={`text-5xl text-center font-bold text-${theme.text.advantages}`}>{advantages.title}</Text>
           <article className={`py-10`}>

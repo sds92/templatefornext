@@ -54,7 +54,7 @@ export default function About(props) {
   }, [inView]);
   return (
     <>
-      <div ref={ref} className={``}>
+      <div ref={ref} id={`About`}>
         <Text
           className={`transition-all duration-300 delay-100 text-center py-4 max-w-5xl mx-auto font-bold text-5xl text-${theme.text.bodyTitle} ${textAnimation}`}
         >

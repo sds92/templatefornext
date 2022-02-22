@@ -2582,6 +2582,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 4rem;
 }
 
+.h-screen{
+  height: 100vh;
+}
+
 .h-24{
   height: 6rem;
 }
@@ -6923,6 +6927,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
+.text-zinc-900{
+  --tw-text-opacity: 1;
+  color: rgb(24 24 27 / var(--tw-text-opacity));
+}
+
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -6998,9 +7007,49 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(63 63 70 / var(--tw-text-opacity));
 }
 
-.text-zinc-900{
-  --tw-text-opacity: 1;
-  color: rgb(24 24 27 / var(--tw-text-opacity));
+.underline{
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.decoration-bp_green{
+  -webkit-text-decoration-color: #38a000;
+          text-decoration-color: #38a000;
+}
+
+.decoration-bp_green_2{
+  -webkit-text-decoration-color: #62a044;
+          text-decoration-color: #62a044;
+}
+
+.decoration-bp_green_3{
+  -webkit-text-decoration-color: #426d2e;
+          text-decoration-color: #426d2e;
+}
+
+.decoration-bp_black{
+  -webkit-text-decoration-color: #1a1520;
+          text-decoration-color: #1a1520;
+}
+
+.decoration-bp_red{
+  -webkit-text-decoration-color: #ff0000;
+          text-decoration-color: #ff0000;
+}
+
+.decoration-bp_red_2{
+  -webkit-text-decoration-color: #ac0909;
+          text-decoration-color: #ac0909;
+}
+
+.decoration-bp_gray{
+  -webkit-text-decoration-color: #848484;
+          text-decoration-color: #848484;
+}
+
+.decoration-bp_gray_2{
+  -webkit-text-decoration-color: #454545;
+          text-decoration-color: #454545;
 }
 
 .decoration-zinc-100{
@@ -7046,6 +7095,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .decoration-zinc-900{
   -webkit-text-decoration-color: #18181b;
           text-decoration-color: #18181b;
+}
+
+.decoration-1{
+  text-decoration-thickness: 1px;
+}
+
+.underline-offset-4{
+  text-underline-offset: 4px;
 }
 
 .placeholder-zinc-100::-moz-placeholder{
@@ -7502,10 +7559,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:scale-105:hover{
-  --tw-scale-x: 1.05;
-  --tw-scale-y: 1.05;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.hover\:bg-bp_green:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 160 0 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-bp_green_2:hover{
@@ -7534,6 +7590,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-bp_red:hover{
   --tw-text-opacity: 1;
   color: rgb(255 0 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-zinc-100:hover{
+  --tw-text-opacity: 1;
+  color: rgb(244 244 245 / var(--tw-text-opacity));
 }
 
 .hover\:text-bp_green:hover{
@@ -7567,6 +7628,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .active\:scale-x-105:active{
   --tw-scale-x: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.active\:bg-bp_green_2:active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(98 160 68 / var(--tw-bg-opacity));
+}
+
+.active\:bg-bp_red_2:active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(172 9 9 / var(--tw-bg-opacity));
 }
 
 .active\:font-normal:active{

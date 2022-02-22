@@ -28,12 +28,12 @@ export async function getStaticProps(context) {
   const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/${process.env.NEXT_PUBLIC_SITE_URL}.json`).then((res) =>
     res.json()
   );
-  const products = transform(res);
+  const datafromDB = transform(res);
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {
     props: {
-      products,
+      datafromDB,
     },
   };
 }

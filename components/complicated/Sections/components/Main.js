@@ -9,8 +9,8 @@ export default function Main(props) {
   const { contacts } = data;
   
   return (
-    <div className={`w-full flex user-main-fs relative`}>
-      <div className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
+    <div id={`Main`} style={{minHeight: '500px'}} className={`w-full flex user-main-fs relative`}>
+      <div  className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
         <div className={`max-w-xl ml-auto -mt-10 cursor-default`}>
           <div>
             {lgView ? (

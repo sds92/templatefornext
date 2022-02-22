@@ -10,7 +10,7 @@ export default function Gallery(props) {
     hover: null,
   });
   return (
-    <div className={`py-20`}>
+    <div id={`Gallery`} className={`py-20`}>
       <Text className={`text-5xl text-center font-bold`}>{gallery.title}</Text>
       <Text className={`text-center py-4 max-w-5xl mx-auto font-light`}>{gallery.text}</Text>
       <hr />

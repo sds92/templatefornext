@@ -76,7 +76,42 @@ export const plitaosb3ru = (inputArr) => {
             paths: [],
           }
         )
-    );
+    )
+    .map((item) => {
+      // console.log("🚀 ~ file: functions.js ~ line 67 ~ .map ~ item", item)
+      return (
+        item
+          // .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
+          .reduce(
+            (pre, cur) => {
+              // pre.sizes.push(cur.sizes);
+              pre.infos.push(cur.infos);
+              pre.prices.push(cur.prices);
+              pre.priceFor.push(cur.priceFor);
+              pre.show.push(cur.show);
+              pre.articles.push(cur.articles);
+              pre.ids.push(cur.ids);
+              pre.coef.push(cur.coef);
+              pre.imgs.push(cur.imgs);
+              pre.paths.push(cur.paths);
+              return pre;
+            },
+            {
+              title: item[0].title,
+              // sizes: [],
+              infos: [],
+              prices: [],
+              priceFor: [],
+              show: [],
+              articles: [],
+              ids: [],
+              coef: [],
+              imgs: [],
+              paths: [],
+            }
+          )
+      );
+    });
   // return inputArr.map((inputArrItem) => {
   //   let tmpSizes = inputArrItem.sizes.map((tmpSizesItem) => {
   //     return tmpSizesItem[0]?.slice(0, tmpSizesItem[0].indexOf('мм')).split(/х|x/);

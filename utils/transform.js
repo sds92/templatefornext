@@ -13,6 +13,7 @@ export const transform = (input) => {
       let category = '';
       let subcategory = '';
       let sizes = {};
+      let imgs = [];
       let tempSizes = '';
       // if (item.options.find(({ key }) => key === 'Производитель')) {
       //   category = item.options.find(({ key }) => key === 'Производитель').value;
@@ -27,8 +28,12 @@ export const transform = (input) => {
       //   category = item.options.find(({ key }) => key === 'Тип').value;
       // }
       switch (process.env.NEXT_PUBLIC_SITE_URL) {
+        // =======================================================
+        // pilomateriali.site
+        // =======================================================
         case 'pilomateriali.site':
-          // set category
+
+          // >>>> CATEGORY
           /Брус стро/.test(item.title)
             ? (category = 'Брус строганный')
             : /Евровагонка из хвои/.test(item.title)
@@ -40,14 +45,23 @@ export const transform = (input) => {
             : /Половая доска/.test(item.title)
             ? (category = 'Половая доска')
             : (category = 'Без категории');
-          // set subcategory
+
+          // >>>> SUBCATEGORY
           if (item.options.find(({ key }) => key === 'Сорт')) {
             subcategory = item.options.find(({ key }) => key === 'Сорт').value;
           }
-          // set sizes
+
+          // >>>> SIZES
           sizes.a = parseInt(item.options.find(({ key }) => key === 'Длина')?.value.replace('мм', ''));
           sizes.b = parseInt(item.options.find(({ key }) => key === 'Ширина')?.value.replace('мм', ''));
           sizes.h = parseInt(item.options.find(({ key }) => key === 'Толщина')?.value.replace('мм', ''));
+         
+          // >>>> IMGS
+          imgs = [
+            item.path + item.images[0],
+            item.path + item.images[1],
+          ]
+
           break;
 
         default:
@@ -78,6 +92,8 @@ export const transform = (input) => {
       return {
         subcategory: subcategory,
         category: category,
+        imgs: imgs,
+        sizes: sizes,
         title: item.title,
         price: item.cost,
         priceFor: item.unit,
@@ -85,9 +101,6 @@ export const transform = (input) => {
         article: item.article,
         id: item.id,
         coef: item.coef,
-        imgs: item.images,
-        path: item.path,
-        sizes: sizes,
       };
     })
     .sort((a, b) => {
@@ -108,20 +121,25 @@ export const transform = (input) => {
       }
       if (cur.category === preCategory) {
         if (i === input.length + 1) {
-          res.push(Array.prototype.concat(cur, pre));
+          res.push(Array.prototype.concat(cur, pre).sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b));
           return res;
         } else {
           return Array.prototype.concat(cur, pre);
         }
       } else {
         if (pre[0]) {
-          res.push(pre);
+          res.push(pre.sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b));
         } else {
           res.push([pre]);
         }
         return cur;
       }
+    })
+    .map((item, index) => {
+      return (
+        {category: item[0].category, id: index}
+      );
     });
   // res = temp
-  return res;
+  return [res, categories];
 };

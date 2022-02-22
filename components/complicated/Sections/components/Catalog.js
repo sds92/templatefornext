@@ -1,5 +1,4 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
 
 import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
@@ -12,51 +11,32 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog(props) {
-  const { theme, lgView, w, products, data } = props;
-  console.log("🚀 ~ file: Catalog.js ~ line 16 ~ Catalog ~ products", products)
-  const {catalog} = data.content
-  
+  const { theme, lgView, w, datafromDB, data } = props;
+  const { catalog } = data.content;
+  const [products, categories] = datafromDB;
   const [state, setState] = React.useState({
-    chosen: 0,
+    chosen: categories[0].category,
     hover: null,
     show: false,
   });
 
-  const arr = [];
-  products.map((product, i) => {
-    return product.infos.map((sizesItem, index) => {
-      return arr.push({
-        category: item.title,
-        catId: i,
-        title: `${sizesItem}`,
-        prices: [item.prices[index], item.priceFor[index]],
-        img: data.api.serv + item.paths[index]+item.imgs[index][0],
-      });
-    });
-  });
+  const arr = products.flat();
 
-  const { ref, inView, entry } = useInView({
-    threshold: 0,
-  });
-  const textAnimation = `${
-    w >= 500 ? (inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`) : ``
-  }`;
 
   return (
     <>
-      <div ref={ref} className={``}>
+      <div id={`Catalog`}>
         <Text className={`text-5xl text-center font-bold`}>{catalog.title}</Text>
         <Text className={`mt-2 text-xl text-center font-light`}>{catalog.subTitle}</Text>
         <Text className={`text-xl text-center font-light`}>{catalog.text}</Text>
 
         <div className={`w-full`}>
           <div className={`flex items-center justify-center`}>
-            
             {!lgView ? (
               <Menu
                 menuButton={({ open }) => {
                   return (
-                    <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
+                    <MenuButton className={`my-4 ${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons} hover:bg-${theme.bg.buttonsHover} active:scale-105`}>
                       <Button
                         style={{ border: 'none' }}
                         onClick={() =>
@@ -74,7 +54,8 @@ export default function Catalog(props) {
                   );
                 }}
               >
-                {products.map((innerItem, index) => (
+                {/* MOBILE MENU */}
+                {categories.map((item, index) => (
                   <MenuItem
                     key={`NAVLGINNER${index}`}
                     onClick={() => {
@@ -83,47 +64,49 @@ export default function Catalog(props) {
                       });
                     }}
                   >
-                    &nbsp;{innerItem.title}
+                    &nbsp;{item.category}
                   </MenuItem>
                 ))}
               </Menu>
             ) : (
+              // DESKTOP MENU
               <>
-                <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
-                  {products.map((item, index) => (
-                    <li
-                      className={`cursor-pointer text-2xl text-slate-700 font-light relative h-8`}
+                <div className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
+                  {categories.map((item, index) => (
+                    <div
+                      className={`cursor-pointer text-2xl text-zinc-700 font-light relative h-8`}
                       key={`LINK${index}`}
                       onClick={() => {
                         setState((state) => {
-                          return { ...state, chosen: index };
+                          return { ...state, chosen: item.category };
                         });
                       }}
                     >
                       <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
-                        {item.title.toUpperCase()}
+                        {item.category.toUpperCase()}
                         <div
                           className={`${
-                            index === state.chosen
-                              ? 'user-catalog-active-link font-normal -mr-1 border-b border-belplit24_2'
-                              : 'user-catalog-link'
-                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
+                            item.category === state.chosen
+                              ? `font-normal text-zinc-900 underline decoration-1 underline-offset-4 decoration-${theme.borders.catalogActive} `
+                              : 'text-zinc-800'
+                          } text-center absolute inset-0  active:scale-x-105  active:text-${theme.text.bodyTitle} active:font-normal`}
                         >
-                          {item.title.toUpperCase()}
+                          {item.category.toUpperCase()}
                         </div>
                       </div>
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </>
             )}
           </div>
           <hr />
           <br />
+          {/* CATALOG ITEMS */}
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
             {arr.map((item, index) => {
               return (
-                state.chosen === item.catId && (
+                state.chosen === item.category && (
                   <motion.div
                     // className='font-bold text-3xl text-belplit24_2'
                     initial='initial'
@@ -146,7 +129,7 @@ export default function Catalog(props) {
                     >
                       <img
                         className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                        src={item.img}
+                        src={data.api.serv + item.imgs[0]}
                         alt
                         width='370'
                         height='256'
@@ -157,13 +140,15 @@ export default function Catalog(props) {
                         } transition-all`}
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
-                        <p className={`bg-${theme.bg.productcardPrice} text-slate-100 font-bold pl-10 text-xl py-1`}>
+                        <p
+                          className={`bg-${theme.bg.productcardPrice} text-slate-100 font-bold pl-10 text-xl py-1`}
+                        >
                           {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
                           <span key={`ITEMPRICE${index}`}>
-                            {item.prices[0]}
+                            {item.price}
                             {' руб. '}
-                            {item.prices[1]}
+                            {item.priceFor}
                           </span>
                           {/* );
                           })} */}

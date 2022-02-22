@@ -10,7 +10,7 @@ export default function Contacts(props) {
     contactsTitle: `pl-2 border-b border-${theme.borders.contacts} text-${theme.text.contactsSubTitle} w-full`,
   };
   return (
-    <div className={`bg-${theme.bg.contacts} py-10`}>
+    <div id={`Contacts`} className={`bg-${theme.bg.contacts} py-10`}>
       <Text className={`text-5xl text-center font-bold text-${theme.text.contactsTitle}`}>Контакты</Text>
 
       <div className={`flex flex-col w-full`}>
