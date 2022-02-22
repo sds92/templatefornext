@@ -23,8 +23,8 @@ export default function Catalog(props) {
   });
 
   const arr = [];
-  products.map((item, i) => {
-    return item.infos.map((sizesItem, index) => {
+  products.map((product, i) => {
+    return product.infos.map((sizesItem, index) => {
       return arr.push({
         category: item.title,
         catId: i,
