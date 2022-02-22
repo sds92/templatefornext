@@ -5,7 +5,8 @@ export const transform = (input) => {
   // sort by title
   // sort by sizes or if no sizes - by price
   // group by product
-  let temp = [];
+  let nested = false;
+  let subcatigories = [];
   let categories = input
     .map((item) => {
       // specifying category
@@ -15,6 +16,7 @@ export const transform = (input) => {
       let sizes = {};
       let imgs = [];
       let tempSizes = '';
+
       // if (item.options.find(({ key }) => key === 'Производитель')) {
       //   category = item.options.find(({ key }) => key === 'Производитель').value;
       // }
@@ -29,10 +31,10 @@ export const transform = (input) => {
       // }
       switch (process.env.NEXT_PUBLIC_SITE_URL) {
         // =======================================================
-        // pilomateriali.site
+        //! pilomateriali.site
         // =======================================================
-        case 'pilomateriali.site':
 
+        case 'pilomateriali.site': {
           // >>>> CATEGORY
           /Брус стро/.test(item.title)
             ? (category = 'Брус строганный')
@@ -48,22 +50,63 @@ export const transform = (input) => {
 
           // >>>> SUBCATEGORY
           if (item.options.find(({ key }) => key === 'Сорт')) {
-            subcategory = item.options.find(({ key }) => key === 'Сорт').value;
+            // subcategory = item.options.find(({ key }) => key === 'Сорт').value;
+            /^AB$|^АВ$/.test(item.options.find(({ key }) => key === 'Сорт').value)
+            ? (subcategory = 'Сорт AB')
+            : /^A$|^А$/.test(item.options.find(({ key }) => key === 'Сорт').value)
+            ? (subcategory = 'Сорт A')
+            : /^B$|^В$/.test(item.options.find(({ key }) => key === 'Сорт').value)
+            ? (subcategory = 'Сорт B')
+            : (subcategory = 'Другие');
           }
 
           // >>>> SIZES
           sizes.a = parseInt(item.options.find(({ key }) => key === 'Длина')?.value.replace('мм', ''));
           sizes.b = parseInt(item.options.find(({ key }) => key === 'Ширина')?.value.replace('мм', ''));
           sizes.h = parseInt(item.options.find(({ key }) => key === 'Толщина')?.value.replace('мм', ''));
-         
+
           // >>>> IMGS
-          imgs = [
-            item.path + item.images[0],
-            item.path + item.images[1],
-          ]
-
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = true;
           break;
+        }
+        // =======================================================
+        //! betoniebloki.store
+        // =======================================================
+        case 'betoniebloki.store': {
+          // >>>> CATEGORY
+          /D500/.test(item.title)
+            ? (category = 'D500')
+            : /D600/.test(item.title)
+            ? (category = 'D600')
+            : (category = 'Без категории');
 
+          // >>>> SUBCATEGORY
+          /В3.5|B3.5/.test(item.title)
+            ? (subcategory = 'В3.5')
+            : /B2.5|В2.5/.test(item.title)
+            ? (subcategory = 'B2.5')
+            : /В5|В5/.test(item.title)
+            ? (subcategory = 'В5')
+            : (subcategory = 'Другие');
+
+          // >>>> SIZES
+
+          tempSizes = item.title
+            .match(/([0-9]+[^0-9][0-9]+[^0-9][0-9]+)/)?.[0]
+            .split(/[^0-9]/)
+            .map((a) => parseInt(a))
+            .sort((a, b) => a - b)
+            .reverse();
+          sizes.a = tempSizes[0];
+          sizes.b = tempSizes[1];
+          sizes.h = tempSizes[2];
+
+          // >>>> IMGS
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = true;
+          break;
+        }
         default:
           break;
       }
@@ -121,14 +164,20 @@ export const transform = (input) => {
       }
       if (cur.category === preCategory) {
         if (i === input.length + 1) {
-          res.push(Array.prototype.concat(cur, pre).sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b));
+          res.push(
+            Array.prototype
+              .concat(cur, pre)
+              .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
+          );
           return res;
         } else {
           return Array.prototype.concat(cur, pre);
         }
       } else {
         if (pre[0]) {
-          res.push(pre.sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b));
+          res.push(
+            pre.sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
+          );
         } else {
           res.push([pre]);
         }
@@ -136,10 +185,18 @@ export const transform = (input) => {
       }
     })
     .map((item, index) => {
-      return (
-        {category: item[0].category, id: index}
-      );
+      return {
+        category: item[0].category,
+        id: index,
+        items: item.reduce((pre, cur) => {
+          let regex = new RegExp(cur.subcategory);
+          if (!regex.test(pre)) {
+            return Array.prototype.concat(pre, cur.subcategory);
+          }
+          return pre;
+        }, [item[0].subcategory]),
+      };
     });
-  // res = temp
-  return [res, categories];
+
+  return [res, categories, nested];
 };
