@@ -13,6 +13,7 @@ import { Icons } from '../../';
 
 export default function Catalog(props) {
   const { theme, lgView, w, products, data } = props;
+  console.log("🚀 ~ file: Catalog.js ~ line 16 ~ Catalog ~ products", products)
   const {catalog} = data.content
   
   const [state, setState] = React.useState({

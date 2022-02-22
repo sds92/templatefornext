@@ -2,7 +2,6 @@ import React from 'react';
 import { Header, FullPage, Footer } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
-import { plitaosb3ru } from '../utils/functions';
 import { transform } from '../utils/transform';
 
 export default function Home(props) {
@@ -26,11 +25,10 @@ export default function Home(props) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/${process.env.NEXT_PUBLIC_SITE_URL}.json`).then((res) =>
     res.json()
   );
-  const products = plitaosb3ru(res);
-  const check = transform(res);
+  const products = transform(res);
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {
