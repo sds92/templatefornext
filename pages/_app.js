@@ -6,17 +6,6 @@ import theme from '../utils/theme';
 
 import { upload } from '../utils/pre';
 
-/**
- * 0 - plitaosb-3.ru
- * 1 - plitaosb-3.kz
- * 2 - belplit24.ru
- * 3 - fanera.site
- * 4 - csptamak.site
- * 5 - pilomateriali.site
- * 6 - shinglas-rus.ru
- *
- */
-
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
