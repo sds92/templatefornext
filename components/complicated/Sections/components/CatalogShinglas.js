@@ -9,9 +9,9 @@ import About from './About';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 
-import { Icons } from '../../';
+import { Icons } from '../..';
 
-export default function CatalogAlt1({ w, lgView, content, app, theme, products }) {
+export default function CatalogShinglas({ w, lgView, content, app, theme, products }) {
   const [state, setState] = React.useState({
     chosen: 0,
     hover: null,

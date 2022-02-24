@@ -9,8 +9,16 @@ import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
+import CatalogAlt1 from './CatalogShinglas';
 
 export default function Catalog(props) {
+  // console.log("🚀 ~ file: Catalog.js ~ line 16 ~ Catalog ~ props.datafromDB[3][0]", props.datafromDB[3][0])
+  // if (props.datafromDB[3][0] === 'singlas') {
+  //   return (
+  //     <CatalogAlt1 {...props}/>
+  //   )
+  // }
+  // console.log("🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ props.datafromDB[3]", props.datafromDB[3])
   const { theme, lgView, w, datafromDB, data } = props;
   const { catalog } = data.content;
   const [products, categories, nested] = datafromDB;

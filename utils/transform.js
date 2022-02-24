@@ -6,6 +6,8 @@ export const transform = (input) => {
   // sort by sizes or if no sizes - by price
   // group by product
   let nested = false;
+  let catalog = 'standard';
+  let data = [];
   let subcatigories = [];
   let categories = input
     .map((item) => {
@@ -52,12 +54,12 @@ export const transform = (input) => {
           if (item.options.find(({ key }) => key === 'Сорт')) {
             // subcategory = item.options.find(({ key }) => key === 'Сорт').value;
             /^AB$|^АВ$/.test(item.options.find(({ key }) => key === 'Сорт').value)
-            ? (subcategory = 'Сорт AB')
-            : /^A$|^А$/.test(item.options.find(({ key }) => key === 'Сорт').value)
-            ? (subcategory = 'Сорт A')
-            : /^B$|^В$/.test(item.options.find(({ key }) => key === 'Сорт').value)
-            ? (subcategory = 'Сорт B')
-            : (subcategory = 'Другие');
+              ? (subcategory = 'Сорт AB')
+              : /^A$|^А$/.test(item.options.find(({ key }) => key === 'Сорт').value)
+              ? (subcategory = 'Сорт A')
+              : /^B$|^В$/.test(item.options.find(({ key }) => key === 'Сорт').value)
+              ? (subcategory = 'Сорт B')
+              : (subcategory = 'Другие');
           }
 
           // >>>> SIZES
@@ -107,6 +109,64 @@ export const transform = (input) => {
           nested = true;
           break;
         }
+
+        // =======================================================
+        //! kronospan.site
+        // =======================================================
+        case 'kronospan.site': {
+          // >>>> CATEGORY
+          /Color|Slate Grey/.test(item.title)
+            ? (category = 'Color')
+            : /Metal/.test(item.title)
+            ? (category = 'Metal')
+            : /Bosco/.test(item.title)
+            ? (category = 'Bosco Vintage')
+            : /Stones/.test(item.title)
+            ? (category = 'Stones')
+            : /Половая доска/.test(item.title)
+            ? (category = 'Половая доска')
+            : (category = 'Без категории');
+
+          // >>>> SUBCATEGORY
+
+          // >>>> SIZES
+
+          // >>>> IMGS
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = false;
+          break;
+        }
+
+        // =======================================================
+        //! shinglas.store
+        // =======================================================
+
+        case 'shinglas.store': {
+          // >>>> CATEGORY
+          try {
+            category = item.options.find(({ key }) => key === 'Коллекция').value;
+          } catch (error) {
+            category = 'Другие';
+          }
+
+          // >>>> SUBCATEGORY
+          try {
+            subcategory = item.options.find(({ key }) => key === 'Цвет').value;
+          } catch (error) {
+            subcategory = 'Другие';
+          }
+
+          // >>>> SIZES
+          sizes.a = parseInt(item.options.find(({ key }) => key === 'Длина')?.value.replace('мм', ''));
+          sizes.b = parseInt(item.options.find(({ key }) => key === 'Ширина')?.value.replace('мм', ''));
+          sizes.h = parseInt(item.options.find(({ key }) => key === 'Толщина')?.value.replace('мм', ''));
+
+          // >>>> IMGS
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = true;
+          catalog = 'shinglas';
+          break;
+        }
         default:
           break;
       }
@@ -151,7 +211,6 @@ export const transform = (input) => {
     })
     .reduce((pre, cur, i) => {
       if (i === input.length - 1) {
-        // console.log("🚀 ~ file: functions.js ~ line 31 ~ .reduce ~ arr", arr)
         res.push(Array.prototype.concat(cur, pre));
         return res;
       }
@@ -188,15 +247,18 @@ export const transform = (input) => {
       return {
         category: item[0].category,
         id: index,
-        items: item.reduce((pre, cur) => {
-          let regex = new RegExp(cur.subcategory);
-          if (!regex.test(pre)) {
-            return Array.prototype.concat(pre, cur.subcategory);
-          }
-          return pre;
-        }, [item[0].subcategory]),
+        items: item.reduce(
+          (pre, cur) => {
+            let regex = new RegExp(cur.subcategory);
+            if (!regex.test(pre)) {
+              return Array.prototype.concat(pre, cur.subcategory);
+            }
+            return pre;
+          },
+          [item[0].subcategory]
+        ),
       };
     });
 
-  return [res, categories, nested];
+  return [res, categories, nested, (data = [catalog])];
 };

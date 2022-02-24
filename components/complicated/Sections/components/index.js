@@ -4,7 +4,7 @@ import Advantages from './Advantages';
 import Gallery from './Gallery';
 import Contacts from './Contacts';
 import Catalog from './Catalog';
-import CatalogAlt1 from './CatalogAlt1';
+import CatalogShinglas from './CatalogShinglas';
 import OrderClick from './OrderClick';
 
 const Sections = {
@@ -14,7 +14,7 @@ const Sections = {
   Gallery,
   Contacts,
   Catalog,
-  CatalogAlt1,
+  CatalogShinglas,
   OrderClick,
 };
 
