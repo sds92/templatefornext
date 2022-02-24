@@ -19,18 +19,6 @@ export const transform = (input) => {
       let imgs = [];
       let tempSizes = '';
 
-      // if (item.options.find(({ key }) => key === 'Производитель')) {
-      //   category = item.options.find(({ key }) => key === 'Производитель').value;
-      // }
-      // if (item.options.find(({ key }) => key === 'Серия')) {
-      //   category = item.options.find(({ key }) => key === 'Серия').value;
-      // }
-      // if (item.options.find(({ key }) => key === 'Сорт')) {
-      //   category = item.options.find(({ key }) => key === 'Сорт').value;
-      // }
-      // if (item.options.find(({ key }) => key === 'Тип')) {
-      //   category = item.options.find(({ key }) => key === 'Тип').value;
-      // }
       switch (process.env.NEXT_PUBLIC_SITE_URL) {
         // =======================================================
         //! pilomateriali.site
@@ -125,7 +113,7 @@ export const transform = (input) => {
             ? (category = 'Stones')
             : /Половая доска/.test(item.title)
             ? (category = 'Половая доска')
-            : (category = 'Без категории');
+            : (category = 'Другие');
 
           // >>>> SUBCATEGORY
 
@@ -141,7 +129,8 @@ export const transform = (input) => {
         //! shinglas.store
         // =======================================================
 
-        case 'shinglas.store': {
+        // case 'shinglas.store': {
+        case 'shinglas-rus.ru': {
           // >>>> CATEGORY
           try {
             category = item.options.find(({ key }) => key === 'Количество слоев').value;
@@ -168,33 +157,60 @@ export const transform = (input) => {
           imgs = [item.path + item.images[0], item.path + item.images[1]];
           nested = true;
           catalog = 'shinglas';
+
+          break;
+        }
+
+        // =======================================================
+        //! spcpaneli.store
+        // =======================================================
+        case 'spcpaneli.store': {
+          // >>>> CATEGORY
+          /CronaFloor Nano/.test(item.title)
+          ? (category = 'CronaFloor Nano')
+          : /Rocko Vinyl/.test(item.title)
+          ? (category = 'Rocko Vinyl')
+          : /CronaFloor 4V/.test(item.title)
+          ? (category = 'CronaFloor 4V')
+          : /CronaFloor Торнадо/.test(item.title)
+          ? (category = 'CronaFloor Торнадо')
+          : /CronaFloor Дуб/.test(item.title)
+          ? (category = 'CronaFloor Дуб')
+          : /CronaFloor/.test(item.title)
+          ? (category = 'CronaFloor')
+          : (category = 'Другие');
+
+          // >>>> SUBCATEGORY
+
+          // >>>> SIZES
+
+          // >>>> IMGS
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = false;
+          break;
+        }
+
+        // =======================================================
+        //! suhiesmesi.store
+        // =======================================================
+        case 'suhiesmesi.store': {
+          // >>>> CATEGORY
+          /CronaFloor Nano/.test(item.title)
+          ? (category = 'CronaFloor Nano')
+          : (category = 'Другие');
+
+          // >>>> SUBCATEGORY
+
+          // >>>> SIZES
+
+          // >>>> IMGS
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = false;
           break;
         }
         default:
           break;
       }
-      // specifying sizes
-      // 1st - try from options
-      // 2nd - try from title
-
-      // tempSizes = item.title
-      //   .match(/([0-9]+[^0-9][0-9]+[^0-9][0-9]+)/)?.[0]
-      //   .split(/[^0-9]/)
-      //   .map((a) => parseInt(a))
-      //   .sort((a, b) => a - b)
-      //   .reverse();
-
-      // if (tempSizes) {
-      //   sizes.a = tempSizes[0];
-      //   sizes.b = tempSizes[1];
-      //   sizes.h = tempSizes[2];
-      // } else {
-      //   sizes.a = parseInt(item.options.find(({ key }) => key === 'Длина')?.value.replace('мм', ''));
-      //   sizes.b = parseInt(item.options.find(({ key }) => key === 'Ширина')?.value.replace('мм', ''));
-      //   sizes.h = parseInt(item.options.find(({ key }) => key === 'Толщина')?.value.replace('мм', ''));
-      // }
-      // sizes.m = parseInt(item.options.find(({ key }) => key === 'Вес')?.value.replace(/кг|мг/, ''));
-
       return {
         subcategory: subcategory,
         category: category,
@@ -214,7 +230,11 @@ export const transform = (input) => {
     })
     .reduce((pre, cur, i) => {
       if (i === input.length - 1) {
-        res.push(Array.prototype.concat(cur, pre));
+        res.push(
+          Array.prototype
+            .concat(cur, pre)
+            .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
+        );
         return res;
       }
       let preCategory = null;
@@ -225,16 +245,7 @@ export const transform = (input) => {
         preCategory = pre[0]?.category;
       }
       if (cur.category === preCategory) {
-        if (i === input.length + 1) {
-          res.push(
-            Array.prototype
-              .concat(cur, pre)
-              .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
-          );
-          return res;
-        } else {
-          return Array.prototype.concat(cur, pre);
-        }
+        return Array.prototype.concat(cur, pre);
       } else {
         if (pre[0]) {
           res.push(
@@ -246,13 +257,20 @@ export const transform = (input) => {
         return cur;
       }
     })
+
     .map((item, index) => {
+      let filtered = item.filter((item_i) => {
+        return (
+          (item_i.subcategory[0] !== 'Кадриль' || item_i.subcategory[1] !== 'Агат') &&
+          (item_i.subcategory[0] !== 'Кантри' || item_i.subcategory[1] !== 'Юта')
+        );
+      });
       return {
-        category: item[0].category,
+        category: filtered[0].category,
         id: index,
         items:
           catalog === 'standard'
-            ? item.reduce(
+            ? filtered.reduce(
                 (pre, cur) => {
                   let regex = new RegExp(cur.subcategory);
                   if (!regex.test(pre)) {
@@ -260,9 +278,9 @@ export const transform = (input) => {
                   }
                   return pre;
                 },
-                [item[0].subcategory]
+                [filtered[0].subcategory]
               )
-            : item.reduce(
+            : filtered.reduce(
                 (pre, cur) => {
                   try {
                     let regex = new RegExp(cur.subcategory[1]);
@@ -279,13 +297,14 @@ export const transform = (input) => {
                 },
                 [
                   [
-                    item[0].subcategory[0], //коллекция
-                    [item[0].subcategory[1]], //цвета
+                    filtered[0].subcategory[0], //коллекция
+                    [filtered[0].subcategory[1]], //цвета
                   ],
                 ]
               ),
       };
     });
 
+  // console.log('🚀 ~ file: transform.js ~ line 273 ~ .map ~ categories', categories);
   return [res, categories, nested, (data = [catalog])];
 };

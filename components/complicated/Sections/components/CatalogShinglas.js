@@ -16,16 +16,27 @@ export default function CatalogShinglas(props) {
   const [products, categories, nested] = datafromDB;
   const [state, setState] = React.useState({
     category: 0,
+    subcategory: 0,
+    color: 0,
     chosen: nested
-      ? `${categories[0].category}_${categories[0].items[0][0]}_${categories[0].items[0][1][0]}`
+      ? `${categories[0].category}_${categories[0].items[0][0]}__${categories[0].items[0][1][0]}`
       : categories[0].category,
     hover: null,
     show: false,
     categoryOpen: {},
   });
-  console.log('🚀', datafromDB, state, categories[0].items[0]);
 
   const arr = products.flat();
+  // console.log('🚀', arr, categories, state, categories[0].items[0]);
+
+  const minPrice = (productsArr) => {
+    return Math.min(...productsArr.map((item) => item.price));
+  };
+
+  const curProduct = arr.find(
+    (item) => state.chosen === `${item.category}_${item.subcategory[0]}__${item.subcategory[1]}`
+  );
+  console.log("🚀 ~ file: CatalogShinglas.js ~ line 39 ~ CatalogShinglas ~ curProduct", curProduct)
 
   return (
     <>
@@ -35,172 +46,152 @@ export default function CatalogShinglas(props) {
         <Text className={`text-xl text-center font-light`}>{catalog.text}</Text>
 
         <div className={`w-full`}>
-          <div className={`flex items-center justify-center`}>
-            {!lgView ? (
-              categories.map((item, index) => {
-                return (
-                  <div className={`flex flex-col zero:w-full sm:w-auto sm:mx-2 `} key={`NAVLGINNER${index}`}>
-                    <div
-                      className={`flex justify-center zero:w-full zero:mx-auto zero:text-sm sm:text-xl items-center m-2 ${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons} hover:bg-${theme.bg.buttonsHover} active:scale-105`}
-                      onClick={() =>
-                        setState((state) => {
-                          return { ...state, categoryOpen: { [index]: !state.categoryOpen[index] } };
-                        })
-                      }
+          <div className={`flex flex-col max-w-7xl mx-auto`}>
+            <div className={`flex zero:flex-col sm:flex-row zero:items-start sm:justify-center ml-2 my-2`}>
+              {categories.map((item, index) => (
+                <div
+                  className={`cursor-pointer sm:text-2xl zero:text-base text-zinc-700 font-light relative`}
+                  key={`LINK${index}`}
+                  onClick={() => {
+                    setState((state) => {
+                      return {
+                        ...state,
+                        chosen: `${item.category}_${categories[index].items[0][0]}__${categories[index].items[0][1][0]}`,
+                        category: index,
+                        subcategory: 0,
+                      };
+                    });
+                  }}
+                >
+                  <div
+                    className={`${
+                      item.category === state.chosen.slice(0, state.chosen.indexOf('_'))
+                        ? `sm:font-normal zero:font-bold text-zinc-900 underline decoration-1 underline-offset-4 decoration-${theme.borders.catalogActive}`
+                        : 'text-zinc-800'
+                    } mx-2 sm:text-center zero:text-left active:scale-x-105 active:text-${
+                      theme.text.bodyTitle
+                    } active:font-normal`}
+                  >
+                    <span
+                      className={`sm:hidden transition-all font-bold ${
+                        item.category === state.chosen.slice(0, state.chosen.indexOf('_'))
+                          ? `text-${theme.text.bodyTitle}`
+                          : 'text-transparent'
+                      }`}
                     >
-                      {item.category.toUpperCase()}
-                      <Icons.ChevronDown
-                        extraClasses={`w-6 h-6 transition-all ${
-                          state.categoryOpen[index] ? `rotate-180` : ''
-                        }`}
-                      />
-                    </div>
-                    {state.categoryOpen[index] && (
-                      <div className={`relative`}>
-                        <div
-                          className={`fixed w-full h-full inset-0 z-40`}
-                          onClick={() =>
-                            setState((state) => {
-                              return { ...state, categoryOpen: { [index]: !state.categoryOpen[index] } };
-                            })
-                          }
-                        ></div>
-                        <div
-                          style={{ minWidth: '150px' }}
-                          className={`flex shadow-xl flex-col absolute top-0 inset-x-0  bg-zinc-100 rounded-md py-4 z-50`}
-                        >
-                          {item.items.map((item_i, index_i) => {
-                            return (
-                              <div
-                                onClick={() =>
-                                  setState((state) => {
-                                    return {
-                                      ...state,
-                                      chosen: `${item.category}_${item_i}`,
-                                      categoryOpen: { [index]: !state.categoryOpen[index] },
-                                    };
-                                  })
-                                }
-                                className={`uppercase px-4 py-2 cursor-pointer hover:text-${theme.text.buttons} hover:bg-${theme.bg.headerHoverLink}`}
-                                key={`SUBCAT${index}${index_i}`}
-                              >
-                                {item_i}
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
+                      {'>'}&nbsp;
+                    </span>
+                    {item.category.toUpperCase()}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <hr />
+            {/* COLLECTION */}
+            <div className={`flex flex-wrap zero:mx-3`}>
+              {categories[state.category].items.map((item, index) => {
+                return (
+                  <div
+                    onClick={() => {
+                      setState((state) => {
+                        return {
+                          ...state,
+                          chosen: `${categories[state.category].category}_${
+                            categories[state.category].items[index][0]
+                          }__${categories[state.category].items[index][1][0]}`,
+                          subcategory: index,
+                        };
+                      });
+                    }}
+                    className={`font-light mx-1 cursor-pointer ${
+                      item[0] ===
+                      state.chosen.slice(state.chosen.indexOf('_') + 1, state.chosen.indexOf('__'))
+                        ? `text-zinc-900`
+                        : `text-zinc-400`
+                    }`}
+                    style={{ minWidth: '100px' }}
+                    key={`CATEGORY${index}`}
+                  >
+                    {item[0]} <br />
+                    <span
+                      className={`${
+                        item[0] ===
+                        state.chosen.slice(state.chosen.indexOf('_') + 1, state.chosen.indexOf('__'))
+                          ? `font-bold `
+                          : `text-zinc-400`
+                      }`}
+                    >
+                      от&nbsp;
+                      {minPrice(
+                        arr.filter(
+                          (item_i) =>
+                            item_i.category === categories[state.category].category &&
+                            item_i.subcategory[0] === categories[state.category].items[index][0]
+                        )
+                      )}
+                      &nbsp;₽/м²
+                    </span>
                   </div>
                 );
-              })
-            ) : (
-              <div className={`flex flex-col w-full`}>
-                <div className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
-                  {categories.map((item, index) => (
-                    <div
-                      className={`cursor-pointer text-2xl text-zinc-700 font-light relative h-8`}
-                      key={`LINK${index}`}
-                      onClick={() => {
-                        setState((state) => {
-                          return {
-                            ...state,
-                            chosen: `${item.category}_${categories[index].items[0][0]}_${categories[index].items[0][1][0]}`,
-                            category: index,
-                          };
-                        });
-                      }}
-                    >
-                      <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
-                        {item.category.toUpperCase()}
-                        <div
-                          className={`${
-                            item.category === state.chosen
-                              ? `font-normal text-zinc-900 underline decoration-1 underline-offset-4 decoration-${theme.borders.catalogActive} `
-                              : 'text-zinc-800'
-                          } text-center absolute inset-0  active:scale-x-105  active:text-${
-                            theme.text.bodyTitle
-                          } active:font-normal`}
-                        >
-                          {item.category.toUpperCase()}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+              })}
+            </div>
+          </div>
+          <hr />
+          {/* COLOR */}
+          <div className={`flex flex-wrap max-w-7xl mx-auto`}>
+            {categories[state.category].items[state.subcategory][1].map((item, index) => {
+              return (
+                <div onClick={
+                  () => {
+                    setState((state) => {
+                      return {
+                        ...state,
+                        chosen: `${categories[state.category].category}_${
+                          categories[state.category].items[state.subcategory][0]
+                        }__${categories[state.category].items[state.subcategory][1][index]}`,
+                        color: index,
+                      };
+                    });
+                  }
+                } className={`mx-2 flex flex-col items-center cursor-pointer`} key={`COLOR${index}`}>
+                  <div className={`zero:text-xs sm:text-base`}>{item}</div>
+                  <div className={`overflow-hidden rounded-full zero:w-16 sm:w-20`}>
+                    <img
+                      className={``}
+                      src={`/images/shinglas.site/products/${state.chosen.slice(
+                        0,
+                        state.chosen.indexOf('_')
+                      )}/${state.chosen.slice(
+                        state.chosen.indexOf('_') + 1,
+                        state.chosen.indexOf('__')
+                      )}/${item}sm.jpg`}
+                      alt
+                    />
+                  </div>
                 </div>
-                <br />
-                <hr />
-                <div className={`flex flex-wrap mx-auto`}>
-                  {categories[state.category].items.map((item, index) => {
-                    return <div className={``} key={`CATEGORY${index}`}>{item[0]}</div>;
-                  })}
-                </div>
-              </div>
-            )}
+              );
+            })}
           </div>
           <hr />
           <br />
-          <div className={`flex flex-wrap gap-6 w-full justify-center`}>
-            {arr.map((item, index) => {
-              return (
-                state.chosen === item.catId && (
-                  <motion.div
-                    // className='font-bold text-3xl text-belplit24_2'
-                    initial='initial'
-                    animate='animate'
-                    variants={animations.opacity.variants}
-                    transition={animations.opacity.transition}
-                  >
-                    <div
-                      onMouseEnter={() =>
-                        setState((state) => {
-                          return { ...state, hover: index };
-                        })
-                      }
-                      onMouseLeave={() =>
-                        setState((state) => {
-                          return { ...state, hover: null };
-                        })
-                      }
-                      className={`relative overflow-hidden`}
-                    >
-                      <img
-                        className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                        src={item.img}
-                        alt
-                        width='370'
-                        height='256'
-                      />
-                      <div
-                        className={`absolute inset-0 bg-black ${
-                          state.hover === index ? `opacity-0` : `opacity-50`
-                        } transition-all`}
-                      ></div>
-                      <div className={`absolute w-full bottom-6 text-slate-100`}>
-                        <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
-                          {/* {item.prices.map((item_inner, index_inner) => {
-                            return ( */}
-                          <span key={`ITEMPRICE${index}`}>
-                            {item.prices[0]}
-                            {' руб. '}
-                            {item.prices[1]}
-                          </span>
-                          {/* );
-                          })} */}
-                        </p>
-                        <p
-                          className={`pl-10 py-1.5 ${
-                            state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
-                          }`}
-                        >
-                          {item.title}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              );
-            })}
+          <div className={`flex zero:flex-col sm:flex-row gap-6 w-full justify-start max-w-7xl mx-auto`}>
+            <div className={`relative overflow-hidden`}>
+              <img
+                className={``}
+                src={`/images/shinglas.site/products/${curProduct.category}/${curProduct.subcategory[0]}/${curProduct.subcategory[1]}.jpg`}
+                alt
+                width='500'
+                height='300'
+              />
+            </div>
+            <div className={`text-zinc-800`}>
+              <p className={`bg-belplit24_2 text-zinc-800 font-light pl-10 text-xl py-1`}>
+                <span className={`text-7xl font-bold`}>{curProduct.price}</span>
+                {' руб. '}
+                {curProduct.priceFor}
+              </p>
+              <p className={`pl-10 pr-4 py-1.5 text-zinc-800`}>{curProduct.title}</p>
+            </div>
           </div>
           <br />
           <hr />
