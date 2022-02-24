@@ -144,16 +144,19 @@ export const transform = (input) => {
         case 'shinglas.store': {
           // >>>> CATEGORY
           try {
-            category = item.options.find(({ key }) => key === 'Коллекция').value;
+            category = item.options.find(({ key }) => key === 'Количество слоев').value;
           } catch (error) {
             category = 'Другие';
           }
 
           // >>>> SUBCATEGORY
           try {
-            subcategory = item.options.find(({ key }) => key === 'Цвет').value;
+            subcategory = [
+              item.options.find(({ key }) => key === 'Коллекция').value,
+              item.options.find(({ key }) => key === 'Цвет').value,
+            ];
           } catch (error) {
-            subcategory = 'Другие';
+            subcategory = ['Другие'];
           }
 
           // >>>> SIZES
@@ -247,16 +250,40 @@ export const transform = (input) => {
       return {
         category: item[0].category,
         id: index,
-        items: item.reduce(
-          (pre, cur) => {
-            let regex = new RegExp(cur.subcategory);
-            if (!regex.test(pre)) {
-              return Array.prototype.concat(pre, cur.subcategory);
-            }
-            return pre;
-          },
-          [item[0].subcategory]
-        ),
+        items:
+          catalog === 'standard'
+            ? item.reduce(
+                (pre, cur) => {
+                  let regex = new RegExp(cur.subcategory);
+                  if (!regex.test(pre)) {
+                    return Array.prototype.concat(pre, cur.subcategory);
+                  }
+                  return pre;
+                },
+                [item[0].subcategory]
+              )
+            : item.reduce(
+                (pre, cur) => {
+                  try {
+                    let regex = new RegExp(cur.subcategory[1]);
+                    if (!regex.test(pre.find((item) => item[0] === cur.subcategory[0])[1])) {
+                      pre.find((item) => item[0] === cur.subcategory[0])[1].push(cur.subcategory[1]);
+                    }
+                  } catch (err) {
+                    pre.push([
+                      cur.subcategory[0], //коллекция
+                      [cur.subcategory[1]], //цвета
+                    ]);
+                  }
+                  return pre;
+                },
+                [
+                  [
+                    item[0].subcategory[0], //коллекция
+                    [item[0].subcategory[1]], //цвета
+                  ],
+                ]
+              ),
       };
     });
 

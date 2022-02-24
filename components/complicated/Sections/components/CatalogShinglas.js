@@ -1,9 +1,8 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
 
 import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
-import { Button, Title, SubTitle } from '../../../lib';
+import { Button, Text } from '../../../lib';
 import About from './About';
 // react-menu
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
@@ -11,110 +10,132 @@ import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../..';
 
-export default function CatalogShinglas({ w, lgView, content, app, theme, products }) {
+export default function CatalogShinglas(props) {
+  const { theme, lgView, w, datafromDB, data } = props;
+  const { catalog } = data.content;
+  const [products, categories, nested] = datafromDB;
   const [state, setState] = React.useState({
-    chosen: 0,
+    category: 0,
+    chosen: nested
+      ? `${categories[0].category}_${categories[0].items[0][0]}_${categories[0].items[0][1][0]}`
+      : categories[0].category,
     hover: null,
     show: false,
+    categoryOpen: {},
   });
+  console.log('🚀', datafromDB, state, categories[0].items[0]);
 
-  const arr = [];
-  products.map((item, i) => {
-    return item.infos.map((sizesItem, index) => {
-      return arr.push({
-        category: item.title,
-        catId: i,
-        title:
-          `${app.productTitle} ${item.title.toUpperCase()}` + ', ' + `${sizesItem.a}x${sizesItem.b}x${sizesItem.h}мм`,
-        prices: [item.prices[index], item.priceFor[index]],
-        img: `/images/belplit24.ru/products/belplit-${item.title.toLowerCase()}.jpg`,
-      });
-    });
-  });
-
-  const { ref, inView, entry } = useInView({
-    threshold: 0,
-  });
-  const textAnimation = `${
-    w >= 500 ? (inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`) : ``
-  }`;
+  const arr = products.flat();
 
   return (
     <>
-      <div ref={ref} className={``}>
-        <div className={`transition-all duration-300 delay-100 ${textAnimation}`}>
-          <Title a={content[0][0]} b={content[0][1]}></Title>
-        </div>
-        <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
-          <SubTitle>{content[1]}</SubTitle>
-        </div>
+      <div className={``}>
+        <Text className={`zero:text-xl sm:text-5xl text-center font-bold`}>{catalog.title}</Text>
+        <Text className={`zero:text-sm sm:text-xl mt-2  text-center font-light`}>{catalog.subTitle}</Text>
+        <Text className={`text-xl text-center font-light`}>{catalog.text}</Text>
 
         <div className={`w-full`}>
           <div className={`flex items-center justify-center`}>
             {!lgView ? (
-              <Menu
-                menuButton={({ open }) => {
-                  return (
-                    <MenuButton className={`ml-4 my-4 ${theme?.buttonColours}`}>
-                      <Button
-                        style={{ border: 'none' }}
-                        onClick={() =>
-                          setState((state) => {
-                            return { ...state, show: !state.show };
-                          })
-                        }
-                      >
-                        Выбрать
-                        <Icons.ChevronDown
-                          extraClasses={`w-6 h-6 transition-all ${open ? `rotate-180` : ''}`}
-                        />
-                      </Button>
-                    </MenuButton>
-                  );
-                }}
-              >
-                {products.map((innerItem, index) => (
-                  <MenuItem
-                    key={`NAVLGINNER${index}`}
-                    onClick={() => {
-                      setState((state) => {
-                        return { ...state, chosen: index };
-                      });
-                    }}
-                  >
-                    &nbsp;{innerItem.title}
-                  </MenuItem>
-                ))}
-              </Menu>
+              categories.map((item, index) => {
+                return (
+                  <div className={`flex flex-col zero:w-full sm:w-auto sm:mx-2 `} key={`NAVLGINNER${index}`}>
+                    <div
+                      className={`flex justify-center zero:w-full zero:mx-auto zero:text-sm sm:text-xl items-center m-2 ${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons} hover:bg-${theme.bg.buttonsHover} active:scale-105`}
+                      onClick={() =>
+                        setState((state) => {
+                          return { ...state, categoryOpen: { [index]: !state.categoryOpen[index] } };
+                        })
+                      }
+                    >
+                      {item.category.toUpperCase()}
+                      <Icons.ChevronDown
+                        extraClasses={`w-6 h-6 transition-all ${
+                          state.categoryOpen[index] ? `rotate-180` : ''
+                        }`}
+                      />
+                    </div>
+                    {state.categoryOpen[index] && (
+                      <div className={`relative`}>
+                        <div
+                          className={`fixed w-full h-full inset-0 z-40`}
+                          onClick={() =>
+                            setState((state) => {
+                              return { ...state, categoryOpen: { [index]: !state.categoryOpen[index] } };
+                            })
+                          }
+                        ></div>
+                        <div
+                          style={{ minWidth: '150px' }}
+                          className={`flex shadow-xl flex-col absolute top-0 inset-x-0  bg-zinc-100 rounded-md py-4 z-50`}
+                        >
+                          {item.items.map((item_i, index_i) => {
+                            return (
+                              <div
+                                onClick={() =>
+                                  setState((state) => {
+                                    return {
+                                      ...state,
+                                      chosen: `${item.category}_${item_i}`,
+                                      categoryOpen: { [index]: !state.categoryOpen[index] },
+                                    };
+                                  })
+                                }
+                                className={`uppercase px-4 py-2 cursor-pointer hover:text-${theme.text.buttons} hover:bg-${theme.bg.headerHoverLink}`}
+                                key={`SUBCAT${index}${index_i}`}
+                              >
+                                {item_i}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })
             ) : (
-              <>
-                <ul className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
-                  {products.map((item, index) => (
-                    <li
-                      className={`cursor-pointer text-2xl text-slate-700 font-light relative h-8`}
+              <div className={`flex flex-col w-full`}>
+                <div className={`my-2 flex flex-wrap gap-6 justify-center relative max-w-7xl mx-auto`}>
+                  {categories.map((item, index) => (
+                    <div
+                      className={`cursor-pointer text-2xl text-zinc-700 font-light relative h-8`}
                       key={`LINK${index}`}
                       onClick={() => {
                         setState((state) => {
-                          return { ...state, chosen: index };
+                          return {
+                            ...state,
+                            chosen: `${item.category}_${categories[index].items[0][0]}_${categories[index].items[0][1][0]}`,
+                            category: index,
+                          };
                         });
                       }}
                     >
                       <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
-                        {item.title.toUpperCase()}
+                        {item.category.toUpperCase()}
                         <div
                           className={`${
-                            index === state.chosen
-                              ? 'user-catalog-active-link font-normal -mr-1 border-b border-belplit24_2'
-                              : 'user-catalog-link'
-                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
+                            item.category === state.chosen
+                              ? `font-normal text-zinc-900 underline decoration-1 underline-offset-4 decoration-${theme.borders.catalogActive} `
+                              : 'text-zinc-800'
+                          } text-center absolute inset-0  active:scale-x-105  active:text-${
+                            theme.text.bodyTitle
+                          } active:font-normal`}
                         >
-                          {item.title.toUpperCase()}
+                          {item.category.toUpperCase()}
                         </div>
                       </div>
-                    </li>
+                    </div>
                   ))}
-                </ul>
-              </>
+                </div>
+                <br />
+                <hr />
+                <div className={`flex flex-wrap mx-auto`}>
+                  {categories[state.category].items.map((item, index) => {
+                    return <div className={``} key={`CATEGORY${index}`}>{item[0]}</div>;
+                  })}
+                </div>
+              </div>
             )}
           </div>
           <hr />
@@ -186,7 +207,6 @@ export default function CatalogShinglas({ w, lgView, content, app, theme, produc
           <br />
         </div>
       </div>
-      <About content={content} w={w} />
     </>
   );
 }
