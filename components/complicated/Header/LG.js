@@ -23,7 +23,6 @@ export default function LG(props) {
               to={item[1].replaceAll('#', '')}
               spy={true}
               smooth={true}
-              hashSpy={true}
               offset={-80}
               duration={100}
               delay={0}
