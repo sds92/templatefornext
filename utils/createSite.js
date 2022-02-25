@@ -42,4 +42,4 @@ const updateSite = (urlToUpdate, data) => {
 
 const data = require('./siteobjdata')
 
-createSite(data.suhiesmesistore);
+createSite(data.pilomaterialisite);

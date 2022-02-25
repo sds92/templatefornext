@@ -1,5 +1,4 @@
 export const transform = (input) => {
-  // console.log("🚀 ~ file: transform.js ~ line 2 ~ transform ~ input", input)
   let res = [];
   // here we should transform all options to obj entries
   // sort by title
@@ -10,7 +9,7 @@ export const transform = (input) => {
   let data = [];
   let subcatigories = [];
   let categories = input
-    .map((item) => {
+    .map((item, i) => {
       // specifying category
       // trying different options
       let category = '';
@@ -57,7 +56,7 @@ export const transform = (input) => {
 
           // >>>> IMGS
           imgs = [item.path + item.images[0], item.path + item.images[1]];
-          nested = true;
+          nested = false;
           break;
         }
         // =======================================================
@@ -94,7 +93,7 @@ export const transform = (input) => {
 
           // >>>> IMGS
           imgs = [item.path + item.images[0], item.path + item.images[1]];
-          nested = true;
+          nested = false;
           break;
         }
 
@@ -167,18 +166,18 @@ export const transform = (input) => {
         case 'spcpaneli.store': {
           // >>>> CATEGORY
           /CronaFloor Nano/.test(item.title)
-          ? (category = 'CronaFloor Nano')
-          : /Rocko Vinyl/.test(item.title)
-          ? (category = 'Rocko Vinyl')
-          : /CronaFloor 4V/.test(item.title)
-          ? (category = 'CronaFloor 4V')
-          : /CronaFloor Торнадо/.test(item.title)
-          ? (category = 'CronaFloor Торнадо')
-          : /CronaFloor Дуб/.test(item.title)
-          ? (category = 'CronaFloor Дуб')
-          : /CronaFloor/.test(item.title)
-          ? (category = 'CronaFloor')
-          : (category = 'Другие');
+            ? (category = 'CronaFloor Nano')
+            : /Rocko Vinyl/.test(item.title)
+            ? (category = 'Rocko Vinyl')
+            : /CronaFloor 4V/.test(item.title)
+            ? (category = 'CronaFloor 4V')
+            : /CronaFloor Торнадо/.test(item.title)
+            ? (category = 'CronaFloor Торнадо')
+            : /CronaFloor Дуб/.test(item.title)
+            ? (category = 'CronaFloor Дуб')
+            : /CronaFloor/.test(item.title)
+            ? (category = 'CronaFloor')
+            : (category = 'Другие');
 
           // >>>> SUBCATEGORY
 
@@ -195,12 +194,120 @@ export const transform = (input) => {
         // =======================================================
         case 'suhiesmesi.store': {
           // >>>> CATEGORY
-          /CronaFloor Nano/.test(item.title)
-          ? (category = 'CronaFloor Nano')
-          : (category = 'Другие');
+          /Ceresit/.test(item.title)
+            ? (category = 'Ceresit')
+            : /Волма/.test(item.title)
+            ? (category = 'Волма')
+            : item.options.find(({ key }) => key === 'Производитель')
+            ? (category = item.options.find(({ key }) => key === 'Производитель').value)
+            : (category = 'Другие');
 
           // >>>> SUBCATEGORY
+          /Штукатурка|штукатурка/.test(item.title)
+            ? (subcategory = 'Штукатурка')
+            : /шпаклевка|Шпаклевка/.test(item.title)
+            ? (subcategory = 'Шпаклевка')
+            : /Трафарет/.test(item.title)
+            ? (subcategory = 'Трафареты')
+            : /Смазка/.test(item.title)
+            ? (subcategory = 'Смазки')
+            : /Наполнитель/.test(item.title)
+            ? (subcategory = 'Наполнители')
+            : /Клей/.test(item.title)
+            ? (subcategory = 'Клеи')
+            : /Смесь сухая/.test(item.title)
+            ? (subcategory = 'Сухие смеси')
+            : /Наливной пол/.test(item.title)
+            ? (subcategory = 'Наливные полы')
+            : /Грунтовочный состав/.test(item.title)
+            ? (subcategory = 'Грунтовка')
+            : (subcategory = 'Другие');
+          // >>>> SIZES
 
+          // >>>> IMGS
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = true;
+          break;
+        }
+
+        // =======================================================
+        //! ламинат.site
+        // =======================================================
+        case 'ламинат.site': {
+          // >>>> CATEGORY
+          item.options.find((item) => item.key === 'Производитель')
+            ? (category = item.options.find((item) => item.key === 'Производитель').value)
+            : item.options.find((item) => item.key === 'Бренд')
+            ? (category = item.options.find((item) => item.key === 'Бренд').value)
+            : (category = 'Другие');
+
+          // >>>> SUBCATEGORY
+          /Eurohome Majestic/.test(item.title)
+            ? (subcategory = 'Eurohome Majestic')
+            : /АС4/.test(item.title)
+            ? (subcategory = 'АС4')
+            : /АС5/.test(item.title)
+            ? (subcategory = 'АС5')
+            : /Krono Original Castello Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Castello Classic')
+            : /Krono Original Forte Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Forte Classic')
+            : /Krono Original Variostep Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Variostep Classic')
+            : /Krono Original Vintage Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Vintage Classic')
+            : /Krono Original Floordreams/.test(item.title)
+            ? (subcategory = 'Krono Original Floordreams')
+            : /Eurohome Loft/.test(item.title)
+            ? (subcategory = 'Eurohome Loft')
+            : /Eurohome Art/.test(item.title)
+            ? (subcategory = 'Eurohome Art')
+            : /AGT Effect Premium/.test(item.title)
+            ? (subcategory = 'Effect Premium ')
+            : /AGT Concept/.test(item.title)
+            ? (subcategory = 'Concept ')
+            : (subcategory = 'Другие');
+          // >>>> SIZES
+
+          // >>>> IMGS
+          imgs = [item.path + item.images[0], item.path + item.images[1]];
+          nested = true;
+          break;
+        }
+
+        // =======================================================
+        //! магма.store
+        // =======================================================
+        case 'магма.store': {
+          // >>>> CATEGORY
+          category = 'Магма';
+
+          // >>>> SUBCATEGORY
+          /Eurohome Majestic/.test(item.title)
+            ? (subcategory = 'Eurohome Majestic')
+            : /АС4/.test(item.title)
+            ? (subcategory = 'АС4')
+            : /АС5/.test(item.title)
+            ? (subcategory = 'АС5')
+            : /Krono Original Castello Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Castello Classic')
+            : /Krono Original Forte Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Forte Classic')
+            : /Krono Original Variostep Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Variostep Classic')
+            : /Krono Original Vintage Classic/.test(item.title)
+            ? (subcategory = 'Krono Original Vintage Classic')
+            : /Krono Original Floordreams/.test(item.title)
+            ? (subcategory = 'Krono Original Floordreams')
+            : /Eurohome Loft/.test(item.title)
+            ? (subcategory = 'Eurohome Loft')
+            : /Eurohome Art/.test(item.title)
+            ? (subcategory = 'Eurohome Art')
+            : /AGT Effect Premium/.test(item.title)
+            ? (subcategory = 'Effect Premium ')
+            : /AGT Concept/.test(item.title)
+            ? (subcategory = 'Concept ')
+            : (subcategory = 'Другие');
           // >>>> SIZES
 
           // >>>> IMGS
@@ -210,6 +317,37 @@ export const transform = (input) => {
         }
         default:
           break;
+      }
+
+      if (input.length === 1) {
+        res.push({
+          subcategory: subcategory,
+          category: category,
+          imgs: imgs,
+          sizes: sizes,
+          title: item.title,
+          price: item.cost,
+          priceFor: item.unit,
+          show: item.visible,
+          article: item.article,
+          id: item.id,
+          coef: item.coef,
+        })
+        return [
+          {
+            subcategory: subcategory,
+            category: category,
+            imgs: imgs,
+            sizes: sizes,
+            title: item.title,
+            price: item.cost,
+            priceFor: item.unit,
+            show: item.visible,
+            article: item.article,
+            id: item.id,
+            coef: item.coef,
+          },
+        ];
       }
       return {
         subcategory: subcategory,
@@ -225,6 +363,7 @@ export const transform = (input) => {
         coef: item.coef,
       };
     })
+
     .sort((a, b) => {
       return a.category === b.category ? 0 : a.category < b.category ? -1 : 1;
     })
@@ -258,13 +397,20 @@ export const transform = (input) => {
       }
     })
 
-    .map((item, index) => {
-      let filtered = item.filter((item_i) => {
-        return (
-          (item_i.subcategory[0] !== 'Кадриль' || item_i.subcategory[1] !== 'Агат') &&
-          (item_i.subcategory[0] !== 'Кантри' || item_i.subcategory[1] !== 'Юта')
-        );
-      });
+    .map((item_i, index) => {
+      console.log('🚀 ~ file: transform.js ~ line 393 ~ .map ~ item_i', item_i);
+      let filtered = [];
+      if (!item_i[0]) {
+        filtered = [item_i];
+      } else {
+        filtered = item_i.filter((item_ii) => {
+          // shinglas filter
+          return (
+            (item_ii.subcategory[0] !== 'Кадриль' || item_ii.subcategory[1] !== 'Агат') &&
+            (item_ii.subcategory[0] !== 'Кантри' || item_ii.subcategory[1] !== 'Юта')
+          );
+        });
+      }
       return {
         category: filtered[0].category,
         id: index,
@@ -305,6 +451,5 @@ export const transform = (input) => {
       };
     });
 
-  // console.log('🚀 ~ file: transform.js ~ line 273 ~ .map ~ categories', categories);
   return [res, categories, nested, (data = [catalog])];
 };

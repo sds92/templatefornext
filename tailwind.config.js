@@ -40,7 +40,7 @@ module.exports = {
       pattern: /(shadow|rounded)-(sm|md|xl)/,
     },
     {
-      pattern: /(text)-(xl|2xl|3xl|4xl|5xl|6xl|7xl|center|left|right)/,
+      pattern: /(text)-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|center|left|right)/,
     },
     {
       pattern: /(font)-(light|bold|semibold|medium)/,

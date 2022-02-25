@@ -9,16 +9,8 @@ import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
-import CatalogAlt1 from './CatalogShinglas';
 
 export default function Catalog(props) {
-  // console.log("🚀 ~ file: Catalog.js ~ line 16 ~ Catalog ~ props.datafromDB[3][0]", props.datafromDB[3][0])
-  // if (props.datafromDB[3][0] === 'singlas') {
-  //   return (
-  //     <CatalogAlt1 {...props}/>
-  //   )
-  // }
-  // console.log("🚀 ~ file: Catalog.js ~ line 15 ~ Catalog ~ props.datafromDB[3]", props.datafromDB[3])
   const { theme, lgView, w, datafromDB, data } = props;
   const { catalog } = data.content;
   const [products, categories, nested] = datafromDB;
@@ -40,13 +32,19 @@ export default function Catalog(props) {
         <Text className={`text-xl text-center font-light`}>{catalog.text}</Text>
 
         <div className={`w-full`}>
-          <div className={`flex zero:flex-col zero:max-w-sm sm:max-w-full zero:mx-auto sm:flex-row flex-wrap items-center justify-center`}>
+          <div
+            className={`flex zero:flex-col zero:max-w-sm sm:max-w-full zero:mx-auto sm:flex-row flex-wrap items-center justify-center`}
+          >
             {/* NESTED */}
             {nested ? (
               <>
+                {/* CATEGORIES */}
                 {categories.map((item, index) => {
                   return (
-                    <div className={`flex flex-col zero:w-full sm:w-auto sm:mx-2 `} key={`NAVLGINNER${index}`}>
+                    <div
+                      className={`flex flex-col zero:w-full sm:w-auto sm:mx-2 `}
+                      key={`NAVLGINNER${index}`}
+                    >
                       <div
                         className={`flex justify-center zero:w-full zero:mx-auto zero:text-sm sm:text-xl items-center m-2 ${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons} hover:bg-${theme.bg.buttonsHover} active:scale-105`}
                         onClick={() =>
@@ -76,25 +74,28 @@ export default function Catalog(props) {
                             style={{ minWidth: '150px' }}
                             className={`flex shadow-xl flex-col absolute top-0 inset-x-0  bg-zinc-100 rounded-md py-4 z-50`}
                           >
-                            {item.items.map((item_i, index_i) => {
-                              return (
-                                <div
-                                  onClick={() =>
-                                    setState((state) => {
-                                      return {
-                                        ...state,
-                                        chosen: `${item.category}_${item_i}`,
-                                        categoryOpen: { [index]: !state.categoryOpen[index] },
-                                      };
-                                    })
-                                  }
-                                  className={`uppercase px-4 py-2 cursor-pointer hover:text-${theme.text.buttons} hover:bg-${theme.bg.headerHoverLink}`}
-                                  key={`SUBCAT${index}${index_i}`}
-                                >
-                                  {item_i}
-                                </div>
-                              );
-                            })}
+                            {/* SUBCATEGORIES */}
+                            {item.items
+                              .sort((a, b) => (a === 'Другие' ? 1 : -1))
+                              .map((item_i, index_i) => {
+                                return (
+                                  <div
+                                    onClick={() =>
+                                      setState((state) => {
+                                        return {
+                                          ...state,
+                                          chosen: `${item.category}_${item_i}`,
+                                          categoryOpen: { [index]: !state.categoryOpen[index] },
+                                        };
+                                      })
+                                    }
+                                    className={`uppercase px-4 py-2 cursor-pointer hover:text-${theme.text.buttons} hover:bg-${theme.bg.headerHoverLink}`}
+                                    key={`SUBCAT${index}${index_i}`}
+                                  >
+                                    {item_i}
+                                  </div>
+                                );
+                              })}
                           </div>
                         </div>
                       )}
