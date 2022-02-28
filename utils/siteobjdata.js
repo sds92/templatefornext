@@ -9,7 +9,7 @@ module.exports.pilomaterialisite = {
     serv: 'https://xn--j1ano.com/',
   },
   contacts: {
-    phones: ['+00000000000'],
+    phones: ['+7 (921) 688-93-19'],
     emails: ['test@test.ru'],
     addresses: [
       {
@@ -19,8 +19,8 @@ module.exports.pilomaterialisite = {
       },
     ],
     socials: [
-      ['Telegram', 'https://t.me/+00000000000'],
-      ['Whatsapp', 'https://wa.me/+00000000000?text=Здравствуйте...'],
+      // ['Telegram', 'https://t.me/+00000000000'],
+      // ['Whatsapp', 'https://wa.me/+00000000000?text=Здравствуйте...'],
     ],
     workingHoars: {
       title: 'Время работы',
