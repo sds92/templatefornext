@@ -14,7 +14,6 @@ export default function Catalog(props) {
   const { theme, lgView, w, datafromDB, data } = props;
   const { catalog } = data.content;
   const [products, categories, nested] = datafromDB;
-  console.log('🚀 ~ file: Catalog.js ~ line 17 ~ Catalog ~ datafromDB', datafromDB);
   const [state, setState] = React.useState({
     chosen: nested ? `${categories[0].category}_${categories[0].items[0]}` : categories[0].category,
     hover: null,
