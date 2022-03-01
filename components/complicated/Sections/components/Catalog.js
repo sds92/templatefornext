@@ -75,7 +75,10 @@ export default function Catalog(props) {
                           >
                             {/* SUBCATEGORIES */}
                             {item.items
-                              .sort((a, b) => (a === 'Другие' | a-b ? 1 : -1))
+                              .sort((a, b) => {
+                                if (a === 'Другие') return 1;
+                                return a === b ? 0 : a < b ? -1 : 1;
+                              })
                               .map((item_i, index_i) => {
                                 return (
                                   <div
