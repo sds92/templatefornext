@@ -75,7 +75,7 @@ export default function Catalog(props) {
                           >
                             {/* SUBCATEGORIES */}
                             {item.items
-                              .sort((a, b) => (a === 'Другие' ? 1 : -1))
+                              .sort((a, b) => (a === 'Другие' || a-b ? 1 : -1))
                               .map((item_i, index_i) => {
                                 return (
                                   <div
@@ -188,11 +188,9 @@ export default function Catalog(props) {
             {nested ? (
               <>
                 {arr.map((item, index) => {
-                  console.log('🚀 ~ file: Catalog.js', state.chosen, item.category);
                   return (
                     state.chosen === `${item.category}_${item.subcategory}` && (
                       <motion.div
-                        // className='font-bold text-3xl text-belplit24_2'
                         initial='initial'
                         animate='animate'
                         variants={animations.opacity.variants}

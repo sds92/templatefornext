@@ -14,7 +14,7 @@ module.exports.pilomaterialisite = {
     addresses: [
       {
         title: 'Офис',
-        value: 'г. Вологда, Проектируемый проезд № 134, вл 4',
+        value: 'г. Вологда, улица Ильюшина, 36',
         iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCU5v6Wp8B',
       },
     ],
