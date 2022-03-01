@@ -10,12 +10,12 @@ module.exports.pilomaterialisite = {
   },
   contacts: {
     phones: ['+7 (921) 688-93-19'],
-    emails: ['test@test.ru'],
+    emails: [''],
     addresses: [
       {
         title: 'Офис',
-        value: 'г. Москва, Проектируемый проезд № 134, вл 4',
-        iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B',
+        value: 'г. Вологда, Проектируемый проезд № 134, вл 4',
+        iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCU5v6Wp8B',
       },
     ],
     socials: [
@@ -64,7 +64,7 @@ module.exports.pilomaterialisite = {
     },
     orderClick: {
       title: ['Купить пиломатериалы — не проблема. Звоните нам!'],
-      subTitle: 'Доставка по Москве и Московской обл.',
+      subTitle: 'Доставка по Вологде',
     },
     advantages: {
       title: ['Преимущества <span class="uppercase text-bp_red">пиломатериала<span>'],
