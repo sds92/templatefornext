@@ -2583,6 +2583,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
+.h-16{
+  height: 4rem;
+}
+
 .h-10{
   height: 2.5rem;
 }
@@ -2593,10 +2597,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-20{
   height: 5rem;
-}
-
-.h-16{
-  height: 4rem;
 }
 
 .h-screen{
@@ -2625,6 +2625,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-6{
   width: 1.5rem;
+}
+
+.w-16{
+  width: 4rem;
 }
 
 .w-10{
