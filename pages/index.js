@@ -5,16 +5,47 @@ import { animations } from '../styles/animations';
 import { transform } from '../utils/transform';
 
 export default function Home(props) {
-  // console.log('🚀 ~ file: index.js ~ line 8 ~ Home ~ props', props.resContacts);
-  // const newProps = props
-  // newProps.data.contacts.emails = 
-  // if (props.resContacts) {
-  //   newProps.data.contacts = {...newProps.data.contacts, ...props.resContacts};
-  // }
-  // console.log("🚀 ~ file: index.js ~ line 14 ~ Home ~ newProps", newProps)
+  const newProps = props;
+  if (props.resContacts) {
+    newProps.data.contacts.emails = JSON.parse(props.resContacts.email);
+    JSON.parse(props.resContacts.addresses).forEach((item, i) => {
+      newProps.data.contacts.addresses[i] = {
+        iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCU5v6Wp8B',
+        title: 'Офис',
+        value: item,
+      };
+    });
+    newProps.data.contacts.phones = JSON.parse(props.resContacts.phones);
+    if (props.resContacts.whatsapp) {
+      newProps.data.contacts.socials.push([
+        'Whatsapp',
+        `https://wa.me/${JSON.parse(props.resContacts.whatsapp)}?text=Здравствуйте...`,
+      ]);
+    }
+    if (props.resContacts.telegram) {
+      newProps.data.contacts.socials.push([
+        'Telegram',
+        `https://t.me/${JSON.parse(props.resContacts.telegram)}`,
+      ]);
+    }
+  }
+  if (props.resMainBanner) {
+    newProps.data.content.main.title = props.resMainBanner.title
+      ? [`<div class="text-6xl">${JSON.parse(props.resMainBanner.title)}</div>`]
+      : newProps.data.content.main.title;
+    newProps.data.content.main.subTitle = props.resMainBanner.subTitle
+      ? JSON.parse(props.resMainBanner.subTitle)
+      : newProps.data.content.main.subTitle;
+    newProps.data.content.main.price = props.resMainBanner.price
+      ? JSON.parse(props.resMainBanner.price)
+      : newProps.data.content.main.price;
+    newProps.data.content.main.text = props.resMainBanner.text
+      ? JSON.parse(props.resMainBanner.text)
+      : newProps.data.content.main.text;
+  }
   return (
     <>
-      <Header {...props} />
+      <Header {...newProps} />
       <motion.div
         className={``}
         initial='initial'
@@ -23,9 +54,9 @@ export default function Home(props) {
         variants={animations.opacity.variants}
         transition={animations.opacity.transition}
       >
-        <FullPage {...props} />
+        <FullPage {...newProps} />
       </motion.div>
-      <Footer {...props} />
+      <Footer {...newProps} />
     </>
   );
 }
