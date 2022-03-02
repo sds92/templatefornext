@@ -31,16 +31,16 @@ export default function Home(props) {
   }
   if (props.resMainBanner) {
     newProps.data.content.main.title = props.resMainBanner.title
-      ? [`<div class="text-6xl">${JSON.parse(props.resMainBanner.title)}</div>`]
-      : newProps.data.content.main.title;
+    ? [`<div class="text-6xl">${JSON.parse(props.resMainBanner.title)}</div>`]
+    : newProps.data.content.main.title;
     newProps.data.content.main.subTitle = props.resMainBanner.subTitle
-      ? JSON.parse(props.resMainBanner.subTitle)
-      : newProps.data.content.main.subTitle;
+    ? props.resMainBanner.subTitle
+    : newProps.data.content.main.subTitle;
     newProps.data.content.main.price = props.resMainBanner.price
-      ? JSON.parse(props.resMainBanner.price)
-      : newProps.data.content.main.price;
+    ? props.resMainBanner.price
+    : newProps.data.content.main.price;
     newProps.data.content.main.text = props.resMainBanner.text
-      ? JSON.parse(props.resMainBanner.text)
+      ? props.resMainBanner.text
       : newProps.data.content.main.text;
   }
   return (
