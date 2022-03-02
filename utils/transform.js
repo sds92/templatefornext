@@ -398,7 +398,6 @@ export const transform = (input) => {
     })
 
     .map((item_i, index) => {
-      console.log('🚀 ~ file: transform.js ~ line 393 ~ .map ~ item_i', item_i);
       let filtered = [];
       if (!item_i[0]) {
         filtered = [item_i];
