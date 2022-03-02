@@ -31,7 +31,7 @@ export default function Home(props) {
   }
   if (props.resMainBanner) {
     newProps.data.content.main.title = props.resMainBanner.title
-    ? [`<div class="text-6xl">${JSON.parse(props.resMainBanner.title)}</div>`]
+    ? [`<div class="text-6xl">${props.resMainBanner.title}</div>`]
     : newProps.data.content.main.title;
     newProps.data.content.main.subTitle = props.resMainBanner.subTitle
     ? props.resMainBanner.subTitle
