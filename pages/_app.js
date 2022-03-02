@@ -36,13 +36,13 @@ function MyApp({ Component, pageProps }) {
     w: w,
     data: data,
     lgView: w >= 900,
-    theme: theme('black'),
+    theme: theme(process.env.NEXT_PUBLIC_THEME),
     ...pageProps,
   };
 
   return (
     <>
-      {loading && <Preloader />}
+      {loading && <Preloader {...newProps} />}
       {!loading && (
         <>
           <Head head={newProps.data.content.head} theme={newProps.theme}></Head>

@@ -41,7 +41,6 @@ export default function SM(props) {
                 to={item[1].replaceAll('#', '')}
                 spy={true}
                 smooth={true}
-                hashSpy={true}
                 offset={-65}
                 duration={500}
                 delay={0}

@@ -7,6 +7,7 @@ const Map = React.lazy(() => import('./Map'));
 
 export default function Footer(props) {
   const { theme, data } = props;
+  const Icon = Icons[props?.data?.logo || 'Belplit24'];
   return (
     <>
       <div className={`h-96 cursor-default overflow-hidden`}>
@@ -18,7 +19,7 @@ export default function Footer(props) {
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
           <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
             <a href='index.html'>
-              <Icons.Belplit24 extraClasses={`w-10 h-10 `} fill={`${theme.logo}`}/>
+            <Icon fill={`${theme.logo}`} extraClasses={`${props?.data?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}  />
             </a>
           </div>
 

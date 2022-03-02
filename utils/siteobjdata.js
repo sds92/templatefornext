@@ -8,6 +8,7 @@ module.exports.pilomaterialisite = {
     email: 'https://xn--j1ano.com/sendmail',
     serv: 'https://xn--j1ano.com/',
   },
+  logo: 'WoodEco',
   contacts: {
     phones: ['+7 (921) 688-93-19'],
     emails: [''],
@@ -51,7 +52,7 @@ module.exports.pilomaterialisite = {
       img: '',
     },
     catalog: {
-      title: ['Размеры и цены на <span class="uppercase text-bp_red">пиломатериалы<span>'],
+      title: ['Размеры и цены на <span class="uppercase text-bp_green_2">пиломатериалы<span>'],
       subTitle: 'У нас представлены товары разных размеров',
     },
     about: {
@@ -67,7 +68,7 @@ module.exports.pilomaterialisite = {
       subTitle: 'Доставка по Вологде',
     },
     advantages: {
-      title: ['Преимущества <span class="uppercase text-bp_red">пиломатериала<span>'],
+      title: ['Преимущества <span class="uppercase text-bp_green_2">пиломатериала<span>'],
       items: [
         [
           'Высокая несущая способность',
@@ -98,7 +99,7 @@ module.exports.pilomaterialisite = {
           'Это свойство достигается за счет того, что древесина имеет пористую структуру.',
         ],
       ],
-      title2: ['Применение <span class="uppercase text-bp_red">пиломатериала<span>'],
+      title2: ['Применение <span class="uppercase text-bp_green_2">пиломатериала<span>'],
       items2: [
         [
           'Отборный сорт',
@@ -123,7 +124,7 @@ module.exports.pilomaterialisite = {
       ],
     },
     gallery: {
-      title: ['Примеры использования <span class="uppercase text-bp_red">пиломатериала<span>'],
+      title: ['Примеры использования <span class="uppercase text-bp_green_2">пиломатериала<span>'],
       text: 'Пиломатериал применяется в самых разных областях строительства, для самых разных целей.',
       imgs: [
         ['examples/example1.jpg', 'Внутренняя изоляция перекрытий'],
