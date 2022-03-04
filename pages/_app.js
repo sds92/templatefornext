@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
   const data = upload(`${process.env.NEXT_PUBLIC_SITE_URL}`);
+  console.log("🚀 ~ file: _app.js ~ line 13 ~ MyApp ~ data", data)
 
   React.useEffect(() => {
     setW(window.innerWidth);

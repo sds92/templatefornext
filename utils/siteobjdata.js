@@ -11,7 +11,7 @@ module.exports.pilomaterialisite = {
   logo: 'WoodEco',
   contacts: {
     phones: ['+7 (921) 688-93-19'],
-    emails: [''],
+    emails: ['woodeco@inbox.ru'],
     addresses: [
       {
         title: 'Офис',
@@ -49,7 +49,7 @@ module.exports.pilomaterialisite = {
       subTitle: 'Высокое качество по доступной цене',
       price: 'от 139.5 руб/шт',
       text: 'В основном используется в качестве отделочного материала для внешней облицовки зданий, но также подходит для дизайна внутренних интерьеров, обустройства бань, саун и беседок. Он имеет оптимальную ширину, поэтому в точности имитирует брус, при этом стоит недорого.',
-      img: '',
+      img: 'images/main.png',
     },
     catalog: {
       title: ['Размеры и цены на <span class="uppercase text-bp_green_2">пиломатериалы<span>'],

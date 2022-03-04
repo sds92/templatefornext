@@ -6,43 +6,45 @@ import { transform } from '../utils/transform';
 
 export default function Home(props) {
   const newProps = props;
-  if (props.resContacts) {
-    newProps.data.contacts.emails = JSON.parse(props.resContacts.email);
-    JSON.parse(props.resContacts.addresses).forEach((item, i) => {
-      newProps.data.contacts.addresses[i] = {
-        iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCU5v6Wp8B',
-        title: 'Офис',
-        value: item,
-      };
-    });
-    newProps.data.contacts.phones = JSON.parse(props.resContacts.phones);
-    if (props.resContacts.whatsapp) {
-      newProps.data.contacts.socials.push([
-        'Whatsapp',
-        `https://wa.me/${JSON.parse(props.resContacts.whatsapp)}?text=Здравствуйте...`,
-      ]);
-    }
-    if (props.resContacts.telegram) {
-      newProps.data.contacts.socials.push([
-        'Telegram',
-        `https://t.me/${JSON.parse(props.resContacts.telegram)}`,
-      ]);
-    }
-  }
-  if (props.resMainBanner) {
-    newProps.data.content.main.title = props.resMainBanner.title
-    ? [`<div class="text-6xl">${props.resMainBanner.title}</div>`]
-    : newProps.data.content.main.title;
-    newProps.data.content.main.subTitle = props.resMainBanner.subTitle
-    ? props.resMainBanner.subTitle
-    : newProps.data.content.main.subTitle;
-    newProps.data.content.main.price = props.resMainBanner.price
-    ? props.resMainBanner.price
-    : newProps.data.content.main.price;
-    newProps.data.content.main.text = props.resMainBanner.text
-      ? props.resMainBanner.text
-      : newProps.data.content.main.text;
-  }
+  // if (props.resContacts) {
+  //   newProps.data.contacts.emails = JSON.parse(props.resContacts.email);
+  //   JSON.parse(props.resContacts.addresses).forEach((item, i) => {
+  //     newProps.data.contacts.addresses[i] = {
+  //       iframe: 'https://api-maps.yandex.ru/frame/v1/-/CCU5v6Wp8B',
+  //       title: 'Офис',
+  //       value: item,
+  //     };
+  //   });
+  //   if (props.resContacts.phones) {
+  //     newProps.data.contacts.phones = JSON.parse(props.resContacts.phones);
+  //   }
+  //   if (props.resContacts.whatsapp) {
+  //     newProps.data.contacts.socials.push([
+  //       'Whatsapp',
+  //       `https://wa.me/${JSON.parse(props.resContacts.whatsapp)}?text=Здравствуйте...`,
+  //     ]);
+  //   }
+  //   if (props.resContacts.telegram) {
+  //     newProps.data.contacts.socials.push([
+  //       'Telegram',
+  //       `https://t.me/${JSON.parse(props.resContacts.telegram)}`,
+  //     ]);
+  //   }
+  // }
+  // if (props.resMainBanner) {
+  //   newProps.data.content.main.title = props.resMainBanner.title
+  //     ? [`<div class="text-6xl">${props.resMainBanner.title}</div>`]
+  //     : newProps.data.content.main.title;
+  //   newProps.data.content.main.subTitle = props.resMainBanner.subTitle
+  //     ? props.resMainBanner.subTitle
+  //     : newProps.data.content.main.subTitle;
+  //   newProps.data.content.main.price = props.resMainBanner.price
+  //     ? props.resMainBanner.price
+  //     : newProps.data.content.main.price;
+  //   newProps.data.content.main.text = props.resMainBanner.text
+  //     ? props.resMainBanner.text
+  //     : newProps.data.content.main.text;
+  // }
   return (
     <>
       <Header {...newProps} />

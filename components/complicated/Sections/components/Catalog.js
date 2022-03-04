@@ -250,7 +250,6 @@ export default function Catalog(props) {
               </>
             ) : (
               arr.map((item, index) => {
-                console.log('🚀 ~ file: Catalog.js', state.chosen, item.category);
                 return (
                   state.chosen === item.category && (
                     <motion.div
