@@ -16,7 +16,7 @@ export default function Footer({ app }) {
       <footer className={`bg-belplit24`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
           <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
-          <a href='index.html'>
+          <a href='#Main'>
               <Logo extraClasses={`w-10 h-10 `} />
             </a>
           </div>
