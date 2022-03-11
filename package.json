@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3201",
     "lint": "next lint",
     "export": "next build && next export"
   },
@@ -21,7 +21,8 @@
     "react-intersection-observer": "^8.33.1",
     "react-reveal": "^1.2.2",
     "react-scroll": "^1.8.4",
-    "sass": "^1.49.7"
+    "sass": "^1.49.7",
+    "node-cmd": "^5.0.0"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
