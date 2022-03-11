@@ -25,7 +25,7 @@ export default function Main(props) {
                 </motion.div>
                 <motion.div
                   style={{ height: '1px' }}
-                  className={`my-4 ${theme.bg}`}
+                  className={`my-4 bg-zinc-800`}
                   initial='initial'
                   animate='animate'
                   exit='exit'
@@ -41,7 +41,6 @@ export default function Main(props) {
             )}
           </div>
           <span className={``}>{content[0]}</span>
-          <br /> <span className={`text-3xl`}>{content[1]}</span>
           <Text className={`my-4 text-black md:text-slate-800 font-light`}>{content[2]}</Text>
           <div className={`font-bold text-2xl ${theme.textDark} my-4`}>
             <a className={``} href={`tel:${app.contacts.phones[0]}`}>
