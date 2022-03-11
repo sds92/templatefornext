@@ -60,11 +60,10 @@ export default function CatalogAlt1(props) {
                         }}
                       >
                         <div
-                          className={`flex flex-col transition-all whitespace-nowrap ${
-                            state.chosen === item.productIndex
-                              ? 'text-zinc-900'
-                              : 'text-zinc-300 hover:text-belplit24_2'
-                          } text-left `}
+                          className={`flex flex-col transition-all whitespace-nowrap ${state.chosen === item.productIndex
+                            ? 'text-zinc-900'
+                            : 'text-zinc-300 hover:text-belplit24_2'
+                            } text-left `}
                         >
                           <div className={`text-lg`}>{item.title}</div>
                           {/* <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div> */}
@@ -92,11 +91,10 @@ export default function CatalogAlt1(props) {
                         }}
                       >
                         <div
-                          className={`flex flex-col transition-all whitespace-nowrap ${
-                            state.chosen === item.productIndex
-                              ? 'text-zinc-900'
-                              : 'text-zinc-300 hover:text-belplit24_2'
-                          } text-left `}
+                          className={`flex flex-col transition-all whitespace-nowrap ${state.chosen === item.productIndex
+                            ? 'text-zinc-900'
+                            : 'text-zinc-300 hover:text-belplit24_2'
+                            } text-left `}
                         >
                           <div className={`text-lg`}>{item.title}</div>
                           {/* <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div> */}
@@ -149,11 +147,10 @@ export default function CatalogAlt1(props) {
                           }}
                         >
                           <div
-                            className={`flex flex-col transition-all whitespace-nowrap ${
-                              state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
-                            } text-left `}
+                            className={`flex flex-col transition-all whitespace-nowrap ${state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
+                              } text-left `}
                           >
-                            <div className={`text-base`}>{item.title}</div>
+                            <div className={`text-lg`}>{item.title}</div>
                           </div>
                         </div>
                       ))}
@@ -180,11 +177,10 @@ export default function CatalogAlt1(props) {
                           }}
                         >
                           <div
-                            className={`flex flex-col transition-all whitespace-nowrap ${
-                              state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
-                            } text-left `}
+                            className={`flex flex-col transition-all whitespace-nowrap ${state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
+                              } text-left `}
                           >
-                            <div className={`text-base`}>{item.title}</div>
+                            <div className={`text-lg`}>{item.title}</div>
                           </div>
                         </div>
                       ))}
@@ -203,8 +199,8 @@ export default function CatalogAlt1(props) {
                   a.find(({ key }) => key === 'Цвет').value === b.find(({ key }) => key === 'Цвет').value
                     ? 0
                     : a.find(({ key }) => key === 'Цвет').value < b.find(({ key }) => key === 'Цвет').value
-                    ? -1
-                    : 1
+                      ? -1
+                      : 1
                 )
                 .filter((item) => item.find(({ key }) => key === 'Цвет').value !== 'Огайо')
                 .map((item, i) => {
@@ -241,28 +237,26 @@ export default function CatalogAlt1(props) {
           </div>
           <div className={`max-w-7xl mx-auto z-10 my-4 flex flex-wrap px-4`}>
             <div
-              className={`relative overflow-hidden zero:w-full sm:w-2/3`}
-              style={{height: '307px'}}
+              className={`relative overflow-hidden zero:w-full md:w-2/3`}
+              style={{ height: '307px' }}
             >
               <img
                 className={`w-full`}
-                src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${
-                  state.chosenColor[0] + 1
-                }.jpg`}
+                src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${state.chosenColor[0] + 1
+                  }.jpg`}
                 alt
-                
+
               />
             </div>
-            <div className={`flex flex-col zero:w-full sm:w-1/3`}>
+            <div className={`flex flex-col zero:w-full md:w-1/3`}>
               <div className={`font-light ml-4 text-2xl flex flex-col my-2`}> Коллекция {title}</div>
-              <div className={`font-bold ml-4 text-3xl flex flex-col mb-2`}>
-                {price}
-                ₽/м²
-              </div>
+
               <div className={`ml-4`}>
-                <Button theme={theme} href={'#Contacts'}>
-                  Рассчитать
-                </Button>
+                <a target='_blank' href={`https://tdcsk.com/catalog/region/moscow/category/vse-dlya-krovli/gibkaya-cherepicza/texnonikol-shinglas`} rel='noopener noreferrer'>
+                  <Button theme={theme}>
+                    Подробнее
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

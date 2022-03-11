@@ -9091,6 +9091,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 50%;
   }
 
+  .md\:w-2\/3{
+    width: 66.666667%;
+  }
+
+  .md\:w-1\/3{
+    width: 33.333333%;
+  }
+
   .md\:flex-row{
     flex-direction: row;
   }
