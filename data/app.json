@@ -192,7 +192,7 @@
     "id": 6,
     "url": "shinglas-rus.ru",
     "api": {
-      "ym": "69799024",
+      "ym": "",
       "email": "https://xn--j1ano.com/sendmail",
       "products": "https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json",
       "serv": "https://xn--j1ano.com/"
@@ -203,8 +203,8 @@
     ],
     "productTitle": "Гибкая черепица",
     "contacts": {
-      "phones": ["+7 (495) 846-73-75"],
-      "emails": ["shinglas-rus@yandex.ru"],
+      "phones": ["+7 (800) 555-25-97"],
+      "emails": ["zakaz@tdcsk.com"],
       "addresses": [
         {
           "title": "Офис",
@@ -213,7 +213,7 @@
         }
       ],
       "socials": [
-        ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
+        ["Whatsapp", "https://wa.me/+79585815144?text=Здравствуйте..."]
       ]
     },
     "workingHoars": {

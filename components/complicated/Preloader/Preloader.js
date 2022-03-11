@@ -1,11 +1,11 @@
 import React from 'react'
-import { Icons } from '..'
+import { Icons, Logo } from '..'
 
 export default function Preloader() {
     return (
         <div className='preloader'>
         <div className='preloader-logo'>
-          <Icons.Belplit24 extraClasses={`w-24 h-24 animate-bounce`}/>
+          <Logo extraClasses={`w-24 h-24 animate-bounce`}/>
         </div>
         <div className='preloader-body'>
           <div id='loadingProgressG'>

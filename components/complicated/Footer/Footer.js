@@ -1,7 +1,7 @@
 import React from 'react';
 // import dynamic from 'next/dynamic';
 
-import { Icons } from '..';
+import { Icons, Logo } from '..';
 
 const Map = React.lazy(() => import('./Map'));
 
@@ -17,7 +17,7 @@ export default function Footer({ app }) {
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
           <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
           <a href='index.html'>
-              <Icons.Belplit24 extraClasses={`w-10 h-10 `} />
+              <Logo extraClasses={`w-10 h-10 `} />
             </a>
           </div>
 

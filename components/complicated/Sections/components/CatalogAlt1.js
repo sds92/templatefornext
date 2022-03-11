@@ -66,8 +66,8 @@ export default function CatalogAlt1(props) {
                               : 'text-zinc-300 hover:text-belplit24_2'
                           } text-left `}
                         >
-                          <div className={`text-base`}>{item.title}</div>
-                          <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div>
+                          <div className={`text-lg`}>{item.title}</div>
+                          {/* <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div> */}
                         </div>
                       </div>
                     ))}
@@ -98,8 +98,8 @@ export default function CatalogAlt1(props) {
                               : 'text-zinc-300 hover:text-belplit24_2'
                           } text-left `}
                         >
-                          <div className={`text-base`}>{item.title}</div>
-                          <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div>
+                          <div className={`text-lg`}>{item.title}</div>
+                          {/* <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div> */}
                         </div>
                       </div>
                     ))}
@@ -153,8 +153,7 @@ export default function CatalogAlt1(props) {
                               state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
                             } text-left `}
                           >
-                            <div className={`text-base`}>{title}</div>
-                            <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
+                            <div className={`text-base`}>{item.title}</div>
                           </div>
                         </div>
                       ))}
@@ -185,8 +184,7 @@ export default function CatalogAlt1(props) {
                               state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
                             } text-left `}
                           >
-                            <div className={`text-base`}>{title}</div>
-                            <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
+                            <div className={`text-base`}>{item.title}</div>
                           </div>
                         </div>
                       ))}
@@ -244,7 +242,6 @@ export default function CatalogAlt1(props) {
           <div className={`max-w-7xl mx-auto z-10 my-4 flex flex-wrap px-4`}>
             <div
               className={`relative overflow-hidden zero:w-full sm:w-2/3`}
-              // style={{ height: lgView ? w / 3 : w / 1.5 }}
               style={{height: '307px'}}
             >
               <img
