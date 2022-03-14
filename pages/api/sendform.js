@@ -2,27 +2,36 @@ export default function (req, res) {
   require('dotenv').config();
   let nodemailer = require('nodemailer');
   const transporter = nodemailer.createTransport({
-    port: parseInt(process.env.EMAIL_PORT),
-    host: `${process.env.EMAIL_HOST}`,
+    port: parseInt(req.body.EMAIL_PORT || process.env.EMAIL_PORT),
+    host: `${req.body.EMAIL_HOST || process.env.EMAIL_HOST}`,
     auth: {
-      user: `${process.env.EMAIL_SENDER}`,
-      pass: `${process.env.EMAIL_SENDER_PASS}`,
+      user: `${req.body.EMAIL_SENDER || process.env.EMAIL_SENDER}`,
+      pass: `${req.body.EMAIL_SENDER_PASS || process.env.EMAIL_SENDER_PASS}`,
     },
     secure: true,
     tls: {
-      rejectUnauthorized: false
-  }
+      rejectUnauthorized: false,
+    },
   });
+
+  let html = `<h1>Вы получили обращение от клиента ${req.body.clientName} с сайта ${req.body.fromSite}</h1><h2>Информация о клиенте</h2><ul><li>Имя: ${req.body.clientName}</li><li>Телефон: ${req.body.clientPhone}</li><li>Email: ${req.body.clientEmail}</li></ul><h2>Текст обращения</h2><p>${req.body.body}</p> `;
+
+  let text = `${JSON.stringify(req.body)}`;
+
   const mailData = {
-    from: `${process.env.EMAIL_SENDER}`,
-    to: `${process.env.EMAIL_SENDER}`,
-    subject: `Новое обращение от ${req.body.clientName}`,
-    text: `${JSON.stringify(req.body)}`,
-    html: `<p>${JSON.stringify(req.body)}</p>`,
+    from: `${req.body.EMAIL_SENDER || process.env.EMAIL_SENDER}`,
+    to: `${req.body.to}`,
+    subject: `Новое сообщение от ${req.body.clientName}`,
+    text: text,
+    html: html,
   };
   transporter.sendMail(mailData, function (err, info) {
-    if (err) res.status(500);
-    else res.status(200);
+    if (err) {
+      console.log("🚀 ~ file: sendform.js ~ line 32 ~ err", err)
+      res.status(500).json({ ok: false });
+    } else {
+      console.log("🚀 ~ file: sendform.js ~ line 31 ~ info", info)
+      res.status(200).json({ ok: true });
+    }
   });
-  res.json({ ok: true });
 }

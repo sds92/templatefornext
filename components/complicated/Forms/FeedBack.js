@@ -13,6 +13,7 @@ export default function FeedBack(props) {
     body: '',
     clientEmail: '',
   });
+  
   const [checkFormStatus, setCheckFormStatus] = React.useState({
     0: false,
     1: false,
@@ -74,7 +75,7 @@ export default function FeedBack(props) {
       props.onFulfilled('loading');
     } catch (err) {}
 
-    fetch(`${props.app.api.email}`, {
+    fetch(`api/sendform`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -208,12 +209,12 @@ export default function FeedBack(props) {
             </div>
           </div>
         )}
-        {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-100`}>Отправка запроса</p>}
+        {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-900`}>Отправка запроса</p>}
         {formStatus === 'complete' && (
-          <p className={`text-center py-10 text-zinc-100`}>Запрос успешно отправлен. Спасибо за обращение!</p>
+          <p className={`text-center py-10 text-zinc-900`}>Запрос успешно отправлен. Спасибо за обращение!</p>
         )}
         {formStatus === 'error' && (
-          <p className={`text-center py-10 text-zinc-100`}>
+          <p className={`text-center py-10 text-zinc-900`}>
             Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.
           </p>
         )}
