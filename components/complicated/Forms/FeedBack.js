@@ -83,7 +83,7 @@ export default function FeedBack(props) {
       },
       body: JSON.stringify({
         ...formState,
-        fromSite: props.app.url,
+        fromSite: 'shinglas-tdcsk.ru',
         to: props.app.contacts.emails[0],
       }),
     })
