@@ -19,6 +19,7 @@ export default function CatalogAlt1(props) {
   });
 
   const product = products[state.chosen];
+  console.log("🚀 ~ file: CatalogAlt1.js ~ line 22 ~ CatalogAlt1 ~ product", product.slugs[state.chosenOption])
   const price = products[state.chosen].prices[state.chosenOption];
   const title = product.titles[state.chosenOption];
   const color = product.colours[state.chosenOption];
@@ -221,12 +222,12 @@ export default function CatalogAlt1(props) {
                       }}
                     >
                       <div className={`relative`}>
+                        {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
                         <img
                           className={`rounded-full overflow-hidden cursor-pointer`}
                           src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${i + 1}sm.jpg`}
                         ></img>
 
-                        {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
                       </div>
 
                       <div className={`text-base text-center cursor-pointer`}>{product.options[i].find(({ key }) => key === 'Цвет').value}</div>
@@ -252,7 +253,7 @@ export default function CatalogAlt1(props) {
               <div className={`font-light ml-4 text-2xl flex flex-col my-2`}> Коллекция {title}</div>
 
               <div className={`ml-4`}>
-                <a target='_blank' href={`https://tdcsk.com/catalog/region/moscow/category/vse-dlya-krovli/gibkaya-cherepicza/texnonikol-shinglas`} rel='noopener noreferrer'>
+                <a target='_blank' href={`https://tdcsk.com/products/region/moscow/${product.slugs[state.chosenOption]}`} rel='noopener noreferrer'>
                   <Button theme={theme}>
                     Подробнее
                   </Button>

@@ -12,6 +12,7 @@ export const v2 = (inputArr) => {
       show: item.visible,
       imgs: item.images,
       paths: item.path,
+      slug: item.slug
     }))
     .sort((a, b) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
@@ -42,6 +43,7 @@ export const v2 = (inputArr) => {
           pre.show.push(cur.show);
           pre.imgs.push(cur.imgs);
           pre.paths.push(cur.paths);
+          pre.slugs.push(cur.slug);
           return pre;
         },
         {
@@ -57,6 +59,7 @@ export const v2 = (inputArr) => {
           show: [],
           imgs: [],
           paths: [],
+          slugs: [],
         }
       )
     );
