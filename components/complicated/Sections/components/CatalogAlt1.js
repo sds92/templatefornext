@@ -19,7 +19,6 @@ export default function CatalogAlt1(props) {
   });
 
   const product = products[state.chosen];
-  console.log("🚀 ~ file: CatalogAlt1.js ~ line 22 ~ CatalogAlt1 ~ product", product.slugs[state.chosenOption])
   const price = products[state.chosen].prices[state.chosenOption];
   const title = product.titles[state.chosenOption];
   const color = product.colours[state.chosenOption];
