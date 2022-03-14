@@ -84,7 +84,7 @@ export default function FeedBack(props) {
       body: JSON.stringify({
         ...formState,
         fromSite: props.app.url,
-        to: 'helloworld1823@gmail.com' //props.app.contacts.emails[0],
+        to: props.app.contacts.emails[0],
       }),
     })
       .then((res) => {
