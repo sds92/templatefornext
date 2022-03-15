@@ -18,6 +18,7 @@ class MyDocument extends Document {
             rel='stylesheet'
           ></link>
         </Head>
+        <body>
         <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
@@ -32,7 +33,6 @@ class MyDocument extends Document {
   `,
             }}
           />
-        <body>
           <Main />
           <NextScript />
         </body>
