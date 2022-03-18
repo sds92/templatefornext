@@ -21,7 +21,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-        <script
+          <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
               __html: `
@@ -30,9 +30,44 @@ class MyDocument extends Document {
                 w[o] = w[o] || function() { (w[o].q = w[o].q || []).push(arguments) }; w[o].u = u; w[o].t = 1 * new Date();
                 s = d.createElement('script'); s.async = 1; s.id = i; s.src = u;
                 p = d.getElementsByTagName('script')[0]; p.parentNode.insertBefore(s, p);
-            }(window, document, '//widgets.mango-office.ru/widgets/mango.js', 'mango-js', 'mgo'));
-            mgo({calltracking: {id: 27212, elements: [{"numberText":"74951202735"}], domain: 'belplit24.ru'}});
-  `,
+              }(window, document, '//widgets.mango-office.ru/widgets/mango.js', 'mango-js', 'mgo'));
+              mgo({calltracking: {id: 27212, elements: [{"numberText":"74951202735"}], domain: 'belplit24.ru'}});
+              mgo(function(mgo) {
+                // Запрашиваем номер
+                mgo.getNumber('', function(result) {
+                  console.log(result)
+                    // Вставляем номер телефона во все теги с классом mgo-number
+                    console.log(document.getElementsByTagName('tel'));
+
+                    [].forEach.call(document.getElementsByTagName('tel'), function(elem) {
+                      console.log(elem);
+                      });
+                    document.getElementsByTagName('tel').forEach(function(elem) {
+                      elem.parentNode.href = "+"+"result.number"
+                      console.log(elem.parentNode)
+                      if (elem.innerText[0] === "+") {
+                        console.log(elem)
+                        elem.innerText = result.formattedNumber;
+                      }
+                    });
+                });
+            });
+              `,
+            }}
+          />
+          <script
+            type='text/javascript'
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function (d, w) {
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script");
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = "https://qoopler.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
+                    n.parentNode.insertBefore(s, n);
+            })(document, window);
+              `,
             }}
           />
         </body>

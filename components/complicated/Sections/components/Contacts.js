@@ -37,7 +37,11 @@ export default function Contacts(props) {
                 <p className={classes.contactsTitle}>Телефон:</p>
               </div>
               <div className={`ml-8 font-light ${theme.text.color.title2}`}>
-                <a href={`tel:${app.contacts.phones[0]}`}>{app.contacts.phones[0]}</a>
+                <a href={`tel:${app.contacts.phones[0]}`}>
+                  <tel>
+                    {app.contacts.phones[0]}
+                  </tel>
+                </a>
               </div>
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
@@ -64,6 +68,6 @@ export default function Contacts(props) {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

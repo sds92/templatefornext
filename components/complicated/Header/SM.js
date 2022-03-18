@@ -25,7 +25,7 @@ export default function SM({ menu, app, theme }) {
 
         {isActive ? <div onClick={() => setIsActive(!isActive)} className={styles.overlay}></div> : ''}
       </nav>
-      <div className={`relative`} style={{marginTop: "-60px"}}>
+      <div className={`relative`} style={{ marginTop: "-60px" }}>
         <nav className={`${isActive ? `${styles.burger} translate-x-0` : `${styles.burger} -translate-x-72`} ${theme.bg.header} transition-all`}>
           <ul className={styles.burger_list + ` ${theme.bg}`}>
             {menu.map((item, index) => (
@@ -60,7 +60,9 @@ export default function SM({ menu, app, theme }) {
               className={styles.burger_list_tel}
               href={`tel:${app.contacts.phones[0]}`}
             >
-              {app.contacts.phones[0]}
+              <tel>
+                {app.contacts.phones[0]}
+              </tel>
             </a>
             <p className={styles.burger_list_address}>{app.contacts.addresses[0].value}</p>
             <div className={`flex justify-center`}>

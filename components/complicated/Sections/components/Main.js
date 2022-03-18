@@ -43,7 +43,9 @@ export default function Main({ app, content, lgView, theme }) {
           <p className={`my-4 text-black md:text-slate-800 font-light`}>{content[2]}</p>
           <div className={`font-bold text-2xl ${theme.textDark} my-4`}>
             <a className={``} href={`tel:${app.contacts.phones[0]}`}>
-              {app.contacts.phones[0]}
+              <tel>
+                {app.contacts.phones[0]}
+              </tel>
             </a>
           </div>
           <Button theme={theme} href={'#Contacts'}>Оставить заявку</Button>
