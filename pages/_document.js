@@ -25,6 +25,14 @@ class MyDocument extends Document {
             type='text/javascript'
             dangerouslySetInnerHTML={{
               __html: `
+              console.log('1', document.getElementsByTagName("tel"), document.getElementsByTagName("tel")));
+              `
+            }}
+            />
+          <script
+            type='text/javascript'
+            dangerouslySetInnerHTML={{
+              __html: `
               (function(w, d, u, i, o, s, p) {
                 if (d.getElementById(i)) { return; } w['MangoObject'] = o;
                 w[o] = w[o] || function() { (w[o].q = w[o].q || []).push(arguments) }; w[o].u = u; w[o].t = 1 * new Date();

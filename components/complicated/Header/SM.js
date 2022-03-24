@@ -60,7 +60,7 @@ export default function SM({ menu, app, theme }) {
               className={styles.burger_list_tel}
               href={`tel:${app.contacts.phones[0]}`}
             >
-              <tel>
+              <tel name="tel">
                 {app.contacts.phones[0]}
               </tel>
             </a>
