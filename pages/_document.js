@@ -21,14 +21,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script
-            type='text/javascript'
-            dangerouslySetInnerHTML={{
-              __html: `
-              console.log('1', document.getElementsByTagName("tel"), document.getElementsByTagName("tel")));
-              `
-            }}
-            />
+          
           <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
@@ -45,16 +38,9 @@ class MyDocument extends Document {
                 mgo.getNumber('', function(result) {
                   console.log(result)
                     // Вставляем номер телефона во все теги с классом mgo-number
-                    console.log(document.getElementsByTagName('tel'));
-
-                    [].forEach.call(document.getElementsByTagName('tel'), function(elem) {
-                      console.log(elem);
-                      });
                     document.getElementsByTagName('tel').forEach(function(elem) {
                       elem.parentNode.href = "+"+"result.number"
-                      console.log(elem.parentNode)
                       if (elem.innerText[0] === "+") {
-                        console.log(elem)
                         elem.innerText = result.formattedNumber;
                       }
                     });
