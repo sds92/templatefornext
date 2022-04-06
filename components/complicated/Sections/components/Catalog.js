@@ -96,7 +96,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     </MenuItem>
                   ))}
                 </Menu>
-                <a className={`${theme.bg.buttons} rounded-xl`} href={`tel:+${app.contacts.phonesMango.number}`}>
+                <a className={`${theme.bg.buttons} rounded-xl`} href={`tel:+${app.contacts.phonesMango?.number || app.contacts.phones}`}>
                   <tel name="tel">
 
                     <div

@@ -17,7 +17,7 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap'
             rel='stylesheet'
           ></link>
-          <script
+          {/* <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
               __html: `
@@ -29,12 +29,12 @@ class MyDocument extends Document {
               }(window, document, '//widgets.mango-office.ru/widgets/mango.js', 'mango-js', 'mgo'));
               `,
             }}
-          />
+          /> */}
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script
+          {/* <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
               __html: `
@@ -48,7 +48,7 @@ class MyDocument extends Document {
             })(document, window);
               `,
             }}
-          />
+          /> */}
         </body>
       </Html>
     );

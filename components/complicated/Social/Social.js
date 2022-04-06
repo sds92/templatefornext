@@ -16,9 +16,9 @@ export default function Social({ app, theme }) {
           );
         })}
       <div className={`${theme.text.color.title2} hover:${theme.text.header} transition-all `}>
-        <a href={`tel:+${app.contacts.phonesMango.number}`}>
+        <a href={`tel:+${app.contacts.phonesMango?.number || app.contacts.phones}`}>
           
-            {app.contacts.phonesMango.formattedNumber}
+            {app.contacts.phonesMango?.formattedNumber || app.contacts.phones}
           
         </a>
       </div>

@@ -22,14 +22,14 @@ function MyApp({ Component, pageProps }) {
       },
       []
     );
-    const a = window.mgo;
-    a({ calltracking: { id: 27212, elements: [{ "numberText": "74951202735" }], domain: 'belplit24.ru' } });
-    a(function (a) {
-      // Запрашиваем номер
-      a.getNumber('', function (result) {
-        app[2].contacts.phonesMango = result
-      });
-    });
+    // const a = window.mgo;
+    // a({ calltracking: { id: 27212, elements: [{ "numberText": "74951202735" }], domain: 'belplit24.ru' } });
+    // a(function (a) {
+    //   // Запрашиваем номер
+    //   a.getNumber('', function (result) {
+    //     app[2].contacts.phonesMango = result
+    //   });
+    // });
   }, []);
 
 
@@ -80,7 +80,7 @@ function MyApp({ Component, pageProps }) {
                   webvisor:true,
                   trackHash:true
              });
-  `,
+          `,
         }}
       />
     </>

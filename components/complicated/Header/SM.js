@@ -58,9 +58,9 @@ export default function SM({ menu, app, theme }) {
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}
-              href={`tel:+${app.contacts.phonesMango.number}`}
+              href={`tel:+${app.contacts.phonesMango?.number || app.contacts.phones}`}
             >
-              {app.contacts.phonesMango.formattedNumber}
+              {app.contacts.phonesMango?.formattedNumber || app.contacts.phones}
               <tel name="tel">
                 {app.contacts.phones[0]}
               </tel>

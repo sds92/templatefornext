@@ -37,9 +37,9 @@ export default function Contacts(props) {
                 <p className={classes.contactsTitle}>Телефон:</p>
               </div>
               <div className={`ml-8 font-light ${theme.text.color.title2}`}>
-                <a href={`tel:+${app.contacts.phonesMango.number}`}>
+                <a href={`tel:+${app.contacts.phonesMango?.number || app.contacts.phones}`}>
                   <tel name="tel">
-                    {app.contacts.phonesMango.formattedNumber}
+                    {app.contacts.phonesMango?.formattedNumber || app.contacts.phones}
                   </tel>
                 </a>
               </div>
