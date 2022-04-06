@@ -17,10 +17,6 @@ class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap'
             rel='stylesheet'
           ></link>
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
           <script
             type='text/javascript'
             dangerouslySetInnerHTML={{
@@ -31,30 +27,14 @@ class MyDocument extends Document {
                 s = d.createElement('script'); s.async = 1; s.id = i; s.src = u;
                 p = d.getElementsByTagName('script')[0]; p.parentNode.insertBefore(s, p);
               }(window, document, '//widgets.mango-office.ru/widgets/mango.js', 'mango-js', 'mgo'));
-              mgo({calltracking: {id: 27212, elements: [{"numberText":"74951202735"}], domain: 'belplit24.ru'}});
-              mgo(function(mgo) {
-                // Запрашиваем номер
-                mgo.getNumber('', function(result) {
-                  console.log(result)
-                    // Вставляем номер телефона во все теги с классом mgo-number
-                    console.log(document.getElementsByTagName('tel'));
-
-                    [].forEach.call(document.getElementsByTagName('tel'), function(elem) {
-                      console.log(elem);
-                      });
-                    document.getElementsByTagName('tel').forEach(function(elem) {
-                      elem.parentNode.href = "+"+"result.number"
-                      console.log(elem.parentNode)
-                      if (elem.innerText[0] === "+") {
-                        console.log(elem)
-                        elem.innerText = result.formattedNumber;
-                      }
-                    });
-                });
-            });
+              
               `,
             }}
           />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
           <script
             type='text/javascript'
             dangerouslySetInnerHTML={{

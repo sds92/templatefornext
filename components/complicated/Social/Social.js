@@ -16,10 +16,10 @@ export default function Social({ app, theme }) {
           );
         })}
       <div className={`${theme.text.color.title2} hover:${theme.text.header} transition-all `}>
-        <a href={`tel:${app.contacts.phones[0]}`}>
-          <tel>
-            {app.contacts.phones[0]}
-          </tel>
+        <a href={`tel:+${app.contacts.phonesMango.number}`}>
+          
+            {app.contacts.phonesMango.formattedNumber}
+          
         </a>
       </div>
     </>

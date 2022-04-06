@@ -58,11 +58,9 @@ export default function SM({ menu, app, theme }) {
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}
-              href={`tel:${app.contacts.phones[0]}`}
+              href={`tel:+${app.contacts.phonesMango.number}`}
             >
-              <tel>
-                {app.contacts.phones[0]}
-              </tel>
+              {app.contacts.phonesMango.formattedNumber}
             </a>
             <p className={styles.burger_list_address}>{app.contacts.addresses[0].value}</p>
             <div className={`flex justify-center`}>
