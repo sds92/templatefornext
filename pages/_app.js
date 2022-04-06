@@ -32,6 +32,7 @@ function MyApp({ Component, pageProps }) {
     });
   }, []);
 
+
   const newProps = {
     menu: [
       ['Главная', '#Main'],

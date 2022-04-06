@@ -27,7 +27,6 @@ class MyDocument extends Document {
                 s = d.createElement('script'); s.async = 1; s.id = i; s.src = u;
                 p = d.getElementsByTagName('script')[0]; p.parentNode.insertBefore(s, p);
               }(window, document, '//widgets.mango-office.ru/widgets/mango.js', 'mango-js', 'mgo'));
-              
               `,
             }}
           />

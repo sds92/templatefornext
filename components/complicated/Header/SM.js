@@ -61,7 +61,10 @@ export default function SM({ menu, app, theme }) {
               href={`tel:+${app.contacts.phonesMango.number}`}
             >
               {app.contacts.phonesMango.formattedNumber}
-            </a>
+              <tel name="tel">
+                {app.contacts.phones[0]}
+              </tel>
+           </a>
             <p className={styles.burger_list_address}>{app.contacts.addresses[0].value}</p>
             <div className={`flex justify-center`}>
               <a className={`self-center`} href='#main'>
