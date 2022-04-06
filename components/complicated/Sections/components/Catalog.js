@@ -39,9 +39,8 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
   const { ref, inView, entry } = useInView({
     threshold: 0,
   });
-  const textAnimation = `${
-    w >= 500 ? (inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`) : ``
-  }`;
+  const textAnimation = `${w >= 500 ? (inView ? `translate-y-0 opacity-100` : `translate-y-11 opacity-0`) : ``
+    }`;
 
   return (
     <>
@@ -49,9 +48,11 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         <div
           className={`flex font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 ${textAnimation}`}
         >
-          <Text className={`zero:text-3xl sm:text-5xl text-center`}>Размеры и цены МДВП</Text>&nbsp;
+          <Text className={`zero:text-3xl sm:text-5xl text-center`}>МДВП</Text>&nbsp;
           <Text className={`zero:text-3xl sm:text-5xl text-center ${theme.text.color.title}`}>БЕЛТЕРМО</Text>
         </div>
+        <Text className={`zero:text-2xl sm:text-3xl font-bold text-center `}>Найдете дешевле, мы купим у Вас!</Text>
+        {/* <Text className={`zero:text-2xl sm:text-3xl font-bold text-center`}>Размеры и цены:</Text> */}
         <div className={`transition-all duration-300 mx-1 delay-100 ${textAnimation}`}>
           <Text className={`font-light max-w-7xl mx-auto text-center text-lg pt-2 px-4`}>{content[1]}</Text>
         </div>
@@ -95,13 +96,16 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                     </MenuItem>
                   ))}
                 </Menu>
-                <a className={`${theme.bg.buttons} rounded-xl`} href={`tel:${app.contacts.phones[0]}`}>
-                  <div
-                    className={` ${theme.text.buttons} rounded-md  p-2 w-40 mx-auto flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
-                  >
-                    <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} />
-                    Заказать
-                  </div>
+                <a className={`${theme.bg.buttons} rounded-xl`} href={`tel:+${app.contacts.phonesMango.number}`}>
+                  <tel name="tel">
+
+                    <div
+                      className={` ${theme.text.buttons} rounded-md  p-2 w-40 mx-auto flex items-center justify-center gap-1 uppercase cursor-pointer active:scale-105`}
+                    >
+                      <Icons.Phone extraClasses={`w-8 h-8 mt-1.5`} />
+                      Заказать
+                    </div>
+                  </tel>
                 </a>
               </>
             ) : (
@@ -120,13 +124,11 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                       <div className={`whitespace-nowrap text-transparent inset-0 text-center `}>
                         {item.title.toUpperCase()}
                         <div
-                          className={`${
-                            index === state.chosen
+                          className={`${index === state.chosen
                               ? `${theme.text.color.title} font-normal -mr-1 border-b ${theme.borders.catalogMenuItem}`
                               : ''
-                          } absolute hover:font-normal inset-0 ${
-                            theme.text.catalog
-                          } active:scale-x-105  active:${theme.text.color.title} active:font-normal`}
+                            } absolute hover:font-normal inset-0 ${theme.text.catalog
+                            } active:scale-x-105  active:${theme.text.color.title} active:font-normal`}
                         >
                           {item.title.toUpperCase()}
                         </div>
@@ -171,9 +173,8 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         height='256'
                       />
                       <div
-                        className={`absolute inset-0 bg-black ${
-                          state.hover === index ? `opacity-0` : `opacity-50`
-                        } transition-all`}
+                        className={`absolute inset-0 bg-black ${state.hover === index ? `opacity-0` : `opacity-50`
+                          } transition-all`}
                       ></div>
                       <div className={`absolute w-full bottom-6 text-slate-100`}>
                         <p className={`${theme.bg.productLine} text-slate-100 font-bold pl-10 text-xl py-1`}>
@@ -188,9 +189,8 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                           })} */}
                         </p>
                         <p
-                          className={`pl-10 py-1.5 ${
-                            state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
-                          }`}
+                          className={`pl-10 py-1.5 ${state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
+                            }`}
                         >
                           {item.title}
                         </p>

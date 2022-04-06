@@ -79,6 +79,7 @@ const theme = (name) => {
         color: {
           title: 'text-belplit_2',
           title2: 'text-zinc-100',
+          title3: 'text-belplit_dark',
           normal: 'text-zinc-800'
         },
       };

@@ -1,6 +1,4 @@
 import React from 'react';
-import Router from 'next/router';
-import ym from 'react-yandex-metrika';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
@@ -16,7 +14,7 @@ function MyApp({ Component, pageProps }) {
     setW(window.innerWidth);
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 2000);
     window.addEventListener(
       'resize',
       () => {
@@ -24,7 +22,16 @@ function MyApp({ Component, pageProps }) {
       },
       []
     );
+    const a = window.mgo;
+    a({ calltracking: { id: 27212, elements: [{ "numberText": "74951202735" }], domain: 'belplit24.ru' } });
+    a(function (a) {
+      // Запрашиваем номер
+      a.getNumber('', function (result) {
+        app[2].contacts.phonesMango = result
+      });
+    });
   }, []);
+
 
   const newProps = {
     menu: [
@@ -43,23 +50,25 @@ function MyApp({ Component, pageProps }) {
     ...pageProps,
   };
 
-  // ym('hit', '/');
-  // ym('reachGoal', 'whateverGoal', {awesomeParameter: 42});
-
   return (
     <>
+
       {loading && <Preloader />}
       {!loading && (
         <>
           <div>
             <Head ym={newProps.ym} head={newProps.input.head}></Head>
+
             <Component {...newProps} />
             <Footer app={newProps.app} theme={newProps.theme} />
           </div>
-          <script
-            type='text/javascript'
-            dangerouslySetInnerHTML={{
-              __html: `
+
+        </>
+      )}
+      <script
+        type='text/javascript'
+        dangerouslySetInnerHTML={{
+          __html: `
              (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
              m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
              (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
@@ -72,10 +81,8 @@ function MyApp({ Component, pageProps }) {
                   trackHash:true
              });
   `,
-            }}
-          ></script>
-        </>
-      )}
+        }}
+      />
     </>
   );
 }

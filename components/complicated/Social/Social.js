@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icons } from '..';
 
-export default function Social({app, theme}) {
+export default function Social({ app, theme }) {
   return (
     <>
       {app.contacts.socials &&
@@ -16,7 +16,11 @@ export default function Social({app, theme}) {
           );
         })}
       <div className={`${theme.text.color.title2} hover:${theme.text.header} transition-all `}>
-        <a href={`tel:${app.contacts.phones[0]}`}>{app.contacts.phones[0]}</a>
+        <a href={`tel:+${app.contacts.phonesMango.number}`}>
+          
+            {app.contacts.phonesMango.formattedNumber}
+          
+        </a>
       </div>
     </>
   );

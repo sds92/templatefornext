@@ -1,6 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
+import InputMask from 'react-input-mask';
+
 export default function FeedBack(props) {
   const { theme } = props;
   const router = useRouter();
@@ -25,7 +27,7 @@ export default function FeedBack(props) {
   async function checkForm() {
     let res = false;
     let a = Promise.resolve(/^[а-я, А-Я, a-z, A-Z]{3,20}$/.test(formState.clientName));
-    let b = Promise.resolve(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(formState.clientPhone));
+    let b = Promise.resolve(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(formState.clientPhone.replaceAll(' ', '')));
     let c = formState.body === '' ? true : Promise.resolve(/.{3,500}/.test(formState.body));
     let d =
       formState.clientEmail === ''
@@ -114,39 +116,6 @@ export default function FeedBack(props) {
       });
   }
 
-  let keyCode;
-  let selectionStart;
-  let value;
-  function mask(e) {
-    console.log('🚀 ~ file: FeedBack.js ~ line 120 ~ mask ~ e', e.nativeEvent.data);
-
-    // event.keyCode && (keyCode = event.keyCode);
-    let pos = selectionStart;
-    if (pos < 3) e.preventDefault();
-    let matrix = '+7 (___) ___ ____';
-    let i = 0;
-    let def = matrix.replace(/\D/g, '');
-    let val = value.replace(/\D/g, '');
-    let new_value = matrix.replace(/[_\d]/g, function (a) {
-      return i < val.length ? val.charAt(i++) || def.charAt(i) : a;
-    });
-    // i = new_value.indexOf('_');
-    // if (i != -1) {
-    //   i < 5 && (i = 3);
-    //   new_value = new_value.slice(0, i);
-    // }
-    // var reg = matrix
-    //   .substr(0, this.value.length)
-    //   .replace(/_+/g, function (a) {
-    //     return '\\d{1,' + a.length + '}';
-    //   })
-    //   .replace(/[+()]/g, '\\$&');
-    // reg = new RegExp('^' + reg + '$');
-    // if (!reg.test(this.value) || this.value.length < 5 || (keyCode > 47 && keyCode < 58))
-    //   this.value = new_value;
-    // if (event.type == 'blur' && this.value.length < 5) this.value = '';
-  }
-
   return (
     <div>
       <form className={``}>
@@ -172,8 +141,8 @@ export default function FeedBack(props) {
             <div className={classes.ff}>
               <div className={`form-wrap`} style={{ position: 'relative' }}>
                 {checkFormStatus[1] && <p className={`user-form-alert`}>Не верный номер</p>}
-                <input
-                  className={`user-form-input ${checkFormStatus[1] ? `user-form-alert-borders` : ``}`}
+                <InputMask
+                  className={`tel user-form-input ${checkFormStatus[1] ? `user-form-alert-borders` : ``}`}
                   required
                   id='FeedBackFormClientPhone'
                   placeholder='Телефон'
@@ -185,6 +154,8 @@ export default function FeedBack(props) {
                       return { ...state, clientPhone: e.target.value };
                     });
                   }}
+                  mask='+7\ (999) 999 99 99'
+                  maskChar='_'
                 />
               </div>
             </div>

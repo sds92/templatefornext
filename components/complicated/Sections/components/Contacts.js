@@ -13,7 +13,7 @@ export default function Contacts(props) {
       <div
         className={`flex ${theme.text.color} font-bold flex-wrap justify-center items-center max-w-7xl mx-auto transition-all duration-300 delay-100 `}
       >
-        <Text className={`mb-4 text-6xl text-center uppercase ${theme.text.color.title}`}>Контакты</Text>
+        <Text className={`overflow-hidden mb-4 text-6xl text-center uppercase ${theme.text.color.title}`}>Контакты</Text>
       </div>
 
       <div className={`flex flex-col w-full`}>
@@ -29,7 +29,7 @@ export default function Contacts(props) {
 
           {/* CONTACTS */}
           <div
-            className={`flex w-full flex-wrap sm:max-w-xl sm:flex-col sm:w-1/3 md:w-5/12 p-2 mr-auto mt-10`}
+            className={`overflow-hidden flex w-full flex-wrap sm:max-w-xl sm:flex-col sm:w-1/3 md:w-5/12 p-2 mr-auto mt-10`}
           >
             <div className={`sm:w-full w-1/2 my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
@@ -37,7 +37,11 @@ export default function Contacts(props) {
                 <p className={classes.contactsTitle}>Телефон:</p>
               </div>
               <div className={`ml-8 font-light ${theme.text.color.title2}`}>
-                <a href={`tel:${app.contacts.phones[0]}`}>{app.contacts.phones[0]}</a>
+                <a href={`tel:+${app.contacts.phonesMango.number}`}>
+                  <tel name="tel">
+                    {app.contacts.phonesMango.formattedNumber}
+                  </tel>
+                </a>
               </div>
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
@@ -64,6 +68,6 @@ export default function Contacts(props) {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

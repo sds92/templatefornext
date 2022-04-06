@@ -25,7 +25,7 @@ export default function SM({ menu, app, theme }) {
 
         {isActive ? <div onClick={() => setIsActive(!isActive)} className={styles.overlay}></div> : ''}
       </nav>
-      <div className={`relative`} style={{marginTop: "-60px"}}>
+      <div className={`relative`} style={{ marginTop: "-60px" }}>
         <nav className={`${isActive ? `${styles.burger} translate-x-0` : `${styles.burger} -translate-x-72`} ${theme.bg.header} transition-all`}>
           <ul className={styles.burger_list + ` ${theme.bg}`}>
             {menu.map((item, index) => (
@@ -35,7 +35,6 @@ export default function SM({ menu, app, theme }) {
                 to={item[1].replaceAll('#', '')}
                 spy={true}
                 smooth={true}
-                hashSpy={true}
                 offset={-65}
                 duration={500}
                 delay={0}
@@ -59,10 +58,13 @@ export default function SM({ menu, app, theme }) {
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}
-              href={`tel:${app.contacts.phones[0]}`}
+              href={`tel:+${app.contacts.phonesMango.number}`}
             >
-              {app.contacts.phones[0]}
-            </a>
+              {app.contacts.phonesMango.formattedNumber}
+              <tel name="tel">
+                {app.contacts.phones[0]}
+              </tel>
+           </a>
             <p className={styles.burger_list_address}>{app.contacts.addresses[0].value}</p>
             <div className={`flex justify-center`}>
               <a className={`self-center`} href='#main'>

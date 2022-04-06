@@ -1,0 +1,4 @@
+
+  User-agent: *
+  Sitemap: https://belplit24.ru/sitemap.xml
+  
