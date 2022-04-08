@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, FullPage, Footer } from '../components/complicated';
+import { Header, FullPage, Footer, UserHead } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import { transform } from '../utils/transform';
@@ -46,8 +46,8 @@ export default function Home(props) {
   //     : newProps.data.content.main.text;
   // }
   return (
-    <>
-      <Header {...newProps} />
+    <React.Fragment>
+      
       <motion.div
         className={``}
         initial='initial'
@@ -59,7 +59,7 @@ export default function Home(props) {
         <FullPage {...newProps} />
       </motion.div>
       <Footer {...newProps} />
-    </>
+    </React.Fragment>
   );
 }
 
