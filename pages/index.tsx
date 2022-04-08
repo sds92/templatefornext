@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { withIronSessionSsr } from 'iron-session/next';
 import { Header, FullPage, Footer, UserHead, Layout } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
@@ -40,3 +41,20 @@ const Home: React.FC = (props: any) => {
 };
 
 export default Home;
+
+export const getServerSideProps = withIronSessionSsr(async function ({ req, res }) {
+  const user = req.session.user;
+  //
+
+  if (user === undefined) {
+    return {
+      props: {
+        user: { isLoggedIn: false, pass: '' },
+      },
+    };
+  }
+
+  return {
+    props: { user: req.session.user },
+  };
+}, sessionOptions);
