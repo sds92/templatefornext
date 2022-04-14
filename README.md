@@ -1,4 +1,4 @@
-### NWST
+## NWST
 # Nestjs website template 
 
 This repo can be used for building fullstack web applications
