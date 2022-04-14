@@ -8,8 +8,8 @@ Built with: Next.js, React, Redux, Mongo, Tailwind.
 
 Currently mooving to Typescript.
 
-#Status: dev.
-#main branch: 1.5
+> status: **dev**  
+> main branch: **1.6**
 
 Run the development server:
 
