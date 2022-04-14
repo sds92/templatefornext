@@ -11,6 +11,8 @@ module.exports = {
   presets: [],
   darkMode: 'media', // or 'class'
   safelist: [
+    'h-16', 
+    'h-20',
     'pb-5',
     'text-white',
     'max-w-xl',
@@ -58,9 +60,11 @@ module.exports = {
       zero: '0px',
       sm: '640px',
       md: '768px',
+      user: '900',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      
     },
     colors: ({ colors }) => ({
       bp_green: '#38a000',

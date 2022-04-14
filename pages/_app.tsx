@@ -9,19 +9,22 @@ import { UserHead, Preloader, YM } from '../components/complicated';
 import theme from '../utils/theme';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  return (
-    <SWRConfig
-      value={{
-        fetcher: fetchJson,
-        onError: (err) => {
-          console.error(err);
-        },
-      }}
-    >
-      <Component {...pageProps} />
-    </SWRConfig>
-  );
+  const router = useRouter();
+  if (router.route === '/admin' || router.route === '/login') {
+    return (
+      <SWRConfig
+        value={{
+          fetcher: fetchJson,
+          onError: (err) => {
+            console.error(err);
+          },
+        }}
+      >
+        <Component {...pageProps} />
+      </SWRConfig>
+    );
+  }
+  return <Component {...pageProps} />;
 };
 
 export default appWithTranslation(MyApp);
-

@@ -1,16 +1,24 @@
 import React from 'react';
 import Head from 'next/head';
 
-const UserHead: React.FC = ({ head, children, theme }: any) => {
+type UserHeadProps = {
+  head?: IHeadMeta;
+  children?: JSX.Element[] | JSX.Element;
+  theme?: ITheme;
+};
+
+const UserHead: React.FC<UserHeadProps> = (props) => {
+  const { head, children, theme } = props;
   return (
     <Head>
-      <title>{head.title}</title>
-      {head.meta.map((item: any, index: number) => (
+      <title>{head ? head.title : ''}</title>
+      {head && head.meta.map((item: any, index: number) => (
         <meta name={item.name} content={item.content} key={`META${index}`} />
       ))}
-      <meta name='theme-color' content={`${theme.metaThemeColor || `transparent`}`}></meta>
+      <meta name='theme-color' content={`${theme ? theme.metaThemeColor : `transparent`}`}></meta>
       {children && children}
     </Head>
   );
 };
-export default UserHead
+
+export default UserHead;

@@ -14,8 +14,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "typeRoots": ["./types/index.d.ts"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/complicated/Layout/Main.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/complicated/Layout/Main.jsx", "db/mongodb.еs"],
   "exclude": ["node_modules"]
 }

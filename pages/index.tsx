@@ -3,8 +3,10 @@ import { useRouter } from 'next/router';
 import { withIronSessionSsr } from 'iron-session/next';
 import { Header, FullPage, Footer, UserHead, Layout } from '../components/complicated';
 import { motion } from 'framer-motion';
+import { sessionOptions } from 'lib/session';
 import { animations } from '../styles/animations';
 import { transform } from '../utils/transform';
+import fs from 'fs';
 
 const Home: React.FC = (props: any) => {
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -27,7 +29,7 @@ const Home: React.FC = (props: any) => {
     ...props,
   };
   return (
-    <motion.div
+    w && <motion.div
       className={``}
       initial='initial'
       animate='animate'
@@ -35,26 +37,25 @@ const Home: React.FC = (props: any) => {
       variants={animations.opacity.variants}
       transition={animations.opacity.transition}
     >
-      <Layout {...props}/>
+      <Layout {...newProps} />
     </motion.div>
   );
 };
 
 export default Home;
 
-export const getServerSideProps = withIronSessionSsr(async function ({ req, res }) {
-  const user = req.session.user;
-  //
-
-  if (user === undefined) {
-    return {
-      props: {
-        user: { isLoggedIn: false, pass: '' },
-      },
-    };
-  }
-
+export async function getStaticProps({ params, ...props }) {
+  let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
+  let products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
+  let pages = JSON.parse(fs.readFileSync('data/pages.ru.json', 'utf8'));
+  let theme = JSON.parse(fs.readFileSync('data/theme.json', 'utf8'));
   return {
-    props: { user: req.session.user },
+    props: {
+      products: products,
+      app: app,
+      pages: pages,
+      theme: theme,
+    },
+    revalidate: 5,
   };
-}, sessionOptions);
+}
