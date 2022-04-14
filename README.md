@@ -1,13 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### NWST
+# Nestjs website template 
 
-## Getting Started
+This repo can be used for building fullstack web applications
+It includes front-end template and back-end cms for managing content
 
-First, run the development server:
+Built with: Next.js, React, Redux, Mongo, Tailwind.
+
+Currently mooving to Typescript.
+
+#Status: dev.
+#main branch: 1.5
+
+Run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
