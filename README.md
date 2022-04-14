@@ -1,5 +1,5 @@
 # NWST
-# Nestjs website template 
+Nestjs website template 
 
 This repo can be used for building fullstack web applications
 It includes front-end template and back-end cms for managing content
