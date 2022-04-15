@@ -18,7 +18,7 @@ interface IFormProps {
 }
 interface IFormWrapperProps {
   children?: JSX.Element[];
-  userSbmtButton?: JSX.Element
+  userSbmtButton?: boolean;
   className?: string;
   buttonText?: string;
   redirectButton?: Button;

@@ -14,6 +14,7 @@ interface FieldWrapperProps {
   type?: string;
   required?: boolean;
   onChange: any;
+  rows?: number;
 }
 
 export const FieldWrapper: React.FC<FieldWrapperProps> = (props: FieldWrapperProps) => {
@@ -31,8 +32,7 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = (props: FieldWrapperPro
 };
 
 export const Field = (props: FieldWrapperProps) => {
-  const { inputType, id, type, value, placeholder, className, required, listItems, onChange } = props;
-  console.log('🚀 ~ file: FieldWrapper.tsx ~ line 31 ~ Field ~ type', type);
+  const { inputType, id, type, value, placeholder, className, required, listItems, onChange, rows } = props;
   switch (inputType!.toLowerCase()) {
     case 'text': {
       return (
@@ -60,6 +60,7 @@ export const Field = (props: FieldWrapperProps) => {
           // }
           className={className && className[1]}
           required={required && required}
+          rows={rows && rows}
         />
       );
     }

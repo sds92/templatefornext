@@ -27,17 +27,17 @@ const defaultInput = {
 };
 
 const classNames = {
-  textarea: `w-full`,
+  textarea: `w-full p-2 focus:outline focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-sm`,
   label: ``,
-  input: `w-1/2`,
-  ff: `w-full md:w-1/2 my-1 px-1`,
+  input: `basis-full md:basis-1/2 rounded-sm focus:outline focus:outline-bp_green_4 focus:outline-1 h-10 px-2 shadow-sm`,
+  ff: `basis-full md:basis-1/2 my-1 px-1`,
 };
 
 const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
-  const { theme, app, onFullfilled } = props;
-  const { contacts } = app;
+  const { theme, contacts, onFullfilled } = props;
+  // const { contacts } = app;
   const router = useRouter();
-  const [formStatus, setFormStatus] = React.useState<string>('show');
+  const [formStatus, setFormStatus] = React.useState<string>('ready');
   const [userInput, setUserInput] = React.useState<FormState>(defaultInput);
   const [checkFormStatus, setCheckFormStatus] = React.useState({
     0: false,
@@ -146,15 +146,13 @@ const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
 
   return (
     <div>
-      {formStatus === 'show' && (
+      {formStatus === 'ready' && (
         <FormWrapper
           onSubmit={sendForm}
-          className={`flex flex-col justify-center items-center max-w-xl mx-auto`}
-          userSbmtButton={
-            <div>Отправить</div>
-          }
+          className={`flex flex-col justify-center items-center max-w-xl mx-auto px-2`}
+          userSbmtButton
         >
-          <div className={`flex w-full`}>
+          <div className={`flex flex-wrap md:flex-nowrap w-full gap-1 my-1`}>
             <FieldWrapper
               className={[classNames.label, classNames.input]}
               id={'feedBackFormName'}
@@ -185,18 +183,24 @@ const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
             name='feedBackFormBody'
             value={userInput.feedBackFormBody}
             onChange={onChangeHandler}
+            rows={4}
             required
           />
-          <FieldWrapper
-            className={[classNames.label, classNames.input]}
-            id={'feedBackFormEmail'}
-            placeholder={`E-mail`}
-            type='text'
-            name='feedBackFormEmail'
-            value={userInput.feedBackFormEmail}
-            onChange={onChangeHandler}
-            required
-          />
+          <div className={`flex flex-wrap md:flex-nowrap w-full gap-1 my-1`}>
+            <FieldWrapper
+              className={[classNames.label, classNames.input]}
+              id={'feedBackFormEmail'}
+              placeholder={`E-mail`}
+              type='text'
+              name='feedBackFormEmail'
+              value={userInput.feedBackFormEmail}
+              onChange={onChangeHandler}
+              required
+            />
+            <button type='submit' className={`whitespace-nowrap shadow-md text-xl text-centercursor-pointer font-bold uppercase w-full h-10 rounded-sm md:w-1/2 bg-${theme.bg.contacts.color.s1} text-${theme.text.contacts.color.s2}`}>
+              Отправить
+            </button>
+          </div>
         </FormWrapper>
       )}
       {/* {formStatus === 'show' && (

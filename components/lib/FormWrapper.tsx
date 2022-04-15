@@ -6,7 +6,7 @@ const FormWrapper:React.FC<IFormWrapperProps> = (props: IFormWrapperProps) => {
   return (
     <form onSubmit={onSubmit} className={className}>
       {children && children}
-      {userSbmtButton ? userSbmtButton : <div className={`flex items-center justify-between`}>
+      {!userSbmtButton && <div className={`flex items-center justify-between`}>
         <button
           className={`hover:bg-belplit_2 rounded-md mx-auto px-2 py-1 hover:text-zinc-900 transition-all`}
           type='submit'

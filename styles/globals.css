@@ -17,6 +17,10 @@ html {
   scroll-behavior: smooth;
 }
 
+textarea:focus, input:focus{
+  outline: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

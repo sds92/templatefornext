@@ -40,6 +40,7 @@ module.exports = {
     'hover:bg-bp_red',
     'translate-x-0',
     '-translate-x-72',
+    'focus:border-sky-100',
     {
       pattern: /(basis)-(1\/2|1\/4|1\/3)/,
     },
@@ -56,7 +57,10 @@ module.exports = {
       pattern: /(font)-(light|bold|semibold|medium)/,
     },
     {
-      pattern: /(bg|text|)-(zinc)-(100|200|300|400|500|600|700|800|900)/,
+      pattern: /(bg|border)-(opacity)-(0|10|20|30|40|50|60|70|80|90|100)/,
+    },
+    {
+      pattern: /(bg|text|border)-(zinc)-(100|200|300|400|500|600|700|800|900)/,
     },
     {
       pattern:
@@ -77,6 +81,7 @@ module.exports = {
       bp_green: '#38a000',
       bp_green_2: '#62a044',
       bp_green_3: '#426d2e',
+      bp_green_4: '#cee3c4',
       bp_black: '#1a1520',
       bp_red: '#ff0000',
       bp_red_2: '#ac0909',
