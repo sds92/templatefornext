@@ -1,21 +1,18 @@
 import React from 'react';
-import Sections from './components';
+import Sections from './';
 
-type SectionProps = {
+export type SectionProps = {
   app: IApp;
+  id: string;
+  theme: ITheme;
+  w: number;
 };
 
-const Section: React.FC<SectionProps> = (props) => {
-  let id = props.id;
-  props.app.url === 'shinglas-rus.ru' && props.id === 'Catalog' ? (id = 'CatalogAlt1') : (id = props.id);
-  const SectionContent = Sections[id] || <></>;
-  const app = props.app;
-  return (
-    <section name={props.name} id={props.id} className={props.className}>
-      {props.id && <SectionContent app={app} {...props} />}
-      {props.children && props.children}
-    </section>
-  );
+const Section = (props:SectionProps) => {
+  const { id, app, theme, w } = props;
+  const s = app.content.template.find((item) => item.id === id)?.model.replaceAll('.', '') as string;
+  const SectionContent = Sections[s] || null;
+  return SectionContent && <SectionContent app={app} id={id} theme={theme} w={w} />;
 };
 
-export default Section
+export default Section;

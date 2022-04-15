@@ -1,14 +1,23 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { withIronSessionSsr } from 'iron-session/next';
-import { Header, FullPage, Footer, UserHead, Layout } from '../components/complicated';
+import { Layout } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { sessionOptions } from 'lib/session';
 import { animations } from '../styles/animations';
 import { transform } from '../utils/transform';
 import fs from 'fs';
+import Sections from 'components/complicated/Sections';
 
-const Home: React.FC = (props: any) => {
+type HomeProps = {
+  products: any;
+  app: IApp;
+  pages: any;
+  theme: ITheme;
+};
+
+const Home = (props: HomeProps) => {
+  const { pages, products, theme, app } = props;
   const [loading, setLoading] = React.useState<boolean>(true);
   const [w, setW] = React.useState<number | undefined>(undefined);
   const router = useRouter();
@@ -23,22 +32,24 @@ const Home: React.FC = (props: any) => {
     });
   }, []);
 
-  const newProps = {
-    w: w,
-    lgView: typeof w === 'number' ? w >= 900 : true,
-    ...props,
-  };
   return (
-    w && <motion.div
-      className={``}
-      initial='initial'
-      animate='animate'
-      exit='exit'
-      variants={animations.opacity.variants}
-      transition={animations.opacity.transition}
-    >
-      <Layout {...newProps} />
-    </motion.div>
+    w && (
+      <motion.div
+        className={``}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        variants={animations.opacity.variants}
+        transition={animations.opacity.transition}
+      >
+        <Layout w={w} theme={theme} app={app} pages={pages}>
+          {app.content.template.map((section: Section, i: number) => {
+            const Section = Sections[section.model] || null;
+            return Section && <Section theme={theme} data={[section, app.contacts]} w={w} key={`section${i}`} />;
+          })}
+        </Layout>
+      </motion.div>
+    )
   );
 };
 

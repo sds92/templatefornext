@@ -7,11 +7,11 @@ fontFamily['sans-serif'] = [
 ];
 
 module.exports = {
-  content: ['./pages/**/*.{html,js}', './components/**/*.{html,js}'],
+  content: ['./pages/**/*.{html,js,ts,tsx}', './components/**/*.{html,js,ts,tsx}'],
   presets: [],
   darkMode: 'media', // or 'class'
   safelist: [
-    'h-16', 
+    'h-16',
     'h-20',
     'pb-5',
     'text-white',
@@ -19,6 +19,9 @@ module.exports = {
     'max-w-md',
     'max-w-sm',
     'max-w-xs',
+    'min-w-xs',
+    'min-w-content',
+    'w-min',
     'whitespace-nowrap',
     'uppercase',
     'cursor-pointer',
@@ -35,6 +38,11 @@ module.exports = {
     'hover:bg-bp_green_3',
     'hover:bg-bp_red_2',
     'hover:bg-bp_red',
+    'translate-x-0',
+    '-translate-x-72',
+    {
+      pattern: /(basis)-(1\/2|1\/4|1\/3)/,
+    },
     {
       pattern: /(p|m|px|mx|py|my|pt|mt|pr|mr|pb|mb|pl|mr)-(0.5|1|2|3|4|5|6)/,
     },
@@ -64,7 +72,6 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
-      
     },
     colors: ({ colors }) => ({
       bp_green: '#38a000',
@@ -684,6 +691,17 @@ module.exports = {
     },
     minWidth: {
       0: '0px',
+      xs: '20rem',
+      sm: '24rem',
+      md: '28rem',
+      lg: '32rem',
+      xl: '36rem',
+      '2xl': '42rem',
+      '3xl': '48rem',
+      '4xl': '56rem',
+      '5xl': '64rem',
+      '6xl': '72rem',
+      '7xl': '80rem',
       full: '100%',
       min: 'min-content',
       max: 'max-content',

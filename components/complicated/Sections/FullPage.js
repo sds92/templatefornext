@@ -1,5 +1,5 @@
 import React from 'react';
-import Sections from './components';
+import Sections from './';
 
 export default function FullPage({ ...props }) {
   return (

@@ -51,26 +51,66 @@ interface IMenu extends Array<string[]> {}
 //
 interface ITheme {
   /**
-   * top panel in Safari mobile
+   * top panel in Safari mobile use #color
    */
   metaThemeColor: string;
+  logoRoboWebColor?: string;
   /**
    * Logo color in tailwind notation
    */
   logo: string;
+  styles: {
+    buttons: string;
+  };
   bg: {
-    header: string;
-    headerHoverLink: string;
+    header: {
+      color: Color;
+    };
+    sections: {
+      [key: string]: {
+        color: Color;
+      };
+    };
+    footer: {
+      color: Color;
+    }
   };
   text: {
     header: {
-      color: string;
-      hover: string;
-      active: string;
-      buttons: string;
+      color: Color;
     };
+    sections: {
+      [key: string]: {
+        color: Color;
+      };
+    };
+    footer: {
+      color: Color;
+    }
+  };
+  borders: {
+    header: {
+      color: Color;
+    };
+    sections: {
+      [key: string]: {
+        color: Color;
+      };
+    };
+    footer: {
+      color: Color;
+    }
   };
 }
+
+type Color = {
+  main?: string;
+  s1?: string;
+  s2?: string;
+  hover?: string;
+  active?: string;
+  buttons?: string;
+};
 
 // app.json type definitions
 //
@@ -83,29 +123,32 @@ type Address = {
 type Button = {
   link: string;
   buttonText: string;
+  pseudo?: boolean;
 };
-
-interface IButtons extends Array<Button> {}
 
 type SectionBlock = {
   title?: string | string[];
   text?: string | string[];
   flag?: string;
-  buttons?: Array<IButtons>;
+  buttons?: Button[];
 };
 
 type Section = {
   model: string;
   id?: string;
   title?: string | string[];
-  blocks?: Array<SectionBlock>;
+  subTitle?: string | string[];
   text?: string | string[];
-  images?: string[];
+  price?: string | string[];
+  blocks?: SectionBlock[];
+  images?: string[] | string;
+  buttons?: Button[];
+  // [Symbol.iterator]();
 };
 interface IApp {
   url: string;
   /**
-   * User logo component
+   * User logo component name
    */
   logo?: string;
   /**
@@ -115,15 +158,17 @@ interface IApp {
     w: number;
     h: number;
   };
+  
   contacts: {
     phones: string[];
-    addresses: Array<Address>;
+    addresses: Address[];
   };
   menu: Imenu;
   content: {
-    template: Array<Section>;
+    template: Section[];
   };
 }
+
 
 // missing declarations
 //

@@ -1,9 +1,11 @@
+
 type SVGImageProps = {
+  [x: string]: any;
   children: JSX.Element | JSX.Element[];
   classNames?: string;
   w?: number;
   h?: number;
-  [x: string]: any;
+  fill?: string; 
 };
 
 const SVGImage: React.FC<SVGImageProps> = ({ children, className, w = 6, h = 6, ...props }) => {

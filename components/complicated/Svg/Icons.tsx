@@ -185,7 +185,7 @@ export const WoodEco: React.FC<SVGImageProps> = (props) => {
   );
 };
 
-const Icons = {
+const Icons:{[key: string]: React.FC<SVGImageProps>} = {
   Whatsapp,
   Telegram,
   Clock,

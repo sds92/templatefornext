@@ -14,17 +14,18 @@ const SM: React.FC<SMProps> = (props) => {
   const { theme, app } = props;
   const menu = app.menu;
   const [isActive, setIsActive] = React.useState<boolean>(false);
+  console.log("🚀 ~ file: SM.tsx ~ line 17 ~ isActive", isActive)
   // TODO: fix
   // @ts-ignore
   const Icon = Icons[app?.logo || 'Belplit24'];
   return (
     <>
-      <nav className={`bg-${theme.bg.header} flex justify-between items-center h-full`}>
+      <nav className={`bg-${theme.bg.header.color.main} flex justify-between items-center h-full`}>
         <div className='basis-1/3'>
           <Icons.Menu
             w={14}
             h={14}
-            className={`px-2 py-4 cursor-pointer active:scale-125 transition-all text-slate-100`}
+            className={`px-2 py-4 cursor-pointer active:scale-125 transition-all text-${theme.text.header.color.main}`}
             onClick={() => setIsActive(!isActive)}
           />
         </div>
@@ -40,10 +41,10 @@ const SM: React.FC<SMProps> = (props) => {
         <nav
           style={{ top: '60px', left: 0, maxWidth: '260px' }}
           className={`${isActive ? `translate-x-0` : `-translate-x-72`} bg-${
-            theme.bg.header
+            theme.bg.header.color.main
           } transition-all flex flex-col absolute h-screen z-50`}
         >
-          <div className={`flex flex-col text-${theme.text.header.color} bg-${theme.bg.header}`}>
+          <div className={`flex flex-col text-${theme.text.header.color.main} bg-${theme.bg.header.color.main}`}>
             {menu.map((item: string, index: number) => (
               <Link
                 key={`MENUITEM${index}`}
@@ -59,7 +60,7 @@ const SM: React.FC<SMProps> = (props) => {
               >
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.buttons} hover:bg-${theme.bg.headerHoverLink} active:bg-${theme.bg.headerActiveLink}`}
+                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.color.hover} hover:bg-${theme.bg.header.color.hover} active:bg-${theme.bg.headerActiveLink}`}
                 >
                   <a href='#main'>{item[0]}</a>
                 </div>
