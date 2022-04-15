@@ -10,7 +10,7 @@ const ContactsM0:React.FC<{ theme: ITheme; data: [Section, IApp['contacts']]; w:
     contactsTitle: `pl-2 border-b border-${theme.borders.contacts.color.main} text-${theme.text.contacts.color.s1} w-full`,
   };
   return (
-    <div id={`Contacts`} className={`bg-${theme.bg.contacts.color.main} py-10`}>
+    <div id={content.id} className={`bg-${theme.bg.contacts.color.main} py-10`}>
       <Text
         className={`zero:text-xl sm:text-5xl text-center font-bold text-${theme.text.contacts.color.main}`}
       >

@@ -60,7 +60,7 @@ module.exports = {
       pattern: /(bg|border)-(opacity)-(0|10|20|30|40|50|60|70|80|90|100)/,
     },
     {
-      pattern: /(bg|text|border)-(zinc)-(100|200|300|400|500|600|700|800|900)/,
+      pattern: /(bg|text|border)-(zinc|slate|neutral|gray)-(50|100|200|300|400|500|600|700|800|900)/,
     },
     {
       pattern:

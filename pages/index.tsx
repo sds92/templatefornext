@@ -10,7 +10,7 @@ import fs from 'fs';
 import Sections from 'components/complicated/Sections';
 
 type HomeProps = {
-  products: any;
+  products: IProducts;
   app: IApp;
   pages: any;
   theme: ITheme;
@@ -45,7 +45,20 @@ const Home = (props: HomeProps) => {
         <Layout w={w} theme={theme} app={app} pages={pages}>
           {app.content.template.map((section: Section, i: number) => {
             const Section = Sections[section.model] || null;
-            return Section && <Section theme={theme} data={[section, app.contacts]} w={w} key={`section${i}`} />;
+            return (
+              Section && (
+                <Section
+                  theme={theme}
+                  data={[
+                    section,
+                    app.contacts,
+                    section.model.toLocaleLowerCase().includes('catalog') && products,
+                  ]}
+                  w={w}
+                  key={`section${i}`}
+                />
+              )
+            );
           })}
         </Layout>
       </motion.div>

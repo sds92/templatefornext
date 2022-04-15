@@ -2,10 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { animations } from '../../../styles/animations';
-import type { SectionProps } from './Section';
-import Section from './Section';
 
-const PromoM1 = (props: { theme: ITheme; data: [Section, IApp['contacts']]; w: number }) => {
+type SectionProps = {
+  theme: ITheme;
+  data: [Section, IApp['contacts']];
+  w: number;
+};
+
+
+const PromoM1: React.FC<SectionProps> = (props: SectionProps) => {
   const { theme, w, data } = props;
   const [content, contacts] = data;
   return (

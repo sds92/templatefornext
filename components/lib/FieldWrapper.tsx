@@ -1,6 +1,7 @@
 import * as React from 'react';
+import InputMask from 'react-input-mask';
 
-type FieldType = 'text' | 'textarea' | 'list';
+type FieldType = 'text' | 'textarea' | 'list' | 'tel';
 
 interface FieldWrapperProps {
   id?: string;
@@ -34,6 +35,22 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = (props: FieldWrapperPro
 export const Field = (props: FieldWrapperProps) => {
   const { inputType, id, type, value, placeholder, className, required, listItems, onChange, rows } = props;
   switch (inputType!.toLowerCase()) {
+    case 'tel': {
+      return (
+        <InputMask
+          id={id}
+          type={type}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e: React.FormEvent<HTMLInputElement>) => onChange(e, id)}
+          // onBlur={(e: React.FormEvent<HTMLInputElement>) => console.log(e)}
+          className={className && className[1]}
+          required={required && required}
+          mask='+7\ (999) 999 99 99'
+          maskPlaceholder='_'
+        />
+      );
+    }
     case 'text': {
       return (
         <input

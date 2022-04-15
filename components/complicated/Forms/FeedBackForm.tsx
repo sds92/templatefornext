@@ -7,16 +7,14 @@ import InputMask from 'react-input-mask';
 
 interface IFeedBackProps extends IFormProps {
   theme: ITheme;
-  app: IApp;
+  app?: IApp;
   readonly formType?: string;
+  contacts: IApp['contacts'];
   onFullfilled?: (a: string) => void;
 }
 
 type FormState = {
-  feedBackFormName: string;
-  feedBackFormPhone: string;
-  feedBackFormBody: string;
-  feedBackFormEmail: string;
+  [key in 'feedBackFormName' | 'feedBackFormPhone' | 'feedBackFormBody' | 'feedBackFormEmail']: string;
 };
 
 const defaultInput = {
@@ -27,7 +25,7 @@ const defaultInput = {
 };
 
 const classNames = {
-  textarea: `w-full p-2 focus:outline focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-sm`,
+  textarea: `w-full p-2 focus:outline focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-inner`,
   label: ``,
   input: `basis-full md:basis-1/2 rounded-sm focus:outline focus:outline-bp_green_4 focus:outline-1 h-10 px-2 shadow-sm`,
   ff: `basis-full md:basis-1/2 my-1 px-1`,
@@ -46,9 +44,35 @@ const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
     3: false,
   });
 
-  function onChangeHandler(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, flag: string) {
+  async function onChangeHandler(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, flag: string) {
     setUserInput({ ...userInput, [flag]: e.currentTarget.value });
+    checkUserInput(userInput[flag as keyof FormState]);
     return;
+  }
+
+  function checkUserInput(input: string) {
+    const checker = {
+      feedBackFormName: () =>
+        Promise.resolve(/^[а-я, А-Я, a-z, A-Z]{3,20}$/.test(userInput.feedBackFormName)),
+      feedBackFormPhone: () =>
+        Promise.resolve(
+          /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(
+            userInput.feedBackFormPhone.replaceAll(' ', '')
+          )
+        ),
+      feedBackFormBody: () =>
+        userInput.feedBackFormBody === ''
+          ? true
+          : Promise.resolve(/.{3,500}/.test(userInput.feedBackFormBody)),
+      feedBackFormEmail: () =>
+        userInput.feedBackFormEmail === ''
+          ? true
+          : Promise.resolve(
+              /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(
+                userInput.feedBackFormEmail
+              )
+            ),
+    };
   }
 
   // TODO: beautify the logic of processing the unrequired fields
@@ -91,7 +115,8 @@ const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
     return;
   }
 
-  async function sendForm() {
+  async function sendForm(e: React.FormEvent) {
+    e.preventDefault();
     let check = await checkForm();
     if (!check) {
       return;
@@ -164,6 +189,7 @@ const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
               required
             />
             <FieldWrapper
+              inputType='tel'
               className={[classNames.label, classNames.input]}
               id={'feedBackFormPhone'}
               placeholder={`Телефон`}
@@ -197,7 +223,10 @@ const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
               onChange={onChangeHandler}
               required
             />
-            <button type='submit' className={`whitespace-nowrap shadow-md text-xl text-centercursor-pointer font-bold uppercase w-full h-10 rounded-sm md:w-1/2 bg-${theme.bg.contacts.color.s1} text-${theme.text.contacts.color.s2}`}>
+            <button
+              type='submit'
+              className={`whitespace-nowrap shadow-md text-xl text-centercursor-pointer font-bold uppercase w-full h-10 rounded-sm md:w-1/2 bg-${theme.bg.contacts.color.s1} text-${theme.text.contacts.color.s2}`}
+            >
               Отправить
             </button>
           </div>

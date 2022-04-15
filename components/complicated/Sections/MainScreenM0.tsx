@@ -1,11 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button, Text } from '../../lib';
+import { Text } from '../../lib';
 import { animations } from '../../../styles/animations';
-import type { SectionProps } from './Section';
 import Section from './Section';
 
-const MainScreenM0 = (props: { theme: ITheme; data: [Section, IApp['contacts']]; w: number }) => {
+type SectionProps = {
+  theme: ITheme;
+  data: [Section, IApp['contacts']];
+  w: number;
+};
+
+const MainScreenM0: React.FC<SectionProps> = (props: SectionProps) => {
   const { theme, w, data } = props;
   const [content, contacts] = data;
   return (
@@ -15,9 +20,12 @@ const MainScreenM0 = (props: { theme: ITheme; data: [Section, IApp['contacts']];
       className={`overflow-hidden w-full flex user-main-fs relative`}
     >
       <div className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
-        <div style={{
-          minWidth: '70%'
-        }} className={`max-w-xl ml-auto -mt-10 cursor-default`}>
+        <div
+          style={{
+            minWidth: '70%',
+          }}
+          className={`max-w-xl ml-auto -mt-10 cursor-default`}
+        >
           <div>
             {w >= 900 ? (
               <>
@@ -63,33 +71,33 @@ const MainScreenM0 = (props: { theme: ITheme; data: [Section, IApp['contacts']];
           </div>
           <div className={`relative flex flex-col gap-1 items-start justify-start`}>
             {content.buttons?.map((button, i) => {
-                return button.pseudo ? (
-                  <div
+              return button.pseudo ? (
+                <div
                   style={{
-                    ['text-shadow']: `0px 0px 20px ${theme.logo}` 
+                    ['text-shadow']: `0px 0px 20px ${theme.logo}`,
                   }}
                   className={`${
                     // @ts-ignore
                     content.buttons[i + 1]?.pseudo ? 'mt-4' : 'mt-0'
-                    } ml-2 whitespace-nowrap text-lg hover:scale-105 transition-all cursor-pointer text-${
-                      theme.text.sections[content.model].color.s2
-                    }`}
-                  >
-                    {button.buttonText}
-                  </div>
-                ) : (
-                  <div
-                    key={`button${i}`}
-                    className={`${theme.styles.buttons} text-${
-                      theme.text.sections[content.model].color.buttons
-                    } bg-${theme.bg.sections[content.model].color.main} hover:bg-${
-                      theme.bg.sections[content.model].color.hover
-                    } active:scale-105`}
-                    href={'#Contacts'}
-                  >
-                    {button.buttonText}
-                  </div>
-                );
+                  } ml-2 whitespace-nowrap text-lg hover:scale-105 transition-all cursor-pointer text-${
+                    theme.text.sections[content.model].color.s2
+                  }`}
+                >
+                  {button.buttonText}
+                </div>
+              ) : (
+                <div
+                  key={`button${i}`}
+                  className={`${theme.styles.buttons} text-${
+                    theme.text.sections[content.model].color.buttons
+                  } bg-${theme.bg.sections[content.model].color.main} hover:bg-${
+                    theme.bg.sections[content.model].color.hover
+                  } active:scale-105`}
+                  href={'#Contacts'}
+                >
+                  {button.buttonText}
+                </div>
+              );
             })}
           </div>
         </div>

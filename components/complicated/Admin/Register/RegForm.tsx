@@ -28,7 +28,7 @@ const RegForm: React.FC<IFormProps> = (props) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (userInput.password === userInput.passwordR) {
+    if (onSubmit && userInput.password === userInput.passwordR) {
       await onSubmit(userInput).then(resetForm);
     } else return;
   };

@@ -4,7 +4,13 @@ import { Text } from '../../lib';
 import { PromoBlock } from './components';
 import { animations } from '../../../styles/animations';
 
-const PromoM2 = (props: { theme: ITheme; data: [Section, IApp['contacts']]; w: number }) => {
+type SectionProps = {
+  theme: ITheme;
+  data: [Section, IApp['contacts']];
+  w: number;
+};
+
+const PromoM2: React.FC<SectionProps> = (props: SectionProps) => {
   const { theme, w, data } = props;
   const [content, contacts] = data;
   return (

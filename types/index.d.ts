@@ -14,7 +14,7 @@ interface IFormProps {
   className?: string;
   buttonText?: string;
   redirectButton?: Button;
-  onSubmit: (input: any) => Promise<void>;
+  onSubmit?: (input: any) => Promise<void>;
 }
 interface IFormWrapperProps {
   children?: JSX.Element[];
@@ -88,6 +88,9 @@ type ThemeSection = {
       color: Color;
     };
   };
+  catalog: {
+    color: Color;
+  }
   contacts: {
     color: Color;
   };
@@ -125,6 +128,7 @@ interface IApp {
   content: {
     template: Section[];
   };
+  
 }
 type Address = {
   title: string | string[];
@@ -155,8 +159,44 @@ type Section = {
   blocks?: SectionBlock[];
   images?: string[] | string;
   buttons?: Button[];
+  productModel: string;
   // [Symbol.iterator]();
 };
+
+/**
+ * Products type definitions
+ */
+interface IProducts extends Array<IProduct> {}
+interface IProduct {
+  id: string;
+  info: IProductInfo;
+  options: Array<IProductOption>;
+  desc: Array<IProductDesc>;
+}
+interface IProductInfo {
+  slug: string;
+  position: number;
+  title: string;
+  userTitle: string;
+}
+interface IProductOption {
+  a: number;
+  b: number;
+  h: number;
+  show: boolean;
+  prices: ProductPrice | ProductPrice[];
+  coef: number;
+  connectionType: number;
+  density: number;
+}
+type ProductPrice = {
+  city: string;
+  value: number;
+};
+interface IProductDesc {
+  title: string;
+  value: string | IProductDesc | IProductDesc[];
+}
 
 // missing declarations
 //

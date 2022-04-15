@@ -185,7 +185,21 @@ export const WoodEco: React.FC<SVGImageProps> = (props) => {
   );
 };
 
-const Icons:{[key: string]: React.FC<SVGImageProps>} = {
+export const Ok: React.FC<SVGImageProps> = (props) => {
+  return (
+    <SVGImage
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke={props.stroke || 'currentColor'}
+      {...props}
+    >
+      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
+    </SVGImage>
+  );
+};
+
+const Icons: { [key: string]: React.FC<SVGImageProps> } = {
+  Ok,
   Whatsapp,
   Telegram,
   Clock,
