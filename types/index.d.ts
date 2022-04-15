@@ -18,6 +18,7 @@ interface IFormProps {
 }
 interface IFormWrapperProps {
   children?: JSX.Element[];
+  userSbmtButton?: JSX.Element
   className?: string;
   buttonText?: string;
   redirectButton?: Button;
@@ -47,8 +48,10 @@ interface IHeadMeta {
 //
 interface IMenu extends Array<string[]> {}
 
-// Theme type definitions
-//
+/************************
+ * Theme type definitions
+ *
+ */
 interface ITheme {
   /**
    * top panel in Safari mobile use #color
@@ -62,45 +65,10 @@ interface ITheme {
   styles: {
     buttons: string;
   };
-  bg: {
-    header: {
-      color: Color;
-    };
-    sections: {
-      [key: string]: {
-        color: Color;
-      };
-    };
-    footer: {
-      color: Color;
-    }
-  };
-  text: {
-    header: {
-      color: Color;
-    };
-    sections: {
-      [key: string]: {
-        color: Color;
-      };
-    };
-    footer: {
-      color: Color;
-    }
-  };
-  borders: {
-    header: {
-      color: Color;
-    };
-    sections: {
-      [key: string]: {
-        color: Color;
-      };
-    };
-    footer: {
-      color: Color;
-    }
-  };
+
+  bg: ThemeSection;
+  text: ThemeSection;
+  borders: ThemeSection;
 }
 
 type Color = {
@@ -111,9 +79,53 @@ type Color = {
   active?: string;
   buttons?: string;
 };
+type ThemeSection = {
+  header: {
+    color: Color;
+  };
+  sections: {
+    [key: string]: {
+      color: Color;
+    };
+  };
+  contacts: {
+    color: Color;
+  };
+  footer: {
+    color: Color;
+  };
+};
 
-// app.json type definitions
-//
+/**
+ * App type definitions
+ */
+interface IApp {
+  url: string;
+  /**
+   * User logo component name
+   */
+  logo?: string;
+  /**
+   * User logo component sizes
+   */
+  logoUserSizes?: {
+    w: number;
+    h: number;
+  };
+  api: {
+    email: string;
+  };
+  contacts: {
+    phones: string[];
+    emails: string[];
+    addresses: Address[];
+    workingHoars: string[];
+  };
+  menu: Imenu;
+  content: {
+    template: Section[];
+  };
+}
 type Address = {
   title: string | string[];
   value: string;
@@ -145,30 +157,6 @@ type Section = {
   buttons?: Button[];
   // [Symbol.iterator]();
 };
-interface IApp {
-  url: string;
-  /**
-   * User logo component name
-   */
-  logo?: string;
-  /**
-   * User logo component sizes
-   */
-  logoUserSizes?: {
-    w: number;
-    h: number;
-  };
-  
-  contacts: {
-    phones: string[];
-    addresses: Address[];
-  };
-  menu: Imenu;
-  content: {
-    template: Section[];
-  };
-}
-
 
 // missing declarations
 //

@@ -12,11 +12,13 @@ const Contacts = (props: ContactsProps) => {
   const { theme, app } = props;
   const { contacts } = app;
   const classes = {
-    contactsTitle: `pl-2 border-b border-${theme.borders.contacts} text-${theme.text.contactsSubTitle} w-full`,
+    contactsTitle: `pl-2 border-b border-${theme.borders.contacts.color.main} text-${theme.text.contacts.color.s1} w-full`,
   };
   return (
-    <div id={`Contacts`} className={`bg-${theme.bg.contacts} py-10`}>
-      <Text className={`zero:text-xl sm:text-5xl text-center font-bold text-${theme.text.contactsTitle}`}>
+    <div id={`Contacts`} className={`bg-${theme.bg.contacts.color.main} py-10`}>
+      <Text
+        className={`zero:text-xl sm:text-5xl text-center font-bold text-${theme.text.contacts.color.main}`}
+      >
         Контакты
       </Text>
 
@@ -25,54 +27,76 @@ const Contacts = (props: ContactsProps) => {
           {/* FORM */}
           <div className={`w-full flex flex-col ml-auto sm:w-2/3 md:w-7/12 max-w-xl`}>
             <Text
-              className={`zero:text-sm sm:text-xl text-center font-bold text-${theme.text.contactsSubTitle}`}
+              className={`zero:text-sm sm:text-xl text-center font-bold text-${theme.text.contacts.color.s1}`}
             >
               Свяжитесь с нами
             </Text>
-            <FeedBack theme={theme} data={data} />
+            <FeedBack theme={theme} app={app} />
           </div>
 
           {/* CONTACTS */}
           <div
-            className={`flex w-full flex-wrap sm:max-w-xl sm:flex-col sm:w-1/3 md:w-5/12 p-2 mr-auto mt-10 text-${theme.text.contactsSubTitle}`}
+            className={`flex w-full flex-wrap sm:max-w-xl sm:flex-col sm:w-1/3 md:w-5/12 p-2 mr-auto mt-10`}
           >
             <div className={`sm:w-full w-1/2 my-1 flex flex-col `}>
               <div className={`flex mx-0.5 items-end`}>
                 <Icons.Phone
-                  extraClasses={`pl-1 w-6 h-6 border-b border-${theme.text.contactsIcon} text-${theme.text.contactsIcon}`}
+                  w={6}
+                  h={6}
+                  className={`pl-1 border-b border-${theme.text.contacts.color.main} text-${theme.text.contacts.color.main}`}
                 />
                 <p className={classes.contactsTitle}>Телефон:</p>
               </div>
-              <div className={`ml-8 font-light`}>
-                <a href={`tel:${contacts.phones[0]}`}>{contacts.phones[0]}</a>
-              </div>
+              {contacts.phones.map((phone, i) => (
+                <div key={`phone${i}`} className={`ml-8 font-light`}>
+                  <a title={`Позвонить`} href={`tel:${phone}`}>
+                    {phone}
+                  </a>
+                </div>
+              ))}
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex mx-0.5 items-end`}>
                 <Icons.Mail
-                  extraClasses={`pl-1 text-center w-6 h-6 border-b border-${theme.text.contactsIcon} text-${theme.text.contactsIcon}`}
+                  w={6}
+                  h={6}
+                  className={`pl-1 text-center border-b border-${theme.text.contacts.color.main} text-${theme.text.contacts.color.main}`}
                 />
                 <p className={classes.contactsTitle}>EMAIL:</p>
               </div>
-              <Text className={`ml-8 font-light`}>{contacts.emails[0]}</Text>
+              {contacts.emails.map((email, i) => (
+                <Text key={`email${i}`} className={`ml-8 font-light`}>
+                  {email}
+                </Text>
+              ))}
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex mx-0.5 items-end`}>
                 <Icons.Location
-                  extraClasses={`pl-1 w-6 h-6 pt-0.5 border-b border-${theme.text.contactsIcon} text-${theme.text.contactsIcon}`}
+                  w={6}
+                  h={6}
+                  className={`pl-1 pt-0.5 border-b border-${theme.text.contacts.color.main} text-${theme.text.contacts.color.main}`}
                 />
                 <p className={classes.contactsTitle}>АДРЕС:</p>
               </div>
-              <Text className={`ml-8 font-light`}>{contacts.addresses[0].value}</Text>
+              {contacts.addresses.map((address, i) => (
+                <div key={`address${i}`} className={`flex`}>
+                  <Text className={`ml-8 font-light`}>{address.title}</Text>
+                  {':'}&nbsp;
+                  <Text className={`ml-1 font-light`}>{address.value}</Text>
+                </div>
+              ))}
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex mx-0.5 items-end`}>
                 <Icons.Clock
-                  extraClasses={`pl-0.5 w-6 h-6 border-b border-${theme.text.contactsIcon} text-${theme.text.contactsIcon}`}
+                  w={6}
+                  h={6}
+                  className={`pl-0.5 border-b border-${theme.text.contacts.color.main} text-${theme.text.contacts.color.main}`}
                 />
                 <p className={classes.contactsTitle}>ВРЕМЯ РАБОТЫ:</p>
               </div>
-              <Text className={`ml-8 font-light`}>{contacts.workingHoars.value}</Text>
+              <Text className={`ml-8 font-light`}>{contacts.workingHoars}</Text>
             </div>
           </div>
         </div>

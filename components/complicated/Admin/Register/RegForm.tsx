@@ -14,7 +14,7 @@ const defaultInput = {
 
 const RegForm: React.FC<IFormProps> = (props) => {
   const { onSubmit, buttonText, redirectButton } = props;
-  const [userInput, setUserInput] = React.useState<IRegFormUserData>(defaultInput);
+  const [userInput, setUserInput] = React.useState<RegFormUserData>(defaultInput);
 
   function resetForm() {
     setUserInput(defaultInput);

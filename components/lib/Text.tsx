@@ -15,7 +15,7 @@ const Text = ({ children, ...props }: TextProps) => {
     return (
       <React.Fragment>
         {children.map((child, i) => (
-          typeof child === 'string' ? <p>{child}</p> : <p {...props} key={`substring${i}`} dangerouslySetInnerHTML={createMarkup(child)}></p>
+          typeof child === 'string' ? <p {...props}>{child}</p> : <p {...props} key={`substring${i}`} dangerouslySetInnerHTML={createMarkup(child)}></p>
         ))}
       </React.Fragment>
     );

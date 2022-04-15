@@ -16,18 +16,23 @@ interface FieldWrapperProps {
   onChange: any;
 }
 
-export const FieldWrapper = (props: FieldWrapperProps) => {
+export const FieldWrapper: React.FC<FieldWrapperProps> = (props: FieldWrapperProps) => {
   const { label, className, id } = props;
   return (
-    <div className={className && className[0]}>
-      {label && <label htmlFor={id}>{label}</label>}
+    <React.Fragment>
+      {label && (
+        <label className={className && className[0]} htmlFor={id}>
+          {label}
+        </label>
+      )}
       <Field {...props}></Field>
-    </div>
+    </React.Fragment>
   );
 };
 
 export const Field = (props: FieldWrapperProps) => {
   const { inputType, id, type, value, placeholder, className, required, listItems, onChange } = props;
+  console.log('🚀 ~ file: FieldWrapper.tsx ~ line 31 ~ Field ~ type', type);
   switch (inputType!.toLowerCase()) {
     case 'text': {
       return (
@@ -49,9 +54,7 @@ export const Field = (props: FieldWrapperProps) => {
           id={id}
           value={value}
           placeholder={placeholder}
-          // onChange={
-          //   (e: React.FormEvent<HTMLTextAreaElement>) => console.log(e) /* TODO: push change to form values */
-          // }
+          onChange={(e: React.FormEvent<HTMLTextAreaElement>) => onChange(e, id)}
           // onBlur={
           //   (e: React.FormEvent<HTMLTextAreaElement>) => console.log(e) /* TODO: validate field value */
           // }
