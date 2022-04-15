@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Text } from './';
+import { Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
-import type { SectionProps } from '../Section';
-import Section from '../Section';
 
 type PromoBlockProps = {
   block: SectionBlock;

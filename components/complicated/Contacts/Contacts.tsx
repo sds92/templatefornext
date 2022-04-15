@@ -1,11 +1,16 @@
 import React from 'react';
-import { Icons } from '../../';
-import { Text } from '../../../lib';
-import { FeedBack } from '../../';
+import { Icons } from '..';
+import { Text } from '../../lib';
+import { FeedBack } from '..';
 
-export default function Contacts(props) {
-  const { theme, data } = props;
-  const { contacts } = data;
+type ContactsProps = {
+  theme: ITheme;
+  app: IApp;
+};
+
+const Contacts = (props: ContactsProps) => {
+  const { theme, app } = props;
+  const { contacts } = app;
   const classes = {
     contactsTitle: `pl-2 border-b border-${theme.borders.contacts} text-${theme.text.contactsSubTitle} w-full`,
   };
@@ -74,4 +79,6 @@ export default function Contacts(props) {
       </div>
     </div>
   );
-}
+};
+
+export default Contacts;

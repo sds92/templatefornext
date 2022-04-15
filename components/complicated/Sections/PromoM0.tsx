@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Text, PromoBlock } from '../../lib';
+import { Text } from '../../lib';
+import { PromoBlock } from './components';
 import { animations } from '../../../styles/animations';
-import type { SectionProps } from './Section';
-import Section from './Section';
 
 const PromoM0 = (props: { theme: ITheme; data: [Section, IApp['contacts']]; w: number }) => {
   const { theme, w, data } = props;
@@ -37,10 +36,8 @@ const PromoM0 = (props: { theme: ITheme; data: [Section, IApp['contacts']]; w: n
       </div>
       <div className={`flex flex-wrap max-w-7xl mx-auto`}>
         {content.blocks?.map((block, i) => {
-          
-          
           return (
-            <PromoBlock key={`promoblock${i}`} block={block} theme={theme} model={content.model} index={i}/>
+            <PromoBlock key={`promoblock${i}`} block={block} theme={theme} model={content.model} index={i} />
           );
         })}
       </div>

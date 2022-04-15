@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Text, PromoBlock } from '../../lib';
+import { Text } from '../../lib';
+import { PromoBlock } from './components';
 import { animations } from '../../../styles/animations';
-import type { SectionProps } from './Section';
-import Section from './Section';
 
 const PromoM2 = (props: { theme: ITheme; data: [Section, IApp['contacts']]; w: number }) => {
   const { theme, w, data } = props;

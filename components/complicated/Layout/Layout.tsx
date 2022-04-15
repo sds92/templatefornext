@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UserHead, Header, Footer } from '..';
+import { UserHead, Header, Footer, Contacts } from '..';
 import { useRouter } from 'next/router';
 
 type LayoutProps = {
@@ -18,6 +18,7 @@ const Layout = (props: LayoutProps) => {
       <UserHead head={pages.find((item) => item.path === router.route)?.head} />
       <Header w={w} app={app} theme={theme} />
       {children && children}
+      <Contacts app={app} theme={theme}/>
       <Footer app={app} theme={theme}/>
     </>
   );
