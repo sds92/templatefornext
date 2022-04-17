@@ -1,3 +1,2 @@
-
 export { default as PromoBlock } from './PromoBlock';
-export {};
+export { default as CardsGrid } from './CardsGrid';

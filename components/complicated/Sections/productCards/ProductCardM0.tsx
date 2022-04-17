@@ -33,6 +33,8 @@ const ProductCardM0: React.FC<ProductCardProps> = (props: ProductCardProps) => {
           {product.info.title}
         </Text>
         <Text className={`text-sm font-light w-full text-left mb-4 px-2 `}>{product.info.userTitle}</Text>
+        <div className={'px-2 font-semibold'}>Размеры:</div>
+        
         {options.map((option: IProductOption, i: number) => {
           return (
             <div key={`option${i}`} className={`px-2 flex justify-between items-stretch w-full`}>

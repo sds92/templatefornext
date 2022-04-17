@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { animations } from '../../../styles/animations';
+import { CardsGrid } from './components';
 
 type SectionProps = {
   theme: ITheme;
@@ -30,13 +31,15 @@ const PromoM3: React.FC<SectionProps> = (props: SectionProps) => {
           <Text>{content.title}</Text>
         </motion.div>
       </div>
+      <CardsGrid />
       <div className={`flex flex-wrap max-w-7xl mx-auto`}>
         <div className={`flex flex-wrap w-2/3`}>
-          {content.blocks?.map((block, i) => {
+          {/* {content.blocks?.map((block, i) => {
             return (
               <div key={`promoblock${i}`}>
                 <Text>{block.title}</Text>
               </div>
+
               // <PromoBlock
               //   key={`promoblock${i}`}
               //   block={block}
@@ -45,7 +48,7 @@ const PromoM3: React.FC<SectionProps> = (props: SectionProps) => {
               //   index={i}
               // />
             );
-          })}
+          })} */}
         </div>
       </div>
     </section>
