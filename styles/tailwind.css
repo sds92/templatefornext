@@ -7482,6 +7482,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(172 9 9 / var(--tw-bg-opacity));
 }
 
+.active\:bg-bp_red:active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+}
+
 .active\:font-normal:active{
   font-weight: 400;
 }

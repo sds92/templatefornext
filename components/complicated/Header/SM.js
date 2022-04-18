@@ -47,7 +47,7 @@ export default function SM({ menu, app, theme }) {
                   onClick={() => setIsActive(!isActive)}
                   className={
                     styles.burger_list_item +
-                    ` text-slate-100 rd-nav-link ${theme.bg} hover:bg-belplit24_2 active:bg-belplit24_2`
+                    ` text-slate-100 rd-nav-link ${theme.bg} hover:bg-bp_red active:bg-bp_red`
                   }
                 >
                   <a href='#main'>{item[0]}</a>

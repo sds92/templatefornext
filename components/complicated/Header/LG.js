@@ -5,7 +5,7 @@ import Social from '../Social/Social';
 
 export default function LG({ menu, app, theme }) {
   return (
-    <nav className={`${theme.bg} flex justify-evenly items-center h-20`}>
+    <nav className={`bg-${theme.bg.header} flex justify-evenly items-center h-20`}>
       <a href='#Main'>
         <Icons.Belplit24 extraClasses={`w-10 h-10`} />
       </a>
@@ -13,10 +13,10 @@ export default function LG({ menu, app, theme }) {
         {menu.map((item, index) => (
           <li
             key={`MENUITEM${index}`}
-            className={`${theme.text} rd-nav-link hover:${theme.hoverText} transition-all duration-300`}
+            className={`text-${theme.text} rd-nav-link hover:text-${theme.text.hover} transition-all duration-300`}
           >
             <Link
-              activeClass={theme.hoverText}
+              activeClass={`text-${theme.text.hover}`}
               to={item[1].replaceAll('#', '')}
               spy={true}
               smooth={true}
