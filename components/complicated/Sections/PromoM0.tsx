@@ -20,14 +20,14 @@ const PromoM0: React.FC<SectionProps> = (props: SectionProps) => {
       className={`overflow-hidden w-full flex flex-col user-main-fs relative justify-between`}
     >
       <motion.div
-        className={`font-bold text-3xl mx-auto text-${theme.text.sections[content.model].color.main}`}
+        className={`text-center font-black text-5xl mx-4 text-${theme.text.sections[content.model].color.s2}`}
         initial='initial'
         animate='animate'
         exit='exit'
         variants={animations.slideUp.variants}
         transition={animations.slideUp.transition}
       >
-        <Text>{content.title}</Text>
+        <Text className={`my-2`}>{content.title}</Text>
       </motion.div>
 
       <div className={`flex flex-wrap max-w-7xl mt-6 mx-auto`}>
@@ -38,19 +38,20 @@ const PromoM0: React.FC<SectionProps> = (props: SectionProps) => {
         })}
       </div>
       <div
-        className={`flex border-t mt-10 items-center justify-between border-${theme.borders.sections[content.model].color.main}`}
+        className={`py-8 bg-${theme.bg.sections[content.model].color.s2} flex flex-col border-t mt-10 items-center justify-between border-${
+          theme.borders.sections[content.model].color.main
+        }`}
       >
-        <div>
-          <Text className={`text-xl font-bold text-left`}>
-            {content.footer.title}
-          </Text>
-          <Text className={`font-light text-left`}>{content.footer.text}</Text>
+        <div className={`px-4 my-4`}>
+          <Text className={`text-3xl font-bold text-left text-${theme.text.sections[content.model].color.s1}`}>{content?.footer?.title}</Text>
+          <Text className={`text-lg font-light text-left text-${theme.text.sections[content.model].color.s1}`}>{content?.footer?.text}</Text>
         </div>
-        <div>
-          {content.footer.buttons &&
-            content.footer.buttons.map((button, i) => {
+        <div className={`px-4`}>
+          {content?.footer?.buttons &&
+            content.footer.buttons.map((button: Button, i: number) => {
               return button.pseudo ? (
                 <div
+                  key={`button${i}`}
                   style={{
                     // TODO fix
                     // @ts-ignore
@@ -69,8 +70,12 @@ const PromoM0: React.FC<SectionProps> = (props: SectionProps) => {
               ) : (
                 <div
                   key={`button${i}`}
-                  className={`${theme.styles.buttons} text-${theme.text.sections[content.model].color.buttons} bg-${theme.bg.sections[content.model].color.main} hover:bg-${theme.bg.sections[content.model].color.hover} active:scale-105`}
-                  href={'#Contacts'}
+                  className={`${theme.styles.buttons} text-${
+                    theme.text.sections[content.model].color.buttons
+                  } bg-${theme.bg.sections[content.model].color.main} hover:bg-${
+                    theme.bg.sections[content.model].color.hover
+                  } active:scale-105`}
+                  href={`${button.link}`}
                 >
                   {button.buttonText}
                 </div>

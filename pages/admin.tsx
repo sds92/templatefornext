@@ -6,6 +6,8 @@ import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
 
+import { AdminPanel } from 'components/complicated/Admin';
+
 interface AdminProps {
   user: {
     isLoggedIn: boolean;
@@ -19,7 +21,12 @@ const Admin: React.FC<AdminProps> = (props) => {
   return (
     <>
       <Header />
-      {user?.isLoggedIn && <Provider store={store}>{/* <Products /> */}</Provider>}
+      {user?.isLoggedIn && (
+        <Provider store={store}>
+          {' '}
+          <AdminPanel />
+        </Provider>
+      )}
     </>
   );
 };
@@ -27,10 +34,9 @@ const Admin: React.FC<AdminProps> = (props) => {
 export default Admin;
 
 export const getServerSideProps = withIronSessionSsr(async function ({ req, res }) {
-console.log("🚀 ~ file: admin.tsx ~ line 30 ~ getServerSideProps ~ req", req)
   //@ts-ignore
   const user = req.session.user || null;
-  // const name = 
+  // const name =
   console.log(`\\\\\\\\\\\\\\\\\\\\\\\\\n 🚀 ${user} \n\\\\\\\\\\\\\\\\\\\\\\\\\n`);
 
   if (user === undefined) {

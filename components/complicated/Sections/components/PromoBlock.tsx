@@ -16,7 +16,7 @@ const PromoBlock = (props: PromoBlockProps) => {
   // @ts-ignore
   const [a, b] = block.flag?.split(' ') || [null, null];
   return (
-    <div className={`basis-${b}`}>
+    <div className={`basis-${b} px-4 py-10`}>
       <div
         className={`flex ${
           a === 'row'
@@ -25,10 +25,10 @@ const PromoBlock = (props: PromoBlockProps) => {
         }`}
       >
         <div>
-          <Text className={`text-xl font-bold ${a === 'item' ? 'text-center' : 'text-left'}`}>
+          <Text className={`text-3xl font-bold ${a === 'item' ? 'text-left' : 'text-left'}`}>
             {block.title}
           </Text>
-          <Text className={`font-light ${a === 'item' ? 'text-center' : 'text-left'}`}>{block.text}</Text>
+          <Text className={`text-lg font-light ${a === 'item' ? 'text-left' : 'text-left'}`}>{block.text}</Text>
         </div>
         <div>
           {block.buttons &&

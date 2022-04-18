@@ -90,7 +90,7 @@ type ThemeSection = {
   };
   catalog: {
     color: Color;
-  }
+  };
   contacts: {
     color: Color;
   };
@@ -118,17 +118,18 @@ interface IApp {
   api: {
     email: string;
   };
-  contacts: {
-    phones: string[];
-    emails: string[];
-    addresses: Address[];
-    workingHoars: string[];
-  };
+  contacts: IContacts;
   menu: Imenu;
   content: {
     template: Section[];
   };
-  
+}
+interface IContacts {
+  phones: string[];
+  emails: string[];
+  addresses: Address[];
+  workingHoars: string[];
+  socials: string[];
 }
 type Address = {
   title: string | string[];
@@ -156,10 +157,11 @@ type Section = {
   subTitle?: string | string[];
   text?: string | string[];
   price?: string | string[];
-  blocks?: SectionBlock[];
+  blocks?: Array<SectionBlock>;
   images?: string[] | string;
   buttons?: Button[];
   productModel: string;
+  footer?: Array<SectionBlock>;
   // [Symbol.iterator]();
 };
 

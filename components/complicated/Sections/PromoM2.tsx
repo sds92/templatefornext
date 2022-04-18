@@ -21,7 +21,7 @@ const PromoM2: React.FC<SectionProps> = (props: SectionProps) => {
     >
       <div className={`flex flex-col mx-auto`}>
         <motion.div
-          className={`font-bold text-3xl text-${theme.text.sections[content.model].color.main}`}
+          className={`text-center font-black mx-4 my-8 text-4xl md:text-5xl  text-${theme.text.sections[content.model].color.s2}`}
           initial='initial'
           animate='animate'
           exit='exit'
@@ -30,15 +30,7 @@ const PromoM2: React.FC<SectionProps> = (props: SectionProps) => {
         >
           <Text>{content.title}</Text>
         </motion.div>
-        <motion.div
-          style={{ height: '1px' }}
-          className={`my-4 bg-${theme.text.sections[content.model].color.s2}`}
-          initial='initial'
-          animate='animate'
-          exit='exit'
-          variants={animations.line.variants}
-          transition={animations.line.transition}
-        />
+     
       </div>
       <div className={`flex flex-wrap max-w-7xl mx-auto`}>
         <div className={`flex flex-wrap w-2/3`}>

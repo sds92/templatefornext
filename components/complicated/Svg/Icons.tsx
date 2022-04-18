@@ -198,7 +198,62 @@ export const Ok: React.FC<SVGImageProps> = (props) => {
   );
 };
 
+export const Settings: React.FC<SVGImageProps> = (props) => {
+  return (
+    <SVGImage
+      fill='none'
+      viewBox='0 0 24 24'
+      stroke={props.stroke || 'currentColor'}
+      strokeWidth={2}
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z'
+      />
+      <path strokeLinecap='round' strokeLinejoin='round' d='M15 12a3 3 0 11-6 0 3 3 0 016 0z' />
+    </SVGImage>
+  );
+};
+export const Edit: React.FC<SVGImageProps> = (props) => {
+  return (
+    <SVGImage
+      fill='none'
+      viewBox='0 0 24 24'
+      stroke={props.stroke || 'currentColor'}
+      strokeWidth={2}
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z'
+      />
+    </SVGImage>
+  );
+};
+
+export const Visible: React.FC<SVGImageProps> = (props) => {
+  return (
+    <SVGImage
+      fill={props.fill || 'currentColor'}
+      viewBox='0 0 20 20'
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        d='M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z'
+        clipRule='evenodd'
+      />
+      <path d='M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z' />
+    </SVGImage>
+  );
+};
 const Icons: { [key: string]: React.FC<SVGImageProps> } = {
+  Visible,
+  Edit,
+  Settings,
   Ok,
   Whatsapp,
   Telegram,

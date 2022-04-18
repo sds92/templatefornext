@@ -2,7 +2,11 @@ import React from 'react';
 import { Options, InputSwitch } from '.';
 import { Icons } from '../../..';
 
-export default function Product(props) {
+type ProductProps = {
+  [key: string]: any;
+};
+
+const Product = (props: ProductProps) => {
   const { product, deleteProduct, children, productList, handleSettingsOpenState, settings, highlight } =
     props;
 
@@ -28,15 +32,19 @@ export default function Product(props) {
       >
         <div className={`flex justify-start items-center px-0.5`}>
           <Icons.Settings
-            extraClasses={`${
+            h={6}
+            w={6}
+            className={`${
               settings ? `bg-sky-900 bg-opacity-90 text-white` : `bg-zinc-50`
-            }  mx-0.5 my-1 h-6 w-6 shadow-md border text-zinc-800 rounded-sm hover:scale-110 cursor-pointer transition-all duration-300`}
+            }  mx-0.5 my-1 shadow-md border text-zinc-800 rounded-sm hover:scale-110 cursor-pointer transition-all duration-300`}
             onClick={handleSettingsOpenState}
           />
           <Icons.ChevronDown
-            extraClasses={`${
+            h={6}
+            w={6}
+            className={`${
               state.open.options ? `bg-sky-900 bg-opacity-90  text-white rotate-0` : `bg-zinc-50 -rotate-90`
-            }  mx-0.5 my-1 h-6 w-6 shadow-md border text-zinc-800 rounded-sm hover:scale-110 cursor-pointer transition-all duration-300`}
+            }  mx-0.5 my-1 shadow-md border text-zinc-800 rounded-sm hover:scale-110 cursor-pointer transition-all duration-300`}
             onClick={() => {
               if (settings) {
                 handleSettingsOpenState();
@@ -44,10 +52,16 @@ export default function Product(props) {
               setState((s) => ({ ...s, open: { ...s.open, options: !state.open.options } }));
             }}
           />
-          <InputSwitch textClassName={`rounded-sm w-44 bg-zinc-50 border mx-0.5 uppercase text-lg h-6 leading-snug relative`} onSubmit={(a) => {}} initValue={product.info?.title} />
-          
+          {/* <InputSwitch
+            textClassName={`rounded-sm w-44 bg-zinc-50 border mx-0.5 uppercase text-lg h-6 leading-snug relative`}
+            onSubmit={(a) => {}}
+            initValue={product.info?.title}
+          /> */}
+
           <Icons.Close
-            extraClasses={`mx-0.5 text-red-700 bg-zinc-50 h-6 w-6 shadow-md text-zinc-800 rounded-sm hover:scale-110 cursor-pointer transition-all duration-75 active:bg-zinc-900`}
+            h={6}
+            w={6}
+            className={`mx-0.5 text-red-700 bg-zinc-50 shadow-md rounded-sm hover:scale-110 cursor-pointer transition-all duration-75 active:bg-zinc-900`}
             onClick={() => {
               setState((s) => ({ ...s, open: { ...s.open, modal: true } }));
             }}
@@ -67,13 +81,17 @@ export default function Product(props) {
                   setState((s) => ({ ...s, open: { ...s.open, modal: false } }));
                   deleteProduct(product.id);
                 }}
-                extraClasses={`w-6 h-6 rounded-sm text-green-700 bg-zinc-50 hover:scale-110 cursor-pointer transition-all duration-75`}
+                h={6}
+                w={6}
+                className={`rounded-sm text-green-700 bg-zinc-50 hover:scale-110 cursor-pointer transition-all duration-75`}
               />
               <Icons.Close
                 onClick={() => {
                   setState((s) => ({ ...s, open: { ...s.open, modal: false } }));
                 }}
-                extraClasses={`w-6 h-6 rounded-sm text-red-700 bg-zinc-50 hover:scale-110 cursor-pointer transition-all duration-75`}
+                h={6}
+                w={6}
+                className={`rounded-sm text-red-700 bg-zinc-50 hover:scale-110 cursor-pointer transition-all duration-75`}
               />
             </div>
           </div>
@@ -82,4 +100,6 @@ export default function Product(props) {
       {state.open.options && <Options product={product} productList={productList} />}
     </React.Fragment>
   );
-}
+};
+
+export default Product;

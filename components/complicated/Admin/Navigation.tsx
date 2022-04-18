@@ -1,9 +1,19 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectProducts, selectProductsInit, selectIsChanged, setIsChanged } from 'redux/slices/productsSlice';
+import {
+  selectProducts,
+  selectProductsInit,
+  selectIsChanged,
+  setIsChanged,
+} from 'redux/slices/productsSlice';
 
-export default function Navigation(props) {
-  const { handleSave } = props;
+type NavigationProps = {
+  handleSave?: () => void;
+  setView: React.Dispatch<React.SetStateAction<"products" | "pages" | "app">>
+};
+
+const Navigation = (props: NavigationProps) => {
+  const { handleSave, setView } = props;
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const productsInit = useSelector(selectProductsInit);
@@ -26,7 +36,7 @@ export default function Navigation(props) {
 
   return (
     <div
-      className={`fixed w-96 bg-white p-1 rounded-sm bg-opacity-95 border shadow-md border-zinc-100 bottom-3 flex items-center justify-start z-40`}
+      className={`fixed w-96 bg-white p-1 rounded-sm bg-opacity-95 border shadow-md border-zinc-100 bottom-3 flex gap-1 items-center justify-start z-40`}
       style={{ left: '50%', marginLeft: '-12rem' }}
     >
       <div
@@ -39,6 +49,26 @@ export default function Navigation(props) {
       >
         сохранить
       </div>
+      <div
+        className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 `}
+        onClick={() => setView('products')}
+      >
+        Продукты
+      </div>
+      <div
+        className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 `}
+        onClick={() => setView('pages')}
+      >
+        Страницы
+      </div>
+      <div
+        className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 `}
+        onClick={() => setView('app')}
+      >
+        Сайт
+      </div>
     </div>
   );
-}
+};
+
+export default Navigation;

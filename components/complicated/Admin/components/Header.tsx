@@ -3,7 +3,7 @@ import useUser from 'lib/useUser';
 import Router, { useRouter } from 'next/router';
 import fetchJson from 'lib/fetchJson';
 
-const Header: React.FC = () => {
+const Header = () => {
   const { user, mutateUser } = useUser();
   const router = useRouter();
   return (
