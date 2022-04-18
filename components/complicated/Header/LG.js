@@ -2,25 +2,27 @@ import React from 'react';
 import { Icons } from '..';
 import { Link } from 'react-scroll';
 import Social from '../Social/Social';
+import styles from './LG.module.scss';
 
-export default function LG({ menu, app, theme }) {
+export default function LG(props) {
+  const { theme, data, menu } = props;
+  const Icon = Icons[props?.data?.logo || 'Belplit24'];
   return (
     <nav className={`bg-${theme.bg.header} flex justify-evenly items-center h-20`}>
       <a href='#Main'>
-        <Icons.Belplit24 extraClasses={`w-10 h-10`} />
+        <Icon fill={`${theme.logo}`} extraClasses={`${props?.data?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}  />
       </a>
-      <ul className={`flex`}>
+      <div className={`flex flex-row`}>
         {menu.map((item, index) => (
-          <li
+          <div
             key={`MENUITEM${index}`}
-            className={`text-${theme.text} rd-nav-link hover:text-${theme.text.hover} transition-all duration-300`}
+            className={`${styles.menuitem} text-${theme.text.header} hover:text-${theme.text.hover} active:text-${theme.text.active} active:scale-105 transition-all duration-300`}
           >
             <Link
               activeClass={`text-${theme.text.hover}`}
               to={item[1].replaceAll('#', '')}
               spy={true}
               smooth={true}
-              hashSpy={true}
               offset={-80}
               duration={100}
               delay={0}
@@ -32,12 +34,12 @@ export default function LG({ menu, app, theme }) {
                 {item[0].toUpperCase()}
               </a>
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
       <div className={`flex`}>
         <div className={`flex gap-2`}>
-          <Social app={app} />
+          <Social contacts={data.contacts} theme={theme} />
         </div>
       </div>
     </nav>

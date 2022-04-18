@@ -5,11 +5,12 @@ import styles from './Burger.module.sass';
 import { Icons } from '../';
 import { Link } from 'react-scroll';
 
-export default function SM({ menu, app, theme }) {
+export default function SM(props) {
+  const { theme, menu, data } = props;
   const [isActive, setIsActive] = React.useState(false);
   return (
     <>
-      <nav className={`${theme.bg} flex justify-between items-center h-16`}>
+      <nav className={`bg-${theme.bg.header} flex justify-between items-center h-16`}>
         <div className='basis-1/3'>
           <Icons.Menu
             extraClasses={`w-14 h-14 px-2 py-4 cursor-pointer active:scale-125 transition-all text-slate-100`}
@@ -18,16 +19,21 @@ export default function SM({ menu, app, theme }) {
         </div>
         <div className={`basis-1/3 flex justify-center`}>
           <a className={`self-center`} href='#main'>
-            <Icons.Belplit24 extraClasses={`w-10 h-10`} />
+            <Icons.Belplit24 extraClasses={`w-10 h-10`} fill={theme.logo}/>
           </a>
         </div>
         <div className={`basis-1/3`}></div>
 
         {isActive ? <div onClick={() => setIsActive(!isActive)} className={styles.overlay}></div> : ''}
       </nav>
-      <div className={`relative`} style={{marginTop: "-60px"}}>
-        <nav className={`${isActive ? `${styles.burger} translate-x-0` : `${styles.burger} -translate-x-72`} ${theme.bg} transition-all`}>
-          <ul className={styles.burger_list + ` ${theme.bg}`}>
+      <div className={`relative`} style={{ marginTop: '-60px' }}>
+        <nav
+          style={{ top: '60px', left: 0, maxWidth: '260px' }}
+          className={`${isActive ? `translate-x-0` : `-translate-x-72`} bg-${
+            theme.bg.header
+          } transition-all flex flex-col absolute h-screen z-50`}
+        >
+          <div className={`flex flex-col text-${theme.text.header} bg-${theme.bg.header}`}>
             {menu.map((item, index) => (
               <Link
                 key={`MENUITEM${index}`}
@@ -35,7 +41,6 @@ export default function SM({ menu, app, theme }) {
                 to={item[1].replaceAll('#', '')}
                 spy={true}
                 smooth={true}
-                hashSpy={true}
                 offset={-65}
                 duration={500}
                 delay={0}
@@ -43,33 +48,30 @@ export default function SM({ menu, app, theme }) {
                 ignoreCancelEvents={false}
                 spyThrottle={500}
               >
-                <li
+                <div
                   onClick={() => setIsActive(!isActive)}
-                  className={
-                    styles.burger_list_item +
-                    ` text-slate-100 rd-nav-link ${theme.bg} hover:bg-bp_red active:bg-bp_red`
-                  }
+                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.buttons} hover:bg-${theme.bg.headerHoverLink} active:bg-${theme.bg.headerActiveLink}`}
                 >
                   <a href='#main'>{item[0]}</a>
-                </li>
+                </div>
               </Link>
             ))}
-          </ul>
-          <ul className={`${styles.burger_list} ${styles.margin}` + ` ${theme.bg}`}>
+          </div>
+          <div className={`flex flex-col mt-10 text-${theme.text.header}`}>
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}
-              href={`tel:${app.contacts.phones[0]}`}
+              href={`tel:${data.contacts.phones[0]}`}
             >
-              {app.contacts.phones[0]}
+              {data.contacts.phones[0]}
             </a>
-            <p className={styles.burger_list_address}>{app.contacts.addresses[0].value}</p>
+            <p className={styles.burger_list_address}>{data.contacts.addresses[0].value}</p>
             <div className={`flex justify-center`}>
               <a className={`self-center`} href='#main'>
-                <Icons.Belplit24 extraClasses={`w-20 h-20`} />
+                <Icons.Belplit24 extraClasses={`w-20 h-20`} fill={theme.logo}/>
               </a>
             </div>
-          </ul>
+          </div>
         </nav>
       </div>
     </>
