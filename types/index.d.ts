@@ -148,6 +148,7 @@ type SectionBlock = {
   text?: string | string[];
   flag?: string;
   buttons?: Button[];
+  image?: string[];
 };
 
 type Section = {

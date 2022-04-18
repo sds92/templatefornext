@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { PromoBlock } from './components';
 import { animations } from '../../../styles/animations';
+import Image from 'next/image';
 
 type SectionProps = {
   theme: ITheme;
@@ -17,23 +18,24 @@ const PromoM2: React.FC<SectionProps> = (props: SectionProps) => {
     <section
       id={content.id}
       style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
-      className={`overflow-hidden w-full flex flex-col user-main-fs relative`}
+      className={`overflow-hidden w-full flex flex-col relative`}
     >
-      <div className={`flex flex-col mx-auto`}>
+      
         <motion.div
-          className={`text-center font-black mx-4 my-8 text-4xl md:text-5xl  text-${theme.text.sections[content.model].color.s2}`}
+          className={`text-center font-black mx-8 zero:text-4xl sm:text-5xl md:text-7xl text-${
+            theme.text.sections[content.model].color.main
+          }`}
           initial='initial'
           animate='animate'
           exit='exit'
           variants={animations.slideUp.variants}
           transition={animations.slideUp.transition}
         >
-          <Text>{content.title}</Text>
+          <Text className={`py-4`}>{content.title}</Text>
         </motion.div>
-     
-      </div>
-      <div className={`flex flex-wrap max-w-7xl mx-auto`}>
-        <div className={`flex flex-wrap w-2/3`}>
+    
+      <div className={`py-4 flex flex-wrap max-w-7xl mx-auto`}>
+        <div className={`flex flex-wrap zero:w-full md:w-2/3`}>
           {content.blocks?.map((block, i) => {
             return (
               <PromoBlock
@@ -45,6 +47,16 @@ const PromoM2: React.FC<SectionProps> = (props: SectionProps) => {
               />
             );
           })}
+        </div>
+        <div className={`zero:absolute zero:w-full md:relative min-h-full md:w-1/3 -z-10 zero:opacity-30 md:opacity-100`}>
+          <Image
+            alt=''
+            width={'100%'}
+            height={'100%'}
+            layout='fill'
+            objectFit='cover'
+            src={`/${content.images && content?.images[0]}`}
+          />
         </div>
       </div>
     </section>

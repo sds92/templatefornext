@@ -21,7 +21,7 @@ const ProductCardM0: React.FC<ProductCardProps> = (props: ProductCardProps) => {
   return (
     <motion.div
       ref={ref}
-      className={`cursor-default border w-80 m-2 p-2 pb-4 flex flex-col items-start justify-start rounded-md shadow-md bg-${theme.bg.catalog.color.main} hover:scale-105 transition-all`}
+      className={`cursor-default border w-80 mx-2 my-4 p-2 pb-4 flex flex-col items-start justify-start rounded-md shadow-md bg-${theme.bg.catalog.color.s1} hover:scale-105 transition-all`}
       initial='initial'
       animate={inView && 'animate'}
       exit='exit'

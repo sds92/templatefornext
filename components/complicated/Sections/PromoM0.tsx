@@ -10,24 +10,24 @@ type SectionProps = {
   w: number;
 };
 
-const PromoM0: React.FC<SectionProps> = (props: SectionProps) => {
+const PromoM0 = (props: SectionProps) => {
   const { theme, w, data } = props;
   const [content, contacts] = data;
   return (
     <section
       id={content.id}
       style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
-      className={`overflow-hidden w-full flex flex-col user-main-fs relative justify-between`}
+      className={`overflow-hidden w-full flex flex-col  relative justify-between mt-8`}
     >
       <motion.div
-        className={`text-center font-black text-5xl mx-4 text-${theme.text.sections[content.model].color.s2}`}
+        className={`text-center max-w-4xl font-black zero:text-4xl sm:text-5xl md:text-7xl mx-auto text-${theme.text.sections[content.model].color.s2}`}
         initial='initial'
         animate='animate'
         exit='exit'
         variants={animations.slideUp.variants}
         transition={animations.slideUp.transition}
       >
-        <Text className={`my-2`}>{content.title}</Text>
+        <Text className={`py-4`}>{content.title}</Text>
       </motion.div>
 
       <div className={`flex flex-wrap max-w-7xl mt-6 mx-auto`}>

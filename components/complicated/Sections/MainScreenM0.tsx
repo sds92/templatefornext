@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { animations } from '../../../styles/animations';
-import Section from './Section';
 
 type SectionProps = {
   theme: ITheme;
@@ -10,21 +9,19 @@ type SectionProps = {
   w: number;
 };
 
-const MainScreenM0: React.FC<SectionProps> = (props: SectionProps) => {
+const MainScreenM0 = (props: SectionProps) => {
   const { theme, w, data } = props;
   const [content, contacts] = data;
   return (
     <section
       id={content.id}
       style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
-      className={`w-full flex justify-start user-main-fs relative`}
+      className={`w-full zero:px-4 md:px-20 flex justify-start  relative`}
     >
       <div className={`p-4 zero:w-full sm:max-w-7xl flex items-center relative z-10`}>
-        <div
-          className={`-mt-10 cursor-default w-full`}
-        >
+        <div className={`-mt-10 cursor-default w-full`}>
           <motion.div
-            className={`font-black zero:text-5xl zero:mt-24 md:mt-6 md:text-8xl whitespace-nowrap text-${
+            className={`font-black zero:text-5xl sm:text-6xl zero:mt-24 md:mt-6 md:text-8xl whitespace-nowrap text-${
               theme.text.sections[content.model].color.main
             }`}
             initial='initial'
@@ -56,7 +53,9 @@ const MainScreenM0: React.FC<SectionProps> = (props: SectionProps) => {
               {contacts.phones[0]}
             </a>
           </div>
-          <div className={`relative flex flex-col gap-1 items-center justify-center sm:items-start sm:justify-start`}>
+          <div
+            className={`relative flex flex-col gap-1 items-center justify-center sm:items-start sm:justify-start`}
+          >
             {content.buttons?.map((button: Button, i: number) => {
               return button.pseudo ? (
                 <div
@@ -91,10 +90,12 @@ const MainScreenM0: React.FC<SectionProps> = (props: SectionProps) => {
         </div>
       </div>
       <div
-        className={`w-full md:w-6/12 h-full absolute right-0 ${w <= 900 && 'opacity-30'}`}
+        className={`w-full md:w-7/12 mt-10 h-full absolute right-0 ${
+          w <= 900 ? 'opacity-30' : 'opacity-100'
+        }`}
         style={{
-          background: `no-repeat url(${content.images})`,
-          backgroundSize: 'cover',
+          background: `no-repeat url(${content.images[0]})`,
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
         }}
       ></div>

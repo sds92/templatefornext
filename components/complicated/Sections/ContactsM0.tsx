@@ -12,7 +12,7 @@ const ContactsM0:React.FC<{ theme: ITheme; data: [Section, IApp['contacts']]; w:
   return (
     <div id={content.id} className={`bg-${theme.bg.contacts.color.main} py-10`}>
       <Text
-        className={`zero:text-xl sm:text-5xl text-center font-bold text-${theme.text.contacts.color.main}`}
+        className={`uppercase zero:text-4xl sm:text-5xl md:text-7xl text-center font-black text-${theme.text.contacts.color.main}`}
       >
         Контакты
       </Text>

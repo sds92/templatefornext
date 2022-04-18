@@ -9,7 +9,7 @@ export default function Main(props) {
   const { contacts } = data;
   
   return (
-    <div id={`Main`} style={{minHeight: '600px'}} className={`overflow-hidden w-full flex user-main-fs relative`}>
+    <div id={`Main`} style={{minHeight: '600px'}} className={`overflow-hidden w-full flex  relative`}>
       <div  className={`p-10 w-full md:w-6/12 flex items-center absolute md:relative inset-0 z-10`}>
         <div className={`max-w-xl ml-auto -mt-10 cursor-default`}>
           <div>

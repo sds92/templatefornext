@@ -74,7 +74,7 @@ const imagesSM = [
 
 type CardsGridProps = {};
 
-const CardsGrid: React.FC<CardsGridProps> = (props: any) => {
+const CardsGrid = (props: any) => {
   const [px, setPx] = React.useState<number>(0);
   const directionRef = React.useRef('left');
   const componentRef = React.useRef<HTMLElement>();
@@ -113,10 +113,10 @@ const CardsGrid: React.FC<CardsGridProps> = (props: any) => {
     <div className={`relative w-screen my-4 flex flex-col items-center`}>
       <div
         ref={componentRef}
-        className={`absolute left-0 flex gap-4 h-96 transition-all `}
-        // style={{
-        //   transform: `translate(${-pxRef.current}px)`,
-        // }}
+        className={`absolute left-0 flex gap-4 h-screen transition-all `}
+        style={{
+          height: `70vh`,
+        }}
       >
         {imagesSM.map((item, index) => (
           <div
