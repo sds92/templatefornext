@@ -1,6 +1,6 @@
 import React from 'react';
 import useUser from 'lib/useUser';
-import { Header, Form, Layout, RegForm } from 'components/complicated/Admin';
+import { Header, Layout, RegForm } from 'components/complicated/Admin';
 import fetchJson, { FetchError } from 'lib/fetchJson';
 import Router, { useRouter } from 'next/router';
 

@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "typeRoots": ["./types/index.d.ts", ""]
+    "typeRoots": ["./types/index.d.ts"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "db/mongodb.еs"],
   "exclude": ["node_modules"]

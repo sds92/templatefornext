@@ -24,7 +24,7 @@ const LG: React.FC<LGProps> = (props) => {
         {menu.map((item: string[], index: number) => (
           <div
             key={`MENUITEM${index}`}
-            className={`${styles.menuitem} text-${theme.text.header.color.main} hover:text-${theme.text.header.color.hover} active:text-${theme.text.header.active} active:scale-105 transition-all duration-300`}
+            className={`${styles.menuitem} text-${theme.text.header.color.main} hover:text-${theme.text.header.color.hover} active:text-${theme.text.header.color.active} active:scale-105 transition-all duration-300`}
           >
             <Link
               activeClass={`text-${theme.text.header.color.hover}`}

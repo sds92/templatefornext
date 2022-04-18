@@ -78,41 +78,43 @@ const CardsGrid = (props: any) => {
   const [px, setPx] = React.useState<number>(0);
   const directionRef = React.useRef('left');
   const componentRef = React.useRef<HTMLElement>();
-  const requestRef = React.useRef();
+  const requestRef = React.useRef<number>();
   const pxRef = React.useRef(0);
 
-  function animate(timestamp) {
-    const reserv = componentRef.current?.offsetWidth - window.innerWidth;
+  function animate(timestamp: number) {
+    if (componentRef.current !== undefined) {
+      const reserv = componentRef.current.offsetWidth - window.innerWidth;
 
-    if (directionRef.current === 'left') {
-      if (pxRef.current <= reserv) {
-        pxRef.current = pxRef.current + 1;
-        componentRef.current.style.transform = 'translateX(' + -pxRef.current + 'px)';
-      } else {
-        directionRef.current = 'right'
+      if (directionRef.current === 'left') {
+        if (pxRef.current <= reserv) {
+          pxRef.current = pxRef.current + 1;
+          componentRef.current.style.transform = 'translateX(' + -pxRef.current + 'px)';
+        } else {
+          directionRef.current = 'right';
+        }
       }
-    }
-    if (directionRef.current === 'right') {
-      if (pxRef.current >= 0) {
-        pxRef.current = pxRef.current - 1;
-        componentRef.current.style.transform = 'translateX(' + -pxRef.current + 'px)';
-      } else {
-        directionRef.current = 'left'
+      if (directionRef.current === 'right') {
+        if (pxRef.current >= 0) {
+          pxRef.current = pxRef.current - 1;
+          componentRef.current.style.transform = 'translateX(' + -pxRef.current + 'px)';
+        } else {
+          directionRef.current = 'left';
+        }
       }
-    }
 
-    requestRef.current = requestAnimationFrame(animate);
+      requestRef.current = requestAnimationFrame(animate);
+    }
   }
 
   React.useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
+    return () => cancelAnimationFrame(requestRef.current as number);
   }, []);
 
   return (
     <div className={`relative w-screen my-4 flex flex-col items-center`}>
       <div
-        ref={componentRef}
+        ref={componentRef as React.LegacyRef<HTMLDivElement>}
         className={`absolute left-0 flex gap-4 h-screen transition-all `}
         style={{
           height: `70vh`,

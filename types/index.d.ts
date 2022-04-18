@@ -143,12 +143,13 @@ type Button = {
   pseudo?: boolean;
 };
 
-type SectionBlock = {
+interface ISectionBlock {
   title?: string | string[];
   text?: string | string[];
   flag?: string;
   buttons?: Button[];
   image?: string[];
+  [key: string]: any;
 };
 
 type Section = {
@@ -158,11 +159,12 @@ type Section = {
   subTitle?: string | string[];
   text?: string | string[];
   price?: string | string[];
-  blocks?: Array<SectionBlock>;
+  blocks?: Array<ISectionBlock>;
   images?: string[] | string;
   buttons?: Button[];
   productModel: string;
-  footer?: Array<SectionBlock>;
+  footer?: ISectionBlock;
+  
   // [Symbol.iterator]();
 };
 

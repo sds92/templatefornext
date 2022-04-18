@@ -5,7 +5,7 @@ import { Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
 type PromoBlockProps = {
-  block: SectionBlock;
+  block: ISectionBlock;
   theme: ITheme;
   model: string;
   index: number;
@@ -98,13 +98,13 @@ const PromoBlock = (props: PromoBlockProps) => {
                   {button.buttonText}
                 </div>
               ) : (
-                <div
+                <a
                   key={`button${i}`}
                   className={`${theme.styles.buttons} text-${theme.text.sections[model].color.buttons} bg-${theme.bg.sections[model].color.main} hover:bg-${theme.bg.sections[model].color.hover} active:scale-105`}
                   href={'#Contacts'}
                 >
                   {button.buttonText}
-                </div>
+                </a>
               );
             })}
         </div>

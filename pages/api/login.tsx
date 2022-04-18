@@ -13,6 +13,7 @@ export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse
 
     if (user.validatePassword(password)) {
       const sessionUser = { isLoggedIn: true, isAdmin: user.isAdmin || false, name: user.email };
+      // @ts-ignore
       req.session.user = sessionUser;
       await req.session.save();
       res.status(200).json(sessionUser);
@@ -23,6 +24,6 @@ export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse
       },
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: 'error.message' });
   }
 });

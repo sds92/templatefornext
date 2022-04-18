@@ -60,7 +60,7 @@ const SM: React.FC<SMProps> = (props) => {
               >
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.color.hover} hover:bg-${theme.bg.header.color.hover} active:bg-${theme.bg.headerActiveLink}`}
+                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.color.hover} hover:bg-${theme.bg.header.color.hover} active:bg-${theme.bg.header.color.active}`}
                 >
                   <a href='#main'>{item[0]}</a>
                 </div>

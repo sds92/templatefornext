@@ -32,7 +32,7 @@ const classNames = {
 };
 
 const FeedBackForm = (props:IFeedBackProps) => {
-  const { theme, contacts, onFullfilled } = props;
+  const { theme, contacts, onFullfilled, app } = props;
   // const { contacts } = app;
   const router = useRouter();
   const [formStatus, setFormStatus] = React.useState<string>('ready');
@@ -126,7 +126,7 @@ const FeedBackForm = (props:IFeedBackProps) => {
       onFullfilled && onFullfilled('loading');
     } catch (err) {}
 
-    fetch(`/api/senform`, {
+    fetch(`/api/sendform`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -134,7 +134,7 @@ const FeedBackForm = (props:IFeedBackProps) => {
       },
       body: JSON.stringify({
         ...userInput,
-        fromSite: app.url,
+        fromSite: app?.url,
         formType: props.formType,
         to: contacts.emails[0],
       }),

@@ -47,8 +47,7 @@ const PromoM0 = (props: SectionProps) => {
           <Text className={`text-lg font-light text-left text-${theme.text.sections[content.model].color.s1}`}>{content?.footer?.text}</Text>
         </div>
         <div className={`px-4`}>
-          {content?.footer?.buttons &&
-            content.footer.buttons.map((button: Button, i: number) => {
+          {content?.footer?.buttons?.map((button: Button, i: number) => {
               return button.pseudo ? (
                 <div
                   key={`button${i}`}
@@ -68,7 +67,7 @@ const PromoM0 = (props: SectionProps) => {
                   {button.buttonText}
                 </div>
               ) : (
-                <div
+                <a
                   key={`button${i}`}
                   className={`${theme.styles.buttons} text-${
                     theme.text.sections[content.model].color.buttons
@@ -78,7 +77,7 @@ const PromoM0 = (props: SectionProps) => {
                   href={`${button.link}`}
                 >
                   {button.buttonText}
-                </div>
+                </a>
               );
             })}
         </div>

@@ -67,7 +67,7 @@ const Home = (props: HomeProps) => {
 };
 
 export default Home;
-
+ // @ts-ignore
 export async function getStaticProps({ params, ...props }) {
   let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
   let products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));

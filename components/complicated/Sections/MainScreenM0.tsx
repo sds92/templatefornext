@@ -58,9 +58,9 @@ const MainScreenM0 = (props: SectionProps) => {
           >
             {content.buttons?.map((button: Button, i: number) => {
               return button.pseudo ? (
-                <div
+                <a
                   style={{
-                    ['text-shadow']: `0px 0px 20px ${theme.logo}`,
+                    textShadow: `0px 0px 20px ${theme.logo}`,
                   }}
                   className={`${
                     // @ts-ignore
@@ -71,7 +71,7 @@ const MainScreenM0 = (props: SectionProps) => {
                   href={button.link}
                 >
                   {button.buttonText}
-                </div>
+                </a>
               ) : (
                 <a
                   key={`button${i}`}
@@ -94,7 +94,7 @@ const MainScreenM0 = (props: SectionProps) => {
           w <= 900 ? 'opacity-30' : 'opacity-100'
         }`}
         style={{
-          background: `no-repeat url(${content.images[0]})`,
+          background: `no-repeat url(${content.images && content.images[0]})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center',
         }}

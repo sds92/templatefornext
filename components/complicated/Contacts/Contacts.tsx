@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icons } from '..';
 import { Text } from '../../lib';
-import { FeedBack } from '..';
+import { FeedBackForm } from '..';
 
 type ContactsProps = {
   theme: ITheme;
@@ -31,7 +31,7 @@ const Contacts = (props: ContactsProps) => {
             >
               Свяжитесь с нами
             </Text>
-            <FeedBack theme={theme} app={app} />
+            <FeedBackForm contacts={contacts} theme={theme} app={app} />
           </div>
 
           {/* CONTACTS */}
