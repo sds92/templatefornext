@@ -48,7 +48,7 @@ const Products = () => {
       .catch((err) => console.log(err));
   };
 
-  const saveProducts = async (input) => {
+  const saveProducts = async (input:any) => {
     let _t = [];
     if (input) {
       _t = input;
@@ -68,7 +68,7 @@ const Products = () => {
       })
       .catch((err) => console.log(err));
   };
-  const savePages = async (input) => {
+  const savePages = async (input:any) => {
     let _t = [];
     if (input) {
       _t = input;
@@ -89,7 +89,7 @@ const Products = () => {
       .catch((err) => console.log(err));
   };
 
-  function addProduct(a) {
+  function addProduct(a:any) {
     const [pr, pg, id] = productList.addItem(products, pages, a);
     dispatch(updateProducts(pr));
     dispatch(updatePages(pg));
@@ -97,18 +97,18 @@ const Products = () => {
     dispatch(setIsChanged(true));
   }
 
-  function deleteProduct(id) {
+  function deleteProduct(id:any) {
     let _products = JSON.parse(JSON.stringify(products));
     let _pages = JSON.parse(JSON.stringify(pages));
     let product_position = null;
     let page_position = null;
-    _products.find((item_i, i) => {
+    _products.find((item_i:any, i:any) => {
       if (item_i.id === id) {
         product_position = i;
         return true;
       }
     });
-    _pages.find((item_ii, i) => {
+    _pages.find((item_ii:any, i:any) => {
       if (item_ii.content.product_id === parseInt(id)) {
         page_position = i;
         return true;
@@ -126,9 +126,9 @@ const Products = () => {
       let _products = JSON.parse(JSON.stringify(products));
       let _pages = JSON.parse(JSON.stringify(pages));
       Promise.all([
-        toDeleteOptions.map((item) => {
+        toDeleteOptions.map((item:any) => {
           let product_position = null;
-          let _product = _products.find((item_i, i) => {
+          let _product = _products.find((item_i:any, i: any) => {
             if (item_i.id === item.product_id) {
               product_position = i;
               return true;
@@ -163,9 +163,9 @@ const Products = () => {
   return (
     <div className={`font-rc px-2 relative`}>
       <AddProduct addProduct={addProduct} />
-      {products.map((item, i) => {
+      {products.map((item: { id: any; }, i: React.SetStateAction<null>) => {
         let highlight = false;
-        toDeleteProducts.map((item_i) => {
+        toDeleteProducts.map((item_i: any) => {
           if (item.id === item_i) {
             highlight = 'red';
           }
@@ -174,7 +174,7 @@ const Products = () => {
         return (
           <div className={`mb-2 shadow-md`} key={`lfjkh${i}`}>
             <Product
-              handleSettingsOpenState={(a) => {
+              handleSettingsOpenState={(a: any) => {
                 if (settings === i) {
                   setSettings(null);
                 } else {
@@ -189,7 +189,7 @@ const Products = () => {
             {/* SETTINGS */}
             {settings === i ? (
                 <Settings
-                  meta={pages.find((page) => page.content.product_id === item.id)?.head}
+                  meta={pages.find((page: { content: { product_id: any; }; }) => page.content.product_id === item.id)?.head}
                   // deleteProduct={deleteProduct}
                   product={item}
                   pages={pages}

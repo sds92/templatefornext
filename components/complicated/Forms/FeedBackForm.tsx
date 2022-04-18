@@ -31,7 +31,7 @@ const classNames = {
   ff: `basis-full md:basis-1/2 my-1 px-1`,
 };
 
-const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
+const FeedBackForm = (props:IFeedBackProps) => {
   const { theme, contacts, onFullfilled } = props;
   // const { contacts } = app;
   const router = useRouter();
@@ -126,7 +126,7 @@ const FeedBackForm: React.FC<IFeedBackProps> = (props) => {
       onFullfilled && onFullfilled('loading');
     } catch (err) {}
 
-    fetch(`${app.api.email}`, {
+    fetch(`/api/senform`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',

@@ -1,1 +1,1 @@
-certbot --nginx -d pilomateriali.site -d www.pilomateriali.site
+certbot --nginx -d xn----9sbe9ab0ahp.xn--p1ai -d www.xn----9sbe9ab0ahp.xn--p1ai

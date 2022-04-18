@@ -11,9 +11,9 @@ const defaultInput = {
   password: '',
 };
 
-const LoginForm: React.FC<IFormProps> = (props) => {
+const LoginForm = (props: any) => {
   const { onSubmit, buttonText, redirectButton } = props;
-  const [userInput, setUserInput] = React.useState<ILoginFormUserData>(defaultInput);
+  const [userInput, setUserInput] = React.useState<LoginFormUserData>(defaultInput);
 
   function resetForm() {
     setUserInput(defaultInput);
