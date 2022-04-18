@@ -19,11 +19,12 @@ import theme from '../utils/theme';
 
 const siteId = 4;
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-
+  
   React.useEffect(() => {
+    console.log("🚀 ~ file: _app.js ~ line 25 ~ MyApp ~ w", w)
     setW(window.innerWidth);
     setTimeout(() => {
       setLoading(false);
@@ -54,8 +55,8 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    w && (
-      <>
+    
+      <React.Fragment>
         {loading && <Preloader />}
         <div className={`${loading ? `w-screen h-screen opacity-0` : `opacity-100`}`}>
           <Head head={newProps.input.head}></Head>
@@ -64,9 +65,9 @@ function MyApp({ Component, pageProps }) {
         </div>
 
         {/* <YM ymNum={newProps?.data?.api?.ym} /> */}
-      </>
-    )
+      </React.Fragment>
+    
   );
 }
 
-export default MyApp;
+
