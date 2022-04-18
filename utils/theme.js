@@ -2,12 +2,12 @@ const theme = (name) => {
   let theme = {};
   switch (name) {
     case 'black':
-      theme.bg = 'bg-belplit24';
+      theme.bg = 'bg-bp_black';
       theme.text = 'text-white';
       theme.textDark = 'text-zinc-800';
-      theme.hoverText = 'text-belplit24_2';
-      theme.buttonColours = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md';
-      theme.button = 'bg-belplit24_2 text-white hover:bg-belplit24_2_b hover:border-belplit24_2_b rounded-md'
+      theme.hoverText = 'text-bp_red';
+      theme.buttonColours = 'bg-bp_red text-white hover:bg-bp_red_2 hover:border-bp_red_2 rounded-md';
+      theme.button = 'bg-bp_red text-white hover:bg-bp_red_2 hover:border-bp_red_2 rounded-md'
       break;
     case 'blue':
       theme.bg = 'bg-slate-500';

@@ -25,7 +25,7 @@ export default function Contacts({ app }) {
           >
             <div className={`sm:w-full w-1/2 my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
-                <Icons.Phone extraClasses={`pl-1 w-6 h-6 border-b border-belplit24_2 text-belplit24_2`} />
+                <Icons.Phone extraClasses={`pl-1 w-6 h-6 border-b border-bp_red text-bp_red`} />
                 <p className={classes.contactsTitle}>Телефон:</p>
               </div>
               <div className={`ml-8 font-light`}>
@@ -36,7 +36,7 @@ export default function Contacts({ app }) {
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
-                <Icons.Mail extraClasses={`pl-1 text-center w-6 h-6 border-b border-belplit24_2 text-belplit24_2`} />
+                <Icons.Mail extraClasses={`pl-1 text-center w-6 h-6 border-b border-bp_red text-bp_red`} />
                 <p className={classes.contactsTitle}>EMAIL:</p>
               </div>
               <Text className={`ml-8 font-light`}>{app.contacts.emails[0]}</Text>
@@ -44,7 +44,7 @@ export default function Contacts({ app }) {
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
                 <Icons.Location
-                  extraClasses={`pl-1 w-6 h-6 pt-0.5 border-b border-belplit24_2 text-belplit24_2`}
+                  extraClasses={`pl-1 w-6 h-6 pt-0.5 border-b border-bp_red text-bp_red`}
                 />
                 <p className={classes.contactsTitle}>АДРЕС:</p>
               </div>
@@ -52,7 +52,7 @@ export default function Contacts({ app }) {
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>
-                <Icons.Clock extraClasses={`pl-0.5 w-6 h-6 border-b border-belplit24_2 text-belplit24_2`} />
+                <Icons.Clock extraClasses={`pl-0.5 w-6 h-6 border-b border-bp_red text-bp_red`} />
                 <p className={classes.contactsTitle}>ВРЕМЯ РАБОТЫ:</p>
               </div>
               <Text className={`ml-8 font-light`}>{app.workingHoars.value}</Text>

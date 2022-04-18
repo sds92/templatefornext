@@ -3,7 +3,7 @@ import { Button, Text } from '../../lib';
 
 export default function Deviders({ content }) {
   return (
-    <div className={`bg-belplit24_3 py-10 px-4`}>
+    <div className={`bg-zinc-800 py-10 px-4`}>
       <div className={`flex flex-wrap justify-evenly`}>
         <div className={`text-slate-100 text-justify`}>
           <Text className={`font-bold text-xl`}>{content[5]}</Text>

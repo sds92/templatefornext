@@ -7,7 +7,7 @@ fontFamily['sans-serif'] = [
 ];
 
 module.exports = {
-  content: ['./pages/**/*.{html,js,ts,tsx}', './components/**/*.{html,js,ts,tsx}'],
+  content: ['pages/**/*.{html,js,ts,tsx}', 'components/**/*.{html,js,ts,tsx}'],
   presets: [],
   darkMode: 'media', // or 'class'
   safelist: [

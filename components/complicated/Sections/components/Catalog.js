@@ -24,9 +24,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
       return arr.push({
         category: item.title,
         catId: i,
-        title: `${app.productTitle}, ${sizesItem}`,
+        title: `${sizesItem}`,
         prices: [item.prices[index], item.priceFor[index]],
-        imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
+        imgs: app.api.serv + item.paths[index] + item.imgs[index][0],
       });
     });
   });
@@ -103,9 +103,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         <div
                           className={`${
                             index === state.chosen
-                              ? 'user-catalog-active-link font-normal -mr-1 border-b border-belplit24_2'
+                              ? 'user-catalog-active-link font-normal -mr-1 border-b border-bp_red'
                               : 'user-catalog-link'
-                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-belplit24_2 active:font-normal`}
+                          } absolute inset-0 text-zinc-800 active:scale-x-105  active:text-bp_red active:font-normal`}
                         >
                           {item.title.toUpperCase()}
                         </div>
@@ -123,7 +123,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
               return (
                 state.chosen === item.catId && (
                   <motion.div
-                    // className='font-bold text-3xl text-belplit24_2'
+                    // className='font-bold text-3xl text-bp_red'
                     initial='initial'
                     animate='animate'
                     variants={animations.opacity.variants}
@@ -154,21 +154,21 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                           state.hover === index ? `opacity-0` : `opacity-50`
                         } transition-all`}
                       ></div>
-                      <div className={`absolute w-full bottom-6 text-slate-100`}>
-                        <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
-                          {/* {item.prices.map((item_inner, index_inner) => {
-                            return ( */}
+                      <div className={`absolute w-full bottom-6`}>
+                        <p
+                          className={`bg-bp_red ${
+                            state.hover === index ? `text-zinc-800` : `text-zinc-100`
+                          } font-bold pl-10 text-2xl py-1`}
+                        >
                           <span key={`ITEMPRICE${index}`}>
                             {item.prices[0]}
                             {' руб. '}
                             {item.prices[1]}
                           </span>
-                          {/* );
-                          })} */}
                         </p>
                         <p
-                          className={`pl-10 py-1.5 ${
-                            state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
+                          className={`pl-10 px-4 py-1.5 ${
+                            state.hover === index ? `text-zinc-900 bg-slate-200 bg-opacity-70` : `text-zinc-100 bg-zinc-800 bg-opacity-80`
                           }`}
                         >
                           {item.title}

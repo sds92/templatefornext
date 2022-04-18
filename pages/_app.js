@@ -57,13 +57,12 @@ function MyApp({ Component, pageProps }) {
     w && (
       <>
         {loading && <Preloader />}
-        {!loading && (
-          <div>
-            <Head head={newProps.input.head}></Head>
-            <Component {...newProps} />
-            <Footer app={newProps.app} />
-          </div>
-        )}
+        <div className={`${loading ? `w-screen h-screen opacity-0` : `opacity-100`}`}>
+          <Head head={newProps.input.head}></Head>
+          <Component {...newProps} />
+          <Footer app={newProps.app} />
+        </div>
+
         {/* <YM ymNum={newProps?.data?.api?.ym} /> */}
       </>
     )

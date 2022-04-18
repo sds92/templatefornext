@@ -7,7 +7,7 @@ export default function Advantages({content}) {
   return (
     <>
       
-      <div className={`bg-belplit24_3 flex flex-col`}>
+      <div className={`bg-zinc-800 flex flex-col`}>
         <div className={`max-w-6xl mx-auto py-20 px-4`}>
           <Title atc={`slate-100`} a={content[0][0]} b={content[0][1]} />
           <article className={`py-10`}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '../../../lib';
+import { Button, Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
 export default function Main({ app, content, lgView, theme }) {
@@ -12,14 +12,14 @@ export default function Main({ app, content, lgView, theme }) {
             {lgView ? (
               <>
                 <motion.div
-                  className={`font-bold text-3xl text-belplit24_2`}
+                  className={`font-black text-5xl text-bp_red`}
                   initial='initial'
                   animate='animate'
                   exit='exit'
                   variants={animations.slideUp.variants}
                   transition={animations.slideUp.transition}
                 >
-                  {app.title}
+                  <Text>{content[4]}</Text>
                 </motion.div>
                 <motion.div
                   style={{ height: '1px' }}
@@ -33,8 +33,8 @@ export default function Main({ app, content, lgView, theme }) {
               </>
             ) : (
               <>
-                <div className='font-bold text-3xl text-belplit24_2'>{app.title}</div>
-                <div style={{ height: '1px' }} className={`my-4 bg-belplit24`}></div>
+                <div className='font-bold text-3xl text-bp_red'>{app.title}</div>
+                <div style={{ height: '1px' }} className={`my-4 bg-bp_black`}></div>
               </>
             )}
           </div>
@@ -46,7 +46,9 @@ export default function Main({ app, content, lgView, theme }) {
               {app.contacts.phones[0]}
             </a>
           </div>
-          <Button theme={theme} href={'#Contacts'}>Оставить заявку</Button>
+          <Button theme={theme} href={'#Contacts'}>
+            Оставить заявку
+          </Button>
         </div>
       </div>
       <div
