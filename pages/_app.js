@@ -1,9 +1,8 @@
 import React from 'react';
-import Router from "next/router";
-import withYM from "next-ym";
+import Router from 'next/router';
 
 import '../styles/tailwind.css';
-import { Footer, Head, Preloader } from '../components/complicated';
+import { Footer, Head, Preloader, YM } from '../components/complicated';
 import pages from '../data/pages.json';
 import app from '../data/app.json';
 import theme from '../utils/theme';
@@ -15,15 +14,14 @@ import theme from '../utils/theme';
  * 3 - fanera.site
  * 4 - csptamak.site
  * 5 - pilomateriali.site
- * 
+ *
  */
 
-const siteId = 4
+const siteId = 4;
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-
 
   React.useEffect(() => {
     setW(window.innerWidth);
@@ -49,25 +47,27 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
-    app: app.find(({id}) => id === siteId),
-    input: pages.find(({id}) => id === siteId),
+    app: app.find(({ id }) => id === siteId),
+    input: pages.find(({ id }) => id === siteId),
     theme: theme('black'),
     ...pageProps,
   };
 
   return (
-    <>
-      {loading && <Preloader />}
-      {!loading && (
-        <div>
-          <Head head={newProps.input.head}></Head>
-          <Component {...newProps} />
-          <Footer app={newProps.app}/>
-        </div>
-      )}
-    </>
+    w && (
+      <>
+        {loading && <Preloader />}
+        {!loading && (
+          <div>
+            <Head head={newProps.input.head}></Head>
+            <Component {...newProps} />
+            <Footer app={newProps.app} />
+          </div>
+        )}
+        {/* <YM ymNum={newProps?.data?.api?.ym} /> */}
+      </>
+    )
   );
 }
 
-export default withYM(app.find(({id}) => id === siteId).api.ym, Router)(MyApp);
-
+export default MyApp;
