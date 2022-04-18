@@ -3,7 +3,7 @@ import { Icons } from '../../';
 import { Title, Text } from '../../../lib';
 import { FeedBack } from '../../';
 
-export default function Contacts({ app }) {
+export default function Contacts({ app, theme }) {
   const classes = {
     contactsTitle: `pl-2 border-b border-slate-300 w-full`,
   };
@@ -16,7 +16,7 @@ export default function Contacts({ app }) {
           {/* FORM */}
           <div className={`w-full flex flex-col ml-auto sm:w-2/3 md:w-7/12 max-w-xl`}>
             <Title ats={`xl`} a={`Свяжитесь с нами`}></Title>
-            <FeedBack app={app} />
+            <FeedBack app={app} theme={theme} />
           </div>
 
           {/* CONTACTS */}

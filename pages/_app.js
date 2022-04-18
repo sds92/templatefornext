@@ -22,9 +22,9 @@ const siteId = 4;
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
-  
+
   React.useEffect(() => {
-    console.log("🚀 ~ file: _app.js ~ line 25 ~ MyApp ~ w", w)
+    console.log('🚀 ~ file: _app.js ~ line 25 ~ MyApp ~ w', w);
     setW(window.innerWidth);
     setTimeout(() => {
       setLoading(false);
@@ -55,19 +55,17 @@ export default function MyApp({ Component, pageProps }) {
   };
 
   return (
-    
-      <React.Fragment>
-        {loading && <Preloader />}
+    <React.Fragment>
+      {loading && <Preloader />}
+      {w && (
         <div className={`${loading ? `w-screen h-screen opacity-0` : `opacity-100`}`}>
           <Head head={newProps.input.head}></Head>
           <Component {...newProps} />
           <Footer app={newProps.app} />
         </div>
+      )}
 
-        {/* <YM ymNum={newProps?.data?.api?.ym} /> */}
-      </React.Fragment>
-    
+      {/* <YM ymNum={newProps?.data?.api?.ym} /> */}
+    </React.Fragment>
   );
 }
-
-
