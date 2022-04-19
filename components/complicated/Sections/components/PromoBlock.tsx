@@ -14,7 +14,6 @@ type PromoBlockProps = {
 
 const PromoBlock = (props: PromoBlockProps) => {
   const { block, theme, model, index } = props;
-  console.log("🚀 ~ file: PromoBlock.tsx ~ line 17 ~ PromoBlock ~ model", model)
   // TODO fix
   // @ts-ignore
   const [a, b] = block.flag?.split(' ') || [null, null];

@@ -97,11 +97,6 @@ export default function Options(props) {
               >
                 {option.a}x{option.b}x{option.h}
               </div>
-              {/* <div
-                className={`w-20 h-8 align-middle flex-none flex items-center justify-center border-r border-zinc-500 ${bg}`}
-              >
-                {option.connectionType}
-              </div> */}
               {productsController.cities.map((city, ii) => {
                 return (
                   <div
@@ -176,38 +171,16 @@ export default function Options(props) {
               }}
               placeholder={' высота*'}
             />
-            {/* <select
-              className={`shadow-inner border border-zinc-500 rounded-sm w-32 h-6 font-extralight mx-1 cursor-pointer `}
-              onChange={(e) => {
-                setState((s) => ({ ...s, newOption: { ...s.newOption, connectionType: e.target.value || 'прямая' } }));
-              }}
-              defaultValue={'прямая'}
-            >
-              <option value={'прямая'}>прямая</option>
-              <option value={'шип-паз'}>шип-паз</option>
-            </select> */}
-            {/* <input
-              type={'number'}
-              className={`shadow-inner border border-zinc-500 h-6 rounded-sm w-22 font-extralight mx-1`}
-              onChange={(e) => {
-                setState((s) => ({ ...s, newOption: { ...s.newOption, density: e.target.value } }));
-              }}
-              placeholder={'плотность*'}
-            /> */}
             <div className={`flex mx-1`}>
               <Icons.Ok
                 w={6}
                 h={6}
                 className={`bg-zinc-50 ml-auto shadow-md border border-bp_green_2 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
                 onClick={(e) => {
-                  if (!state.newOption.connectionType) {
-                    setState((s) => ({ ...s, newOption: { ...s.newOption, connectionType: 'прямая' } }));
-                  }
                   if (
                     state.newOption.a &&
                     state.newOption.b &&
-                    state.newOption.h &&
-                    state.newOption.density
+                    state.newOption.h
                   ) {
                     dispatch(
                       addOption({
@@ -217,10 +190,6 @@ export default function Options(props) {
                         b: state.newOption.b,
                         h: state.newOption.h,
                         show: state.newOption.show,
-                        connectionType: !state.newOption.connectionType
-                          ? 'прямая'
-                          : state.newOption.connectionType,
-                        density: state.newOption.density,
                       })
                     );
                     setState((s) => ({ ...s, create: false, newOption: {} }));
@@ -256,7 +225,9 @@ export default function Options(props) {
         <div className={`rounded-sm shadow-md border border-zinc-500`}>
           <div className={`flex justify-start items-center`}>
             <Icons.Plus
-              extraClasses={`bg-zinc-50 m-2 h-6 w-6 shadow-md border border-belplit_2 text-zinc-800 rounded-md hover:scale-110 cursor-pointer transition-all duration-75`}
+              w={6}
+              h={6}
+              className={`bg-zinc-50 m-2 shadow-md border border-belplit_2 text-zinc-800 rounded-md hover:scale-110 cursor-pointer transition-all duration-75`}
               onClick={() => {
                 setState((s) => ({
                   ...s,

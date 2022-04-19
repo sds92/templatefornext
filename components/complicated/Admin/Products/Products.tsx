@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icons } from '../..';
 import { Layout, AddProduct, Product, Settings } from './components';
-
+import { productsController } from 'utils/products.controller';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setToDeleteProducts,
@@ -58,7 +58,7 @@ const Products = () => {
 
     await fetch(`api/products`, {
       method: 'POST',
-      body: JSON.stringify(_t),
+      body: JSON.stringify(productsController.sortByPosition(_t)),
     })
       .then((res) => res.json())
       .then((res) => {
@@ -90,7 +90,7 @@ const Products = () => {
   };
 
   function addProduct(a:any) {
-    const [pr, pg, id] = productList.addItem(products, pages, a);
+    const [pr, id] = productsController.addProduct(products, a);
     dispatch(updateProducts(pr));
     // dispatch(updatePages(pg));
     dispatch(setCreatedProducts(id));
@@ -121,39 +121,7 @@ const Products = () => {
     dispatch(setIsChanged(false));
   }
 
-  function handleSave() {
-    if (toDeleteOptions.length !== 0 || toDeleteProducts.length !== 0) {
-      let _products = JSON.parse(JSON.stringify(products));
-      let _pages = JSON.parse(JSON.stringify(pages));
-      Promise.all([
-        toDeleteOptions.map((item:any) => {
-          let product_position = null;
-          let _product = _products.find((item_i:any, i: any) => {
-            if (item_i.id === item.product_id) {
-              product_position = i;
-              return true;
-            }
-          });
-          _product.options.splice(item.option_position, 1);
-
-          _products.splice(product_position, 1, _product);
-        }),
-      ]).then(() => {
-        dispatch(updateProducts(_products));
-        dispatch(updatePages(_pages));
-        dispatch(clearToDeleteOptions([]));
-        dispatch(clearToDeleteProducts([]));
-      });
-      saveProducts(_products);
-      // savePages(_pages);
-    } else {
-      dispatch(clearCreatedOptions([]));
-      dispatch(clearCreatedProducts([]));
-      saveProducts(products);
-      // savePages(pages);
-    }
-    dispatch(setIsChanged(false));
-  }
+  
 
   React.useEffect(() => {
     getProducts();

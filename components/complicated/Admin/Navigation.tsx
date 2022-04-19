@@ -42,7 +42,7 @@ const Navigation = (props: NavigationProps) => {
       <div
         className={`cursor-pointer z-40 shadow-md left-2 ${
           isChanged
-            ? `bg-belplit_2 text-white hover:scale-105 transition-all duration-75`
+            ? `bg-bp_green_2 text-white hover:scale-105 transition-all duration-75`
             : `bg-zinc-200 border ${block ? 'text-red-800' : 'text-zinc-800'}`
         }  text-sm font-light rounded-sm px-2 py-1 `}
         onClick={isChanged ? handleSave : handleBlock}

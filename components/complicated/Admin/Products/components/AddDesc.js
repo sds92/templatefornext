@@ -94,7 +94,9 @@ export default function AddDesc(props) {
             <div className={`flex gap-2`}>
               <div className={`relative`}>
                 <Icons.Plus
-                  extraClasses={`bg-zinc-50  h-6 w-6 shadow-md border border-belplit_2 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
+                  h={6}
+                  w={6}
+                  className={`bg-zinc-50 shadow-md border border-bp_green_2 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
                   onClick={() => {
                     handleSubmit();
                   }}
@@ -108,7 +110,9 @@ export default function AddDesc(props) {
                 )}
               </div>
               <Icons.Close
-                extraClasses={`bg-zinc-50  h-6 w-6 shadow-md border border-red-900 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
+                h={6}
+                w={6}
+                className={`bg-zinc-50 shadow-md border border-red-900 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
                 onClick={() => {
                   setState((s) => ({ ...s, show: !s.show }));
                 }}
