@@ -99,7 +99,7 @@ const Product = (props: ProductProps) => {
           />
           <InputSwitch
             textClassName={`rounded-sm w-12 bg-zinc-50 border mx-0.5 text-lg h-6 leading-snug relative`}
-            onSubmit={(a) => {
+            onSubmit={(a:any) => {
               setPosition(a)
             }}
             initValue={product.info?.position}

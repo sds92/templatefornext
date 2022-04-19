@@ -5,6 +5,7 @@ import fs from 'fs';
 
 export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiResponse) => {
   require('dotenv').config();
+  // @ts-ignore
   if (req.session.user.pass !== process.env.PASS) {
     res.status(500).json({ message: 'AUTH FAILED' });
   }
@@ -21,7 +22,6 @@ export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiR
     fs.readFile('data/app.ru.json', 'utf8', (err, data) => {
       if (err) throw err;
       _data = JSON.parse(data);
-      console.log('🚀 ~ file: app.tsx ~ line 23 ~ fs.readFile ~ _data', _data);
       res.json(JSON.stringify(_data));
       console.log('The file has been sent!');
     });

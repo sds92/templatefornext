@@ -11,6 +11,7 @@ export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiR
 
     if (token === process.env.PASS) {
       user = { isLoggedIn: true, isAdmin: true, name: 'admin' };
+      // @ts-ignore
       req.session.user = user;
       await req.session.save();
       res.json(user);

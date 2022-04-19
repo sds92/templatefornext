@@ -92,8 +92,8 @@ const AdminPanel = () => {
     <>
       <Navigation handleSave={handleSave} setView={setView} />
       {view === 'products' && <Products />}
-      {view === 'pages' && <Pages />}
-      {view === 'app' && <App />}
+      {/* {view === 'pages' && <Pages />}
+      {view === 'app' && <App />} */}
     </>
   );
 };
