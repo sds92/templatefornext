@@ -25,10 +25,10 @@ const CatalogM0: React.FC<CatalogProps> = (props: CatalogProps) => {
       ref={ref}
       id={content.id}
       style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
-      className={`w-full flex flex-col relative mb-10`}
+      className={`w-full flex flex-col relative pb-10 bg-${theme.bg.catalog.color.s2}`}
     >
       <motion.div
-        className={`uppercase zero:text-4xl sm:text-5xl md:text-7xl text-center font-black text-${theme.text.contacts.color.main}`}
+        className={`uppercase zero:text-4xl sm:text-5xl md:text-7xl text-center font-black text-${theme.text.catalog.color.main}`}
         initial='initial'
         animate={inView && 'animate'}
         exit='exit'
@@ -43,7 +43,7 @@ const CatalogM0: React.FC<CatalogProps> = (props: CatalogProps) => {
       </motion.div>
       {content.subTitle && (
         <Text
-          className={`zero:text-xl sm:text-5xl my-4 text-center font-bold text-${theme.text.contacts.color.main}`}
+          className={`zero:text-xl sm:text-5xl my-4 text-center font-bold text-${theme.text.catalog.color.main}`}
         >
           {content.subTitle}
         </Text>

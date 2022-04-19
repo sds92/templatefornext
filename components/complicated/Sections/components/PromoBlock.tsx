@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Text } from '../../../lib';
+import { SVGLib } from 'components/complicated';
 import { animations } from '../../../../styles/animations';
 
 type PromoBlockProps = {
@@ -13,9 +14,11 @@ type PromoBlockProps = {
 
 const PromoBlock = (props: PromoBlockProps) => {
   const { block, theme, model, index } = props;
+  console.log("🚀 ~ file: PromoBlock.tsx ~ line 17 ~ PromoBlock ~ model", model)
   // TODO fix
   // @ts-ignore
   const [a, b] = block.flag?.split(' ') || [null, null];
+  const Icon = SVGLib[block && block?.icon as string] || null
   return (
     <div className={`zero:w-full md:w-${b} px-4 py-10 flex items-start zero:justify-center`}>
       {block.image && (
@@ -41,11 +44,11 @@ const PromoBlock = (props: PromoBlockProps) => {
         className={`flex ${
           a === 'row'
             ? `mt-10 items-center justify-between `
-            : 'max-w-xs md:mr-auto items-center justify-center flex-col'
+            : 'zero:w-full items-center justify-center flex-col'
         }`}
       >
-        <div className={``}>
-          <div className={`flex`}>
+        <div className={`w-full`}>
+          <div className={`flex items-center`}>
             {block.image && <div
               style={{
                 minWidth: '70px',
@@ -63,15 +66,18 @@ const PromoBlock = (props: PromoBlockProps) => {
                 src={`/${block.image}`}
               />
             </div>}
+            {block.icon && <Icon fill={'#18181b'} w={20} h={20} className={`mr-4 flex-none`}/>}
             <Text
-              className={`zero:text-xl md:text-3xl font-bold  ${a === 'item' ? 'text-left' : 'text-left'}`}
+              className={`zero:text-2xl md:text-3xl font-black  ${a === 'item' ? 'text-left' : 'text-left'} text-${theme.text.sections[model].color.s2}`}
             >
               {block.title}
             </Text>
           </div>
           <Text
-            className={`border-t mt-2 border-${
-              theme.borders.sections[model].color.s2
+            className={`border-t mt-2 text-${
+              theme.text.sections[model].color.s1
+            } border-${
+              theme.borders.sections[model].color.s1
             } zero:text-sm md:text-lg font-light ${a === 'item' ? 'text-left' : 'text-left'}`}
           >
             {block.text}

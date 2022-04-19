@@ -148,6 +148,7 @@ interface ISectionBlock {
   flag?: string;
   buttons?: Button[];
   image?: string[];
+  icon?: string;
   [key: string]: any;
 }
 

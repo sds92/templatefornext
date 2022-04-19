@@ -17,7 +17,7 @@ const PromoM0 = (props: SectionProps) => {
     <section
       id={content.id}
       style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
-      className={`overflow-hidden w-full flex flex-col  relative justify-between mt-8`}
+      className={`bg-${theme.bg.sections[content.model].color.main} overflow-hidden w-full flex flex-col  relative justify-between mt-8`}
     >
       <motion.div
         className={`text-center max-w-4xl font-black zero:text-4xl sm:text-5xl md:text-7xl mx-auto text-${theme.text.sections[content.model].color.s2}`}
