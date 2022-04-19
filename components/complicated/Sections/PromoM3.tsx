@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { animations } from '../../../styles/animations';
-import { CardsGrid } from './components';
 
 type SectionProps = {
   theme: ITheme;
@@ -33,7 +32,7 @@ const PromoM3: React.FC<SectionProps> = (props: SectionProps) => {
         <Text className={`py-4`}>{content.title}</Text>
       </motion.div>
       <div
-        className={`flex flex-wrap justify-center w-full mx-auto py-10 relative`}
+        className={`flex flex-wrap justify-center max-w-7xl mx-auto py-10 relative`}
         style={{
           minHeight: `60vh`,
         }}

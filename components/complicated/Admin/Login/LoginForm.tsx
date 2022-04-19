@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 import { FieldWrapper, FormWrapper } from '../../../lib';
 
@@ -7,8 +6,7 @@ const classNames = {
   input: `border rounded-sm border-zinc-500`,
 };
 const defaultInput = {
-  email: '',
-  password: '',
+  token: '',
 };
 
 const LoginForm = (props: any) => {
@@ -29,7 +27,7 @@ const LoginForm = (props: any) => {
     e.preventDefault();
     await onSubmit(userInput).then(resetForm);
   };
-  
+
   return (
     <React.Fragment>
       <FormWrapper
@@ -40,21 +38,11 @@ const LoginForm = (props: any) => {
       >
         <FieldWrapper
           className={[classNames.label, classNames.input]}
-          id={'email'}
-          placeholder={`email`}
+          id={'token'}
+          placeholder={`token`}
           type='text'
-          name='email'
-          value={userInput.email}
-          onChange={onChangeHandler}
-          required
-        />
-        <FieldWrapper
-          className={[classNames.label, classNames.input]}
-          id={'password'}
-          placeholder={`пароль`}
-          type='password'
-          name='password'
-          value={userInput.password}
+          name='token'
+          value={userInput.token}
           onChange={onChangeHandler}
           required
         />

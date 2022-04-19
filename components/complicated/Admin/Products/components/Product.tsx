@@ -1,14 +1,27 @@
 import React from 'react';
 import { Options, InputSwitch } from '.';
 import { Icons } from '../../..';
+import { productsController } from 'utils/products.controller';
+import { useSelector, useDispatch } from 'react-redux';
+import { updatePages, selectProducts, updateProducts, setIsChanged } from 'redux/slices/productsSlice';
 
 type ProductProps = {
   [key: string]: any;
 };
 
 const Product = (props: ProductProps) => {
-  const { product, deleteProduct, children, productList, handleSettingsOpenState, settings, highlight } =
-    props;
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
+  const {
+    product,
+    deleteProduct,
+    children,
+    productList,
+    handleSettingsOpenState,
+    settings,
+    highlight,
+    saveProducts,
+  } = props;
 
   const [state, setState] = React.useState({
     open: {
@@ -16,6 +29,22 @@ const Product = (props: ProductProps) => {
       modal: false,
     },
   });
+
+  function setTitle(a: any) {
+    let _products = productsController.copy(products);
+    _products = productsController.setTitle(_products, product.id, a);
+    dispatch(updateProducts(_products));
+    saveProducts(_products);
+    dispatch(setIsChanged(false));
+  }
+
+  function setPosition(a: any) {
+    let _products = productsController.copy(products);
+    _products = productsController.setPosition(_products, product.id, a);
+    dispatch(updateProducts(_products));
+    saveProducts(_products);
+    dispatch(setIsChanged(false));
+  }
 
   React.useEffect(() => {
     if (settings) {
@@ -52,12 +81,14 @@ const Product = (props: ProductProps) => {
               setState((s) => ({ ...s, open: { ...s.open, options: !state.open.options } }));
             }}
           />
-          {/* <InputSwitch
-            textClassName={`rounded-sm w-44 bg-zinc-50 border mx-0.5 uppercase text-lg h-6 leading-snug relative`}
-            onSubmit={(a) => {}}
+          <InputSwitch
+            textClassName={`whitespace-nowrap overflow-hidden rounded-sm w-44 bg-zinc-50 border mx-0.5 uppercase text-lg h-6 leading-snug relative`}
+            onSubmit={(a: any) => {
+              setTitle(a);
+            }}
             initValue={product.info?.title}
-          /> */}
-
+          />
+          
           <Icons.Close
             h={6}
             w={6}
@@ -65,6 +96,13 @@ const Product = (props: ProductProps) => {
             onClick={() => {
               setState((s) => ({ ...s, open: { ...s.open, modal: true } }));
             }}
+          />
+          <InputSwitch
+            textClassName={`rounded-sm w-12 bg-zinc-50 border mx-0.5 text-lg h-6 leading-snug relative`}
+            onSubmit={(a) => {
+              setPosition(a)
+            }}
+            initValue={product.info?.position}
           />
         </div>
       </div>

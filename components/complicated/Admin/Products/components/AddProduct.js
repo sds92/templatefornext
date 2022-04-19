@@ -10,7 +10,7 @@ export default function AddProduct(props) {
   });
 
   function handleSubmit() {
-    if (!state.input.title || !state.input.slug) {
+    if (!state.input.title) {
       setState((s) => ({ ...s, showTip: { submit: true } }));
       setTimeout(() => {
         setState((s) => ({ ...s, showTip: { submit: false } }));
@@ -27,12 +27,14 @@ export default function AddProduct(props) {
         {!state.show ? (
           <div className={`flex justify-start items-center`}>
             <Icons.Plus
-              extraClasses={`bg-zinc-50 mx-2 my-2 h-6 w-6 shadow-md border border-belplit_2 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
+              w={6}
+              h={6}
+              className={`bg-zinc-50 mx-2 my-2 shadow-md border border-bp_green_2 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
               onClick={() => {
                 setState((s) => ({ ...s, show: !s.show }));
               }}
             />
-            <div>Добавить товар</div>
+            <div>Добавить категорию</div>
           </div>
         ) : (
           <div className={`flex justify-start items-start p-2 gap-2`}>
@@ -61,11 +63,11 @@ export default function AddProduct(props) {
                 <div
                   className={`z-50 absolute top-7 w-full rounded-sm bg-sky-800 bg-opacity-90 text-white text-xs font-light p-2 shadow-md`}
                 >
-                  <strong>пример:</strong> Белтермо Flex
+                  <strong>пример:</strong> Flex
                 </div>
               )}
             </div>
-            <div className={`flex flex-col relative`}>
+            {/* <div className={`flex flex-col relative`}>
               <input
                 className={`border rounded-sm focus:border-sky-800 transition-all`}
                 value={state.input?.slug || ''}
@@ -84,7 +86,7 @@ export default function AddProduct(props) {
                 onBlur={() => {
                   setState((s) => ({ ...s, showTip: { slug: false } }));
                 }}
-                placeholder='url'
+                placeholder='id'
               />
               {state.showTip?.slug && (
                 <div
@@ -94,10 +96,12 @@ export default function AddProduct(props) {
                   <strong>*</strong> <i>только латинские символы</i>
                 </div>
               )}
-            </div>
+            </div> */}
             <div className={`relative`}>
               <Icons.Plus
-                extraClasses={`bg-zinc-50  h-6 w-6 shadow-md border border-belplit_2 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
+                w={6}
+                h={6}
+                className={`bg-zinc-50 shadow-md border border-bp_green_2 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
                 onClick={() => {
                   handleSubmit();
                 }}
@@ -106,12 +110,14 @@ export default function AddProduct(props) {
                 <div
                   className={`z-50 whitespace-nowrap absolute top-7 rounded-sm bg-sky-800 bg-opacity-90 text-white text-xs font-light p-2 shadow-md`}
                 >
-                    заполните поля: <strong>&quot;Название&quot;</strong> и <strong>&quot;url&quot;</strong>
+                  заполните поля: <strong>&quot;Название&quot;</strong> и <strong>&quot;url&quot;</strong>
                 </div>
               )}
             </div>
             <Icons.Close
-              extraClasses={`bg-zinc-50  h-6 w-6 shadow-md border border-red-900 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
+              w={6}
+              h={6}
+              className={`bg-zinc-50 shadow-md border border-red-900 text-zinc-800 rounded-md  hover:scale-110 cursor-pointer transition-all duration-75`}
               onClick={() => {
                 setState((s) => ({ ...s, show: !s.show }));
               }}

@@ -13,19 +13,6 @@ const cities = [
   ['Крым', 'crimea'],
 ]
 const initialState = {
-
-  productList: new ProductList({
-    cities: [
-      ['Москва', 'square'],
-      ['СПБ', 'spb'],
-      ['Казань', 'kazan'],
-      ['Краснодар', 'krasnodar'],
-      ['Ростов', 'rostov'],
-      ['Волгоград', 'volvograd'],
-      ['Астрахань', 'astrahan'],
-      ['Крым', 'crimea'],
-    ],
-  }),
   productsInit: [],
   products: [],
   isChanged: false,

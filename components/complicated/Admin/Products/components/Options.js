@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout, InputPrice } from '.';
 import { Icons } from '../../..';
+import { productsController } from 'utils/products.controller';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -22,11 +23,11 @@ export default function Options(props) {
   const dispatch = useDispatch();
   const initProducts = useSelector(selectProductsInit);
   const products = useSelector(selectProducts);
-  const productList = useSelector(selectProductList);
+  // const productList = useSelector(selectProductList);
+
   const toDeleteOptions = useSelector(selectToDeleteOptions);
   const createdOptions = useSelector(selectCreatedOptions);
- 
- 
+
   const { product } = props;
   const [state, setState] = React.useState({
     create: false,
@@ -39,7 +40,7 @@ export default function Options(props) {
   function handlePrices(input) {
     dispatch(setIsChanged(true));
     let _products = JSON.parse(JSON.stringify(products));
-    _products = productList.setPrices(_products, input);
+    _products = productsController.setPrices(_products, input);
     dispatch(setPrices(_products));
   }
 
@@ -62,10 +63,10 @@ export default function Options(props) {
             highlight === 'red'
               ? 'bg-red-200'
               : highlight === 'gold'
-                ? 'bg-yellow-500 bg-opacity-40'
-                : i % 2 != 0
-                  ? 'bg-sky-900 bg-opacity-30'
-                  : 'bg-slate-200 bg-opacity-10';
+              ? 'bg-yellow-500 bg-opacity-40'
+              : i % 2 != 0
+              ? 'bg-sky-900 bg-opacity-30'
+              : 'bg-slate-200 bg-opacity-10';
           return (
             <div
               key={`sdjkfhs${i}`}
@@ -85,10 +86,10 @@ export default function Options(props) {
                         option_value: !option.show,
                       })
                     );
-                    dispatch(setIsChanged(true))
+                    dispatch(setIsChanged(true));
                   }}
                 >
-                  {option.show && <Icons.Ok />}
+                  {option.show && <Icons.Ok w={5} h={5} />}
                 </div>
               </div>
               <div
@@ -96,12 +97,12 @@ export default function Options(props) {
               >
                 {option.a}x{option.b}x{option.h}
               </div>
-              <div
+              {/* <div
                 className={`w-20 h-8 align-middle flex-none flex items-center justify-center border-r border-zinc-500 ${bg}`}
               >
                 {option.connectionType}
-              </div>
-              {productList.cities.map((city, ii) => {
+              </div> */}
+              {productsController.cities.map((city, ii) => {
                 return (
                   <div
                     key={`sdfjksd${i}`}
@@ -123,10 +124,12 @@ export default function Options(props) {
               <div className={`px-2 flex items-center border-r ${bg}`}>
                 {!highlight && (
                   <Icons.Close
-                    extraClasses={`bg-zinc-50 mx-auto h-6 w-6 shadow-md border border-red-900 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
+                    w={6}
+                    h={6}
+                    className={`bg-zinc-50 mx-auto shadow-md border border-red-900 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
                     onClick={(e) => {
                       dispatch(setToDeleteOptions({ product_id: product.id, option_position: i }));
-                      dispatch(setIsChanged(true))
+                      dispatch(setIsChanged(true));
                     }}
                   />
                 )}
@@ -146,7 +149,7 @@ export default function Options(props) {
                 setState((s) => ({ ...s, newOption: { ...s.newOption, show: !s.newOption?.show } }));
               }}
             >
-              {state.newOption?.show && <Icons.Ok />}
+              {state.newOption?.show && <Icons.Ok w={5} h={5} />}
             </div>
 
             <input
@@ -173,34 +176,39 @@ export default function Options(props) {
               }}
               placeholder={' высота*'}
             />
-            <select
+            {/* <select
               className={`shadow-inner border border-zinc-500 rounded-sm w-32 h-6 font-extralight mx-1 cursor-pointer `}
               onChange={(e) => {
-                console.log("🚀 ~ file: Specs.js ~ line 179 ~ Specs ~ e", e)
                 setState((s) => ({ ...s, newOption: { ...s.newOption, connectionType: e.target.value || 'прямая' } }));
               }}
               defaultValue={'прямая'}
             >
               <option value={'прямая'}>прямая</option>
               <option value={'шип-паз'}>шип-паз</option>
-            </select>
-            <input
+            </select> */}
+            {/* <input
               type={'number'}
               className={`shadow-inner border border-zinc-500 h-6 rounded-sm w-22 font-extralight mx-1`}
               onChange={(e) => {
                 setState((s) => ({ ...s, newOption: { ...s.newOption, density: e.target.value } }));
               }}
               placeholder={'плотность*'}
-            />
+            /> */}
             <div className={`flex mx-1`}>
               <Icons.Ok
-                extraClasses={`bg-zinc-50 ml-auto h-6 w-6 shadow-md border border-belplit_2 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
+                w={6}
+                h={6}
+                className={`bg-zinc-50 ml-auto shadow-md border border-bp_green_2 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
                 onClick={(e) => {
                   if (!state.newOption.connectionType) {
                     setState((s) => ({ ...s, newOption: { ...s.newOption, connectionType: 'прямая' } }));
                   }
-                  if (state.newOption.a && state.newOption.b && state.newOption.h && state.newOption.density) {
-                    
+                  if (
+                    state.newOption.a &&
+                    state.newOption.b &&
+                    state.newOption.h &&
+                    state.newOption.density
+                  ) {
                     dispatch(
                       addOption({
                         product_id: product.id,
@@ -209,7 +217,9 @@ export default function Options(props) {
                         b: state.newOption.b,
                         h: state.newOption.h,
                         show: state.newOption.show,
-                        connectionType: !state.newOption.connectionType ? 'прямая' : state.newOption.connectionType,
+                        connectionType: !state.newOption.connectionType
+                          ? 'прямая'
+                          : state.newOption.connectionType,
                         density: state.newOption.density,
                       })
                     );
@@ -223,7 +233,9 @@ export default function Options(props) {
                 }}
               />
               <Icons.Close
-                extraClasses={`bg-zinc-50 mr-auto h-6 w-6 shadow-md border border-red-900 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
+                w={6}
+                h={6}
+                className={`bg-zinc-50 mr-auto shadow-md border border-red-900 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
                 onClick={() => {
                   setState({
                     create: !state.create,

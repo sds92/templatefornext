@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import * as React from 'react';
 
-const FormWrapper:React.FC<IFormWrapperProps> = (props: IFormWrapperProps) => {
+const FormWrapper = (props: IFormWrapperProps) => {
   const { onSubmit, className, children, buttonText, redirectButton, userSbmtButton } = props;
   return (
     <form onSubmit={onSubmit} className={className}>

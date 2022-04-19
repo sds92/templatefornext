@@ -12,9 +12,11 @@ export default function InputSwitch(props) {
     <React.Fragment>
       {title && <div className={`ml-2 text-sm font-bold cursor-default`}>{title}</div>}
       {state.edit ? (
-        <div className={`flex h-6 w-max pl-0.5`}>
+        <div className={`flex h-full w-full pl-0.5`}>
           <Icons.Ok
-            extraClasses={`bg-zinc-50 h-6 w-6 shadow-md border border-green-900 text-zinc-800 rounded-sm hover:scale-110 cursor-pointer transition-all duration-75`}
+            h={6}
+            w={6}
+            className={`bg-zinc-50 shadow-md border border-green-900 text-zinc-800 rounded-sm hover:scale-110 cursor-pointer transition-all duration-75`}
             onClick={() => {
               onSubmit(state.input);
               setState((s) => ({
@@ -29,6 +31,7 @@ export default function InputSwitch(props) {
               onChange={(e) => {
                 setValues((s) => ({ ...s, desc: { ...s.desc, main: e.target.value } }));
               }}
+              className={`w-full`}
               value={state.input}
               rows={5}
             />
@@ -37,7 +40,7 @@ export default function InputSwitch(props) {
               className={`${
                 textClassName
                   ? textClassName
-                  : 'w-max max-w-full h-6 ml-2 px-2 relative text-sm rounded-sm cursor-default'
+                  : 'whitespace-nowrap w-max max-w-full h-6 ml-2 px-2 relative text-sm rounded-sm cursor-default'
               }`}
               value={state.input}
               onChange={(e) => {
@@ -55,7 +58,7 @@ export default function InputSwitch(props) {
             textClassName
               ? textClassName
               : 'w-max max-w-full h-6 ml-2 px-2 pt-1 relative text-sm rounded-sm cursor-default'
-          } ${state.hover ? `` : `gap-1`} flex `}
+          } ${state.hover ? `` : `gap-1`} flex h-full`}
           onMouseEnter={() => {
             setState((s) => ({
               ...s,
@@ -77,9 +80,11 @@ export default function InputSwitch(props) {
           }}
         >
           <Icons.Edit
-            extraClasses={`${
+            w={6}
+            h={6}
+            className={`${
               state.hover ? 'opacity-100' : 'opacity-0'
-            } bg-sky-900 bg-opacity-90 h-full w-min  shadow-md border border-white text-zinc-100 rounded-sm hover:scale-110 cursor-pointer transition-all duration-300`}
+            } flex-none bg-sky-900 bg-opacity-90 XCshadow-md border border-white text-zinc-100 rounded-sm hover:scale-110 cursor-pointer transition-all duration-300`}
           />
 
           <div className={`${state.hover ? '' : '-ml-6 delay-200'} transition-all cursor-pointer`}>

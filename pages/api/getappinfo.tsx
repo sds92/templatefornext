@@ -1,12 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { withIronSessionApiRoute } from 'iron-session/next';
 import { sessionOptions, withSessionRoute, withSessionSsr } from 'lib/session';
 import fs from 'fs';
 
-export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse) => {
+export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiResponse) => {
   require('dotenv').config();
-  // if (req.session.user.pass !== process.env.PASS) {
-  //   res.status(500).json({ message: 'AUTH FAILED' });
-  // }
+  if (req.session.user.pass !== process.env.PASS) {
+    res.status(500).json({ message: 'AUTH FAILED' });
+  }
 
   if (req.method === 'POST') {
     fs.writeFile(`data/app.ru.json`, req.body, (err) => {
@@ -16,12 +17,13 @@ export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse
     });
   }
   if (req.method === 'GET') {
-    let products = [];
+    let _data = [];
     fs.readFile('data/app.ru.json', 'utf8', (err, data) => {
       if (err) throw err;
-      products = JSON.parse(data);
-      res.json(JSON.stringify(products));
+      _data = JSON.parse(data);
+      console.log('🚀 ~ file: app.tsx ~ line 23 ~ fs.readFile ~ _data', _data);
+      res.json(JSON.stringify(_data));
       console.log('The file has been sent!');
     });
   }
-});
+}, sessionOptions);

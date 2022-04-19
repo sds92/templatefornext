@@ -92,7 +92,7 @@ const Products = () => {
   function addProduct(a:any) {
     const [pr, pg, id] = productList.addItem(products, pages, a);
     dispatch(updateProducts(pr));
-    dispatch(updatePages(pg));
+    // dispatch(updatePages(pg));
     dispatch(setCreatedProducts(id));
     dispatch(setIsChanged(true));
   }
@@ -117,7 +117,7 @@ const Products = () => {
     _products.splice(product_position, 1);
     _pages.splice(page_position, 1);
     saveProducts(_products);
-    savePages(_pages);
+    // savePages(_pages);
     dispatch(setIsChanged(false));
   }
 
@@ -145,19 +145,19 @@ const Products = () => {
         dispatch(clearToDeleteProducts([]));
       });
       saveProducts(_products);
-      savePages(_pages);
+      // savePages(_pages);
     } else {
       dispatch(clearCreatedOptions([]));
       dispatch(clearCreatedProducts([]));
       saveProducts(products);
-      savePages(pages);
+      // savePages(pages);
     }
     dispatch(setIsChanged(false));
   }
 
   React.useEffect(() => {
     getProducts();
-    getPages();
+    // getPages();
   }, []);
 
   return (
@@ -185,6 +185,7 @@ const Products = () => {
               product={item}
               highlight={highlight}
               deleteProduct={deleteProduct}
+              saveProducts={saveProducts}
             >
             {/* SETTINGS */}
             {settings === i ? (

@@ -4,7 +4,7 @@ import { Header, Layout, LoginForm } from 'components/complicated/Admin';
 import fetchJson, { FetchError } from 'lib/fetchJson';
 import Router, { useRouter } from 'next/router';
 
-const Login: React.FC = () => {
+const Login = () => {
   // here we just check if user is already logged in and redirect to profile
   const { mutateUser } = useUser({
     redirectTo: '/admin',

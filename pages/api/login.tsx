@@ -1,22 +1,19 @@
 import { withIronSessionApiRoute } from 'iron-session/next';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { sessionOptions, withSessionRoute, withSessionSsr } from 'lib/session';
-import 'utils/dbConnect';
-import User, { IUser } from 'db/schema/Users';
+import { sessionOptions } from 'lib/session';
 
-export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse) => {
+export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiResponse) => {
   require('dotenv').config();
-  const { email, password } = await req.body;
+  const { token } = await req.body;
 
   try {
-    let user = await User.findOne({ email: email });
+    let user = {};
 
-    if (user.validatePassword(password)) {
-      const sessionUser = { isLoggedIn: true, isAdmin: user.isAdmin || false, name: user.email };
-      // @ts-ignore
-      req.session.user = sessionUser;
+    if (token === process.env.PASS) {
+      user = { isLoggedIn: true, isAdmin: true, name: 'admin' };
+      req.session.user = user;
       await req.session.save();
-      res.status(200).json(sessionUser);
+      res.json(user);
     }
     res.status(401).json({
       errors: {
@@ -26,4 +23,4 @@ export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse
   } catch (error) {
     res.status(500).json({ message: 'error.message' });
   }
-});
+}, sessionOptions);

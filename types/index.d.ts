@@ -7,8 +7,7 @@ type RegFormUserData = {
   passwordR: string;
 };
 type LoginFormUserData = {
-  email: string;
-  password: string;
+  token: string;
 };
 interface IFormProps {
   className?: string;
@@ -17,11 +16,11 @@ interface IFormProps {
   onSubmit?: (input: any) => Promise<void>;
 }
 interface IFormWrapperProps {
-  children?: JSX.Element[];
-  userSbmtButton?: boolean;
+  children?: JSX.Element[] | JSX.Element;
   className?: string;
   buttonText?: string;
   redirectButton?: Button;
+  userSbmtButton?: any;
   onSubmit: (e: React.FormEvent) => Promise<void>;
 }
 
@@ -150,7 +149,7 @@ interface ISectionBlock {
   buttons?: Button[];
   image?: string[];
   [key: string]: any;
-};
+}
 
 type Section = {
   model: string;
@@ -164,7 +163,7 @@ type Section = {
   buttons?: Button[];
   productModel: string;
   footer?: ISectionBlock;
-  
+
   // [Symbol.iterator]();
 };
 

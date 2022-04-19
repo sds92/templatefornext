@@ -10,11 +10,11 @@ export default function Settings(props) {
   const products = useSelector(selectProducts);
   const { productList, product, meta, pages, saveProducts, savePages } = props;
   const [values, setValues] = React.useState({
-    meta: {
-      keywords: meta.meta.find(({ name }) => name === 'keywords').content || '',
-      description: meta.meta.find(({ name }) => name === 'description').content || '',
-      title: meta.title || '',
-    },
+    // meta: {
+    //   keywords: meta.meta.find(({ name }) => name === 'keywords').content || '',
+    //   description: meta.meta.find(({ name }) => name === 'description').content || '',
+    //   title: meta.title || '',
+    // },
     info: {
       userTitle: product.info?.userTitle || '',
     },
@@ -45,42 +45,42 @@ export default function Settings(props) {
     dispatch(setIsChanged(false));
   }
 
-  function setMeta(input) {
-    let _pages = JSON.parse(JSON.stringify(pages));
-    let pagePosition = null;
-    let _page = _pages.find((item, i) => {
-      if (item.content.product_id === input.productId) {
-        pagePosition = i;
-        return true;
-      }
-    });
-    switch (input.metaName) {
-      case 'title': {
-        _page.head.title = input.value;
-        break;
-      }
-      case 'keywords': {
-        _page.head.meta.find((_metaItem) => _metaItem.name === input.metaName.toLowerCase()).content =
-          input.value;
-        break;
-      }
-      case 'description': {
-        _page.head.meta.find((_metaItem) => _metaItem.name === input.metaName.toLowerCase()).content =
-          input.value;
-        break;
-      }
-      default:
-        break;
-    }
-    _pages.splice(pagePosition, 1, _page);
-    savePages(_pages);
-    dispatch(updatePages(_pages));
-    dispatch(setIsChanged(false));
-  }
+  // function setMeta(input) {
+  //   let _pages = JSON.parse(JSON.stringify(pages));
+  //   let pagePosition = null;
+  //   let _page = _pages.find((item, i) => {
+  //     if (item.content.product_id === input.productId) {
+  //       pagePosition = i;
+  //       return true;
+  //     }
+  //   });
+  //   switch (input.metaName) {
+  //     case 'title': {
+  //       _page.head.title = input.value;
+  //       break;
+  //     }
+  //     case 'keywords': {
+  //       _page.head.meta.find((_metaItem) => _metaItem.name === input.metaName.toLowerCase()).content =
+  //         input.value;
+  //       break;
+  //     }
+  //     case 'description': {
+  //       _page.head.meta.find((_metaItem) => _metaItem.name === input.metaName.toLowerCase()).content =
+  //         input.value;
+  //       break;
+  //     }
+  //     default:
+  //       break;
+  //   }
+  //   _pages.splice(pagePosition, 1, _page);
+  //   savePages(_pages);
+  //   dispatch(updatePages(_pages));
+  //   dispatch(setIsChanged(false));
+  // }
 
   return (
     <div className={`flex flex-col`}>
-      <div className={`border border-zinc-500 bg-slate-100 w-full p-2 rounded-sm`}>
+      {/* <div className={`border border-zinc-500 bg-slate-100 w-full p-2 rounded-sm`}>
         <div className={`uppercase font-bold relative cursor-default`}>Метатеги</div>
         {['TITLE', 'KEYWORDS', 'DESCRIPTION'].map((metaItem, i) => {
           return (
@@ -104,7 +104,7 @@ export default function Settings(props) {
             />
           );
         })}
-      </div>
+      </div> */}
       <div className={`border border-zinc-500 bg-slate-100 w-full p-2 mt-1 rounded-sm`}>
         <InputSwitch
           title={'ЗАГОЛОВОК'}

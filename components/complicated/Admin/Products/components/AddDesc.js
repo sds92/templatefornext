@@ -28,7 +28,9 @@ export default function AddDesc(props) {
         {!state.show ? (
           <div className={`flex justify-start items-center`}>
             <Icons.Plus
-              extraClasses={`bg-zinc-50 mx-2 my-2 h-6 w-6 shadow-md border border-belplit_2 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
+              w={6}
+              h={6}
+              className={`bg-zinc-50 mx-2 my-2 shadow-md border border-bp_green_2 text-zinc-800 rounded-md m-1 hover:scale-110 cursor-pointer transition-all duration-75`}
               onClick={() => {
                 setState((s) => ({ ...s, show: !s.show }));
               }}

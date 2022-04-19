@@ -1,4 +1,14 @@
 export const productsController = {
+  cities: [
+    ['Москва', 'square'],
+    // ['СПБ', 'spb'],
+    // ['Казань', 'kazan'],
+    // ['Краснодар', 'krasnodar'],
+    // ['Ростов', 'rostov'],
+    // ['Волгоград', 'volvograd'],
+    // ['Астрахань', 'astrahan'],
+    // ['Крым', 'crimea'],
+  ],
   copy: (arr) => {
     let res = JSON.parse(JSON.stringify(arr));
     return res;
@@ -26,6 +36,20 @@ export const productsController = {
     } else {
       product.desc.push({ title, value });
     }
+    let product_position = productsController.getProductPositionById(products, product_id);
+    products.splice(product_position, 1, product);
+    return products;
+  },
+  setTitle: (products, product_id, title) => {
+    let product = productsController.getProductById(products, product_id);
+    product.info.title = title;
+    let product_position = productsController.getProductPositionById(products, product_id);
+    products.splice(product_position, 1, product);
+    return products;
+  },
+  setPosition: (products, product_id, position) => {
+    let product = productsController.getProductById(products, product_id);
+    product.info.position = parseInt(position);
     let product_position = productsController.getProductPositionById(products, product_id);
     products.splice(product_position, 1, product);
     return products;
