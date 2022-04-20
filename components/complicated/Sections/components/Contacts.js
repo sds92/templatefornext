@@ -38,9 +38,11 @@ export default function Contacts(props) {
                 />
                 <p className={classes.contactsTitle}>Телефон:</p>
               </div>
-              <div className={`ml-8 font-light`}>
-                <a href={`tel:${contacts.phones[0]}`}>{contacts.phones[0]}</a>
-              </div>
+              {contacts.phones.map((phone, i) => (
+                <div key={`phone${i}`} className={`ml-8 font-light`}>
+                  <a href={`tel:${phone}`}>{phone}</a>
+                </div>
+              ))}
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex mx-0.5 items-end`}>
@@ -58,7 +60,14 @@ export default function Contacts(props) {
                 />
                 <p className={classes.contactsTitle}>АДРЕС:</p>
               </div>
-              <Text className={`ml-8 font-light`}>{contacts.addresses[0].value}</Text>
+              {contacts.addresses.map((address, i) => (
+                <div className={`ml-8 flex`} key={`address${i}`}>
+                  {address.title}:&nbsp;
+                  <Text  className={`font-light`}>
+                    {address.value}
+                  </Text>
+                </div>
+              ))}
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex mx-0.5 items-end`}>
@@ -70,6 +79,7 @@ export default function Contacts(props) {
               <Text className={`ml-8 font-light`}>{contacts.workingHoars.value}</Text>
             </div>
           </div>
+          <img className={`h-96`} src={`/images/pilomateriali.site/map.png`}></img>
         </div>
       </div>
     </div>
