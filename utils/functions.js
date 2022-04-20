@@ -4,7 +4,7 @@ export const v2 = (inputArr) => {
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Коллекция').value,
       type: item.options.find(({ key }) => key === 'Количество слоев').value,
-      colours: item.options.find(({ key }) => key ===  "Цвет").value,
+      colours: item.options.find(({ key }) => key ===  "Оттенок")?.value || '',
       options: item.options,
       infos: item.title,
       prices: item.cost,

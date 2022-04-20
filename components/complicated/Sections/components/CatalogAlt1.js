@@ -153,7 +153,7 @@ export default function CatalogAlt1(props) {
                               state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
                             } text-left `}
                           >
-                            <div className={`text-base`}>{title}</div>
+                            <div className={`text-base`}>{item.title}</div>
                             <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
                           </div>
                         </div>
@@ -185,7 +185,7 @@ export default function CatalogAlt1(props) {
                               state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
                             } text-left `}
                           >
-                            <div className={`text-base`}>{title}</div>
+                            <div className={`text-base`}>{item.title}</div>
                             <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
                           </div>
                         </div>
@@ -202,13 +202,13 @@ export default function CatalogAlt1(props) {
               {products
                 .find((item, i) => i === state.chosen)
                 .options.sort((a, b) =>
-                  a.find(({ key }) => key === 'Цвет').value === b.find(({ key }) => key === 'Цвет').value
+                  a.find(({ key }) => key === 'Оттенок')?.value || '' === b.find(({ key }) => key === 'Оттенок')?.value || ''
                     ? 0
-                    : a.find(({ key }) => key === 'Цвет').value < b.find(({ key }) => key === 'Цвет').value
+                    : a.find(({ key }) => key === 'Оттенок')?.value || '' < b.find(({ key }) => key === 'Оттенок')?.value || ''
                     ? -1
                     : 1
                 )
-                .filter((item) => item.find(({ key }) => key === 'Цвет').value !== 'Огайо')
+                .filter((item) => item.find(({ key }) => key === 'Оттенок')?.value || '' !== 'Огайо')
                 .map((item, i) => {
                   return (
                     <div
@@ -219,9 +219,9 @@ export default function CatalogAlt1(props) {
                           return {
                             ...state,
                             chosenOption: product.colours.indexOf(
-                              item.find(({ key }) => key === 'Цвет').value
+                              item.find(({ key }) => key === 'Оттенок')?.value || ''
                             ),
-                            chosenColor: [i, item.find(({ key }) => key === 'Цвет').value],
+                            chosenColor: [i, item.find(({ key }) => key === 'Оттенок')?.value || ''],
                           };
                         });
                       }}
@@ -235,7 +235,7 @@ export default function CatalogAlt1(props) {
                         {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
                       </div>
 
-                      <div className={`text-base text-center cursor-pointer`}>{product.options[i].find(({ key }) => key === 'Цвет').value}</div>
+                      <div className={`text-base text-center cursor-pointer`}>{product.options[i].find(({ key }) => key === 'Оттенок')?.value || ''}</div>
                     </div>
                   );
                 })}
