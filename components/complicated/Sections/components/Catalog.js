@@ -29,7 +29,17 @@ export default function Catalog(props) {
         <Text className={`zero:text-xl sm:text-5xl text-center font-bold`}>{catalog.title}</Text>
         <Text className={`zero:text-sm sm:text-xl mt-2  text-center font-light`}>{catalog.subTitle}</Text>
         <Text className={`text-xl text-center font-light`}>{catalog.text}</Text>
-
+        {catalog.download && (
+          <div className={`w-full flex items-center justify-center`}>
+            <div
+              className={`mt-2 ${theme.styles.buttons} text-${theme.text.buttons} bg-${theme.bg.buttons} hover:bg-${theme.bg.buttonsHover} active:scale-105`}
+            >
+              <a href={`${catalog.download}`} download>
+                Скачать прайс
+              </a>
+            </div>
+          </div>
+        )}
         <div className={`w-full`}>
           <div
             className={`flex zero:flex-col zero:max-w-sm sm:max-w-full zero:mx-auto sm:flex-row flex-wrap items-center justify-center`}
