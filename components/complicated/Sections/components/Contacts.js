@@ -62,9 +62,9 @@ export default function Contacts(props) {
               </div>
               {contacts.addresses.map((address, i) => (
                 <div className={`ml-8 flex`} key={`address${i}`}>
-                  {address.title}:&nbsp;
+                  {/* {address.title}:&nbsp; */}
                   <Text  className={`font-light`}>
-                    {address.value}
+                    {address.title + ': ' + address.value}
                   </Text>
                 </div>
               ))}
@@ -79,8 +79,9 @@ export default function Contacts(props) {
               <Text className={`ml-8 font-light`}>{contacts.workingHoars.value}</Text>
             </div>
           </div>
-          <img className={`h-96`} src={`/images/pilomateriali.site/map.png`}></img>
+          <img className={`h-96 hidden lg:block rounded-md hover:scale-150 transition-all mr-10`} src={`/images/pilomateriali.site/map.png`}></img>
         </div>
+        <img className={`mx-8 lg:hidden rounded-md transition-all`} src={`/images/pilomateriali.site/map.png`}></img>
       </div>
     </div>
   );
