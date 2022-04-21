@@ -131,7 +131,7 @@ const Products = () => {
   return (
     <div className={`font-rc px-2 relative`}>
       <AddProduct addProduct={addProduct} />
-      {products.map((item: any, i: number) => {
+      {products.map((item: any, i: React.SetStateAction<null>) => {
         let highlight: boolean | string = false;
         toDeleteProducts.map((item_i: any) => {
           if (item.id === item_i) {
