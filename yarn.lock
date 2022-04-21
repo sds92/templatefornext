@@ -1813,9 +1813,9 @@ ipaddr.js@1.9.1:
   resolved "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz"
   integrity sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
 
-iron-session@latest:
+iron-session@^6.1.2:
   version "6.1.2"
-  resolved "https://registry.npmjs.org/iron-session/-/iron-session-6.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/iron-session/-/iron-session-6.1.2.tgz#ae2f673409435c94fc4e9d93ea80c1965f3255c4"
   integrity sha512-u1lTrT157sDz8UxCEANwdBUTUSYGbuySBjOcWVqdHCcCpgbO8CzguJBOaq/vpxJHQoIKZtD6MlzichhThRlq/A==
   dependencies:
     "@hapi/iron" "^6.0.0"
@@ -2402,6 +2402,11 @@ nocache@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/nocache/-/nocache-2.0.0.tgz"
   integrity sha1-ICtIAhoMTL3i34DeFaF0Q8i0OYA=
+
+node-cmd@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/node-cmd/-/node-cmd-5.0.0.tgz#a4a850b569e009bec0199a131c9db607144fdbc0"
+  integrity sha512-4sQTJmsS5uZKAPz/Df9fnIbmvOySfGdW+UreH4X5NcAOOpKjaE+K5wf4ehNBbZVPo0vQ36RkRnhhsXXJAT+Syw==
 
 node-rsa@0.4.2:
   version "0.4.2"

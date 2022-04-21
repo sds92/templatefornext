@@ -1,12 +1,14 @@
+import { withIronSessionApiRoute } from 'iron-session/next';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { sessionOptions, withSessionRoute, withSessionSsr } from 'lib/session';
 import fs from 'fs';
 
-export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse) => {
+export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiResponse) => {
   require('dotenv').config();
-  // if (req.session.user.pass !== process.env.PASS) {
-  //   res.status(500).json({ message: 'AUTH FAILED' });
-  // }
+  if (!req.session.user.isLoggedIn) {
+    console.log("🚀 ~ file: products.tsx ~ line 9 ~ withIronSessionApiRoute ~ req.session", req.session)
+    res.status(500).json({ message: 'AUTH FAILED' });
+  }
 
   if (req.method === 'POST') {
     fs.writeFile(`data/products.ru.json`, req.body, (err) => {
@@ -24,4 +26,4 @@ export default withSessionRoute(async (req: NextApiRequest, res: NextApiResponse
       console.log('The file has been sent!');
     });
   }
-});
+}, sessionOptions);

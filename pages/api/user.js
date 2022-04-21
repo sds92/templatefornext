@@ -13,8 +13,8 @@ async function userRoute(req, res) {
     });
   } else {
     res.json({
+      ...req.session.user,
       isLoggedIn: false,
-      pass: "",
     });
   }
 }

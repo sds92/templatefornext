@@ -9,11 +9,12 @@ import {
 
 type NavigationProps = {
   handleSave?: () => void;
-  setView: React.Dispatch<React.SetStateAction<"products" | "pages" | "app">>
+  setView: React.Dispatch<React.SetStateAction<'products' | 'pages' | 'app'>>;
+  view: string;
 };
 
 const Navigation = (props: NavigationProps) => {
-  const { handleSave, setView } = props;
+  const { handleSave, setView, view } = props;
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const productsInit = useSelector(selectProductsInit);
@@ -49,24 +50,24 @@ const Navigation = (props: NavigationProps) => {
       >
         сохранить
       </div>
-      <div
-        className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 `}
+      {/* <div
+        className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 ${view === 'products' && 'bg-bp_green_2 text-zinc-100'}`}
         onClick={() => setView('products')}
       >
         Продукты
-      </div>
-      <div
+      </div> */}
+      {/* <div
         className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 `}
         onClick={() => setView('pages')}
       >
         Страницы
-      </div>
-      <div
-        className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 `}
+      </div> */}
+      {/* <div
+        className={`cursor-pointer z-40 shadow-md left-2 text-sm font-light rounded-sm px-2 py-1 ${view === 'app' && 'bg-bp_green_2 text-zinc-100'}`}
         onClick={() => setView('app')}
       >
         Сайт
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -90,7 +90,7 @@ const AdminPanel = () => {
   }
   return (
     <>
-      <Navigation handleSave={handleSave} setView={setView} />
+      <Navigation handleSave={handleSave} setView={setView} view={view}/>
       {view === 'products' && <Products />}
       {/* {view === 'pages' && <Pages />}
       {view === 'app' && <App />} */}
