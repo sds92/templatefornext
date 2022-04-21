@@ -12,6 +12,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   if (router.route === '/admin' || router.route === '/login') {
     return (
+      // @ts-ignore
       <SWRConfig
         value={{
           fetcher: fetchJson,

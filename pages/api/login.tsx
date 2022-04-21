@@ -15,12 +15,13 @@ export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiR
       req.session.user = user;
       await req.session.save();
       res.json(user);
+    } else {
+      res.status(401).json({
+        errors: {
+          auth: 'failed',
+        },
+      });
     }
-    res.status(401).json({
-      errors: {
-        auth: 'failed',
-      },
-    });
   } catch (error) {
     res.status(500).json({ message: 'error.message' });
   }

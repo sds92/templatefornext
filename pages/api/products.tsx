@@ -7,7 +7,6 @@ export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiR
   require('dotenv').config();
   // @ts-ignore
   if (!req.session.user.isLoggedIn) {
-    console.log("🚀 ~ file: products.tsx ~ line 9 ~ withIronSessionApiRoute ~ req.session", req.session)
     res.status(500).json({ message: 'AUTH FAILED' });
   }
 
@@ -23,8 +22,9 @@ export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiR
     fs.readFile('data/products.ru.json', 'utf8', (err, data) => {
       if (err) throw err;
       products = JSON.parse(data);
-      res.json(JSON.stringify(products));
+      res.status(500).json(JSON.stringify(products));
       console.log('The file has been sent!');
     });
   }
+  // res.status(500).json({ message: 'ERROR' });
 }, sessionOptions);
