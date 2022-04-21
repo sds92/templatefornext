@@ -5,6 +5,7 @@ import fs from 'fs';
 
 export default withIronSessionApiRoute(async (req: NextApiRequest, res: NextApiResponse) => {
   require('dotenv').config();
+  // @ts-ignore
   if (!req.session.user.isLoggedIn) {
     console.log("🚀 ~ file: products.tsx ~ line 9 ~ withIronSessionApiRoute ~ req.session", req.session)
     res.status(500).json({ message: 'AUTH FAILED' });
