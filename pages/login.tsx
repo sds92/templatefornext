@@ -26,7 +26,6 @@ const Login = () => {
     })
       .then((res) => {
         if (res.status === 200) {
-          console.log('🚀 res.status', res.status);
           Router.push('/admin');
           return
         }
@@ -47,7 +46,7 @@ const Login = () => {
         <LoginForm
           onSubmit={handleSubmit}
           buttonText={`Войти`}
-          redirectButton={{ link: '/register', buttonText: 'регистрация' }}
+          // redirectButton={{ link: '/register', buttonText: 'регистрация' }}
         />
       )}
       <style jsx>{`
