@@ -26,7 +26,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         catId: i,
         title: ` ${item.title.toUpperCase()}, ${sizesItem}`,
         prices: [item.prices[index], item.priceFor[index]],
-        imgs: app.api.serv + item.paths[index]+item.imgs[index][0],
+        imgs: app.api.serv + item.paths[index] + item.imgs[index][0],
       });
     });
   });
@@ -50,7 +50,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
 
         <div className={`w-full`}>
           <div className={`flex items-center justify-center`}>
-            {products.length >= 5 || !lgView ? (
+            {/* {products.length >= 5 || !lgView ? (
               <Menu
                 menuButton={({ open }) => {
                   return (
@@ -114,70 +114,143 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   ))}
                 </ul>
               </>
-            )}
+            )} */}
           </div>
           <hr />
           <br />
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
-            {arr.sort((a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]).map((item, index) => {
-              return (
-                state.chosen === item.catId && (
-                  <motion.div
-                    // className='font-bold text-3xl text-belplit24_2'
-                    initial='initial'
-                    animate='animate'
-                    variants={animations.opacity.variants}
-                    transition={animations.opacity.transition}
-                  >
-                    <div
-                      onMouseEnter={() =>
-                        setState((state) => {
-                          return { ...state, hover: index };
-                        })
-                      }
-                      onMouseLeave={() =>
-                        setState((state) => {
-                          return { ...state, hover: null };
-                        })
-                      }
-                      className={`relative overflow-hidden`}
-                    >
-                      <img
-                        className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                        src={item.imgs}
-                        alt
-                        width='370'
-                        height='256'
-                      />
-                      <div
-                        className={`absolute inset-0 bg-black ${
-                          state.hover === index ? `opacity-0` : `opacity-50`
-                        } transition-all`}
-                      ></div>
-                      <div className={`absolute w-full bottom-6 text-slate-100`}>
-                        <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
-                          {/* {item.prices.map((item_inner, index_inner) => {
+            {arr
+              .sort(
+                (a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]
+              )
+              .map((item, index) => {
+                return (
+                  <React.Fragment key={`item${index}`}>
+                    {state.chosen === item.catId && (
+                      <motion.div
+                        // className='font-bold text-3xl text-belplit24_2'
+                        initial='initial'
+                        animate='animate'
+                        variants={animations.opacity.variants}
+                        transition={animations.opacity.transition}
+                      >
+                        <div
+                          onMouseEnter={() =>
+                            setState((state) => {
+                              return { ...state, hover: index };
+                            })
+                          }
+                          onMouseLeave={() =>
+                            setState((state) => {
+                              return { ...state, hover: null };
+                            })
+                          }
+                          className={`relative overflow-hidden`}
+                        >
+                          <img
+                            className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
+                            src={item.imgs}
+                            alt
+                            width='370'
+                            height='256'
+                          />
+                          <div
+                            className={`absolute inset-0 bg-black ${
+                              state.hover === index ? `opacity-0` : `opacity-50`
+                            } transition-all`}
+                          ></div>
+                          <div className={`absolute w-full bottom-6 text-slate-100`}>
+                            <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
+                              {/* {item.prices.map((item_inner, index_inner) => {
                             return ( */}
                               <span key={`ITEMPRICE${index}`}>
-                                {item.prices[0]}{' ₸ '}
+                                {item.prices[0]}
+                                {' ₸ '}
                                 {item.prices[1]}
                               </span>
-                            {/* );
+                              {/* );
                           })} */}
-                        </p>
-                        <p
-                          className={`pl-10 py-1.5 ${
-                            state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
-                          }`}
+                            </p>
+                            <p
+                              className={`pl-10 py-1.5 ${
+                                state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
+                              }`}
+                            >
+                              {item.title}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            {arr
+              .sort(
+                (a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]
+              )
+              .map((item, index) => {
+                return (
+                  <React.Fragment key={`item${index}`}>
+                    {state.chosen !== item.catId && (
+                      <motion.div
+                        // className='font-bold text-3xl text-belplit24_2'
+                        initial='initial'
+                        animate='animate'
+                        variants={animations.opacity.variants}
+                        transition={animations.opacity.transition}
+                      >
+                        <div
+                          onMouseEnter={() =>
+                            setState((state) => {
+                              return { ...state, hover: index };
+                            })
+                          }
+                          onMouseLeave={() =>
+                            setState((state) => {
+                              return { ...state, hover: null };
+                            })
+                          }
+                          className={`relative overflow-hidden`}
                         >
-                          {item.title}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                )
-              );
-            })}
+                          <img
+                            className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
+                            src={item.imgs}
+                            alt
+                            width='370'
+                            height='256'
+                          />
+                          <div
+                            className={`absolute inset-0 bg-black ${
+                              state.hover === index ? `opacity-0` : `opacity-50`
+                            } transition-all`}
+                          ></div>
+                          <div className={`absolute w-full bottom-6 text-slate-100`}>
+                            <p className={`bg-belplit24_2 text-slate-100 font-bold pl-10 text-xl py-1`}>
+                              {/* {item.prices.map((item_inner, index_inner) => {
+        return ( */}
+                              <span key={`ITEMPRICE${index}`}>
+                                {item.prices[0]}
+                                {' ₸ '}
+                                {item.prices[1]}
+                              </span>
+                              {/* );
+      })} */}
+                            </p>
+                            <p
+                              className={`pl-10 py-1.5 ${
+                                state.hover === index && `text-slate-800 bg-zinc-100 bg-opacity-70`
+                              }`}
+                            >
+                              {item.title}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
           </div>
           <br />
           <hr />
