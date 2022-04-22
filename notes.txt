@@ -1,1 +1,2 @@
 certbot --nginx -d xn----9sbe9ab0ahp.xn--p1ai -d www.xn----9sbe9ab0ahp.xn--p1ai
+https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json

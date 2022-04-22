@@ -1,0 +1,277 @@
+{
+    "metaThemeColor": "#1a1520",
+    "logo": "#62a044",
+    "styles": {
+        "buttons": "cursor-pointer font-bold w-min min-w-xs whitespace-nowrap rounded-md shadow-md py-2 px-4 uppercase text-xl text-center"
+    },
+    "bg": {
+        "header": {
+            "color": {
+                "main": "zinc-100",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "catalog": {
+            "color": {
+                "main": "bp_green_2",
+                "s1": "white",
+                "s2": "zinc-100",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "contacts": {
+            "color": {
+                "main": "zinc-100",
+                "s1": "bp_green_2",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "footer": {
+            "color": {
+                "main": "zinc-100",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "sections": {
+            "MainScreenM0": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM0": {
+                "color": {
+                    "main": "bp_green_3",
+                    "s1": "zinc-100",
+                    "s2": "zinc-800",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM1": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-800",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM2": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-800",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM3": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            }
+        }
+    },
+    "text": {
+        "header": {
+            "color": {
+                "main": "zinc-900",
+                "s1": "zinc-900",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "catalog": {
+            "color": {
+                "main": "bp_green_2",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "contacts": {
+            "color": {
+                "main": "bp_green_2",
+                "s1": "zinc-900",
+                "s2": "zinc-100",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "footer": {
+            "color": {
+                "main": "zinc-100",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "sections": {
+            "MainScreenM0": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-800",
+                    "hover": "bp_green_2",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM0": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM1": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM2": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-100",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM3": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            }
+        }
+    },
+    "borders": {
+        "header": {
+            "color": {
+                "main": "zinc-100",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "catalog": {
+            "color": {
+                "main": "zinc-100",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "contacts": {
+            "color": {
+                "main": "bp_green_2",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "footer": {
+            "color": {
+                "main": "zinc-100",
+                "s1": "zinc-100",
+                "s2": "zinc-800",
+                "hover": "bp_green_2",
+                "active": "bp_red_2"
+            }
+        },
+        "sections": {
+            "MainScreenM0": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM0": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM1": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM2": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            },
+            "PromoM3": {
+                "color": {
+                    "main": "bp_green_2",
+                    "s1": "zinc-100",
+                    "s2": "zinc-900",
+                    "hover": "bp_green_3",
+                    "active": "bp_green_3",
+                    "buttons": "zinc-100"
+                }
+            }
+        }
+    }
+}

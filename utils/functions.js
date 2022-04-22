@@ -4,11 +4,6 @@ export const plitaosb3ru = (inputArr) => {
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Производитель').value,
       infos: item.title,
-      // sizes: {
-      //   a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
-      //   b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
-      //   h: parseInt(item.options.find(({ key }) => key === 'Толщина').value.replace(' мм', '')),
-      // },
       prices: item.cost,
       priceFor: item.unit,
       show: item.visible,

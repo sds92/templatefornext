@@ -67,10 +67,19 @@ const Home = (props: HomeProps) => {
 };
 
 export default Home;
- // @ts-ignore
+// @ts-ignore
 export async function getStaticProps({ params, ...props }) {
   let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
-  let products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
+  let products = [];
+  try {
+    products = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
+      res.json()
+    );
+    transform(products)
+  } catch (err) {
+    products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
+  }
+  console.log("🚀 ~ file: index.tsx ~ line 80 ~ getStaticProps ~ products", products)
   let pages = JSON.parse(fs.readFileSync('data/pages.ru.json', 'utf8'));
   let theme = JSON.parse(fs.readFileSync('data/theme.json', 'utf8'));
   return {
