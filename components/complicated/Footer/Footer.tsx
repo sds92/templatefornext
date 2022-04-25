@@ -1,6 +1,7 @@
 import React from 'react';
 // import dynamic from 'next/dynamic';
 import Map from './Map';
+import { useInView } from 'react-intersection-observer';
 
 import { Icons } from '..';
 
@@ -15,14 +16,15 @@ const Footer = (props: FooterProps) => {
   const { theme, app } = props;
   const { contacts } = app;
   const Logo = Icons[app?.logo || 'Belplit24'];
+  const { ref, inView, entry } = useInView({
+    threshold: 0,
+  });
   return (
     <>
-      <div className={`h-96 cursor-default overflow-hidden`}>
-        {contacts.addresses.length > 0 && (
-          <React.Suspense fallback={<div>Загрузка...</div>}>
+      <div ref={ref} className={`h-96 cursor-default overflow-hidden`}>
+        {contacts.addresses.length > 0 && inView &&
             <Map contacts={contacts} />
-          </React.Suspense>
-        )}
+        }
       </div>
       <footer className={`bg-${theme.bg.footer.color.main} overflow-hidden`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
