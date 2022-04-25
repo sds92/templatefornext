@@ -11,6 +11,8 @@ module.exports = {
   presets: [],
   darkMode: 'media', // or 'class'
   safelist: [
+    '-z-10',
+    'z-10',
     'h-16',
     'h-20',
     'pb-5',
@@ -33,6 +35,7 @@ module.exports = {
     'hover:text-zinc-100',
     'hover:text-bp_green',
     'hover:text-bp_green_2',
+    'hover:text-bp_red_2',
     'hover:bg-bp_green',
     'hover:bg-bp_green_2',
     'hover:bg-bp_green_3',

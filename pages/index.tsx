@@ -20,6 +20,7 @@ const Home = (props: HomeProps) => {
   const { pages, products, theme, app } = props;
   const [loading, setLoading] = React.useState<boolean>(true);
   const [w, setW] = React.useState<number | undefined>(undefined);
+  const [h, setH] = React.useState<number | undefined>(undefined);
   const router = useRouter();
 
   React.useEffect(() => {
@@ -29,13 +30,14 @@ const Home = (props: HomeProps) => {
     }, 1000);
     window.addEventListener('resize', () => {
       setW(window.innerWidth);
+      setH(window.innerHeight);
     });
   }, []);
 
   return (
     w && (
       <motion.div
-        className={``}
+        className={`cursor-default`}
         initial='initial'
         animate='animate'
         exit='exit'
@@ -55,6 +57,7 @@ const Home = (props: HomeProps) => {
                     section.model.toLocaleLowerCase().includes('catalog') && products,
                   ]}
                   w={w}
+                  h={h}
                   key={`section${i}`}
                 />
               )
@@ -72,14 +75,14 @@ export async function getStaticProps({ params, ...props }) {
   let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
   let products = [];
   try {
-    products = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
-      res.json()
-    );
+    // products = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
+    //   res.json()
+    // );
     transform(products)
   } catch (err) {
     products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
   }
-  console.log("🚀 ~ file: index.tsx ~ line 80 ~ getStaticProps ~ products", products)
+  // console.log("🚀 ~ file: index.tsx ~ line 80 ~ getStaticProps ~ products", products)
   let pages = JSON.parse(fs.readFileSync('data/pages.ru.json', 'utf8'));
   let theme = JSON.parse(fs.readFileSync('data/theme.json', 'utf8'));
   return {

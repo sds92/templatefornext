@@ -11,6 +11,7 @@ interface IFeedBackProps extends IFormProps {
   readonly formType?: string;
   contacts: IApp['contacts'];
   onFullfilled?: (a: string) => void;
+  readonly incol?: boolean;
 }
 
 type FormState = {
@@ -24,15 +25,9 @@ const defaultInput = {
   feedBackFormEmail: '',
 };
 
-const classNames = {
-  textarea: `w-full p-2 focus:outline focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-inner`,
-  label: ``,
-  input: `basis-full md:basis-1/2 rounded-sm focus:outline focus:outline-bp_green_4 focus:outline-1 h-10 px-2 shadow-sm`,
-  ff: `basis-full md:basis-1/2 my-1 px-1`,
-};
 
-const FeedBackForm = (props:IFeedBackProps) => {
-  const { theme, contacts, onFullfilled, app } = props;
+const FeedBackForm = (props: IFeedBackProps) => {
+  const { theme, contacts, onFullfilled, app, incol } = props;
   // const { contacts } = app;
   const router = useRouter();
   const [formStatus, setFormStatus] = React.useState<string>('ready');
@@ -43,7 +38,13 @@ const FeedBackForm = (props:IFeedBackProps) => {
     2: false,
     3: false,
   });
-
+  
+  const classNames = {
+    textarea: `w-full p-2 focus:outline focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-inner`,
+    label: ``,
+    input: `basis-full  ${incol ? `` : `md:basis-1/2`} rounded-sm focus:outline focus:outline-bp_green_4 focus:outline-1 h-10 px-2 shadow-sm`,
+    ff: `basis-full ${incol ? `` : `md:basis-1/2`} my-1 px-1`,
+  };
   async function onChangeHandler(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, flag: string) {
     setUserInput({ ...userInput, [flag]: e.currentTarget.value });
     checkUserInput(userInput[flag as keyof FormState]);
@@ -177,7 +178,7 @@ const FeedBackForm = (props:IFeedBackProps) => {
           className={`flex flex-col justify-center items-center max-w-xl mx-auto px-2`}
           userSbmtButton
         >
-          <div className={`flex flex-wrap md:flex-nowrap w-full gap-1 my-1`}>
+          <div className={`flex flex-wrap ${incol ? `` : `md:flex-nowrap`} w-full gap-1 my-1`}>
             <FieldWrapper
               className={[classNames.label, classNames.input]}
               id={'feedBackFormName'}
@@ -212,7 +213,7 @@ const FeedBackForm = (props:IFeedBackProps) => {
             rows={4}
             required
           />
-          <div className={`flex flex-wrap md:flex-nowrap w-full gap-1 my-1`}>
+          <div className={`flex flex-wrap ${incol ? ` ` : `md:flex-nowrap`} w-full gap-1 my-1`}>
             <FieldWrapper
               className={[classNames.label, classNames.input]}
               id={'feedBackFormEmail'}
@@ -225,7 +226,10 @@ const FeedBackForm = (props:IFeedBackProps) => {
             />
             <button
               type='submit'
-              className={`whitespace-nowrap shadow-md text-xl text-centercursor-pointer font-bold uppercase w-full h-10 rounded-sm md:w-1/2 bg-${theme.bg.contacts.color.s1} text-${theme.text.contacts.color.s2}`}
+              style={{
+                textShadow: `2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3)`,
+              }}
+              className={`whitespace-nowrap shadow-md text-xl text-centercursor-pointer font-bold uppercase w-full h-10 rounded-sm ${incol ? ` ` : `md:w-1/2`} hover:scale-105 transition-all duration-75 bg-${theme.bg.contacts.color.s1} text-${theme.text.contacts.color.s2}`}
             >
               Отправить
             </button>

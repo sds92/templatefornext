@@ -160,7 +160,7 @@ type Section = {
   text?: string | string[];
   price?: string | string[];
   blocks?: Array<ISectionBlock>;
-  images?: string[] | string;
+  images?: string[];
   buttons?: Button[];
   productModel: string;
   footer?: ISectionBlock;

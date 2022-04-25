@@ -75,6 +75,7 @@ const imagesSM = [
 type CardsGridProps = {};
 
 const CardsGrid = (props: any) => {
+  const { imgs } = props || imagesSM;
   const [px, setPx] = React.useState<number>(0);
   const directionRef = React.useRef('left');
   const componentRef = React.useRef<HTMLElement>();
@@ -115,7 +116,7 @@ const CardsGrid = (props: any) => {
     <div className={`relative w-screen my-4 flex flex-col items-center`}>
       <div
         ref={componentRef as React.LegacyRef<HTMLDivElement>}
-        className={`absolute left-0 flex gap-4 h-screen transition-all `}
+        className={`absolute left-0 flex gap-4 h-screen transition-all`}
         style={{
           height: `70vh`,
         }}
