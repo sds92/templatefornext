@@ -32,10 +32,9 @@ export default function SM({ menu, app, theme }) {
               <Link
                 key={`MENUITEM${index}`}
                 activeClass='active'
-                to={item[1].replaceAll('#', '')}
+                to={item[1].replace('#', '')}
                 spy={true}
                 smooth={true}
-                hashSpy={true}
                 offset={-65}
                 duration={500}
                 delay={0}

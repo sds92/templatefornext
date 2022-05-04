@@ -229,7 +229,7 @@ export default function CatalogAlt1(props) {
                       <div className={`relative`}>
                         <img
                           className={`rounded-full overflow-hidden cursor-pointer`}
-                          src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${i + 1}sm.jpg`}
+                          src={`images/shinglas/products/${state.chosenType}/${title}/${i + 1}sm.webp`}
                         ></img>
 
                         {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
@@ -249,10 +249,10 @@ export default function CatalogAlt1(props) {
             >
               <img
                 className={`w-full`}
-                src={`images/shinglas-rus.ru/products/${state.chosenType}/${title}/${
+                src={`images/shinglas/products/${state.chosenType}/${title}/${
                   state.chosenColor[0] + 1
-                }.jpg`}
-                alt
+                }.webp`}
+                alt=''
                 
               />
             </div>

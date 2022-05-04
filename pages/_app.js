@@ -2,31 +2,15 @@ import React from 'react';
 
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
-import pages from '../data/pages.json';
-import app from '../data/app.json';
+import pages from '../shinglas/pages.json';
+import app from '../shinglas/app.json';
 import theme from '../utils/theme';
 
-/**
- * 0 - plitaosb-3.ru
- * 1 - plitaosb-3.kz
- * 2 - belplit24.ru
- * 3 - fanera.site
- * 4 - csptamak.site
- * 5 - pilomateriali.site
- * 6 - shinglas-rus.ru
- *
- */
-
-const siteId = 6;
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
 
   React.useEffect(() => {
     setW(window.innerWidth);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
     window.addEventListener(
       'resize',
       () => {
@@ -46,23 +30,18 @@ function MyApp({ Component, pageProps }) {
     ],
     w: w,
     lgView: w >= 900,
-    ymNum: app[siteId].api.ym,
-    app: app[siteId],
-    input: pages[siteId],
+    ymNum: app.api.ym,
+    app: app,
+    input: pages,
     theme: theme('black'),
     ...pageProps,
   };
 
   return (
     <>
-      {loading && <Preloader />}
-      {!loading && (
-        <div>
-          <Head head={newProps.input.head}></Head>
-          <Component {...newProps} />
-          <Footer app={newProps.app} />
-        </div>
-      )}
+      <Head head={newProps.input.head}></Head>
+      <Component {...newProps} />
+      <Footer app={newProps.app} />
       <script
         type='text/javascript'
         dangerouslySetInnerHTML={{

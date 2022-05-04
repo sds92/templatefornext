@@ -7,7 +7,7 @@ export default function Map({ app }) {
       width='100%'
       height='100%'
       frameBorder='1'
-      allowFullScreen='true'
+      allowFullScreen={true}
     ></iframe>
   );
 }

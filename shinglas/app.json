@@ -1,0 +1,37 @@
+
+  {
+    "id": 6,
+    "url": "shinglas.ru",
+    "api": {
+      "ym": "69799024",
+      "email": "https://xn--j1ano.com/sendmail",
+      "products": "https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json",
+      "serv": "https://xn--j1ano.com/"
+    },
+    "title": "Гибкая черепица Shinglas",
+    "copyright": [
+      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    ],
+    "productTitle": "Гибкая черепица",
+    "contacts": {
+      "phones": ["+7 (495) 846-73-75"],
+      "emails": ["shinglas-rus@yandex.ru"],
+      "addresses": [
+        {
+          "title": "Офис",
+          "value": "г. Москва, Проектируемый проезд № 134, вл 4",
+          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
+        }
+      ],
+      "socials": [
+        ["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]
+      ]
+    },
+    "workingHoars": {
+      "title": "Время работы",
+      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
+    },
+    "desc": "Гибкая черепица Shinglas",
+    "v": "1.4"
+  }
+

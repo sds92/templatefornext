@@ -15,7 +15,7 @@ export default function Gallery(props) {
         {imgs.map((item, index) => (
           <div key={`IMG${index}`} className={`flex-none`}>
             <div className={`relative`}>
-              <img className={``} src={`${item[0]}.jpg`} alt width='370' height='256' />
+              <img className={``} src={`${item[0]}.jpg`} alt='' width='370' height='256' />
               <div
                 className={`absolute inset-0 bg-black bg-opacity-30 md:bg-opacity-0 hover:bg-opacity-30 duration-500 transition-all`}
               >

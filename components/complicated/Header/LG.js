@@ -17,7 +17,7 @@ export default function LG({ menu, app, theme }) {
           >
             <Link
               activeClass={`text-belplit24_2`}
-              to={item[1].replaceAll('#', '')}
+              to={item[1].replace('#', '')}
               spy={true}
               smooth={true}
               offset={-80}
