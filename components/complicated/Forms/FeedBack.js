@@ -154,8 +154,8 @@ export default function FeedBack(props) {
                       return { ...state, clientPhone: e.target.value };
                     });
                   }}
-                  mask='+7\ (999) 999 99 99'
-                  maskChar='_'
+                  // mask='[9] (999) 999 99 99'
+                  // maskChar='_'
                 />
               </div>
             </div>
@@ -201,19 +201,19 @@ export default function FeedBack(props) {
             <div className={`${classes.ff} cursor-pointer`}>
               <div
                 onClick={sendForm}
-                className={`w-full h-full pt-5 pb-4 form-button ${theme.bg.buttons} rounded-md text-slate-100 text-center hover:font-bold transition-all`}
+                className={`w-full h-full pt-5 pb-4 form-button ${theme.bg.buttons} rounded-md text-slate-100 text-center transition-all`}
               >
                 Отправить
               </div>
             </div>
           </div>
         )}
-        {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-100`}>Отправка запроса</p>}
+        {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-800`}>Отправка запроса</p>}
         {formStatus === 'complete' && (
-          <p className={`text-center py-10 text-zinc-100`}>Запрос успешно отправлен. Спасибо за обращение!</p>
+          <p className={`text-center py-10 text-zinc-800`}>Запрос успешно отправлен. Спасибо за обращение!</p>
         )}
         {formStatus === 'error' && (
-          <p className={`text-center py-10 text-zinc-100`}>
+          <p className={`text-center py-10 text-zinc-800`}>
             Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.
           </p>
         )}

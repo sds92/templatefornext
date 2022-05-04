@@ -48,7 +48,8 @@ export default function Contacts({ app, theme }) {
                 />
                 <p className={classes.contactsTitle}>АДРЕС:</p>
               </div>
-              <Text className={`ml-8 font-light`}>{app.contacts.addresses[0].value}</Text>
+              
+              {app.contacts.addresses.map((item, i) => (<Text key={`address${i}`} className={`ml-8 font-light`}>{`${item.title}: ${item.value}`}</Text>))}
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex h-6 mx-0.5`}>

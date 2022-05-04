@@ -165,7 +165,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                             return ( */}
                               <span key={`ITEMPRICE${index}`}>
                                 {item.prices[0]}
-                                {' ₸ '}
+                                {' ₽ '}
                                 {item.prices[1]}
                               </span>
                               {/* );
@@ -194,7 +194,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   <React.Fragment key={`item${index}`}>
                     {state.chosen !== item.catId && (
                       <motion.div
-                        // className='font-bold text-3xl text-belplit24_2'
+                        className='cursor-pointer'
                         initial='initial'
                         animate='animate'
                         variants={animations.opacity.variants}
@@ -231,7 +231,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         return ( */}
                               <span key={`ITEMPRICE${index}`}>
                                 {item.prices[0]}
-                                {' ₸ '}
+                                {' ₽ '}
                                 {item.prices[1]}
                               </span>
                               {/* );
