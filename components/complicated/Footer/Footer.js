@@ -1,9 +1,6 @@
 import React from 'react';
-// import dynamic from 'next/dynamic';
 import Map from './Map';
 import { Icons } from '..';
-
-// const Map = React.lazy(() => import('./Map'));
 
 export default function Footer({ app }) {
   return (

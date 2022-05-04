@@ -2,8 +2,8 @@ import React from 'react';
 
 import '../styles/tailwind.css';
 import { Footer, Head } from '../components/complicated';
-import pages from '../data/pages.json';
-import app from '../data/app.json';
+import pages from '../osbplita/pages.json';
+import app from '../osbplita/app.json';
 import theme from '../utils/theme';
 
 function MyApp({ Component, pageProps }) {

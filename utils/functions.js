@@ -1,9 +1,4 @@
-const fs = require('fs');
-
-
-
 export const plitaosb3ru = (inputArr) => {
-  console.log('🚀 ~ file: functions.js ~ line 2 ~ plitaosb3ru ~ inputArr', inputArr);
 
   let arr = [];
   return inputArr

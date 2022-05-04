@@ -215,7 +215,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                         >
                           <img
                             className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                            src={item.imgs}
+                            src={'/images/osb/product.webp'}
                             alt
                             width='370'
                             height='256'

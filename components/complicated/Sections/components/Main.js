@@ -52,7 +52,7 @@ export default function Main({ app, content, lgView, theme }) {
       <div
         className={`p-10 w-full md:w-6/12 h-full absolute right-0 ${!lgView && 'opacity-30'}`}
         style={{
-          background: `no-repeat url(${content[3]}.png)`,
+          background: `no-repeat url(${content[3]}.webp)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
