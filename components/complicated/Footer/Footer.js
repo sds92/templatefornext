@@ -1,14 +1,16 @@
 import React from 'react';
 import Map from './Map';
+import { useInView } from 'react-intersection-observer';
 
 import { Icons } from '..';
 
 export default function Footer({ app }) {
+  const { ref, inView, entry } = useInView({
+    threshold: 0,
+  });
   return (
     <>
-      <div className={`h-96 cursor-default`}>
-        <Map app={app} />
-      </div>
+      <div className={`h-96 cursor-default`}>{inView && <Map app={app} />}</div>
       <footer className={`bg-belplit24`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
           <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
