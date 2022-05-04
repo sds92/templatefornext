@@ -1,20 +1,16 @@
 import React from 'react';
 
 import '../styles/tailwind.css';
-import { Footer, Head, Preloader } from '../components/complicated';
+import { Footer, Head } from '../components/complicated';
 import pages from '../data/pages.json';
 import app from '../data/app.json';
 import theme from '../utils/theme';
 
 function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = React.useState(true);
   const [w, setW] = React.useState(undefined);
 
   React.useEffect(() => {
     setW(window.innerWidth);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
     window.addEventListener(
       'resize',
       () => {
@@ -43,16 +39,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {loading && <Preloader />}
-      {!loading && (
-        <>
-          <div>
-            <Head head={newProps.input.head}></Head>
-            <Component {...newProps} />
-            <Footer app={newProps.app} />
-          </div>
-        </>
-      )}
+      <Head head={newProps.input.head}></Head>
+      <Component {...newProps} />
+      <Footer app={newProps.app} />
       <script
         type='text/javascript'
         dangerouslySetInnerHTML={{
