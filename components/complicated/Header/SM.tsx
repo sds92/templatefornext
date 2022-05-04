@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './styles/SM.module.sass';
 
 // etc
-import { Icons } from '..';
 import { Link } from 'react-scroll';
+import { Logos, Icons } from '../';
 
 type SMProps = {
   theme: ITheme;
@@ -14,13 +14,12 @@ const SM: React.FC<SMProps> = (props) => {
   const { theme, app } = props;
   const menu = app.menu;
   const [isActive, setIsActive] = React.useState<boolean>(false);
-  console.log("🚀 ~ file: SM.tsx ~ line 17 ~ isActive", isActive)
   // TODO: fix
   // @ts-ignore
-  const Icon = Icons[app?.logo || 'Belplit24'];
+  const Logo = Logos[app?.logo as string];
   return (
     <>
-      <nav className={`bg-${theme.bg.header.color.main} flex justify-between items-center h-full`}>
+      <nav className={`bg-${theme.bg.header.color.main} flex justify-between items-center h-full shadow-md`}>
         <div className='basis-1/3'>
           <Icons.Menu
             w={14}
@@ -31,7 +30,7 @@ const SM: React.FC<SMProps> = (props) => {
         </div>
         <div className={`basis-1/3 flex justify-center`}>
           <a className={`self-center`} href='#main' title={app?.url || ''}>
-            <Icon fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
+            <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
           </a>
         </div>
         <div className={`basis-1/3`}></div>
@@ -60,7 +59,7 @@ const SM: React.FC<SMProps> = (props) => {
               >
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.color.hover} hover:bg-${theme.bg.header.color.hover} active:bg-${theme.bg.header.color.active}`}
+                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.color.s2} hover:bg-${theme.bg.header.color.hover} active:bg-${theme.bg.header.color.active}`}
                 >
                   <a href='#main'>{item[0]}</a>
                 </div>
@@ -78,7 +77,7 @@ const SM: React.FC<SMProps> = (props) => {
             <p className={styles.menu_list_address}>{app.contacts.addresses[0]?.value}</p>
             <div className={`flex justify-center`}>
               <a className={`self-center`} href='#main' title={app?.url || ''}>
-                <Icon fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
+                <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
               </a>
             </div>
           </div>

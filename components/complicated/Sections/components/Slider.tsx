@@ -1,18 +1,10 @@
 import React from 'react';
-import Link from 'next/link';
-import useInterval from 'utils/hooks/useInterval';
-import Image from 'next/image';
 
-const classes = {
-  show: 'opacity-0',
-  hide: 'opacity-100',
-};
-
-type CardsGridProps = {
+type SliderProps = {
   imgs: string[];
 };
 
-const CardsGrid = (props: CardsGridProps) => {
+const Slider = (props: SliderProps) => {
   const { imgs } = props;
   const [curImg, setCurImg] = React.useState<number>(0);
   const pxRef = React.useRef(0);
@@ -47,4 +39,4 @@ const CardsGrid = (props: CardsGridProps) => {
     </>
   );
 };
-export default CardsGrid;
+export default Slider;

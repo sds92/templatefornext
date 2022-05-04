@@ -12,7 +12,7 @@ type CatalogProps = {
   w: number;
 };
 
-const CatalogM0: React.FC<CatalogProps> = (props: CatalogProps) => {
+const CatalogM0 = (props: CatalogProps) => {
   const { theme, w, data } = props;
   const [content, contacts, products] = data;
 

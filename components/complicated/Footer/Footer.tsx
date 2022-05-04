@@ -5,8 +5,6 @@ import { useInView } from 'react-intersection-observer';
 
 import { Icons } from '..';
 
-// const LazyMap = React.lazy(() => <Map/>);
-
 type FooterProps = {
   theme: ITheme;
   app: IApp;
@@ -22,9 +20,7 @@ const Footer = (props: FooterProps) => {
   return (
     <>
       <div ref={ref} className={`h-96 cursor-default overflow-hidden`}>
-        {contacts.addresses.length > 0 && inView &&
-            <Map contacts={contacts} />
-        }
+        {contacts.addresses.length > 0 && inView && <Map contacts={contacts} />}
       </div>
       <footer className={`bg-${theme.bg.footer.color.main} overflow-hidden`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
@@ -34,17 +30,6 @@ const Footer = (props: FooterProps) => {
             </a>
           </div>
 
-          <div
-            className={`my-4 flex items-center gap-6 text-${theme.text.footer.color.s2} cursor-default mr-2`}
-          >
-            <Icons.Roboweb extraClasses={`w-10 h-10`} fill={`${theme.logoRoboWebColor}`} />
-            <p>
-              © 2022. Сайт создан с помощью{' '}
-              <a className={`font-bold`} href='https://roboweb.team'>
-                RoboWeb.Team
-              </a>
-            </p>
-          </div>
         </div>
       </footer>
     </>

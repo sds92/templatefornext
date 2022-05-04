@@ -40,18 +40,20 @@ const FeedBackForm = (props: IFeedBackProps) => {
   });
   
   const classNames = {
-    textarea: `w-full p-2 focus:outline focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-inner`,
+    textarea: `w-full p-2 focus:outline border focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-inner`,
     label: ``,
-    input: `basis-full  ${incol ? `` : `md:basis-1/2`} rounded-sm focus:outline focus:outline-bp_green_4 focus:outline-1 h-10 px-2 shadow-sm`,
+    input: `basis-full  ${incol ? `` : `md:basis-1/2`} rounded-sm focus:outline border focus:outline-bp_green_4 focus:outline-1 h-10 px-2 shadow-sm`,
     ff: `basis-full ${incol ? `` : `md:basis-1/2`} my-1 px-1`,
   };
   async function onChangeHandler(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, flag: string) {
     setUserInput({ ...userInput, [flag]: e.currentTarget.value });
-    checkUserInput(userInput[flag as keyof FormState]);
+    checkUserInput(userInput[flag as keyof FormState], flag);
     return;
   }
 
-  function checkUserInput(input: string) {
+  function checkUserInput(input: string, flag: string) {
+    console.log("🚀 ~ file: FeedBackForm.tsx ~ line 55 ~ checkUserInput ~ flag", flag)
+    console.log("🚀 ~ file: FeedBackForm.tsx ~ line 55 ~ checkUserInput ~ input", input)
     const checker = {
       feedBackFormName: () =>
         Promise.resolve(/^[а-я, А-Я, a-z, A-Z]{3,20}$/.test(userInput.feedBackFormName)),
@@ -74,6 +76,7 @@ const FeedBackForm = (props: IFeedBackProps) => {
               )
             ),
     };
+    
   }
 
   // TODO: beautify the logic of processing the unrequired fields
@@ -119,6 +122,7 @@ const FeedBackForm = (props: IFeedBackProps) => {
   async function sendForm(e: React.FormEvent) {
     e.preventDefault();
     let check = await checkForm();
+    console.log("🚀 ~ file: FeedBackForm.tsx ~ line 122 ~ sendForm ~ check", check)
     if (!check) {
       return;
     }

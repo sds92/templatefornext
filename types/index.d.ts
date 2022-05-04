@@ -121,6 +121,10 @@ interface IApp {
   menu: Imenu;
   content: {
     template: Section[];
+    preHeader?: Section;
+  };
+  misc: {
+    slider: string[];
   };
 }
 interface IContacts {
@@ -129,6 +133,7 @@ interface IContacts {
   addresses: Address[];
   workingHoars: string[];
   socials: string[];
+  requisites?: { title: string; value: string }[];
 }
 type Address = {
   title: string | string[];
@@ -164,7 +169,10 @@ type Section = {
   buttons?: Button[];
   productModel: string;
   footer?: ISectionBlock;
-
+  filters?: {
+    key: string;
+    value: string;
+  }[];
   // [Symbol.iterator]();
 };
 
@@ -193,6 +201,10 @@ interface IProductOption {
   coef: number;
   connectionType: number;
   density: number;
+  slices?: string;
+  collection?: string;
+  color?: string;
+  image?: string;
 }
 type ProductPrice = {
   city: string;
@@ -201,6 +213,12 @@ type ProductPrice = {
 interface IProductDesc {
   title: string;
   value: string | IProductDesc | IProductDesc[];
+}
+
+interface IFilter {
+  key: string;
+  title: string;
+  values: string[] | [[]];
 }
 
 // missing declarations

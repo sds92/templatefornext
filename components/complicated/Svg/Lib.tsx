@@ -59,6 +59,7 @@ function Store(props: SVGImageProps) {
 }
 const MemoStore = React.memo(Store);
 
+
 const Lib: { [key: string]: React.FC<SVGImageProps> } = {
   Calc: MemoCalc,
   Circullar: MemoCircullar,

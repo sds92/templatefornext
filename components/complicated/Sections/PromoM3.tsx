@@ -10,7 +10,7 @@ type SectionProps = {
   w: number;
 };
 
-const PromoM3: React.FC<SectionProps> = (props: SectionProps) => {
+const PromoM3 = (props: SectionProps) => {
   const { theme, w, data } = props;
   const [content, contacts] = data;
   return (

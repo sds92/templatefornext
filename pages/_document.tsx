@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/do
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps};
+    return { ...initialProps };
   }
 
   render() {
@@ -15,6 +15,14 @@ class MyDocument extends Document {
           <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
           <link
             href='https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap'
+            rel='stylesheet'
+          ></link>
+          <link
+            href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap'
+            rel='stylesheet'
+          ></link>
+          <link
+            href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap'
             rel='stylesheet'
           ></link>
         </Head>

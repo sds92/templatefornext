@@ -18,8 +18,7 @@ const Layout = (props: LayoutProps) => {
       <UserHead head={pages.find((item) => item.path === router.route)?.head} />
       <Header w={w} app={app} theme={theme} />
       {children && children}
-      {/* <Contacts app={app} theme={theme}/> */}
-      <Footer app={app} theme={theme}/>
+      {/* <Footer app={app} theme={theme}/> */}
     </>
   );
 };

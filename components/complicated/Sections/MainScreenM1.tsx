@@ -3,83 +3,81 @@ import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { animations } from '../../../styles/animations';
 import { CardsGrid, Slider } from './components';
-import FeedBackForm from '../Forms/FeedBackForm';
+import FeedBack from '../Forms/FeedBack';
+import { SectionWrapper } from './components';
 
 type SectionProps = {
   theme: ITheme;
   data: [Section, IApp['contacts']];
   w: number;
   h: number;
+  app: IApp;
 };
 
 const MainScreenM1 = (props: SectionProps) => {
-  const { theme, w, h, data } = props;
+  const { theme, w, h, data, app } = props;
   const [content, contacts] = data;
   return (
     <>
-      <section
-        id={content.id}
-        style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
-        className={`w-full h-auto relative flex flex-col justify-between overflow-hidden z-10`}
-      >
-        <div className={`absolute h-full w-full`}>
+      <SectionWrapper id={content.id} theme={theme} w={w}>
+        <div className={`absolute bg-black bg-opacity-20 w-full h-full z-20`}></div>
+        <div className={`absolute w-full h-[100vh]`}>
           <Slider imgs={content.images as string[]} />
         </div>
 
         <div
-          className={`z-20 relative rounded-r-sm zero:-left-[24px] md:absolute ${
-            h <= 500 ? 'mt-4' : 'mt-20'
-          } zero:mr-auto zero:py-4 zero:pr-6 sm:pr-10 pl-10 whitespace-nowrap text-${
-            theme.text.sections[content.model].color.main
-          } `}
+          className={`left-0 zero:-ml-4 sm:-ml-8 z-20 top-0 rounded-r-sm whitespace-nowrap ${
+            h <= 500 ? 'mt-4' : 'mt-40'
+          } text-${theme.text.sections[content.model].color.main} `}
         >
-          <div style={{width: `calc(100% + 100px)`}} className={`w-full bg-opacity-95 -skew-x-12 h-full absolute -left-10 bg-${theme.bg.sections[content.model].color.s2}`}/>
-          <Text
-          style={{
-            textShadow: `2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.1)`,
-          }}
-            className={`relative ml-20 font-black zero:pb-4 underline decoration-zinc-100 zero:text-5xl sm:text-6xl md:text-8xl whitespace-nowrap text-${
-              theme.text.sections[content.model].color.main
-            }`}
-          >
-            {content.title}
-          </Text>
-          <div className={`pl-4 ml-20 relative`}>
+          <div className={`absolute pr-8`}>
+            <div
+              // style={{ width: `calc(100% + ${w <= 500 ? '20px' : '100px'})` }}
+              className={`inset-0 bg-opacity-80 -skew-x-12 h-full absolute bg-${theme.bg.sections[content.model].color.s1}`}
+            />
             <Text
-              className={`font-thin pl-4 zero:text-sm sm:text-base md:text-lg whitespace-nowrap text-${
-                theme.text.sections[content.model].color.s1
+              style={{
+                textShadow: `2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.1)`,
+              }}
+              className={`zero:ml-6 sm:ml-10 md:ml-14 pt-2 relative font-black underline decoration-${
+                theme.text.sections[content.model].color.s2
+              } zero:text-5xl sm:text-6xl md:text-8xl whitespace-nowrap text-${
+                theme.text.sections[content.model].color.main
               }`}
             >
-              {content.subTitle}
+              {content.title}
             </Text>
+            <div className={`relative zero:py-2 md:py-4 md:pl-8`}>
+              <Text
+                className={`zero:ml-8 sm:ml-12 font-normal zero:text-sm sm:text-base md:text-lg whitespace-nowrap text-${
+                  theme.text.sections[content.model].color.s2
+                }`}
+              >
+                {content.subTitle}
+              </Text>
+            </div>
           </div>
         </div>
         {w >= 900 && (
-          
-          <div className={`bottom-20 absolute z-20 right-0 rounded-l-sm`}>
-            <div style={{width: `calc(100% + 100px)`}} className={`-right-12 skew-x-12 absolute h-full z-20 bg-opacity-95 bg-${
-            theme.bg.sections[content.model].color.s2
-          }`}> </div>
-            <div
-              className={`z-30 relative pl-2 pr-10 pb-10 flex flex-col items-center `}
-            >
-              <Text
+          <div className={`bottom-4 right-4 absolute z-20 rounded-md bg-opacity-60 `}>
+            <Text
               style={{
                 textShadow: `2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3)`,
               }}
-                className={`py-8 font-bold text-3xl uppercase text-${
-                  theme.text.sections[content.model].color.s1
-                }`}
-              >
-                Заказать обратный звонок
-              </Text>
-              <FeedBackForm contacts={contacts} theme={theme} incol={true as boolean}/>
+              className={`font-semibold text-3xl uppercase text-${
+                theme.text.sections[content.model].color.s1
+              }`}
+            >
+              Заказать обратный звонок
+            </Text>
+            <div className={`z-30 relative mx-auto py-2 flex flex-col items-center`}>
+              <FeedBack app={app} contacts={contacts} theme={theme} incol={true as boolean} />
             </div>
           </div>
         )}
-      </section>
+      </SectionWrapper>
       {w <= 900 && (
-        <div className={`z-50 w-full relative ${h <= 500 ? '' : '-mt-20'} flex flex-col bottom-0`}>
+        <div className={`z-20 w-full relative ${h <= 500 ? '' : '-mt-20'} flex flex-col bottom-0`}>
           <div
             className={`px-2 pb-10 flex flex-col items-center bg-${
               theme.bg.sections[content.model].color.s2
@@ -92,7 +90,7 @@ const MainScreenM1 = (props: SectionProps) => {
             >
               Заказать обратный звонок
             </Text>
-            <FeedBackForm contacts={contacts} theme={theme} />
+            <FeedBack app={app} contacts={contacts} theme={theme} />
           </div>
         </div>
       )}

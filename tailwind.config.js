@@ -5,6 +5,15 @@ fontFamily['sans-serif'] = [
   'Oswald', // <-- Fira Sans is a default sans font now
   // <-- you may provide more font fallbacks here
 ];
+fontFamily['fira'] = [
+  'Fira Sans', // <-- Fira Sans is a default sans font now
+  // <-- you may provide more font fallbacks here
+];
+fontFamily['mont'] = [
+  'Montserrat', // <-- Fira Sans is a default sans font now
+  // <-- you may provide more font fallbacks here
+];
+
 
 module.exports = {
   content: ['./pages/**/*.{html,js,ts,tsx}', './components/**/*.{html,js,ts,tsx}'],
@@ -45,6 +54,9 @@ module.exports = {
     '-translate-x-72',
     'focus:border-sky-100',
     {
+      pattern: /(w|h)-(1|2|3|4|5|6|7|9|9|10|11|12|13|14|15|16)/,
+    },
+    {
       pattern: /(basis)-(1\/2|1\/4|1\/3)/,
     },
     {
@@ -63,7 +75,7 @@ module.exports = {
       pattern: /(bg|border)-(opacity)-(0|10|20|30|40|50|60|70|80|90|100)/,
     },
     {
-      pattern: /(bg|text|border)-(zinc|slate|neutral|gray)-(50|100|200|300|400|500|600|700|800|900)/,
+      pattern: /(bg|text|border|decoration)-(zinc|slate|neutral|gray)-(50|100|200|300|400|500|600|700|800|900)/,
     },
     {
       pattern:
@@ -88,6 +100,7 @@ module.exports = {
       bp_black: '#1a1520',
       bp_red: '#ff0000',
       bp_red_2: '#ac0909',
+      bp_red_3: '#86142d',
       bp_gray: '#848484',
       bp_gray_2: '#454545',
       inherit: colors.inherit,

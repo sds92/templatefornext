@@ -4,7 +4,7 @@ const slideUp = {
     initial: {
       opacity: 0,
       marginBottom: '-30px',
-      overflow: 'hidden',
+      // overflow: 'hidden',
     },
     animate: {
       opacity: 1,

@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
-import { optionsToId } from 'react-intersection-observer/observe';
 import Icons from 'components/complicated/Svg/Icons';
 
 type ProductCardProps = {
@@ -12,13 +11,13 @@ type ProductCardProps = {
   theme: ITheme;
 };
 
-const ProductCardM0 = (props: ProductCardProps) => {
+const ProductCardM1 = (props: ProductCardProps) => {
   const { product, index, theme } = props;
-  console.log("🚀 ~ file: ProductCardM0.tsx ~ line 17 ~ product", product)
   const { options } = product;
   const { ref, inView, entry } = useInView({
     threshold: 0,
   });
+  
   return (
     <motion.div
       ref={ref}
@@ -54,4 +53,4 @@ const ProductCardM0 = (props: ProductCardProps) => {
   );
 };
 
-export default ProductCardM0;
+export default ProductCardM1;
