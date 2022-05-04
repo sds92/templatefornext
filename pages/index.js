@@ -1,10 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { Header, Section } from '../components/complicated';
+import { Header, Section, Footer } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import { plitaosb3ru } from '../utils/functions';
-
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
   const router = useRouter();
@@ -37,6 +36,7 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
             />
           ))}
         </motion.div>
+        <Footer app={app} />
       </>
     </body>
   );

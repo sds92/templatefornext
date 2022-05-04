@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../styles/tailwind.css';
-import { Footer, Head } from '../components/complicated';
+import { Head } from '../components/complicated';
 import pages from '../osbplita/pages.json';
 import app from '../osbplita/app.json';
 import theme from '../utils/theme';
@@ -41,7 +41,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head head={newProps.input.head}></Head>
       <Component {...newProps} />
-      <Footer app={newProps.app} />
       <script
         type='text/javascript'
         dangerouslySetInnerHTML={{
