@@ -54,10 +54,10 @@ export default function FullPage({ ...props }) {
           <Section
             key={`SECTION${index}`}
             className={`cursor-default`}
-            id={item[1].replaceAll('#', '')}
+            id={item[1].replace('#', '')}
             app={newProps.app}
             lgView={w >= 900}
-            content={newProps.input.content[item[1].replaceAll('#', '').toLowerCase()]}
+            content={newProps.input.content[item[1].replace('#', '').toLowerCase()]}
             theme={theme}
             products={newProps.products}
           />

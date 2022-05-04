@@ -26,10 +26,10 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
             <Section
               key={`SECTION${index}`}
               className={`cursor-default`}
-              id={item[1].replaceAll('#', '')}
+              id={item[1].replace('#', '')}
               app={app}
               lgView={lgView}
-              content={input.content[item[1].replaceAll('#', '').toLowerCase()]}
+              content={input.content[item[1].replace('#', '').toLowerCase()]}
               theme={theme}
               products={products}
               w={w}
