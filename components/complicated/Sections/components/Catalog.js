@@ -150,7 +150,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                           <img
                             className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
                             src={item.imgs}
-                            alt
+                            alt=''
                             width='370'
                             height='256'
                           />
@@ -216,7 +216,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                           <img
                             className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
                             src={'/images/osb/product.webp'}
-                            alt
+                            alt=''
                             width='370'
                             height='256'
                           />
