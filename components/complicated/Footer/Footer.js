@@ -22,7 +22,12 @@ export default function Footer({ app }) {
             <Icons.Roboweb extraClasses={`w-10 h-10`} />
             <p>
               © 2022. Сайт создан с помощью{' '}
-              <a className={`font-bold`} href='https://roboweb.team'>
+              <a
+                className={`font-bold`}
+                href='https://roboweb.team'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 RoboWeb.Team
               </a>
             </p>

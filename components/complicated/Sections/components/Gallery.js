@@ -15,7 +15,7 @@ export default function Gallery({ content }) {
       <div className={`flex gap-4 flex-wrap justify-center md:w-10/12 lg:w-8/12 mx-auto`}>
       {imgs.length !== 0 && (
         <>
-          <div className={`flex gap-4 flex-wrap justify-center md:w-10/12 lg:w-8/12 mx-auto`}>
+          <div className={`flex gap-4 flex-wrap justify-center `}>
             {imgs.map((item, index) => (
               <div key={`IMG${index}`} className={``}>
                 <div
@@ -31,12 +31,12 @@ export default function Gallery({ content }) {
                     })
                   }
                 >
-                  <img className={``} src={`${item[0]}.jpg`} alt width='370' height='256' />
+                  <img className={``} src={`${item[0]}.webp`} alt width='370' height='256' />
                   <div
                     className={`absolute inset-0 bg-black bg-opacity-30 md:bg-opacity-0 hover:bg-opacity-30 duration-500 transition-all overflow-hidden`}
                   >
                     <p
-                      className={`uppercase absolute bottom-0 mb-4 text-left text-slate-100 leading-5 transition-all px-2 py-1  ${
+                      className={`uppercase bg-belplit24_2 absolute bottom-0 mb-4 text-left text-slate-100 leading-5 transition-all px-2 py-1  ${
                         state.hover === index
                           ? 'bg-opacity-80 opacity-100 translate-x-0'
                           : 'bg-opacity-0 opacity-0 -translate-x-10'
