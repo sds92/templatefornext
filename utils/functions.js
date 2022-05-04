@@ -1,9 +1,14 @@
+const fs = require('fs');
+
+
+
 export const plitaosb3ru = (inputArr) => {
-  // console.log('🚀 ~ file: functions.js ~ line 2 ~ plitaosb3ru ~ inputArr', inputArr);
+  console.log('🚀 ~ file: functions.js ~ line 2 ~ plitaosb3ru ~ inputArr', inputArr);
+
   let arr = [];
   return inputArr
     .map((item) => ({
-      title: item.options.find(({ key }) => key === 'Производитель').value,
+      title: item.options.find(({ key }) => key === 'Производитель')?.value || "ОСБ",
       infos: item.title,
       // sizes: {
       //   a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),

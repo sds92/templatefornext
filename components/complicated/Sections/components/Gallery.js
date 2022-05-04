@@ -1,5 +1,6 @@
 import React from 'react';
 import { Title, SubTitle } from '../../../lib';
+import styles from './Gallery.module.css';
 
 export default function Gallery({ content }) {
   const imgs = content[2]
@@ -31,7 +32,7 @@ export default function Gallery({ content }) {
                     })
                   }
                 >
-                  <img className={``} src={`images/${data.url}/${item[0]}`} alt width='370' height='256' />
+                  <img className={``} src={`${item[0]}.jpg`} alt width='370' height='256' />
                   <div
                     className={`absolute inset-0 bg-black bg-opacity-30 md:bg-opacity-0 hover:bg-opacity-30 duration-500 transition-all overflow-hidden`}
                   >
