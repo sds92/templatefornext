@@ -1,0 +1,42 @@
+{
+  "id": 0,
+  "url": "plitaosb-3.ru/",
+  "api": {
+    "ym": "85888683",
+    "email": "https://xn--j1ano.com/sendmail",
+    "products": "https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json",
+    "serv": "https://xn--j1ano.com"
+  },
+  "title": "ОСП (OSB) ПЛИТЫ",
+  "copyright": [
+    "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+  ],
+  "productTitle": "OSB-3",
+  "contacts": {
+    "phones": [
+      "+7 (495) 260-16-02"
+    ],
+    "emails": [
+      "plitaaosb3@yandex.ru"
+    ],
+    "addresses": [
+      {
+        "title": "Офис",
+        "value": "Москва, Проектируемый проезд № 134, вл 4",
+        "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
+      }
+    ],
+    "socials": [
+      [
+        "Whatsapp",
+        "https://wa.me/+79585815196?text=Здравствуйте..."
+      ]
+    ]
+  },
+  "workingHoars": {
+    "title": "Время работы",
+    "value": [
+      "Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"
+    ]
+  }
+}

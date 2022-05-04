@@ -1,6 +1,5 @@
 import React from 'react';
 import { Title, SubTitle } from '../../../lib';
-import styles from './Gallery.module.css';
 
 export default function Gallery({ content }) {
   const imgs = content[2]
@@ -37,9 +36,7 @@ export default function Gallery({ content }) {
                     className={`absolute inset-0 bg-black bg-opacity-30 md:bg-opacity-0 hover:bg-opacity-30 duration-500 transition-all overflow-hidden`}
                   >
                     <p
-                      className={`uppercase absolute bottom-0 mb-4 text-left text-slate-100 leading-5 transition-all px-2 py-1 ${
-                        styles.imgTitle
-                      } bg-${theme.bg.productcardPrice} ${
+                      className={`uppercase absolute bottom-0 mb-4 text-left text-slate-100 leading-5 transition-all px-2 py-1  ${
                         state.hover === index
                           ? 'bg-opacity-80 opacity-100 translate-x-0'
                           : 'bg-opacity-0 opacity-0 -translate-x-10'

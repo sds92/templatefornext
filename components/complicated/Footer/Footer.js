@@ -1,17 +1,15 @@
 import React from 'react';
 // import dynamic from 'next/dynamic';
-
+import Map from './Map';
 import { Icons } from '..';
 
-const Map = React.lazy(() => import('./Map'));
+// const Map = React.lazy(() => import('./Map'));
 
 export default function Footer({ app }) {
   return (
     <>
       <div className={`h-96 cursor-default`}>
-        <React.Suspense fallback={<div>Загрузка...</div>}>
-          <Map app={app} />
-        </React.Suspense>
+        <Map app={app} />
       </div>
       <footer className={`bg-belplit24`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>

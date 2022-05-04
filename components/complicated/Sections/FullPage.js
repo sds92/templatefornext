@@ -34,8 +34,8 @@ export default function FullPage({ ...props }) {
       ['Контакты', '#Contacts'],
     ],
     lgView: w >= 900,
-    app: app[2],
-    input: pages[2],
+    app: app,
+    input: pages,
     theme: theme('black'),
     ...props,
   };
