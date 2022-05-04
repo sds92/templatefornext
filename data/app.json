@@ -1,191 +1,42 @@
-[
-  {
-    "id": 0,
-    "url": "plitaosb-3.ru/",
-    "api": {
-      "ym": "85888683",
-      "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json",
-      "serv": "https://xn--j1ano.com"
-    },
-    "title": "ОСП (OSB) ПЛИТЫ",
-    "copyright": [
-      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
-    ],
-    "productTitle": "OSB-3",
-    "contacts": {
-      "phones": ["+7 (495) 260-16-02"],
-      "emails": ["plitaaosb3@yandex.ru"],
-      "addresses": [
-        {
-          "title": "Офис",
-          "value": "Москва, Проектируемый проезд № 134, вл 4",
-          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
-        }
-      ],
-      "socials": [["Whatsapp", "https://wa.me/+79585815196?text=Здравствуйте..."]]
-    },
-    "workingHoars": {
-      "title": "Время работы",
-      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
-    }
+{
+  "id": 0,
+  "url": "plitaosb-3.ru/",
+  "api": {
+    "ym": "85888683",
+    "email": "https://xn--j1ano.com/sendmail",
+    "products": "https://xn--j1ano.com/uploads/staticsites/plitaosb-3.ru.json",
+    "serv": "https://xn--j1ano.com"
   },
-  {
-    "id": 1,
-    "url": "plitaosb-3.kz/",
-    "api": {
-      "ym": "86787815",
-      "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/plitaosb-3.kz.json",
-      "serv": "https://xn--j1ano.com/"
-    },
-    "title": "ОСП (OSB) ПЛИТЫ",
-    "copyright": [
-      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+  "title": "ОСП (OSB) ПЛИТЫ",
+  "copyright": [
+    "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+  ],
+  "productTitle": "OSB-3",
+  "contacts": {
+    "phones": [
+      "+7 (495) 260-16-02"
     ],
-    "productTitle": "МДВП",
-    "contacts": {
-      "phones": ["+7 (800) 005-00-29"],
-      "emails": ["info.kz@td-csk.ru"],
-      "addresses": [
-        {
-          "title": "Офис",
-          "value": "Алматы, ул. Бокейханова, 147а",
-          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCU5a0Bt9A"
-        }
-      ],
-      "socials": [["Whatsapp", "https://wa.me/+77010124276?text=Здравствуйте..."]]
-    },
-    "workingHoars": {
-      "title": "Время работы",
-      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
-    }
-  },
-  {
-    "id": 2,
-    "url": "belplit24.ru",
-    "api": {
-      "ym": "69767887",
-      "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/belplit24.ru.json",
-      "serv": "https://xn--j1ano.com/"
-    },
-    "title": "МДВП БЕЛТЕРМО",
-    "copyright": [
-      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    "emails": [
+      "plitaaosb3@yandex.ru"
     ],
-    "productTitle": "МДВП",
-    "contacts": {
-      "phones": ["+7 (495) 120-27-35"],
-      "emails": ["stroyoptplit@mail.ru"],
-      "addresses": [
-        {
-          "title": "Офис",
-          "value": "Москва, Проектируемый проезд № 134, вл.4",
-          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
-        }
-      ],
-      "socials": [["Whatsapp", "https://wa.me/+79151012913?text=Здравствуйте!"]]
-    },
-    "workingHoars": {
-      "title": "Время работы",
-      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
-    }
-  },
-  {
-    "id": 3,
-    "url": "",
-    "api": {
-      "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/beltermo.json"
-    },
-    "title": "Пиломатериалы",
-    "copyright": [
-      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
+    "addresses": [
+      {
+        "title": "Офис",
+        "value": "Москва, Проектируемый проезд № 134, вл 4",
+        "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
+      }
     ],
-    "productTitle": "Пиломатериалы",
-    "contacts": {
-      "phones": ["+00000000000"],
-      "emails": ["email@email.ru"],
-      "addresses": [
-        {
-          "title": "Офис",
-          "value": "Город, Улица, Дом",
-          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
-        }
-      ],
-      "socials": [
-        ["Telegram", "https://t.me/+00000000000"],
-        ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
+    "socials": [
+      [
+        "Whatsapp",
+        "https://wa.me/+79585815196?text=Здравствуйте..."
       ]
-    },
-    "workingHoars": {
-      "title": "Время работы",
-      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
-    }
+    ]
   },
-  {
-    "id": 4,
-    "url": "",
-    "api": {
-      "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/beltermo.json"
-    },
-    "title": "Пленки",
-    "copyright": [
-      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
-    ],
-    "productTitle": "Пленки",
-    "contacts": {
-      "phones": ["+00000000000"],
-      "emails": ["email@email.ru"],
-      "addresses": [
-        {
-          "title": "Офис",
-          "value": "Город, Улица, Дом",
-          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
-        }
-      ],
-      "socials": [
-        ["Telegram", "https://t.me/+00000000000"],
-        ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
-      ]
-    },
-    "workingHoars": {
-      "title": "Время работы",
-      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
-    }
-  },
-  {
-    "id": 5,
-    "url": "осбплита.бел",
-    "api": {
-      "email": "https://xn--j1ano.com/sendmail",
-      "products": "https://xn--j1ano.com/uploads/staticsites/beltermo.json"
-    },
-    "title": "Сухие смеси",
-    "copyright": [
-      "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
-    ],
-    "productTitle": "Пленки \"ИЗОСПАН\"",
-    "contacts": {
-      "phones": ["+00000000000"],
-      "emails": ["email@email.ru"],
-      "addresses": [
-        {
-          "title": "Офис",
-          "value": "Город, Улица, Дом",
-          "iframe": "https://api-maps.yandex.ru/frame/v1/-/CCUYiXRD-B"
-        }
-      ],
-      "socials": [
-        ["Telegram", "https://t.me/+00000000000"],
-        ["Whatsapp", "https://wa.me/+00000000000?text=Здравствуйте..."]
-      ]
-    },
-    "workingHoars": {
-      "title": "Время работы",
-      "value": ["Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"]
-    }
+  "workingHoars": {
+    "title": "Время работы",
+    "value": [
+      "Ежедневно: <span class=\"text-bold\">8:00–20:00</span>"
+    ]
   }
-]
+}
