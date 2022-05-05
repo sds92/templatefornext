@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button, Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
+import styles from './main.module.scss';
 
 export default function Main({ app, content, lgView, theme }) {
   return (
@@ -19,7 +20,7 @@ export default function Main({ app, content, lgView, theme }) {
                   variants={animations.slideUp.variants}
                   transition={animations.slideUp.transition}
                 >
-                  <Text>{app.title}</Text>
+                  <Text className={styles['text-shadow']}>{app.title}</Text>
                 </motion.div>
                 <motion.div
                   style={{ height: '1px' }}
@@ -46,7 +47,9 @@ export default function Main({ app, content, lgView, theme }) {
               {app.contacts.phones[0]}
             </a>
           </div>
-          <Button theme={theme} href={'#Contacts'}>Оставить заявку</Button>
+          <Button theme={theme} href={'#Contacts'}>
+            Оставить заявку
+          </Button>
         </div>
       </div>
       <div
