@@ -15,7 +15,7 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
         {/* <FullPage/> */}
         <motion.div
           key={router.route.concat(animations.opacity)}
-          className='page-wrap'
+          // className='page-wrap'
           initial='initial'
           animate='animate'
           exit='exit'

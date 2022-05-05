@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head head={newProps.input.head}></Head>
-      <Component {...newProps} />
+      {w && <Component {...newProps} />}
       <script
         type='text/javascript'
         dangerouslySetInnerHTML={{
