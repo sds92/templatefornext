@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head head={newProps.input.head}></Head>
       {w && <Component {...newProps} />}
-      <script
+      {/* <script
         type='text/javascript'
         dangerouslySetInnerHTML={{
           __html: `
@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }) {
             });
           `,
         }}
-      ></script>
+      ></script> */}
     </>
   );
 }

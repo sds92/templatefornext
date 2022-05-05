@@ -25,8 +25,12 @@ export default function SM({ menu, app, theme }) {
 
         {isActive ? <div onClick={() => setIsActive(!isActive)} className={styles.overlay}></div> : ''}
       </nav>
-      <div className={`relative`} style={{marginTop: "-60px"}}>
-        <nav className={`${isActive ? `${styles.burger} translate-x-0` : `${styles.burger} -translate-x-72`} ${theme.bg} transition-all`}>
+      <div className={`relative`} style={{ marginTop: '-60px' }}>
+        <nav
+          className={`${isActive ? `${styles.burger} translate-x-0` : `${styles.burger} -translate-x-72`} ${
+            theme.bg
+          } transition-all`}
+        >
           <ul className={styles.burger_list + ` ${theme.bg.header}`}>
             {menu.map((item, index) => (
               <Link
@@ -49,12 +53,12 @@ export default function SM({ menu, app, theme }) {
                     ` text-slate-100 rd-nav-link ${theme.bg.header} hover:bg-belplit24_2 active:bg-belplit24_2`
                   }
                 >
-                  <a href='#main'>{item[0]}</a>
+                  {item[0]}
                 </li>
               </Link>
             ))}
           </ul>
-          <ul className={`${styles.burger_list} ${styles.margin}` + ` ${theme.bg.header}`}>
+          <div className={`${styles.burger_list} ${styles.margin}` + ` ${theme.bg.header}`}>
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}
@@ -68,7 +72,7 @@ export default function SM({ menu, app, theme }) {
                 <Icons.Belplit24 extraClasses={`w-20 h-20`} />
               </a>
             </div>
-          </ul>
+          </div>
         </nav>
       </div>
     </>

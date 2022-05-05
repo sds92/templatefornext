@@ -9,6 +9,7 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.1.6",
     "dotenv": "16.0.0",
     "framer-motion": "6.2.9",
     "next": "latest",
