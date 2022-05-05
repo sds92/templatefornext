@@ -14,7 +14,6 @@ const SM: React.FC<SMProps> = (props) => {
   const { theme, app } = props;
   const menu = app.menu;
   const [isActive, setIsActive] = React.useState<boolean>(false);
-  console.log("🚀 ~ file: SM.tsx ~ line 17 ~ isActive", isActive)
   // TODO: fix
   // @ts-ignore
   const Icon = Icons[app?.logo || 'Belplit24'];
@@ -60,7 +59,7 @@ const SM: React.FC<SMProps> = (props) => {
               >
                 <div
                   onClick={() => setIsActive(!isActive)}
-                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.color.hover} hover:bg-${theme.bg.header.color.hover} active:bg-${theme.bg.header.color.active}`}
+                  className={`cursor-pointer h-10 pl-4 uppercase flex items-center hover:text-${theme.text.header.color.s1} hover:bg-${theme.bg.header.color.hover} active:bg-${theme.bg.header.color.active}`}
                 >
                   <a href='#main'>{item[0]}</a>
                 </div>

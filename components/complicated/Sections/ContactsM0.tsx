@@ -3,14 +3,20 @@ import { Icons } from '..';
 import { Text } from '../../lib';
 import { FeedBackForm } from './';
 
-const ContactsM0:React.FC<{ theme: ITheme; data: [Section, IApp['contacts']]; w: number }> = (props) => {
-  const { theme, w, data } = props;
-  const [content, contacts] = data;
+type ContactsProps = {
+  theme: ITheme;
+  data: { section: Section; contacts: IApp['contacts'], app: IApp };
+  w: number;
+};
+
+const ContactsM0 = (props: ContactsProps) => {
+  const { theme, data } = props;
+  const { section, contacts, app } = data;
   const classes = {
     contactsTitle: `pl-2 border-b border-${theme.borders.contacts.color.main} text-${theme.text.contacts.color.s1} w-full`,
   };
   return (
-    <div id={content.id} className={`bg-${theme.bg.contacts.color.main} py-10`}>
+    <div id={section.id} className={`bg-${theme.bg.contacts.color.main} py-10`}>
       <Text
         className={`uppercase zero:text-4xl sm:text-5xl md:text-7xl text-center font-black text-${theme.text.contacts.color.main}`}
       >
@@ -26,7 +32,7 @@ const ContactsM0:React.FC<{ theme: ITheme; data: [Section, IApp['contacts']]; w:
             >
               Свяжитесь с нами
             </Text>
-            <FeedBackForm theme={theme} contacts={contacts} />
+            <FeedBackForm theme={theme} contacts={contacts} app={app}/>
           </div>
 
           {/* CONTACTS */}
@@ -76,9 +82,7 @@ const ContactsM0:React.FC<{ theme: ITheme; data: [Section, IApp['contacts']]; w:
               </div>
               {contacts.addresses.map((address, i) => (
                 <div key={`address${i}`} className={`flex`}>
-                  <Text className={`ml-8 font-light`}>{address.title}</Text>
-                  {':'}&nbsp;
-                  <Text className={`ml-1 font-light`}>{address.value}</Text>
+                  <Text className={`ml-1 font-light`}>{`${address.title}: ${address.value}`}</Text>
                 </div>
               ))}
             </div>

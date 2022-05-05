@@ -18,16 +18,11 @@ type HomeProps = {
 
 const Home = (props: HomeProps) => {
   const { pages, products, theme, app } = props;
-  const [loading, setLoading] = React.useState<boolean>(true);
   const [w, setW] = React.useState<number | undefined>(undefined);
   const [h, setH] = React.useState<number | undefined>(undefined);
-  const router = useRouter();
 
   React.useEffect(() => {
     setW(window.innerWidth);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
     window.addEventListener('resize', () => {
       setW(window.innerWidth);
       setH(window.innerHeight);
@@ -51,11 +46,12 @@ const Home = (props: HomeProps) => {
               Section && (
                 <Section
                   theme={theme}
-                  data={[
-                    section,
-                    app.contacts,
-                    section.model.toLocaleLowerCase().includes('catalog') && products,
-                  ]}
+                  data={{
+                    section: section,
+                    contacts: app.contacts,
+                    products: section.model.toLocaleLowerCase().includes('catalog') && products || [],
+                    app: app
+                  }}
                   w={w}
                   h={h}
                   key={`section${i}`}
@@ -73,12 +69,15 @@ export default Home;
 // @ts-ignore
 export async function getStaticProps({ params, ...props }) {
   let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
+// @ts-ignore
   let products = [];
   try {
     // products = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
     //   res.json()
     // );
-    transform(products)
+// @ts-ignore
+
+    transform(products);
   } catch (err) {
     products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
   }

@@ -8,22 +8,22 @@ import ProductCardSelector from './productCards';
 
 type CatalogProps = {
   theme: ITheme;
-  data: [Section, IApp['contacts'], IProducts];
+  data: {section: Section, app: IApp['contacts'], products: IProducts[]};
   w: number;
 };
 
 const CatalogM0: React.FC<CatalogProps> = (props: CatalogProps) => {
   const { theme, w, data } = props;
-  const [content, contacts, products] = data;
+  const {section, products} = data;
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0,
   });
 
   return (
     <section
       ref={ref}
-      id={content.id}
+      id={section.id}
       style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
       className={`w-full flex flex-col relative pb-10 bg-${theme.bg.catalog.color.s2}`}
     >
@@ -38,19 +38,19 @@ const CatalogM0: React.FC<CatalogProps> = (props: CatalogProps) => {
         <Text
           className={`py-4`}
         >
-          {content.title}
+          {section.title}
         </Text>
       </motion.div>
-      {content.subTitle && (
+      {section.subTitle && (
         <Text
           className={`zero:text-xl sm:text-5xl my-4 text-center font-bold text-${theme.text.catalog.color.main}`}
         >
-          {content.subTitle}
+          {section.subTitle}
         </Text>
       )}
       <div className={`flex flex-wrap justify-center max-w-full mx-auto`}>
         {products.map((product, i) => {
-          const ProductCard = ProductCardSelector[content.productModel];
+          const ProductCard = ProductCardSelector[section.productModel];
           return <ProductCard key={`product${i}`} index={i} product={product} theme={theme} />;
         })}
       </div>

@@ -16,15 +16,13 @@ const Footer = (props: FooterProps) => {
   const { theme, app } = props;
   const { contacts } = app;
   const Logo = Icons[app?.logo || 'Belplit24'];
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0,
   });
   return (
     <>
       <div ref={ref} className={`h-96 cursor-default overflow-hidden`}>
-        {contacts.addresses.length > 0 && inView &&
-            <Map contacts={contacts} />
-        }
+        {contacts.addresses.length > 0 && inView && <Map contacts={contacts} />}
       </div>
       <footer className={`bg-${theme.bg.footer.color.main} overflow-hidden`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
@@ -40,7 +38,12 @@ const Footer = (props: FooterProps) => {
             <Icons.Roboweb extraClasses={`w-10 h-10`} fill={`${theme.logoRoboWebColor}`} />
             <p>
               © 2022. Сайт создан с помощью{' '}
-              <a className={`font-bold`} href='https://roboweb.team'>
+              <a
+                className={`font-bold`}
+                href='https://roboweb.team'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 RoboWeb.Team
               </a>
             </p>

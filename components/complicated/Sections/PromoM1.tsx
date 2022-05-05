@@ -6,22 +6,22 @@ import Image from 'next/image';
 
 type SectionProps = {
   theme: ITheme;
-  data: [Section, IApp['contacts']];
+  data: {section: Section, app: IApp['contacts']};
   w: number;
 };
 
 const PromoM1 = (props: SectionProps) => {
   const { theme, w, data } = props;
-  const [content, contacts] = data;
+  const { section } = data;
   return (
     <section
       style={{ minHeight: `${w >= 900 ? 'calc(100vh - 5rem)' : 'calc(100vh - 4rem)'}` }}
-      id={content.id}
+      id={section.id}
       className={`relative overflow-hidden justify-between w-full flex flex-col `}
     >
       <motion.div
         className={`text-center font-black mx-4 my-8 zero:text-4xl sm:text-5xl md:text-7xl text-${
-          theme.text.sections[content.model].color.main
+          theme.text.sections[section.model].color.main
         }`}
         initial='initial'
         animate='animate'
@@ -29,14 +29,14 @@ const PromoM1 = (props: SectionProps) => {
         variants={animations.slideUp.variants}
         transition={animations.slideUp.transition}
       >
-        <Text className={`py-4`}>{content.title}</Text>
+        <Text className={`py-4`}>{section.title}</Text>
       </motion.div>
 
       <div
         className={`relative flex flex-grow flex-col justify-center zero:self-start md:self-center my-10 zero:w-full md:w-1/2 px-8`}
       >
-        <Text className={`font-semibold -my-0.5 zero:text-base md:text-xl text-${theme.text.sections[content.model].color.s2}`}>
-          {content.text}
+        <Text className={`font-semibold -my-0.5 zero:text-base md:text-xl text-${theme.text.sections[section.model].color.s2}`}>
+          {section.text}
         </Text>
       </div>
       <div
@@ -51,7 +51,7 @@ const PromoM1 = (props: SectionProps) => {
           height={'100%'}
           layout='fill'
           objectFit='cover'
-          src={`/${content.images && content?.images[0]}`}
+          src={`/${section.images && section?.images[0]}`}
         />
       </div>
     </section>

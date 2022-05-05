@@ -25,33 +25,51 @@ const defaultInput = {
   feedBackFormEmail: '',
 };
 
-
 const FeedBackForm = (props: IFeedBackProps) => {
   const { theme, contacts, onFullfilled, app, incol } = props;
-  // const { contacts } = app;
   const router = useRouter();
   const [formStatus, setFormStatus] = React.useState<string>('ready');
   const [userInput, setUserInput] = React.useState<FormState>(defaultInput);
-  const [checkFormStatus, setCheckFormStatus] = React.useState({
-    0: false,
-    1: false,
-    2: false,
-    3: false,
+  const [validation, setValidation] = React.useState({
+    feedBackFormName: false,
+    feedBackFormPhone: false,
+    feedBackFormBody: false,
+    feedBackFormEmail: false,
   });
-  
+  const [tooltips, setTooltips] = React.useState<boolean>(false);
+  const [highlight, setHighlight] = React.useState<boolean>(false);
+
   const classNames = {
-    textarea: `w-full p-2 focus:outline focus:outline-bp_green_4 focus:outline-1 rounded-sm shadow-inner`,
+    textarea: (_a: boolean) =>
+      ` w-full p-2 focus:outline ${
+        _a ? `focus:outline-zinc-200` : `focus:outline-red-800`
+      } focus:outline-1 rounded-sm shadow-inner transition-all duration-1000`,
     label: ``,
-    input: `basis-full  ${incol ? `` : `md:basis-1/2`} rounded-sm focus:outline focus:outline-bp_green_4 focus:outline-1 h-10 px-2 shadow-sm`,
+    input: (_a: boolean) =>
+      ` w-full ${!_a ? `focus:outline-zinc-200` : `focus:outline-red-800`} ${
+        incol ? `` : `md:w-1/2`
+      } rounded-sm focus:outline focus:outline-1 h-10 px-2 shadow-sm transition-all duration-1000`,
     ff: `basis-full ${incol ? `` : `md:basis-1/2`} my-1 px-1`,
   };
-  async function onChangeHandler(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, flag: string) {
+
+  async function onChangeHandler(
+    e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+    flag: keyof FormState
+  ) {
     setUserInput({ ...userInput, [flag]: e.currentTarget.value });
-    checkUserInput(userInput[flag as keyof FormState]);
+    let check = await checkUserInput(flag as keyof FormState);
+    setValidation({ ...validation, [flag]: check });
+    if (!check) {
+      setHighlight(true);
+      setTimeout(() => {
+        setHighlight(false);
+      }, 1000);
+    }
+
     return;
   }
 
-  function checkUserInput(input: string) {
+  function checkUserInput(flag: keyof FormState) {
     const checker = {
       feedBackFormName: () =>
         Promise.resolve(/^[а-я, А-Я, a-z, A-Z]{3,20}$/.test(userInput.feedBackFormName)),
@@ -74,41 +92,7 @@ const FeedBackForm = (props: IFeedBackProps) => {
               )
             ),
     };
-  }
-
-  // TODO: beautify the logic of processing the unrequired fields
-  async function checkForm() {
-    let res = false;
-    let a = Promise.resolve(/^[а-я, А-Я, a-z, A-Z]{3,20}$/.test(userInput.feedBackFormName));
-    let b = Promise.resolve(
-      /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(userInput.feedBackFormPhone.replaceAll(' ', ''))
-    );
-    let c =
-      userInput.feedBackFormBody === '' ? true : Promise.resolve(/.{3,500}/.test(userInput.feedBackFormBody));
-    let d =
-      userInput.feedBackFormEmail === ''
-        ? true
-        : Promise.resolve(
-            /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(
-              userInput.feedBackFormEmail
-            )
-          );
-    const values_1 = await Promise.all([a, b, c, d]);
-    res = true;
-    values_1.map((item, index) => {
-      if (!item) {
-        res = false;
-        setCheckFormStatus((state) => {
-          return { ...state, [index]: true };
-        });
-        setTimeout(() => {
-          setCheckFormStatus((state_1) => {
-            return { ...state_1, [index]: false };
-          });
-        }, 3000);
-      }
-    });
-    return res;
+    return checker[flag]();
   }
 
   function resetForm() {
@@ -118,8 +102,16 @@ const FeedBackForm = (props: IFeedBackProps) => {
 
   async function sendForm(e: React.FormEvent) {
     e.preventDefault();
-    let check = await checkForm();
-    if (!check) {
+
+    if (
+      Object.values(validation).some((value) => {
+        return !value;
+      })
+    ) {
+      setTooltips(true);
+      setTimeout(() => {
+        setTooltips(false);
+      }, 1000);
       return;
     }
     setFormStatus('pending');
@@ -159,13 +151,13 @@ const FeedBackForm = (props: IFeedBackProps) => {
           onFullfilled && onFullfilled('success');
         } catch (err) {}
         setTimeout(() => {
-          setFormStatus('show');
+          setFormStatus('ready');
         }, 4000);
       })
       .catch((err) => {
         setFormStatus('error');
         setTimeout(() => {
-          setFormStatus('show');
+          setFormStatus('ready');
         }, 3000);
       });
   }
@@ -180,7 +172,10 @@ const FeedBackForm = (props: IFeedBackProps) => {
         >
           <div className={`flex flex-wrap ${incol ? `` : `md:flex-nowrap`} w-full gap-1 my-1`}>
             <FieldWrapper
-              className={[classNames.label, classNames.input]}
+              className={[
+                classNames.label,
+                classNames.input(!validation['feedBackFormName'] && highlight),
+              ]}
               id={'feedBackFormName'}
               placeholder={`Имя`}
               type='text'
@@ -188,48 +183,75 @@ const FeedBackForm = (props: IFeedBackProps) => {
               value={userInput.feedBackFormName}
               onChange={onChangeHandler}
               required
-            />
+              showTooltip={!validation['feedBackFormName'] && tooltips}
+            >
+              <p className={styles.userFormAlert}>3 - 50 символов</p>
+            </FieldWrapper>
+
             <FieldWrapper
               inputType='tel'
-              className={[classNames.label, classNames.input]}
+              className={[
+                classNames.label,
+                classNames.input(!validation['feedBackFormName'] && highlight),
+              ]}
               id={'feedBackFormPhone'}
               placeholder={`Телефон`}
               type='text'
               name='feedBackFormPhone'
               value={userInput.feedBackFormPhone}
               onChange={onChangeHandler}
+              showTooltip={!validation['feedBackFormPhone'] && tooltips}
               required
-            />
+            >
+              <p className={styles.userFormAlert}>Не верный номер</p>
+            </FieldWrapper>
           </div>
+
           <FieldWrapper
             inputType='textarea'
-            className={[classNames.label, classNames.textarea]}
+            className={[
+              classNames.label,
+              classNames.textarea(!validation['feedBackFormBody'] && highlight),
+            ]}
             id={'feedBackFormBody'}
             placeholder={`Сообщение`}
             type='text'
-            name='feedBackFormBody'
+            name=''
             value={userInput.feedBackFormBody}
             onChange={onChangeHandler}
             rows={4}
+            showTooltip={!validation['feedBackFormBody'] && tooltips}
             required
-          />
+          >
+            <p className={styles.userFormAlert}>3 - 500 символов или оставьте поле пустым</p>
+          </FieldWrapper>
           <div className={`flex flex-wrap ${incol ? ` ` : `md:flex-nowrap`} w-full gap-1 my-1`}>
             <FieldWrapper
-              className={[classNames.label, classNames.input]}
+              className={[
+                classNames.label,
+                classNames.input(!validation['feedBackFormEmail'] && highlight),
+              ]}
               id={'feedBackFormEmail'}
               placeholder={`E-mail`}
               type='text'
-              name='feedBackFormEmail'
+              name=''
               value={userInput.feedBackFormEmail}
               onChange={onChangeHandler}
+              showTooltip={!validation['feedBackFormEmail'] && tooltips}
               required
-            />
+            >
+              <p className={styles.userFormAlert}>Введите корректный email или оставьте поле пустым</p>{' '}
+            </FieldWrapper>
             <button
               type='submit'
               style={{
                 textShadow: `2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3)`,
               }}
-              className={`whitespace-nowrap shadow-md text-xl text-centercursor-pointer font-bold uppercase w-full h-10 rounded-sm ${incol ? ` ` : `md:w-1/2`} hover:scale-105 transition-all duration-75 bg-${theme.bg.contacts.color.s1} text-${theme.text.contacts.color.s2}`}
+              className={`whitespace-nowrap shadow-md text-xl text-centercursor-pointer font-bold uppercase w-full h-10 rounded-sm ${
+                incol ? ` ` : `md:w-1/2`
+              } hover:scale-105 transition-all duration-75 bg-${theme.bg.contacts.color.s1} text-${
+                theme.text.contacts.color.s2
+              }`}
             >
               Отправить
             </button>
@@ -332,12 +354,12 @@ const FeedBackForm = (props: IFeedBackProps) => {
           </div>
         </div>
       )} */}
-      {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-100`}>Отправка запроса</p>}
+      {formStatus === 'pending' && <p className={`text-center py-10 text-zinc-800`}>Отправка запроса</p>}
       {formStatus === 'complete' && (
-        <p className={`text-center py-10 text-zinc-100`}>Запрос успешно отправлен. Спасибо за обращение!</p>
+        <p className={`text-center py-10 text-zinc-800`}>Запрос успешно отправлен. Спасибо за обращение!</p>
       )}
       {formStatus === 'error' && (
-        <p className={`text-center py-10 text-zinc-100`}>
+        <p className={`text-center py-10 text-zinc-800`}>
           Произошла ошибка. Попробуйте еще раз. Если ошибка повторится обратитесь к администрации сайта.
         </p>
       )}

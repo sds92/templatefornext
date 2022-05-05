@@ -16,10 +16,14 @@ interface FieldWrapperProps {
   required?: boolean;
   onChange: any;
   rows?: number;
+  showTooltip?: boolean;
+  tooltips?: boolean;
+  children?: React.ReactNode;
 }
 
-export const FieldWrapper: React.FC<FieldWrapperProps> = (props: FieldWrapperProps) => {
-  const { label, className, id } = props;
+export const FieldWrapper = (props: FieldWrapperProps) => {
+  const { label, className, id, children, showTooltip } = props;
+  // console.log("🚀 ~ file: FieldWrapper.tsx ~ line 26 ~ FieldWrapper ~ showTooltip", showTooltip)
   return (
     <React.Fragment>
       {label && (
@@ -27,7 +31,10 @@ export const FieldWrapper: React.FC<FieldWrapperProps> = (props: FieldWrapperPro
           {label}
         </label>
       )}
-      <Field {...props}></Field>
+      <div className={`relative w-full`}>
+        <Field {...props}></Field>
+        {showTooltip && children}
+      </div>
     </React.Fragment>
   );
 };

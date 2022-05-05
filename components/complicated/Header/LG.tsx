@@ -7,13 +7,15 @@ import styles from './styles/LG.module.scss';
 type LGProps = {
   theme: ITheme;
   app: IApp;
-};
-
-const LG: React.FC<LGProps> = (props) => {
-  const { theme, app } = props;
+  data: any
+}
+const LG = (props: LGProps) => {
+  const {
+    theme,
+    app,
+  } = props;
   const menu = app.menu;
   // TODO: fix
-  // @ts-ignore
   const Logo = Icons[app?.logo || 'Belplit24'];
   return (
     <nav className={`bg-${theme.bg.header.color.main} flex justify-evenly items-center h-full`}>
