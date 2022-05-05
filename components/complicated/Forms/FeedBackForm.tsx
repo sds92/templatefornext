@@ -47,10 +47,9 @@ const FeedBackForm = (props: IFeedBackProps) => {
       } focus:outline-1 rounded-sm shadow-inner transition-all duration-1000`,
     label: ``,
     input: (_a: boolean) =>
-      ` w-full ${!_a ? `focus:outline-zinc-200` : `focus:outline-red-800`} ${
-        incol ? `` : `md:w-1/2`
+      ` w-full ${!_a ? `focus:outline-zinc-200` : `focus:outline-red-800`} 
       } rounded-sm focus:outline focus:outline-1 h-10 px-2 shadow-sm transition-all duration-1000`,
-    ff: `basis-full ${incol ? `` : `md:basis-1/2`} my-1 px-1`,
+    ff: `basis-full my-1 px-1`,
   };
 
   async function onChangeHandler(
