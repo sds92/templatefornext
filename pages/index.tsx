@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { withIronSessionSsr } from 'iron-session/next';
 import { Layout } from '../components/complicated';
+// @ts-ignore
 import { motion } from 'framer-motion';
 import { sessionOptions } from 'lib/session';
 import { animations } from '../styles/animations';

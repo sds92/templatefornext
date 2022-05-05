@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+// @ts-ignore
 import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { animations } from '../../../styles/animations';

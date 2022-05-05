@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+// @ts-ignore
 import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { PromoBlock } from './components';
