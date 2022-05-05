@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormWrapper, FieldWrapper } from '../../lib';
+// @ts-ignore
 import { useRouter } from 'next/router';
 import styles from './FeedBack.module.css';
 

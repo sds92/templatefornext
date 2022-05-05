@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import { motion } from 'framer-motion';
 import { Text } from '../../lib';
 import { PromoBlock } from './components';

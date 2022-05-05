@@ -23,7 +23,6 @@ interface FieldWrapperProps {
 
 export const FieldWrapper = (props: FieldWrapperProps) => {
   const { label, className, id, children, showTooltip } = props;
-  // console.log("🚀 ~ file: FieldWrapper.tsx ~ line 26 ~ FieldWrapper ~ showTooltip", showTooltip)
   return (
     <React.Fragment>
       {label && (
