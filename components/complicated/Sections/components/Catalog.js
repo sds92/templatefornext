@@ -128,7 +128,6 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   <React.Fragment key={`item${index}`}>
                     {state.chosen === item.catId && (
                       <motion.div
-                        // className='font-bold text-3xl text-belplit24_2'
                         initial='initial'
                         animate='animate'
                         variants={animations.opacity.variants}
@@ -145,7 +144,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                               return { ...state, hover: null };
                             })
                           }
-                          className={`relative overflow-hidden`}
+                          className={`relative overflow-hidden cursor-pointer shadow-md`}
                         >
                           <img
                             className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
@@ -194,7 +193,6 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   <React.Fragment key={`item${index}`}>
                     {state.chosen !== item.catId && (
                       <motion.div
-                        className='cursor-pointer'
                         initial='initial'
                         animate='animate'
                         variants={animations.opacity.variants}
@@ -211,10 +209,10 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                               return { ...state, hover: null };
                             })
                           }
-                          className={`relative overflow-hidden`}
+                          className={`relative overflow-hidden cursor-pointer shadow-md`}
                         >
                           <img
-                            className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
+                            className={`${state.hover === index && `scale-105`} duration-1000 transition-all `}
                             src={'images/osb/product.webp'}
                             alt=''
                             width='370'

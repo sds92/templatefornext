@@ -5,11 +5,11 @@ import { FeedBack } from '../../';
 
 export default function Contacts({ app, theme }) {
   const classes = {
-    contactsTitle: `pl-2 border-b border-slate-300 w-full`,
+    contactsTitle: `pl-2 border-b border-slate-300 w-full whitespace-nowrap`,
   };
   return (
     <div className={`bg-slate-100 py-10`}>
-      <Title a={`Контакты`} />
+        <Text className={`font-bold text-center uppercase text-3xl`}>Контакты</Text>
 
       <div className={`flex flex-col w-full`}>
         <div className={`w-full flex flex-col items-center sm:flex-row sm:gap-2 md:gap-10 my-2 `}>
