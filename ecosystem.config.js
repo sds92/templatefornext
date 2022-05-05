@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: ':3104_lvl-brus_rf',
+      name: ':3106_shinglas_site',
       script: './startscript.js',
     },
   ],
