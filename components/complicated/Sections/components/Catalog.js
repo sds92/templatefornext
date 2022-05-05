@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 import { animations } from '../../../../styles/animations';
 import { Button, Title, SubTitle } from '../../../lib';
 import About from './About';
+
 // react-menu
-import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
+// import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+// import '@szhsin/react-menu/dist/index.css';
 
 import { Icons } from '../../';
 
@@ -119,7 +120,9 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <hr />
           <br />
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
-            {arr
+            
+            
+            {inView && arr
               .sort(
                 (a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]
               )
@@ -184,7 +187,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   </React.Fragment>
                 );
               })}
-            {arr
+            {inView && arr
               .sort(
                 (a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]
               )
