@@ -225,7 +225,7 @@ const CatalogM1 = (props: CatalogProps) => {
               </div>
             </div>
             <div className={`zero:w-full md:w-5/12`}>
-              <div className={`w-max flex flex-col mr-auto ml-1 zero:hidden md:block`}>
+              {/* <div className={`w-max flex flex-col mr-auto ml-1 zero:hidden md:block`}>
                 {products
                   .find((item) => item.options[0].collection === collection)
                   // @ts-ignore
@@ -330,7 +330,7 @@ const CatalogM1 = (props: CatalogProps) => {
                       </div>
                     );
                   })}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

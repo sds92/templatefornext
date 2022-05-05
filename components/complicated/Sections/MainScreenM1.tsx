@@ -1,9 +1,6 @@
 import React from 'react';
-// @ts-ignore
-import { motion } from 'framer-motion';
 import { Text } from '../../lib';
-import { animations } from '../../../styles/animations';
-import { CardsGrid, Slider } from './components';
+import { Slider } from './components';
 import FeedBack from '../Forms/FeedBack';
 import { SectionWrapper } from './components';
 
@@ -17,6 +14,7 @@ type SectionProps = {
 
 const MainScreenM1 = (props: SectionProps) => {
   const { theme, w, h, data, app } = props;
+  console.log("🚀 ~ file: MainScreenM1.tsx ~ line 17 ~ MainScreenM1 ~ theme", theme)
   const [content, contacts] = data;
   return (
     <>

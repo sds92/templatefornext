@@ -9,7 +9,7 @@
     "export": "next build && next export"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.0",
+    "@headlessui/react": "^1.6.1",
     "@reduxjs/toolkit": "^1.8.1",
     "@szhsin/react-menu": "3.0.0",
     "@types/core-js": "^2.5.5",

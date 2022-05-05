@@ -1,10 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { withIronSessionSsr } from 'iron-session/next';
 import { Layout } from '../components/complicated';
 // @ts-ignore
 import { motion } from 'framer-motion';
-import { sessionOptions } from 'lib/session';
 import { animations } from '../styles/animations';
 import * as utils from '../utils/transform';
 import fs from 'fs';
@@ -19,16 +17,12 @@ type HomeProps = {
 
 const Home = (props: HomeProps) => {
   const { pages, products, theme, app } = props;
-  const [loading, setLoading] = React.useState<boolean>(true);
+  console.log("🚀 ~ file: index.tsx ~ line 20 ~ Home ~ theme", theme)
   const [w, setW] = React.useState<number | undefined>(undefined);
   const [h, setH] = React.useState<number | undefined>(undefined);
-  const router = useRouter();
 
   React.useEffect(() => {
     setW(window.innerWidth);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
     window.addEventListener('resize', () => {
       setW(window.innerWidth);
       setH(window.innerHeight);
@@ -78,14 +72,14 @@ export async function getStaticProps({ params, ...props }) {
   let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
   let products = [] as any;
   try {
-    products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
+    // products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
 
-    // products = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`)
-    //   .then((res) => res.json())
-    //   .then((res) => {
-    //     return utils.transform(res);
-    //   })
-    //   .catch((err) => console.log(err));
+    products = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas.site.json`)
+      .then((res) => res.json())
+      .then((res) => {
+        return utils.transform(res);
+      })
+      .catch((err) => console.log(err));
   } catch (err) {
     products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
   }

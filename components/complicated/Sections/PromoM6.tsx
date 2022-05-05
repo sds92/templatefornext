@@ -22,7 +22,7 @@ const PromoM6 = (props: SectionProps) => {
           return (
             <div key={`block${i}`} className={`flex flex-col zero:w-full md:basis-1/2 lg:basis-1/3 p-4`}>
               <div className={`flex items-center gap-2`}>
-                <img className={`w-20 h-20`} src={`/images/shinglas.site/icons/${block.icon}.webp`}></img>
+                <img className={`w-20 h-20`} src={`/images/shinglas/icons/${block.icon}.webp`}></img>
                 <Text className={`font-bold text-3xl`}>{block.title}</Text>
               </div>
               <div>{block.text}</div>

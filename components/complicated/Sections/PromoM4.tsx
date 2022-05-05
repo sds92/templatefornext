@@ -33,7 +33,7 @@ const PromoM4 = (props: SectionProps) => {
               <img
                 alt=''
                 className={`min-h-full w-auto object-cover`}
-                src={`/images/shinglas.site/promo03.jpg`}
+                src={`/images/shinglas/promo03.jpg`}
               ></img>
             </div>
             <div
@@ -42,7 +42,7 @@ const PromoM4 = (props: SectionProps) => {
               <img
                 alt=''
                 className={`min-h-full w-auto object-cover`}
-                src={`/images/shinglas.site/promo02.jpg`}
+                src={`/images/shinglas/promo02.jpg`}
               ></img>
             </div>
             <div
@@ -51,7 +51,7 @@ const PromoM4 = (props: SectionProps) => {
               <img
                 alt=''
                 className={`min-h-full w-auto object-cover`}
-                src={`/images/shinglas.site/promo01.jpg`}
+                src={`/images/shinglas/promo01.jpg`}
               ></img>
             </div>
           </div>

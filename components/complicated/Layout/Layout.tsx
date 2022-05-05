@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { UserHead, Header, Footer, Contacts } from '..';
+// @ts-ignore
 import { useRouter } from 'next/router';
 
 type LayoutProps = {
