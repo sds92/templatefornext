@@ -7,7 +7,7 @@
     "products": "https://xn--j1ano.com/uploads/staticsites/osbplita.by.json",
     "serv": "https://xn--j1ano.com"
   },
-  "title": "ОСП (OSB) ПЛИТЫ",
+  "title": ["ОСП (OSB) <span class=\"text-zinc-900\">ПЛИТЫ</span>"],
   "copyright": [
     "© 2021 Сайт создан с помощью <a href=\"https://roboweb.site/\"><strong>RoboWeb</strong></a>"
   ],

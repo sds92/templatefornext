@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '../../../lib';
+import { Button, Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
 export default function Main({ app, content, lgView, theme }) {
@@ -12,18 +12,18 @@ export default function Main({ app, content, lgView, theme }) {
             {lgView ? (
               <>
                 <motion.div
-                  className={`font-bold text-3xl text-belplit24_2`}
+                  className={`font-black text-5xl text-belplit24_2`}
                   initial='initial'
                   animate='animate'
                   exit='exit'
                   variants={animations.slideUp.variants}
                   transition={animations.slideUp.transition}
                 >
-                  {app.title}
+                  <Text>{app.title}</Text>
                 </motion.div>
                 <motion.div
                   style={{ height: '1px' }}
-                  className={`my-4 ${theme.bg}`}
+                  className={`my-4 ${theme.bg.devider}`}
                   initial='initial'
                   animate='animate'
                   exit='exit'
@@ -33,7 +33,7 @@ export default function Main({ app, content, lgView, theme }) {
               </>
             ) : (
               <>
-                <div className='font-bold text-3xl text-belplit24_2'>{app.title}</div>
+                <div className='font-bold text-4xl text-belplit24_2'>{app.title}</div>
                 <div style={{ height: '1px' }} className={`my-4 bg-belplit24`}></div>
               </>
             )}
