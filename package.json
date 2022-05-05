@@ -4,9 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3104",
-    "lint": "next lint",
-    "export": "next build && next export"
+    "start": "next start -p 3106",
+    "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.1",
