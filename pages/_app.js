@@ -40,9 +40,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head head={newProps.input.head}></Head>
-      <Component {...newProps} />
-      <Footer app={newProps.app} />
-      <script
+      {w && <Component {...newProps} />}
+      
+      {/* <script
         type='text/javascript'
         dangerouslySetInnerHTML={{
           __html: `
@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps }) {
               trackHash:true
          });
 `,
-        }}
+        }} */}
       />
     </>
   );
