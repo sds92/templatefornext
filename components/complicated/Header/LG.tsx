@@ -18,7 +18,8 @@ const LG = (props: LGProps) => {
   const menu = app.menu;
   // TODO: fix
   // @ts-ignore
-  const Logo = Logos[app?.logo];
+  const Logo = Logos[app?.logo] || null;
+  console.log("🚀 ~ file: LG.tsx ~ line 22 ~ LG ~ Logo", Logo)
 
   const isPreHeader = app.content.preHeader ? true : false;
 
@@ -26,11 +27,11 @@ const LG = (props: LGProps) => {
     <>
       {isPreHeader && <PreHeader app={app} theme={theme} inView={inView} />}
       <nav
-        className={`bg-${theme.bg.header.color.main} flex justify-evenly items-center h-14 border-y border-neutral-300 shadow-md`}
+        className={`bg-${theme.bg.header.color.main} flex justify-evenly items-center h-14 border-y border-${theme.borders.header.color.main} shadow-md`}
       >
         <a href='#main' title={app?.url || ''}>
           {isPreHeader ? (
-            !inView && (
+            !inView && Logo && (
               <Logo
                 fill={`${theme.logo}`}
                 className={`shadow-2xl`}
@@ -39,7 +40,7 @@ const LG = (props: LGProps) => {
               />
             )
           ) : (
-            <Logo
+            Logo && <Logo
               fill={`${theme.logo}`}
               className={`shadow-2xl`}
               w={app.logoUserSizes?.w || 10}
@@ -58,7 +59,7 @@ const LG = (props: LGProps) => {
             >
               <Link
                 activeClass={`text-${theme.text.header.color.hover}`}
-                to={item[1].replaceAll('#', '')}
+                to={item[1].replace('#', '')}
                 spy={true}
                 smooth={true}
                 offset={-56}

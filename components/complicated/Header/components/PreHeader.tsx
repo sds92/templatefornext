@@ -10,7 +10,7 @@ type PreHeaderProps = {
 };
 
 const PreHeader = ({ app, theme, inView }: PreHeaderProps) => {
-  const Logo = Logos[app?.logo as string];
+  const Logo = Logos[app?.logo as string] || null;
   return (
     <div
       className={`flex items-center justify-center zero:gap-10 lg:gap-32 bg-${theme.bg.header.color.s1} ${
@@ -19,23 +19,23 @@ const PreHeader = ({ app, theme, inView }: PreHeaderProps) => {
     >
       <div>
         <a href='#main' title={app?.url || ''}>
-          <Logo
+        {Logo && <Logo
             style={{
               ['-webkit-filter']: `drop-shadow( 0px 3px 10px rgba(63, 63, 70, 0.5) )`,
               filter: ` drop-shadow( 0px 3px 10px rgba(63, 63, 70, 0.5) )`,
             }}
             w={20}
             h={20}
-          />
+          />}
         </a>
       </div>
       <div className={`flex items-center`}>
-        <Icons.Location w={8} h={8} className={`text-zinc-400`} />
-        <Text className={`text-zinc-400`}>{app.contacts.addresses[0].value}</Text>
+        <Icons.Location w={8} h={8} className={`text-${theme.text.header.color.s2}`} />
+        <Text className={`text-${theme.text.header.color.s2}`}>{app.contacts.addresses[0].value}</Text>
       </div>
       <div className={`flex items-center gap-2`}>
         <Social contacts={app.contacts} theme={theme} noPhone big/>
-        <div className={`text-zinc-400`}>
+        <div className={`text-${theme.text.header.color.s2}`}>
           <a
             style={{
               textShadow: `2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.1)`,

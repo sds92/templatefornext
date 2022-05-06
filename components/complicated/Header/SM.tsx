@@ -16,7 +16,7 @@ const SM: React.FC<SMProps> = (props) => {
   const [isActive, setIsActive] = React.useState<boolean>(false);
   // TODO: fix
   // @ts-ignore
-  const Logo = Logos[app?.logo as string];
+  const Logo = Logos[app?.logo as string] || null;
   return (
     <>
       <nav className={`bg-${theme.bg.header.color.main} flex justify-between items-center h-full shadow-md`}>
@@ -30,7 +30,7 @@ const SM: React.FC<SMProps> = (props) => {
         </div>
         <div className={`basis-1/3 flex justify-center`}>
           <a className={`self-center`} href='#main' title={app?.url || ''}>
-            <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
+            {Logo && <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />}
           </a>
         </div>
         <div className={`basis-1/3`}></div>
@@ -47,7 +47,7 @@ const SM: React.FC<SMProps> = (props) => {
             {menu.map((item: string, index: number) => (
               <Link
                 key={`MENUITEM${index}`}
-                to={item[1].replaceAll('#', '')}
+                to={item[1].replace('#', '')}
                 spy={true}
                 smooth={true}
                 offset={-65}
@@ -66,10 +66,10 @@ const SM: React.FC<SMProps> = (props) => {
               </Link>
             ))}
           </div>
-          <div className={`px-4 flex flex-col mt-10 text-${theme.text.header.color}`}>
+          <div className={`px-4 flex flex-col mt-10 text-${theme.text.header.color.main}`}>
             <a
               onClick={() => setIsActive(!isActive)}
-              className={styles.menu_list_tel}
+              className={styles.menu_list_tel + ` hover:text-${theme.text.header.color.hover}`}
               href={`tel:${app.contacts.phones[0]}`}
             >
               {app.contacts.phones[0]}
@@ -77,7 +77,7 @@ const SM: React.FC<SMProps> = (props) => {
             <p className={styles.menu_list_address}>{app.contacts.addresses[0]?.value}</p>
             <div className={`flex justify-center`}>
               <a className={`self-center`} href='#main' title={app?.url || ''}>
-                <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
+                {Logo && <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />}
               </a>
             </div>
           </div>
