@@ -9003,6 +9003,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(255 0 0 / var(--tw-text-opacity));
 }
 
+.hover\:opacity-100:hover{
+  opacity: 1;
+}
+
 .active\:scale-125:active{
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
@@ -9148,6 +9152,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:text-slate-800{
     --tw-text-opacity: 1;
     color: rgb(30 41 59 / var(--tw-text-opacity));
+  }
+
+  .md\:opacity-0{
+    opacity: 0;
   }
 }
 

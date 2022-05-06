@@ -201,14 +201,9 @@ export default function CatalogAlt1(props) {
             <div className={`text-xl font-light flex flex-wrap gap-2 zero:justify-center sm:justify-start`}>
               {products
                 .find((item, i) => i === state.chosen)
-                .options.sort((a, b) =>
-                  a.find(({ key }) => key === 'Оттенок')?.value || '' === b.find(({ key }) => key === 'Оттенок')?.value || ''
-                    ? 0
-                    : a.find(({ key }) => key === 'Оттенок')?.value || '' < b.find(({ key }) => key === 'Оттенок')?.value || ''
-                    ? -1
-                    : 1
-                )
-                .filter((item) => item.find(({ key }) => key === 'Оттенок')?.value || '' !== 'Огайо')
+                .colours
+                .filter((item) => item !== 'Огайо')
+                .sort((a, b) => a === b ? 0 : a < b ? -1 : 1)
                 .map((item, i) => {
                   return (
                     <div
@@ -218,10 +213,8 @@ export default function CatalogAlt1(props) {
                         setState((state) => {
                           return {
                             ...state,
-                            chosenOption: product.colours.indexOf(
-                              item.find(({ key }) => key === 'Оттенок')?.value || ''
-                            ),
-                            chosenColor: [i, item.find(({ key }) => key === 'Оттенок')?.value || ''],
+                            chosenOption: i,
+                            chosenColor: [i, item]
                           };
                         });
                       }}
@@ -235,7 +228,7 @@ export default function CatalogAlt1(props) {
                         {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
                       </div>
 
-                      <div className={`text-base text-center cursor-pointer`}>{product.options[i].find(({ key }) => key === 'Оттенок')?.value || ''}</div>
+                      <div className={`text-base text-center cursor-pointer`}>{item}</div>
                     </div>
                   );
                 })}
@@ -244,7 +237,6 @@ export default function CatalogAlt1(props) {
           <div className={`max-w-7xl mx-auto z-10 my-4 flex flex-wrap px-4`}>
             <div
               className={`relative overflow-hidden zero:w-full sm:w-2/3`}
-              // style={{ height: lgView ? w / 3 : w / 1.5 }}
               style={{height: '307px'}}
             >
               <img
@@ -252,7 +244,7 @@ export default function CatalogAlt1(props) {
                 src={`images/shinglas/products/${state.chosenType}/${title}/${
                   state.chosenColor[0] + 1
                 }.webp`}
-                alt=''
+                alt
                 
               />
             </div>
