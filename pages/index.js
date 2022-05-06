@@ -24,7 +24,7 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/цск116.рф.json`).then((res) =>
     res.json()
   );
   const products = v2(res);
