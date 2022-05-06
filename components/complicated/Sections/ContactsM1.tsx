@@ -4,11 +4,15 @@ import { Map } from '../';
 import { useInView } from 'react-intersection-observer';
 import { SectionTitle, SectionWrapper } from './components';
 
-type ContactsProps = { theme: ITheme; data: [Section, IApp['contacts'], boolean, IApp]; w: number };
+type ContactsProps = {
+  theme: ITheme;
+  data: { content: Section; contacts: IApp['contacts']; app: IApp };
+  w: number;
+};
 
 const ContactsM1 = (props: ContactsProps) => {
   const { theme, w, data } = props;
-  const [content, contacts, nothing, app] = data;
+  const { content, contacts, app } = data;
   const classes = {
     contactsTitle: `border-b font-bold border-${theme.borders.contacts.color.main} text-${theme.text.contacts.color.s1} w-full`,
   };
@@ -18,8 +22,10 @@ const ContactsM1 = (props: ContactsProps) => {
 
   return (
     <SectionWrapper id={content.id} theme={theme} w={w} sectionRef={ref} minH>
-      <SectionTitle title={content.title as string} theme={theme} app={app}/>
-      <div className={`grow flex flex-col w-full items-center justify-center bg-${theme.bg.contacts.color.main} h-full`}>
+      <SectionTitle title={content.title as string} theme={theme} app={app} />
+      <div
+        className={`grow flex flex-col w-full items-center justify-center bg-${theme.bg.contacts.color.main} h-full`}
+      >
         <div className={`w-full flex flex-col items-center sm:flex-row sm:gap-2 md:gap-10 my-2 `}>
           <div className={`zero:w-full lg:w-1/2 `}>
             <div className={`ml-auto shadow-md max-w-xl h-full aspect-square`}>

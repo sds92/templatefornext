@@ -13,11 +13,12 @@ type HomeProps = {
   app: IApp;
   pages: any;
   theme: ITheme;
+  filters: any;
 };
 
 const Home = (props: HomeProps) => {
-  const { pages, products, theme, app } = props;
-  console.log("🚀 ~ file: index.tsx ~ line 20 ~ Home ~ theme", theme)
+  const { pages, products, theme, app, filters } = props;
+  // console.log("🚀 ~ file: index.tsx ~ line 20 ~ Home ~ theme", products)
   const [w, setW] = React.useState<number | undefined>(undefined);
   const [h, setH] = React.useState<number | undefined>(undefined);
 
@@ -46,12 +47,13 @@ const Home = (props: HomeProps) => {
               Section && (
                 <Section
                   theme={theme}
-                  data={[
-                    section,
-                    app.contacts,
-                    section.model.toLocaleLowerCase().includes('catalog') && products,
+                  data={{
+                    content: section,
+                    contacts: app.contacts,
+                    products: products,
+                    filters,
                     app,
-                  ]}
+                  }}
                   w={w}
                   h={h}
                   key={`section${i}`}
@@ -74,7 +76,7 @@ export async function getStaticProps({ params, ...props }) {
   try {
     // products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
 
-    products = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas.site.json`)
+    products = await fetch(`https://xn--j1ano.com/uploads/staticsites/fanera.site.json`)
       .then((res) => res.json())
       .then((res) => {
         return utils.transform(res);
@@ -83,13 +85,13 @@ export async function getStaticProps({ params, ...props }) {
   } catch (err) {
     products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
   }
-  
-  let filters = utils.makeFilters(products);
+  let filters = utils.makeFilters(products)
   let pages = JSON.parse(fs.readFileSync('data/pages.ru.json', 'utf8'));
   let theme = JSON.parse(fs.readFileSync('data/theme.json', 'utf8'));
   return {
     props: {
-      products: [products, filters],
+      filters: filters,
+      products: products,
       app: app,
       pages: pages,
       theme: theme,

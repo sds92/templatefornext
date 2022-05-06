@@ -16,7 +16,7 @@ const SectionWrapper = ({ id, children, theme, w, sectionRef, minH }: SectionWra
       ref={sectionRef}
       id={id}
       style={style}
-      className={`w-full overflow-hidden flex flex-col relative z-20 bg-opacity-50 bg-slate-500`}
+      className={`w-full overflow-hidden flex flex-col relative z-20 bg-opacity-50`}
     >
       {children && children}
     </section>

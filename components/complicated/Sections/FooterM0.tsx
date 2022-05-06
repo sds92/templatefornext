@@ -1,19 +1,16 @@
 import React from 'react';
-// import dynamic from 'next/dynamic';
-import { Map } from '../';
-import { useInView } from 'react-intersection-observer';
 
 import { Icons } from '..';
 
 type FooterProps = {
   theme: ITheme;
   w: number;
-  data: [Section, IApp['contacts'], IApp];
+  data: { content: Section; contacts: IApp['contacts']; app: IApp };
 };
 
 const FooterM0 = (props: FooterProps) => {
   const { theme, w, data } = props;
-  const [content, contacts, app] = data;
+  const { app } = data;
   const Logo = Icons[app?.logo || 'Belplit24'];
   return (
     <footer className={`bg-${theme.bg.footer.color.main} overflow-hidden relative z-20`}>
@@ -27,10 +24,12 @@ const FooterM0 = (props: FooterProps) => {
         <div
           className={`my-4 flex items-center gap-6 text-${theme.text.footer.color.s2} cursor-default mr-2`}
         >
-          <Icons.Roboweb w={10} h={10} className={``} fill={`${theme.logoRoboWebColor}`} />
+          <a title={'RoboWeb.Team'} href='https://roboweb.team' target='_blank' rel='noopener noreferrer'>
+            <Icons.Roboweb w={10} h={10} className={``} fill={`${theme.logoRoboWebColor}`} />
+          </a>
           <p>
             © 2022. Сайт создан с помощью{' '}
-            <a className={`font-bold`} href='https://roboweb.team'>
+            <a className={`font-bold`} href='https://roboweb.team' target='_blank' rel='noopener noreferrer'>
               RoboWeb.Team
             </a>
           </p>

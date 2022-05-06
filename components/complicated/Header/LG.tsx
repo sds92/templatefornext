@@ -19,7 +19,6 @@ const LG = (props: LGProps) => {
   // TODO: fix
   // @ts-ignore
   const Logo = Logos[app?.logo] || null;
-  console.log("🚀 ~ file: LG.tsx ~ line 22 ~ LG ~ Logo", Logo)
 
   const isPreHeader = app.content.preHeader ? true : false;
 

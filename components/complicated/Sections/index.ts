@@ -8,9 +8,11 @@ import PromoM5 from './PromoM5';
 import PromoM6 from './PromoM6';
 import CatalogM0 from './CatalogM0';
 import CatalogM1 from './CatalogM1';
+import CatalogM2 from './CatalogM2';
 import ContactsM0 from './ContactsM0';
 import ContactsM1 from './ContactsM1';
 import MainScreenM1 from './MainScreenM1';
+import MainScreenM2 from './MainScreenM2';
 import FooterM0 from './FooterM0';
 
 // TODO: fix types
@@ -19,8 +21,10 @@ const Sections: { [key: string]: any } = {
   ContactsM1,
   CatalogM0,
   CatalogM1,
+  CatalogM2,
   MainScreenM0,
   MainScreenM1,
+  MainScreenM2,
   PromoM0,
   PromoM1,
   PromoM2,

@@ -48,6 +48,7 @@ module.exports = {
     'hover:bg-bp_green',
     'hover:bg-bp_green_2',
     'hover:bg-bp_green_3',
+    'hover:bg-bp_red_3',
     'hover:bg-bp_red_2',
     'hover:bg-bp_red',
     'translate-x-0',
@@ -79,7 +80,7 @@ module.exports = {
     },
     {
       pattern:
-        /(bg|text|hover:bg|active:bg|hover:text|active:text|border|decoration)-(bp_green|bp_green_2|bp_green_3|bp_black|bp_red|bp_red_2|bp_gray|bp_gray_2)/,
+        /(bg|text|hover:bg|active:bg|hover:text|active:text|border|decoration)-(bp_green|bp_green_2|bp_green_3|bp_black|bp_red|bp_red_2|bp_red_3|bp_gray|bp_gray_2)/,
     },
   ],
   theme: {
