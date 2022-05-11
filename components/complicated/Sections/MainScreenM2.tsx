@@ -26,11 +26,11 @@ const MainScreenM2 = (props: SectionProps) => {
         </div>
 
         <div
-          className={`left-0 zero:-ml-4 sm:-ml-8 z-20 top-0 rounded-r-sm ${
+          className={`z-20 relative w-full ${
             h <= 500 ? 'mt-4' : 'mt-40'
           } text-${theme.text.sections[content.model].color.main} `}
         >
-          <div className={`absolute pr-8`}>
+          <div className={``}>
             <Text
               style={{
                 textShadow: `2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.1)`,

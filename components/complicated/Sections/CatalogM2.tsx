@@ -14,13 +14,14 @@ type IsOpen = {} | null;
 const CatalogM2 = (props: CatalogProps) => {
   const { theme, w, data } = props;
   const { content, contacts, products, filters } = data;
-  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
   const [modalData, setModalData] = React.useState({
     status: 'orderonopen',
     header: ['Отправить запрос'],
   });
 
   const [open, setOpen] = React.useState<IsOpen>({});
+  const [curCategory, setCurCategory] = React.useState<number>(0);
 
   const __filters = [
     ['ФК (1525x1525мм)', 'ФК'],
@@ -75,21 +76,31 @@ const CatalogM2 = (props: CatalogProps) => {
               return (
                 <div className={`relative`} key={`filter${i}`}>
                   <div
-                    className={`flex mx-2 px-4 py-2 rounded-sm font-bold shadow-md active:scale-105 whitespace-nowrap transition-all hover:bg-${theme.bg.catalog.color.hover} bg-${theme.bg.catalog.color.s1} text-${theme.text.catalog.color.main} cursor-pointer`}
+                    className={`flex items-center mx-2 px-4 py-2 rounded-sm font-bold shadow-md active:scale-105 whitespace-nowrap transition-all hover:bg-${theme.bg.catalog.color.hover} bg-${theme.bg.catalog.color.s1} text-${theme.text.catalog.color.main} cursor-pointer`}
                     onClick={() => {
-                      setOpen(i);
+                      setTimeout(() => {
+                        setOpen(i);
+                      }, 0);
                     }}
                   >
-                    <Text className={``}>{filter[0]}</Text>
+                    <Icons.ChevronDown
+                      className={`${open === i ? ` rotate-0` : ` -rotate-90`} transition-all`}
+                    />
                     &nbsp;
-                    <Icons.ChevronDown />
+                    <Text className={``}>{filter[0]}</Text>
                   </div>
                   {open === i && (
-                    <div className={`absolute w-full h-fit`}>
+                    <div className={`absolute w-fit h-fit bg-white rounded-sm shadow-md p-4 mt-1`}>
                       {filters.map((subfilter: any, ii: number) => {
                         if (subfilter.title.includes(filter[1]))
                           return (
-                            <div key={`subfilter${ii}`} className={`text-sm cursor-pointer py-0.5`}>
+                            <div
+                              key={`subfilter${ii}`}
+                              className={`whitespace-nowrap text-sm cursor-pointer hover:text-${theme.text.catalog.color.s1} hover:scale-105 transition-all py-0.5`}
+                              onClick={() => {
+                                setCurCategory(ii);
+                              }}
+                            >
                               {subfilter.title}
                             </div>
                           );
@@ -104,7 +115,15 @@ const CatalogM2 = (props: CatalogProps) => {
         </div>
         <hr />
         {products.map((product, i) => {
-          return <div key={`product${i}`} className={``}></div>;
+          return (
+            filters[curCategory].ids.includes(product.info.id) && (
+              <div key={`product${i}`} className={``}>
+                <div>
+                  <img></img>
+                </div>
+              </div>
+            )
+          );
         })}
       </div>
       <Modal
