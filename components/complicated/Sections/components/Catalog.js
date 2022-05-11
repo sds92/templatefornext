@@ -122,7 +122,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
           <div className={`flex flex-wrap gap-6 w-full justify-center`}>
             
             
-            {inView && arr
+            {arr
               .sort(
                 (a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]
               )
@@ -187,7 +187,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                   </React.Fragment>
                 );
               })}
-            {inView && arr
+            {arr
               .sort(
                 (a, b) => a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0] || a.prices[0] - b.prices[0]
               )
