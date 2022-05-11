@@ -2691,6 +2691,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: -0.875rem;
 }
 
+.ml-3\.5{
+  margin-left: 0.875rem;
+}
+
 .block{
   display: block;
 }
@@ -2721,6 +2725,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .aspect-square{
   aspect-ratio: 1 / 1;
+}
+
+.aspect-video{
+  aspect-ratio: 16 / 9;
 }
 
 .h-6{
@@ -3463,6 +3471,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .-translate-x-10{
   --tw-translate-x: -2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-2{
+  --tw-translate-y: 0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-1{
+  --tw-translate-y: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-2{
+  --tw-translate-y: -0.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -6059,6 +6082,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 0.875rem;
 }
 
+.gap-8{
+  gap: 2rem;
+}
+
 .space-y-1 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -6150,6 +6177,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.75rem;
 }
 
+.rounded-lg{
+  border-radius: 0.5rem;
+}
+
 .rounded-r-sm{
   border-top-right-radius: 0.125rem;
   border-bottom-right-radius: 0.125rem;
@@ -6166,6 +6197,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .border-0{
   border-width: 0px;
+}
+
+.border-2{
+  border-width: 2px;
 }
 
 .border-y{
@@ -6188,6 +6223,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .border-r{
   border-right-width: 1px;
+}
+
+.border-l{
+  border-left-width: 1px;
 }
 
 .border-zinc-100{
@@ -9346,6 +9385,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-lg{
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-yellow-50{
   --tw-shadow-color: #fefce8;
   --tw-shadow: var(--tw-shadow-colored);
@@ -9388,6 +9433,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .shadow-yellow-900{
   --tw-shadow-color: #713f12;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-white{
+  --tw-shadow-color: #fff;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-zinc-100{
+  --tw-shadow-color: #f4f4f5;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -9557,6 +9612,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .delay-200{
   transition-delay: 200ms;
+}
+
+.delay-1000{
+  transition-delay: 1000ms;
 }
 
 .duration-75{
@@ -9831,6 +9890,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-right: 0.75rem;
   }
 
+  .zero\:my-4{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .zero\:mr-auto{
     margin-right: auto;
   }
@@ -9955,6 +10019,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .zero\:text-xs{
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .zero\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .zero\:font-bold{
@@ -10098,6 +10167,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:my-4{
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .md\:my-8{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   .md\:ml-36{

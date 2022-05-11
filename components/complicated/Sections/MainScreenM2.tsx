@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text } from '../../lib';
-import { Slider } from './components';
 import FeedBack from '../Forms/FeedBack';
 import { SectionWrapper } from './components';
 
@@ -63,6 +62,7 @@ const MainScreenM2 = (props: SectionProps) => {
               >
                 {content.text}
               </Text>
+              
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ const MainScreenM2 = (props: SectionProps) => {
           </div>
         )} */}
       </SectionWrapper>
-      {w <= 900 && (
+      {/* {w <= 900 && (
         <div className={`z-20 w-full relative ${h <= 500 ? '' : '-mt-20'} flex flex-col bottom-0`}>
           <div
             className={`px-2 pb-10 flex flex-col items-center bg-${
@@ -101,7 +101,7 @@ const MainScreenM2 = (props: SectionProps) => {
             <FeedBack app={app} contacts={contacts} theme={theme} />
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

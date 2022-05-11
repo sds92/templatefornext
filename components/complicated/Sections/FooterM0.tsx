@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icons } from '..';
+import { Icons, Logos } from '..';
 
 type FooterProps = {
   theme: ITheme;
@@ -11,13 +11,13 @@ type FooterProps = {
 const FooterM0 = (props: FooterProps) => {
   const { theme, w, data } = props;
   const { app } = data;
-  const Logo = Icons[app?.logo || 'Belplit24'];
+  const Logo = Logos[app.logo] || null;
   return (
     <footer className={`bg-${theme.bg.footer.color.main} overflow-hidden relative z-20`}>
       <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
         <div className={`ml-0 sm:ml-10 md:ml-36 my-4`}>
           <a title={''} href='#main'>
-            <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
+            {Logo && <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />}
           </a>
         </div>
 

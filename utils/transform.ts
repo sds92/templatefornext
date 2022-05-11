@@ -24,6 +24,7 @@ interface Option extends IProductOption {
   material: string;
   mark: string;
   surface: string;
+  priceFor: string;
 }
 export const transform = (input: Input[]) => {
   return input.reduce((pre: IProduct[], cur: Input, i: number) => {
@@ -37,6 +38,7 @@ export const transform = (input: Input[]) => {
       material: cur.options.find(({ key }) => key === 'Материал')?.value as string,
       mark: cur.options.find(({ key }) => key === 'Марка')?.value as string,
       surface: cur.options.find(({ key }) => key === 'Тип поверхности')?.value as string,
+      priceFor: cur.unit as string,
       prices: [
         {
           city: 'square',

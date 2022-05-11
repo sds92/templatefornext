@@ -14,7 +14,6 @@ type SectionProps = {
 const PromoM4 = (props: SectionProps) => {
   const { theme, w, data } = props;
   const [content, contacts, nothing, app] = data;
-  console.log('🚀 ~ file: PromoM4.tsx ~ line 17 ~ PromoM4 ~ app', app);
 
   return (
     <SectionWrapper id={content.id} theme={theme} w={w} minH>

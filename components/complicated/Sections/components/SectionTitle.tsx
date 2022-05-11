@@ -18,7 +18,7 @@ const SectionTitle = ({ title, theme, app }: SectionTitleProps) => {
 
   return (
     <div
-      className={`pt-4 relative uppercase text-center zero:text-2xl sm:text-5xl md:text-5xl drop-shadow-xl font-light text-${theme.text.catalog.color.s2}`}
+      className={`pt-4 relative uppercase text-center zero:text-3xl sm:text-5xl md:text-5xl drop-shadow-xl font-light text-${theme.text.catalog.color.s2}`}
       ref={ref}
     >
       <Text className={`pb-4`}>{title}</Text>

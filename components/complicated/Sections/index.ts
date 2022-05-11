@@ -1,4 +1,6 @@
-import MainScreenM0 from './MainScreenM0';
+import AboutM0 from './AboutM0';
+import AdvantagesM0 from './AdvantagesM0';
+import GalleryM0 from './GalleryM0';
 import PromoM0 from './PromoM0';
 import PromoM1 from './PromoM1';
 import PromoM2 from './PromoM2';
@@ -11,12 +13,16 @@ import CatalogM1 from './CatalogM1';
 import CatalogM2 from './CatalogM2';
 import ContactsM0 from './ContactsM0';
 import ContactsM1 from './ContactsM1';
+import MainScreenM0 from './MainScreenM0';
 import MainScreenM1 from './MainScreenM1';
 import MainScreenM2 from './MainScreenM2';
 import FooterM0 from './FooterM0';
 
 // TODO: fix types
 const Sections: { [key: string]: any } = {
+  AboutM0,
+  AdvantagesM0,
+  GalleryM0,
   ContactsM0,
   ContactsM1,
   CatalogM0,

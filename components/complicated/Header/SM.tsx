@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'components/lib';
 import styles from './styles/SM.module.sass';
 
 // etc
@@ -10,7 +11,7 @@ type SMProps = {
   app: IApp;
 };
 
-const SM: React.FC<SMProps> = (props) => {
+const SM = (props: SMProps) => {
   const { theme, app } = props;
   const menu = app.menu;
   const [isActive, setIsActive] = React.useState<boolean>(false);
@@ -30,10 +31,18 @@ const SM: React.FC<SMProps> = (props) => {
         </div>
         <div className={`basis-1/3 flex justify-center`}>
           <a className={`self-center`} href='#main' title={app?.url || ''}>
-            {Logo && <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />}
+            {Logo && (
+              <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />
+            )}
           </a>
         </div>
-        <div className={`basis-1/3`}></div>
+        <div className={`w-1/3 pr-4`}>
+          <div
+            className={`w-full py-1 shadow-xl border border-bp_red_2 text-${theme.text.header.color.main} bg-${theme.bg.header.color.hover} uppercase rounded-sm cursor-pointer active:scale-105`}
+          >
+            <Text className={`text-center font-bold drop-shadow-md`}>{'Заказать'}</Text>
+          </div>
+        </div>
         {isActive ? <div onClick={() => setIsActive(!isActive)} className={styles.overlay}></div> : ''}
       </nav>
       <div className={`relative`} style={{ marginTop: '-60px' }}>
@@ -43,7 +52,9 @@ const SM: React.FC<SMProps> = (props) => {
             theme.bg.header.color.main
           } transition-all flex flex-col absolute h-screen z-50`}
         >
-          <div className={`flex flex-col text-${theme.text.header.color.main} bg-${theme.bg.header.color.main}`}>
+          <div
+            className={`flex flex-col text-${theme.text.header.color.main} bg-${theme.bg.header.color.main}`}
+          >
             {menu.map((item: string, index: number) => (
               <Link
                 key={`MENUITEM${index}`}
@@ -77,7 +88,13 @@ const SM: React.FC<SMProps> = (props) => {
             <p className={styles.menu_list_address}>{app.contacts.addresses[0]?.value}</p>
             <div className={`flex justify-center`}>
               <a className={`self-center`} href='#main' title={app?.url || ''}>
-                {Logo && <Logo fill={`${theme.logo}`} w={app.logoUserSizes?.w || 10} h={app.logoUserSizes?.h || 10} />}
+                {Logo && (
+                  <Logo
+                    fill={`${theme.logo}`}
+                    w={app.logoUserSizes?.w || 10}
+                    h={app.logoUserSizes?.h || 10}
+                  />
+                )}
               </a>
             </div>
           </div>

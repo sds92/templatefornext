@@ -55,7 +55,7 @@ const ContactsM1 = (props: ContactsProps) => {
                 </div>
               ))}
             </div>
-            <div className={`w-full my-1 flex flex-col`}>
+            {contacts.requisites.length > 0 && <div className={`w-full my-1 flex flex-col`}>
               <div className={`flex flex-col`}>
                 <Text className={classes.contactsTitle}>РЕКВИЗИТЫ:</Text>
                 <table className={`md:mr-auto zero:mr-auto`}>
@@ -69,7 +69,7 @@ const ContactsM1 = (props: ContactsProps) => {
                   })}
                 </table>
               </div>
-            </div>
+            </div>}
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex items-end`}>
                 <p className={classes.contactsTitle}>EMAIL:</p>
