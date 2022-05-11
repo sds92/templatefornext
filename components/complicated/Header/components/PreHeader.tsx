@@ -24,6 +24,8 @@ const PreHeader = ({ app, theme, inView }: PreHeaderProps) => {
               ['-webkit-filter']: `drop-shadow( 0px 3px 10px rgba(63, 63, 70, 0.5) )`,
               filter: ` drop-shadow( 0px 3px 10px rgba(63, 63, 70, 0.5) )`,
             }}
+            // className={`drop-shadow-xl`}
+            fill={theme.logo}
             w={20}
             h={20}
           />}
