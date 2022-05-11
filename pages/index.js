@@ -30,6 +30,7 @@ export async function getStaticProps(context) {
   );
   const products = v2(res);
   return {
+    revalidate: 5,
     props: {
       products,
     },
