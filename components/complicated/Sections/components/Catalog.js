@@ -167,7 +167,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
                             return ( */}
                               <span key={`ITEMPRICE${index}`}>
                                 {item.prices[0]}
-                                {' ₽ '}
+                                {' BYN '}
                                 {item.prices[1]}
                               </span>
                               {/* );
@@ -232,7 +232,7 @@ export default function Catalog({ w, lgView, content, app, theme, products }) {
         return ( */}
                               <span key={`ITEMPRICE${index}`}>
                                 {item.prices[0]}
-                                {' ₽ '}
+                                {' BYN '}
                                 {item.prices[1]}
                               </span>
                               {/* );
