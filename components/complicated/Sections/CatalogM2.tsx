@@ -9,6 +9,7 @@ type CatalogProps = {
   w: number;
   app: IApp;
 };
+type IsOpen = {} | null;
 
 const CatalogM2 = (props: CatalogProps) => {
   const { theme, w, data } = props;
@@ -19,7 +20,7 @@ const CatalogM2 = (props: CatalogProps) => {
     header: ['Отправить запрос'],
   });
 
-  const [open, setOpen] = React.useState<{}>({});
+  const [open, setOpen] = React.useState<IsOpen>({});
 
   const __filters = [
     ['ФК (1525x1525мм)', 'ФК'],
