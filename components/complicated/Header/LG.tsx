@@ -1,10 +1,10 @@
 import React from 'react';
-import { Icons } from '..';
 import { Link } from 'react-scroll';
 import Social from '../Social/Social';
 import styles from './styles/LG.module.scss';
-import { Logos } from '../';
+import { Logos, Icons, Modal, ModalItems, FeedBack } from '../';
 import { PreHeader } from './components';
+import { Text } from 'components/lib';
 
 type LGProps = {
   theme: ITheme;
@@ -22,30 +22,45 @@ const LG = (props: LGProps) => {
 
   const isPreHeader = app.content.preHeader ? true : false;
 
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+  const [modalData, setModalData] = React.useState({
+    status: 'orderonopen',
+    header: ['Отправить запрос'],
+  });
+  React.useEffect(() => {
+    if (modalData.status === 'success') {
+      setTimeout(() => {
+        setModalOpen(false);
+      }, 3000);
+    }
+    return;
+  }, [modalData]);
+
   return (
     <>
       {isPreHeader && <PreHeader app={app} theme={theme} inView={inView} />}
       <nav
-        className={`bg-${theme.bg.header.color.main} flex justify-evenly items-center h-14 border-y border-${theme.borders.header.color.main} shadow-md`}
+        className={`bg-${theme.bg.header.color.main} flex relative justify-evenly items-center h-14 border-y border-${theme.borders.header.color.main} shadow-md`}
       >
         <a href='#main' title={app?.url || ''}>
-          {isPreHeader ? (
-            !inView && Logo && (
-              <Logo
-                fill={`${theme.logo}`}
-                className={`shadow-2xl`}
-                w={app.logoUserSizes?.w || 10}
-                h={app.logoUserSizes?.h || 10}
-              />
-            )
-          ) : (
-            Logo && <Logo
-              fill={`${theme.logo}`}
-              className={`shadow-2xl`}
-              w={app.logoUserSizes?.w || 10}
-              h={app.logoUserSizes?.h || 10}
-            />
-          )}
+          {isPreHeader
+            ? !inView &&
+              Logo && (
+                <Logo
+                  fill={`${theme.logo}`}
+                  className={`shadow-2xl`}
+                  w={app.logoUserSizes?.w || 10}
+                  h={app.logoUserSizes?.h || 10}
+                />
+              )
+            : Logo && (
+                <Logo
+                  fill={`${theme.logo}`}
+                  className={`shadow-2xl`}
+                  w={app.logoUserSizes?.w || 10}
+                  h={app.logoUserSizes?.h || 10}
+                />
+              )}
         </a>
         <div className={`flex flex-row`}>
           {menu.map((item: string[], index: number) => (
@@ -75,12 +90,45 @@ const LG = (props: LGProps) => {
             </div>
           ))}
         </div>
-        <div className={`flex`}>
-          <div className={`flex gap-2`}>
-            {isPreHeader ? !inView && w >= 1100 && <Social contacts={app.contacts} theme={theme} /> : <></>}
-          </div>
-        </div>
+        <div className={`flex`}></div>
       </nav>
+      <div
+        className={`static py-0.5 w-full flex gap-8 justify-center items-center shadow-md bg-${theme.bg.header.color.s1} border border-${theme.bg.header.color.s1}`}
+      >
+        <Text
+          onClick={() => {
+            setModalOpen(true);
+          }}
+          className={`border shadow-md border-white w-min px-2 py-0.5 hover:scale-105 transition-all text-${theme.text.header.color.main} bg-${theme.bg.header.color.hover} rounded-md border-opacity-40 text-center cursor-pointer font-bold drop-shadow-md`}
+        >
+          {'Заказать'}
+        </Text>
+        <div className={`flex gap-2 items-center`}>
+          {isPreHeader ? !inView && w >= 1100 && <Social contacts={app.contacts} theme={theme} /> : <></>}
+        </div>
+      </div>
+      <Modal
+        setOpen={modalOpen}
+        setClose={() => setModalOpen(false)}
+        // @ts-ignore
+        header={
+          <ModalItems.Header
+            data={{ status: modalData.status, header: modalData.header, setClose: () => setModalOpen(false) }}
+          />
+        }
+        // @ts-ignore
+        body={
+          // @ts-ignore
+          <FeedBack
+            // @ts-ignore
+            onFulfilled={(a) => setModalData({ status: a, header: modalData.header })}
+            // @ts-ignore
+            body={modalData.msg}
+            theme={theme}
+            app={app}
+          />
+        }
+      />
     </>
   );
 };

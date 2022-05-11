@@ -15,10 +15,7 @@ export default function Social(props) {
             >
               <a target='_blank' href={`${item[1]}`} rel='noopener noreferrer'>
                 <Icon
-                   style={{
-                    ['-webkit-filter']: `drop-shadow( 0px 3px 10px rgba(63, 63, 70, 0.5) )`,
-                    filter: ` drop-shadow( 0px 3px 10px rgba(63, 63, 70, 0.5) )`,
-                  }}
+                  className={`drop-shadow-lg opacity-90`}
                   w={big ? 8 : 6}
                   h={big ? 8 : 6}
                 />
@@ -28,7 +25,7 @@ export default function Social(props) {
         })}
       {!noPhone && (
         <div
-          className={`text-${theme.text.header.color.main} hover:text-${theme.text.header.color.hover} transition-all `}
+          className={`text-${theme.text.header.color.s2} hover:text-${theme.text.header.color.hover} transition-all `}
         >
           <a href={`tel:${contacts.phones[0]}`}>{contacts.phones[0]}</a>
         </div>

@@ -4,7 +4,7 @@ import styles from './styles/SM.module.sass';
 
 // etc
 import { Link } from 'react-scroll';
-import { Logos, Icons } from '../';
+import { Logos, Icons, Modal, ModalItems, FeedBack } from '../';
 
 type SMProps = {
   theme: ITheme;
@@ -15,6 +15,19 @@ const SM = (props: SMProps) => {
   const { theme, app } = props;
   const menu = app.menu;
   const [isActive, setIsActive] = React.useState<boolean>(false);
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+  const [modalData, setModalData] = React.useState({
+    status: 'orderonopen',
+    header: ['Отправить запрос'],
+  });
+  React.useEffect(() => {
+    if (modalData.status === 'success') {
+      setTimeout(() => {
+        setModalOpen(false);
+      }, 3000);
+    }
+    return;
+  }, [modalData]);
   // TODO: fix
   // @ts-ignore
   const Logo = Logos[app?.logo as string] || null;
@@ -39,6 +52,9 @@ const SM = (props: SMProps) => {
         <div className={`w-1/3 pr-4`}>
           <div
             className={`w-full py-1 shadow-xl border border-bp_red_2 text-${theme.text.header.color.main} bg-${theme.bg.header.color.hover} uppercase rounded-sm cursor-pointer active:scale-105`}
+            onClick={() => {
+              setModalOpen(true);
+            }}
           >
             <Text className={`text-center font-bold drop-shadow-md`}>{'Заказать'}</Text>
           </div>
@@ -100,6 +116,28 @@ const SM = (props: SMProps) => {
           </div>
         </nav>
       </div>
+      <Modal
+        setOpen={modalOpen}
+        setClose={() => setModalOpen(false)}
+        // @ts-ignore
+        header={
+          <ModalItems.Header
+            data={{ status: modalData.status, header: modalData.header, setClose: () => setModalOpen(false) }}
+          />
+        }
+        // @ts-ignore
+        body={
+          // @ts-ignore
+          <FeedBack
+            // @ts-ignore
+            onFulfilled={(a) => setModalData({ status: a, header: modalData.header })}
+            // @ts-ignore
+            body={modalData.msg}
+            theme={theme}
+            app={app}
+          />
+        }
+      />
     </>
   );
 };

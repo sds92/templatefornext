@@ -70,7 +70,7 @@ const CatalogM2 = (props: CatalogProps) => {
       <div className={``}>
         {content.subTitle && (
           <Text
-            className={`zero:text-base sm:text-2xl py-4 text-center pl-10 antialiased font-light text-${theme.text.catalog.color.s2}`}
+            className={`zero:text-base sm:text-2xl py-4 text-center antialiased font-light text-${theme.text.catalog.color.s2}`}
           >
             {content.subTitle}
           </Text>

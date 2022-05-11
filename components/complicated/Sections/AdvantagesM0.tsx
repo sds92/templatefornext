@@ -22,7 +22,7 @@ const AdvantagesM0 = (props: SectionProps) => {
       >
         {content.blocks?.map((block, i: number) => {
           return (
-            <div key={`block${i}`}>
+            <div className={`px-4`} key={`block${i}`}>
               <SectionTitle title={block.title as string} theme={theme} app={app} />
               {Array.isArray(block.text) && block.text?.map((textItem, ii: number) => {
                 return (

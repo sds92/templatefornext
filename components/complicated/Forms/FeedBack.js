@@ -5,7 +5,7 @@ import InputMask from 'react-input-mask';
 
 export default function FeedBack(props) {
   const { body, app } = props;
-  console.log("🚀 ~ file: FeedBack.js ~ line 8 ~ FeedBack ~ app", app)
+  // console.log("🚀 ~ file: FeedBack.js ~ line 8 ~ FeedBack ~ app", app)
   const router = useRouter();
   const [formStatus, setFormStatus] = React.useState('show');
   const [formState, setFormState] = React.useState({
