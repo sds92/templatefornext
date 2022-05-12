@@ -1,10 +1,10 @@
 import React from 'react';
 import fs from 'fs';
 import Link from 'next/link';
-import { Logos } from '../components/complicated';
+import { Icons } from '../components/complicated';
 
 export default function Custom404({ app }) {
-  const Logo = Logos[app?.logo] || null;
+  const Logo = Icons[app?.logo] || null;
   return (
     <div className={`w-screen h-screen flex flex-col justify-center items-center`}>
       <Link href='/' passHref>

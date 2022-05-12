@@ -10,3 +10,4 @@ export { default as Social } from './Social/Social';
 export { default as FullPage } from './Sections/FullPage';
 export { default as YM } from './YM';
 export { default as ImgGrid } from './ImgGrid/ImgGrid';
+export { default as Slider } from './ImgGrid/Slider';

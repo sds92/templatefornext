@@ -13,12 +13,12 @@ export default function SM(props) {
       <nav className={`bg-${theme.bg.header} flex justify-between items-center h-16`}>
         <div className='basis-1/3'>
           <Icons.Menu
-            extraClasses={`w-14 h-14 px-2 py-4 cursor-pointer active:scale-125 transition-all text-slate-100`}
+            extraClasses={`w-14 h-14 px-2 py-4 cursor-pointer active:scale-125 transition-all text-zinc-800`}
             onClick={() => setIsActive(!isActive)}
           />
         </div>
         <div className={`basis-1/3 flex justify-center`}>
-          <a className={`self-center`} href='#main'>
+          <a className={`self-center`} href='#Main'>
             <Icons.Belplit24 extraClasses={`w-10 h-10`} fill={theme.logo}/>
           </a>
         </div>
@@ -57,7 +57,7 @@ export default function SM(props) {
               </Link>
             ))}
           </div>
-          <div className={`flex flex-col mt-10 text-${theme.text.header}`}>
+          <div className={`flex flex-col mt-10 text-zinc-800`}>
             <a
               onClick={() => setIsActive(!isActive)}
               className={styles.burger_list_tel}
