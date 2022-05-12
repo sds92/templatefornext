@@ -204,6 +204,7 @@ export default function Catalog(props) {
                   return (
                     state.chosen === `${item.category}_${item.subcategory}` && (
                       <motion.div
+                      key={`sdkfj${index}`}
                         initial='initial'
                         animate='animate'
                         variants={animations.opacity.variants}

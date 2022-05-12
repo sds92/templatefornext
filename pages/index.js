@@ -8,7 +8,7 @@ import fs from 'fs';
 export default function Home(props) {
   const {w, app, theme} = props
   return (
-    w && (
+    // w && (
       <>
       <Head head={app.content.head} theme={theme}></Head>
         <Header {...props} />
@@ -25,7 +25,7 @@ export default function Home(props) {
         <Footer theme={theme} app={app} />
         {app.api.ym && <YM ymNum={app.api.ym} />}
       </>
-    )
+    // )
   );
 }
 
@@ -39,24 +39,9 @@ export async function getStaticProps() {
     });
   
     let app = JSON.parse(fs.readFileSync('pilomateriali/app.ru.json', 'utf8'));
-  // const resContacts = await fetch(
-  //   `https://xn--j1ano.com/uploads/staticsites/contacts_${encodeURI(process.env.NEXT_PUBLIC_SITE_URL)}.json`
-  // )
-  //   .then((res) => res.json())
-  //   .catch((err) => {
-  //     return null;
-  //   });
-
-  // const resMainBanner = await fetch(
-  //   `https://xn--j1ano.com/uploads/staticsites/mainBanner_${encodeURI(process.env.NEXT_PUBLIC_SITE_URL)}.json`
-  // )
-  //   .then((res) => res.json())
-  //   .catch((err) => {
-  //     return null;
-  //   });
-
-  const datafromDB = transform(resProducts.filter((item) => item.visible));
-  // let pages = JSON.parse(fs.readFileSync('pilomateriali/pages.ru.json', 'utf8'));
+    const datafromDB = transform(resProducts.filter((item) => item.visible));
+    // let pages = JSON.parse(fs.readFileSync('pilomateriali/pages.ru.json', 'utf8'));
+    console.log(app)
   
   return {
     revalidate: 10,

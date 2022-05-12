@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/tailwind.css';
-import { YM } from '../components/complicated';
+// import { YM } from '../components/complicated';
 import theme from '../utils/theme';
 
 function MyApp({ Component, pageProps }) {

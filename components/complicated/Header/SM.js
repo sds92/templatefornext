@@ -38,7 +38,7 @@ export default function SM(props) {
               <Link
                 key={`MENUITEM${index}`}
                 activeClass='active'
-                to={item[1].replaceAll('#', '')}
+                to={item[1].replace('#', '')}
                 spy={true}
                 smooth={true}
                 offset={-65}
