@@ -3,6 +3,7 @@ import useInterval from '../../../utils/hooks/useInterval';
 
 export default function ImgGrid(props) {
   const { imgs } = props;
+  console.log("🚀 ~ file: ImgGrid.js ~ line 6 ~ ImgGrid ~ imgs", imgs)
   const [state, setState] = React.useState({
     class: 'left-0',
     left: 0,
@@ -68,7 +69,7 @@ export default function ImgGrid(props) {
             transitionTimingFunction: 'linear',
           }}
         >
-          {imagesSM.map((item, index) => (
+          {/* {imagesSM.map((item, index) => (
             <div
               key={`GRIDIMG${index}`}
               className={`zero:w-48 md:w-96 h-auto rounded-md overflow-hidden shadow-md relative`}
@@ -81,7 +82,7 @@ export default function ImgGrid(props) {
             >
               <div className={`w-full h-full inset-0 absolute bg-black opacity-20`}></div>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

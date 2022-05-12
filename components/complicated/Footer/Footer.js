@@ -2,14 +2,18 @@ import React from 'react';
 import Map from './Map';
 import { Icons } from '..';
 
-
 export default function Footer(props) {
   const { theme, app } = props;
   const Icon = Icons[app?.logo || 'Belplit24'];
   return (
     <>
-      <div className={`h-96 cursor-default overflow-hidden flex`}>
-          <Map contacts={app.contacts} />
+      <div className={`h-96 cursor-default overflow-hidden flex justify-center items-center zero:flex-col md:flex-row`}>
+        <div className={`shadow-md h-full md:w-1/2`}>
+        <Map contacts={app.contacts?.addresses[0].iframe} />
+        </div>
+        <div className={`shadow-md h-full md:w-1/2`}>
+          <Map contacts={app.contacts?.addresses[1].iframe} />
+        </div>
       </div>
       <footer className={`bg-${theme.bg.footer} overflow-hidden`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>

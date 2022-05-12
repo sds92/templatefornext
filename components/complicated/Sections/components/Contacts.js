@@ -9,6 +9,7 @@ export default function Contacts(props) {
   const classes = {
     contactsTitle: `pl-2 border-b border-${theme.borders.contacts} text-${theme.text.contactsSubTitle} w-full`,
   };
+  const phones = ['Вологда', 'Москва']
   return (
     <div id={`Contacts`} className={`bg-${theme.bg.contacts} py-10`}>
       <Text className={`zero:text-xl sm:text-5xl text-center font-bold text-${theme.text.contactsTitle}`}>
@@ -36,13 +37,15 @@ export default function Contacts(props) {
                 <Icons.Phone
                   extraClasses={`pl-1 w-6 h-6 border-b border-${theme.text.contactsIcon} text-${theme.text.contactsIcon}`}
                 />
-                <p className={classes.contactsTitle}>Телефон:</p>
+                <p className={classes.contactsTitle}>Телефоны:</p>
               </div>
-              {contacts.phones.map((phone, i) => (
-                <div key={`phone${i}`} className={`ml-8 font-light`}>
-                  <a href={`tel:${phone}`}>{phone}</a>
-                </div>
-              ))}
+              {contacts.phones.map((phone, i) => {
+                return (
+                  <div key={`phone${i}`} className={`ml-8 font-light`}>
+                    <a href={`tel:${phone}`}>{phone + ` (${phones[i]})`}</a>
+                  </div>
+                );
+              })}
             </div>
             <div className={`w-1/2 sm:w-full my-1 flex flex-col`}>
               <div className={`flex mx-0.5 items-end`}>
@@ -63,9 +66,7 @@ export default function Contacts(props) {
               {contacts.addresses.map((address, i) => (
                 <div className={`ml-8 flex`} key={`address${i}`}>
                   {/* {address.title}:&nbsp; */}
-                  <Text  className={`font-light`}>
-                    {address.title + ': ' + address.value}
-                  </Text>
+                  <Text className={`font-light`}>{address.title + ': ' + address.value}</Text>
                 </div>
               ))}
             </div>
@@ -76,12 +77,14 @@ export default function Contacts(props) {
                 />
                 <p className={classes.contactsTitle}>ВРЕМЯ РАБОТЫ:</p>
               </div>
-              <Text className={`ml-8 font-light`}>{contacts.workingHoars.value}</Text>
+              {contacts.workingHoars.value.map((workingHoar, i) => (
+                <div className={`ml-8 flex`} key={`address${i}`}>
+                  <Text className={`font-light`}>{workingHoar}</Text>
+                </div>
+              ))}
             </div>
           </div>
-          <img className={`h-96 hidden lg:block rounded-md hover:scale-150 transition-all mr-10`} src={`/images/pilomateriali.site/map.png`}></img>
         </div>
-        <img className={`mx-8 lg:hidden rounded-md transition-all`} src={`/images/pilomateriali.site/map.png`}></img>
       </div>
     </div>
   );
