@@ -17,7 +17,7 @@ export default function Custom500(props) {
 }
 
 export async function getStaticProps() {
-  let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
+  let app = JSON.parse(fs.readFileSync('pilomateriali/app.ru.json', 'utf8'));
 
   return {
     props: {

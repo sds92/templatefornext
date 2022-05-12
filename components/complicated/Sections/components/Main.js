@@ -4,9 +4,9 @@ import { Button, Text } from '../../../lib';
 import { animations } from '../../../../styles/animations';
 
 export default function Main(props) {
-  const { theme, data, lgView } = props;
-  const { main } = data.content;
-  const { contacts } = data;
+  const { theme, app, lgView } = props;
+  const { main } = app.content;
+  const { contacts } = app;
   
   return (
     <div id={`Main`} style={{minHeight: '600px'}} className={`overflow-hidden w-full flex user-main-fs relative`}>

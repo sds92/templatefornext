@@ -2,8 +2,8 @@ import React from 'react';
 import { Text } from '../../../lib';
 
 export default function Advantages(props) {
-  const { theme, data } = props;
-  const { advantages } = data.content;
+  const { theme, app } = props;
+  const { advantages } = app.content;
   return (
     <>
       <div id={`Advantages`} className={`bg-${theme.bg.advantages} flex flex-col`}>

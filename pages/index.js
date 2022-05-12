@@ -1,15 +1,17 @@
 import React from 'react';
-import { Header, FullPage, Footer } from '../components/complicated';
+import { Header, FullPage, Footer, Head, YM } from '../components/complicated';
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import { transform } from '../utils/transform';
 import fs from 'fs';
 
-export default function Home({ w, newProps }) {
+export default function Home(props) {
+  const {w, app, theme} = props
   return (
     w && (
       <>
-        <Header {...newProps} />
+      <Head head={app.content.head} theme={theme}></Head>
+        <Header {...props} />
         <motion.div
           className={``}
           initial='initial'
@@ -18,9 +20,10 @@ export default function Home({ w, newProps }) {
           variants={animations.opacity.variants}
           transition={animations.opacity.transition}
         >
-          <FullPage {...newProps} />
+          <FullPage {...props} />
         </motion.div>
-        <Footer app={newProps} />
+        <Footer theme={theme} app={app} />
+        {app.api.ym && <YM ymNum={app.api.ym} />}
       </>
     )
   );
@@ -28,7 +31,7 @@ export default function Home({ w, newProps }) {
 
 export async function getStaticProps() {
   const resProducts = await fetch(
-    `https://xn--j1ano.com/uploads/staticsites/${encodeURI(process.env.NEXT_PUBLIC_SITE_URL)}.json`
+    `https://xn--j1ano.com/uploads/staticsites/pilomateriali.site.json`
   )
     .then((res) => res.json())
     .catch((err) => {
@@ -54,16 +57,12 @@ export async function getStaticProps() {
 
   const datafromDB = transform(resProducts.filter((item) => item.visible));
   // let pages = JSON.parse(fs.readFileSync('pilomateriali/pages.ru.json', 'utf8'));
-  let theme = JSON.parse(fs.readFileSync('data/theme.json', 'utf8'));
+  
   return {
     revalidate: 10,
     props: {
       app,
-      // pages,
-      theme,
-      datafromDB,
-      resContacts,
-      resMainBanner,
+      datafromDB
     },
   };
 }

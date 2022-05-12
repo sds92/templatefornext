@@ -3,8 +3,8 @@ import { Text } from '../../../lib';
 import styles from './Gallery.module.css';
 
 export default function Gallery(props) {
-  const { theme, data, w } = props;
-  const { gallery } = data.content;
+  const { theme, app, w } = props;
+  const { gallery } = app.content;
   const imgs = gallery.imgs;
   const [state, setState] = React.useState({
     hover: null,
@@ -41,7 +41,7 @@ export default function Gallery(props) {
                     })
                   }
                 >
-                  <img className={``} src={`images/${data.url}/${item[0]}`} alt width='370' height='256' />
+                  <img className={``} src={`images/${app.url}/${item[0]}`} alt width='370' height='256' />
                   <div
                     className={`absolute inset-0 bg-black bg-opacity-30 md:bg-opacity-0 hover:bg-opacity-30 duration-500 transition-all overflow-hidden`}
                   >

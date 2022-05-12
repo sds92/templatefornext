@@ -3,8 +3,8 @@ import { Text } from '../../../lib';
 import { useInView } from 'react-intersection-observer';
 
 export default function About(props) {
-  const { theme, data, w } = props;
-  const { about } = data.content;
+  const { theme, app, w } = props;
+  const { about } = app.content;
   const state = {};
   about.animatedStats.map((item, index) => {
     return (state[index] = 0);

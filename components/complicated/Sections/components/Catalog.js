@@ -11,8 +11,8 @@ import '@szhsin/react-menu/dist/index.css';
 import { Icons } from '../../';
 
 export default function Catalog(props) {
-  const { theme, lgView, w, datafromDB, data } = props;
-  const { catalog } = data.content;
+  const { theme, lgView, w, datafromDB, app } = props;
+  const { catalog } = app.content;
   const [products, categories, nested] = datafromDB;
   const [state, setState] = React.useState({
     chosen: nested ? `${categories[0].category}_${categories[0].items[0]}` : categories[0].category,
@@ -224,7 +224,7 @@ export default function Catalog(props) {
                         >
                           <img
                             className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                            src={data.api.serv + item.imgs[0]}
+                            src={app.api.serv + item.imgs[0]}
                             alt
                             width='370'
                             height='256'
@@ -284,7 +284,7 @@ export default function Catalog(props) {
                       >
                         <img
                           className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                          src={data.api.serv + item.imgs[0]}
+                          src={app.api.serv + item.imgs[0]}
                           alt
                           width='370'
                           height='256'

@@ -1,21 +1,15 @@
 import React from 'react';
-// import dynamic from 'next/dynamic';
 import Map from './Map';
 import { Icons } from '..';
 
-// const Map = React.lazy(() => import('./Map'));
 
 export default function Footer(props) {
-  const { theme, data } = props;
-  const Icon = Icons[props?.data?.logo || 'Belplit24'];
+  const { theme, app } = props;
+  const Icon = Icons[app?.logo || 'Belplit24'];
   return (
     <>
       <div className={`h-96 cursor-default overflow-hidden flex`}>
-        {/* <React.Suspense fallback={<div>Загрузка...</div>}> */}
-        {/* <div className={`h-96 w-full`}> */}
-          <Map contacts={data.contacts} />
-        {/* </div> */}
-        {/* </React.Suspense> */}
+          <Map contacts={app.contacts} />
       </div>
       <footer className={`bg-${theme.bg.footer} overflow-hidden`}>
         <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>
@@ -23,7 +17,7 @@ export default function Footer(props) {
             <a href='index.html'>
               <Icon
                 fill={`${theme.logo}`}
-                extraClasses={`${props?.data?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}
+                extraClasses={`${app?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}
               />
             </a>
           </div>
