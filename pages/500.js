@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Icons } from '../components/complicated';
 
 export default function Custom500(props) {
+  const { app } = props;
   const Logo = Icons[app?.logo] || null;
   return (
     <div className={`w-screen h-screen flex flex-col justify-center items-center`}>
