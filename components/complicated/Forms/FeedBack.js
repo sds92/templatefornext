@@ -1,11 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { Button } from '../../lib';
 import InputMask from 'react-input-mask';
 
 export default function FeedBack(props) {
   const { body, app } = props;
-  // console.log("🚀 ~ file: FeedBack.js ~ line 8 ~ FeedBack ~ app", app)
   const router = useRouter();
   const [formStatus, setFormStatus] = React.useState('show');
   const [formState, setFormState] = React.useState({
@@ -219,7 +217,7 @@ export default function FeedBack(props) {
               </div>
               <div
                 onClick={sendForm}
-                className={`bg-bp_red_2 text-center text-white rounded-md cursor-pointer px-4 py-2.5 w-full sm:w-1/2 active:scale-105 hover:scale-105 transition-all`}
+                className={`uppercase font-bold shadow-md bg-bp_red_2 text-center text-white rounded-md cursor-pointer px-4 py-2.5 w-full sm:w-1/2 active:scale-105 hover:scale-105 transition-all`}
               >
                 Отправить
               </div>

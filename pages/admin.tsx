@@ -1,7 +1,6 @@
 import { Header } from '../components/complicated/Admin';
 import { withIronSessionSsr } from 'iron-session/next';
 import { sessionOptions } from 'lib/session';
-import type { AppProps } from 'next/app';
 // redux
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
@@ -15,8 +14,7 @@ interface AdminProps {
   };
 }
 
-const Admin: React.FC<AdminProps> = (props) => {
-  console.log('🚀 ~ file: admin.tsx ~ line 10 ~ props', props);
+const Admin = (props:AdminProps) => {
   const { user } = props;
   return (
     <>
@@ -36,7 +34,6 @@ export default Admin;
 export const getServerSideProps = withIronSessionSsr(async function ({ req, res }) {
   //@ts-ignore
   const user = req.session.user || null;
-  // const name =
   console.log(`\\\\\\\\\\\\\\\\\\\\\\\\\n 🚀 ${user} \n\\\\\\\\\\\\\\\\\\\\\\\\\n`);
 
   if (user === undefined) {

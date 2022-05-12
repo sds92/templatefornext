@@ -21,7 +21,7 @@ const AboutM0 = (props: SectionProps) => {
       <div
         className={`grow flex flex-col flex-wrap justify-center w-full h-max mx-auto zero:py-4 md:py-10 relative `}
       >
-        <div className={`max-w-5xl mx-auto px-4`}>
+        <div className={`max-w-5xl mx-auto px-8`}>
           <Text className={`zero:text-sm md:text-lg zero:text-justify md:text-left`}>{content.text}</Text>
         </div>
       </div>

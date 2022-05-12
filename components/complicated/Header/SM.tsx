@@ -56,7 +56,7 @@ const SM = (props: SMProps) => {
               setModalOpen(true);
             }}
           >
-            <Text className={`text-center font-bold drop-shadow-md`}>{'Заказать'}</Text>
+            <Text className={`uppercase text-center font-bold drop-shadow-md`}>{'Заказать'}</Text>
           </div>
         </div>
         {isActive ? <div onClick={() => setIsActive(!isActive)} className={styles.overlay}></div> : ''}

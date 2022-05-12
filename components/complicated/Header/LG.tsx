@@ -99,7 +99,7 @@ const LG = (props: LGProps) => {
           onClick={() => {
             setModalOpen(true);
           }}
-          className={`border shadow-md border-white w-min px-2 py-0.5 hover:scale-105 transition-all text-${theme.text.header.color.main} bg-${theme.bg.header.color.hover} rounded-md border-opacity-40 text-center cursor-pointer font-bold drop-shadow-md`}
+          className={`uppercase border shadow-md border-white w-min px-2 py-0.5 hover:scale-105 transition-all text-${theme.text.header.color.main} bg-${theme.bg.header.color.hover} rounded-md border-opacity-40 text-center cursor-pointer font-bold drop-shadow-md`}
         >
           {'Заказать'}
         </Text>

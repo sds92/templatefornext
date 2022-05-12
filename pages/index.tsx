@@ -1,7 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { Layout } from '../components/complicated';
-// @ts-ignore
 import { motion } from 'framer-motion';
 import { animations } from '../styles/animations';
 import * as utils from '../utils/transform';
@@ -18,7 +16,6 @@ type HomeProps = {
 
 const Home = (props: HomeProps) => {
   const { pages, products, theme, app, filters } = props;
-  // console.log("🚀 ~ file: index.tsx ~ line 20 ~ Home ~ theme", products)
   const [w, setW] = React.useState<number | undefined>(undefined);
   const [h, setH] = React.useState<number | undefined>(undefined);
 
@@ -69,9 +66,8 @@ const Home = (props: HomeProps) => {
 };
 
 export default Home;
-// @ts-ignore
-export async function getStaticProps({ params, ...props }) {
-  let app = JSON.parse(fs.readFileSync('data/app.ru.json', 'utf8'));
+export async function getStaticProps({ ...props }) {
+  let app = JSON.parse(fs.readFileSync('fanerarostov/app.ru.json', 'utf8'));
   let products = [] as any;
   try {
     // products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));

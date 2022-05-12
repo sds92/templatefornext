@@ -10,21 +10,21 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel='shortcut icon' href='/images/csk-green.png' />
+          <link rel='shortcut icon' href='/images/logo.png' />
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-          <link
+          {/* <link
             href='https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap'
             rel='stylesheet'
-          ></link>
-          <link
+          ></link> */}
+          {/* <link
             href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap'
             rel='stylesheet'
-          ></link>
-          <link
-            href='https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap'
+          ></link> */}
+          {/* <link
+            href='https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap'
             rel='stylesheet'
-          ></link>
+          ></link> */}
         </Head>
         <body>
           <Main />
