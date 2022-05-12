@@ -2691,10 +2691,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: -0.875rem;
 }
 
-.ml-40{
-  margin-left: 10rem;
-}
-
 .block{
   display: block;
 }
@@ -3091,6 +3087,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 2.5rem;
 }
 
+.w-min{
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
 .w-1\/3{
   width: 33.333333%;
 }
@@ -3121,12 +3123,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.w-min{
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
 }
 
 .w-20{
@@ -5958,6 +5954,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 0.5rem;
 }
 
+.gap-8{
+  gap: 2rem;
+}
+
 .gap-4{
   gap: 1rem;
 }
@@ -6056,10 +6056,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-3\.5{
   gap: 0.875rem;
-}
-
-.gap-8{
-  gap: 2rem;
 }
 
 .space-y-1 > :not([hidden]) ~ :not([hidden]){
@@ -6207,6 +6203,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(220 38 38 / var(--tw-border-opacity));
 }
 
+.border-white{
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .border-bp_red_2{
   --tw-border-opacity: 1;
   border-color: rgb(172 9 9 / var(--tw-border-opacity));
@@ -6239,11 +6240,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-green-900{
   --tw-border-opacity: 1;
   border-color: rgb(20 83 45 / var(--tw-border-opacity));
-}
-
-.border-white{
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .border-sky-900{
@@ -6809,6 +6805,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-left-color: rgb(113 63 18 / var(--tw-border-opacity));
 }
 
+.border-opacity-40{
+  --tw-border-opacity: 0.4;
+}
+
 .border-opacity-95{
   --tw-border-opacity: 0.95;
 }
@@ -6831,10 +6831,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .border-opacity-30{
   --tw-border-opacity: 0.3;
-}
-
-.border-opacity-40{
-  --tw-border-opacity: 0.4;
 }
 
 .border-opacity-60{
@@ -7596,11 +7592,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .py-0\.5{
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
@@ -7609,6 +7600,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-0{
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .py-8{
@@ -9319,20 +9315,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0.3;
 }
 
-.opacity-20{
-  opacity: 0.2;
-}
-
-.opacity-70{
-  opacity: 0.7;
-}
-
 .opacity-90{
   opacity: 0.9;
 }
 
-.opacity-80{
-  opacity: 0.8;
+.opacity-20{
+  opacity: 0.2;
 }
 
 .shadow-md{
@@ -9543,6 +9531,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.drop-shadow-lg{
+  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .drop-shadow-xl{
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -9555,11 +9548,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .drop-shadow-2xl{
   --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.drop-shadow-lg{
-  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -9755,16 +9743,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-bp_red_2:hover{
   --tw-text-opacity: 1;
   color: rgb(172 9 9 / var(--tw-text-opacity));
-}
-
-.hover\:text-white:hover{
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:text-zinc-200:hover{
-  --tw-text-opacity: 1;
-  color: rgb(228 228 231 / var(--tw-text-opacity));
 }
 
 .focus\:border-sky-800:focus{
@@ -10000,6 +9978,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 1;
   }
 
+  .zero\:text-6xl{
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
   .zero\:text-2xl{
     font-size: 1.5rem;
     line-height: 2rem;
@@ -10013,16 +9996,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .zero\:text-xs{
     font-size: 0.75rem;
     line-height: 1rem;
-  }
-
-  .zero\:text-6xl{
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
-  .zero\:text-lg{
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   .zero\:font-bold{
@@ -10194,12 +10167,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 3.5rem;
   }
 
-  .md\:mt-40{
-    margin-top: 10rem;
-  }
-
   .md\:ml-40{
     margin-left: 10rem;
+  }
+
+  .md\:mt-40{
+    margin-top: 10rem;
   }
 
   .md\:block{
@@ -10317,6 +10290,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     text-align: left;
   }
 
+  .md\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .md\:text-7xl{
     font-size: 4.5rem;
     line-height: 1;
@@ -10335,11 +10313,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:text-3xl{
     font-size: 1.875rem;
     line-height: 2.25rem;
-  }
-
-  .md\:text-lg{
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   .md\:text-base{
