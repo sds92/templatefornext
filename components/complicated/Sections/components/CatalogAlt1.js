@@ -221,11 +221,11 @@ export default function CatalogAlt1(props) {
                     >
                       <div className={`relative`}>
                         <img
-                          className={`rounded-full overflow-hidden cursor-pointer`}
+                          className={`relative z-10 rounded-full overflow-hidden cursor-pointer`}
                           src={`images/shinglas/products/${state.chosenType}/${title}/${i + 1}sm.webp`}
                         ></img>
 
-                        {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`absolute`} />}
+                        {state.chosenColor[0] === i && <Icons.Ok stroke='white' extraClasses={`z-20 absolute inset-0`} />}
                       </div>
 
                       <div className={`text-base text-center cursor-pointer`}>{item}</div>
@@ -244,7 +244,7 @@ export default function CatalogAlt1(props) {
                 src={`images/shinglas/products/${state.chosenType}/${title}/${
                   state.chosenColor[0] + 1
                 }.webp`}
-                alt
+                alt=''
                 
               />
             </div>

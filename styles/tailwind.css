@@ -756,6 +756,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 10;
 }
 
+.z-20{
+  z-index: 20;
+}
+
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -5602,6 +5606,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1.25rem;
 }
 
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -5657,6 +5665,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-medium{
   font-weight: 500;
+}
+
+.font-black{
+  font-weight: 900;
 }
 
 .uppercase{
