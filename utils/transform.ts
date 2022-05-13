@@ -34,10 +34,10 @@ export const transform = (input: Input[]) => {
       h: parseInt(cur.options.find(({ key }) => key === 'Толщина')?.value as string),
       a: parseInt(cur.options.find(({ key }) => key === 'Длина')?.value as string),
       b: parseInt(cur.options.find(({ key }) => key === 'Ширина')?.value as string),
-      sort: cur.options.find(({ key }) => key === 'Сорт')?.value as string || '' ,
-      material: cur.options.find(({ key }) => key === 'Материал')?.value as string || '',
-      mark: cur.options.find(({ key }) => key === 'Марка')?.value as string || '',
-      surface: cur.options.find(({ key }) => key === 'Тип поверхности')?.value as string || '',
+      sort: (cur.options.find(({ key }) => key === 'Сорт')?.value as string) || '',
+      material: (cur.options.find(({ key }) => key === 'Материал')?.value as string) || '',
+      mark: (cur.options.find(({ key }) => key === 'Марка')?.value as string) || '',
+      surface: (cur.options.find(({ key }) => key === 'Тип поверхности')?.value as string) || '',
       priceFor: cur.unit as string,
       prices: [
         {
@@ -51,7 +51,17 @@ export const transform = (input: Input[]) => {
       info: {
         position: i,
         slug: `${i}`,
-        title: cur.title.includes('Фанера березовая ФК 2/3 Ш2')
+        title: cur.title.includes('Фанера березовая ФК 3/3 Ш2')
+          ? 'Фанера березовая ФК 3/3 Ш2'
+          : cur.title.includes('Фанера березовая ФК 1/2 Ш2')
+          ? 'Фанера березовая ФК 1/2 Ш2'
+          : cur.title.includes('Фанера березовая ФК 2/2 Ш2')
+          ? 'Фанера березовая ФК 2/2 Ш2'
+          : cur.title.includes('Фанера березовая ФК 2/4 Ш2')
+          ? 'Фанера березовая ФК 2/4 Ш2'
+          : cur.title.includes('Фанера березовая ФК 3/4 ШЛ2')
+          ? 'Фанера березовая ФК 3/4 ШЛ2'
+          : cur.title.includes('Фанера березовая ФК 2/3 Ш2')
           ? 'Фанера березовая ФК 2/3 Ш2'
           : cur.title.includes('Фанера березовая ФК 3/4 Ш2')
           ? 'Фанера березовая ФК 3/4 Ш2'
