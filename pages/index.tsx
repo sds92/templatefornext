@@ -72,7 +72,7 @@ export async function getStaticProps({ ...props }) {
   try {
     // products = JSON.parse(fs.readFileSync('data/products.ru.json', 'utf8'));
 
-    products = await fetch(`https://xn--j1ano.com/uploads/staticsites/fanera.site.json`)
+    products = await fetch(`https://xn--j1ano.com/uploads/staticsites/брус-брусок.рф.json`)
       .then((res) => res.json())
       .then((res) => {
         return utils.transform(res);
