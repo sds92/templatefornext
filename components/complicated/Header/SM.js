@@ -8,6 +8,7 @@ import { Link } from 'react-scroll';
 export default function SM(props) {
   const { theme, menu, app } = props;
   const [isActive, setIsActive] = React.useState(false);
+  const Icon = Icons[app?.logo || 'Belplit24'];
   return (
     <>
       <nav className={`bg-${theme.bg.header} flex justify-between items-center h-16`}>
@@ -19,7 +20,7 @@ export default function SM(props) {
         </div>
         <div className={`basis-1/3 flex justify-center`}>
           <a className={`self-center`} href='#Main'>
-            <Icons.Belplit24 extraClasses={`w-10 h-10`} fill={theme.logo}/>
+          <Icon fill={`${theme.logo}`} extraClasses={`${app?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}  />
           </a>
         </div>
         <div className={`basis-1/3`}></div>
@@ -68,7 +69,7 @@ export default function SM(props) {
             <p className={styles.burger_list_address}>{app.contacts.addresses[0].value}</p>
             <div className={`flex justify-center`}>
               <a className={`self-center`} href='#main'>
-                <Icons.Belplit24 extraClasses={`w-20 h-20`} fill={theme.logo}/>
+              <Icon fill={`${theme.logo}`} extraClasses={`${app?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}  />
               </a>
             </div>
           </div>
