@@ -36,7 +36,7 @@ const MainScreenM2 = (props: SectionProps) => {
                   ` z-10 absolute w-full h-full overflow-hidden m-1 border rounded-md border-opacity-20 border-zinc-400`
                 }
               >
-                <div className={` w-full inset-0 h-full blur-lg bg-white bg-opacity-55`}></div>
+                <div className={` w-full inset-0 h-full md:blur-lg bg-white bg-opacity-55`}></div>
               </div>
               <div className={`relative z-20 pt-8`}>
                 <Text
