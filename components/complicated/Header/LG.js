@@ -6,11 +6,11 @@ import styles from './LG.module.scss';
 
 export default function LG(props) {
   const { theme, app, menu } = props;
-  const Icon = Icons[props?.data?.logo || 'Belplit24'];
+  const Icon = Icons[app?.logo || 'Belplit24'];
   return (
     <nav className={`bg-${theme.bg.header} flex justify-evenly items-center h-20`}>
       <a href='#Main'>
-        <Icon fill={`${theme.logo}`} extraClasses={`${props?.app?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}  />
+        <Icon fill={`${theme.logo}`} extraClasses={`${app?.logo === 'WoodEco' ? 'w-16 h-16' : 'w-10 h-10'}`}  />
       </a>
       <div className={`flex flex-row`}>
         {menu.map((item, index) => (
