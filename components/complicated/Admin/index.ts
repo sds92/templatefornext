@@ -1,9 +1,0 @@
-export { default as Header } from './components/Header';
-export { default as Layout } from './components/Layout';
-export { default as Products } from './Products/Products';
-export { default as RegForm } from './Register/RegForm';
-export { default as LoginForm } from './Login/LoginForm';
-export { default as AdminPanel } from './AdminPanel';
-export { default as Pages } from './Pages/Pages';
-export { default as App } from './App/App';
-export { default as Navigation } from './Navigation';
