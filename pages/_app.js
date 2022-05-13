@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
     ...pageProps,
   };
 
-  return <Component {...newProps} />;
+  return w && <Component {...newProps} />;
 }
 
 export default MyApp;
