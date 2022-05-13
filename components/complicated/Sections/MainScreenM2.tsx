@@ -24,7 +24,7 @@ const MainScreenM2 = (props: SectionProps) => {
         </div>
 
         <div
-          className={`z-20 max-w-7xl mx-auto flex items-center zero:justify-center md:justify-start relative w-full zero:mt-20 md:mt-40 text-${
+          className={`z-20 max-w-7xl mx-auto flex items-center zero:justify-center md:justify-start relative w-full zero:mt-10 md:mt-40 text-${
             theme.text.sections[content.model].color.main
           } `}
         >
