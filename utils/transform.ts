@@ -27,6 +27,7 @@ interface Option extends IProductOption {
   priceFor: string;
 }
 export const transform = (input: Input[]) => {
+console.log("🚀 ~ file: transform.ts ~ line 30 ~ transform ~ input", input)
   return input.reduce((pre: IProduct[], cur: Input, i: number) => {
     let _newOption = {} as Option;
     // @ts-ignore
@@ -34,10 +35,10 @@ export const transform = (input: Input[]) => {
       h: parseInt(cur.options.find(({ key }) => key === 'Толщина')?.value as string),
       a: parseInt(cur.options.find(({ key }) => key === 'Длина')?.value as string),
       b: parseInt(cur.options.find(({ key }) => key === 'Ширина')?.value as string),
-      sort: cur.options.find(({ key }) => key === 'Сорт')?.value as string,
-      material: cur.options.find(({ key }) => key === 'Материал')?.value as string,
-      mark: cur.options.find(({ key }) => key === 'Марка')?.value as string,
-      surface: cur.options.find(({ key }) => key === 'Тип поверхности')?.value as string,
+      sort: cur.options.find(({ key }) => key === 'Сорт')?.value as string || '' ,
+      material: cur.options.find(({ key }) => key === 'Материал')?.value as string || '',
+      mark: cur.options.find(({ key }) => key === 'Марка')?.value as string || '',
+      surface: cur.options.find(({ key }) => key === 'Тип поверхности')?.value as string || '',
       priceFor: cur.unit as string,
       prices: [
         {
