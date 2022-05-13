@@ -2,11 +2,6 @@ import AboutM0 from './AboutM0';
 import AdvantagesM0 from './AdvantagesM0';
 import GalleryM0 from './GalleryM0';
 import PromoM0 from './PromoM0';
-import PromoM1 from './PromoM1';
-import PromoM2 from './PromoM2';
-import PromoM3 from './PromoM3';
-import PromoM4 from './PromoM4';
-import PromoM5 from './PromoM5';
 import PromoM6 from './PromoM6';
 import CatalogM0 from './CatalogM0';
 import CatalogM1 from './CatalogM1';
@@ -32,11 +27,6 @@ const Sections: { [key: string]: any } = {
   MainScreenM1,
   MainScreenM2,
   PromoM0,
-  PromoM1,
-  PromoM2,
-  PromoM3,
-  PromoM4,
-  PromoM5,
   PromoM6,
   FooterM0,
 };
