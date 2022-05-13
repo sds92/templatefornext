@@ -27,7 +27,6 @@ interface Option extends IProductOption {
   priceFor: string;
 }
 export const transform = (input: Input[]) => {
-console.log("🚀 ~ file: transform.ts ~ line 30 ~ transform ~ input", input)
   return input.reduce((pre: IProduct[], cur: Input, i: number) => {
     let _newOption = {} as Option;
     // @ts-ignore
