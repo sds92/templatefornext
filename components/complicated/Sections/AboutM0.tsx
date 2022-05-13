@@ -1,8 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Text } from '../../lib';
-import { animations } from '../../../styles/animations';
 import { SectionTitle, SectionWrapper } from './components';
 
 type SectionProps = {
@@ -13,7 +10,7 @@ type SectionProps = {
 
 const AboutM0 = (props: SectionProps) => {
   const { theme, w, data } = props;
-  const { content, contacts, app } = data;
+  const { content, app } = data;
 
   return (
     <SectionWrapper id={content.id} theme={theme} w={w} minH>

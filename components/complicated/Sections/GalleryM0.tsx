@@ -1,8 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Text } from '../../lib';
-import { animations } from '../../../styles/animations';
 import { SectionTitle, SectionWrapper } from './components';
 
 type SectionProps = {
