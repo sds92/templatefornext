@@ -6,12 +6,40 @@ import { transform } from '../utils/transform';
 import fs from 'fs';
 
 export default function Home(props) {
-  const {w, app, theme} = props
+  const {app, theme} = props
+  const [w, setW] = React.useState(undefined);
+
+  React.useEffect(() => {
+    setW(window.innerWidth);
+    window.addEventListener(
+      'resize',
+      () => {
+        setW(window.innerWidth);
+      },
+      []
+    );
+  }, []);
+
+  const newProps = {
+    menu: [
+      ['Главная', '#Main'],
+      ['Цены', '#Catalog'],
+      ['Преимущества', '#Advantages'],
+      ['Применение', '#Gallery'],
+      ['Контакты', '#Contacts'],
+    ],
+    // w: w,
+    // data: data,
+    lgView: w >= 900,
+    // theme: theme('green'),
+    ...props,
+  };
+
   return (
-    // w && (
+    w && (
       <>
       <Head head={app.content.head} theme={theme}></Head>
-        <Header {...props} />
+        <Header {...newProps} />
         <motion.div
           className={``}
           initial='initial'
@@ -20,12 +48,12 @@ export default function Home(props) {
           variants={animations.opacity.variants}
           transition={animations.opacity.transition}
         >
-          <FullPage {...props} />
+          <FullPage {...newProps} />
         </motion.div>
         <Footer theme={theme} app={app} />
         {app.api.ym && <YM ymNum={app.api.ym} />}
       </>
-    // )
+    )
   );
 }
 
