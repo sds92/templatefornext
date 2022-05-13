@@ -6,7 +6,7 @@ import { transform } from '../utils/transform';
 import fs from 'fs';
 
 export default function Home(props) {
-  const {app, theme} = props
+  const { app, theme } = props;
   const [w, setW] = React.useState(undefined);
 
   React.useEffect(() => {
@@ -28,54 +28,47 @@ export default function Home(props) {
       ['Применение', '#Gallery'],
       ['Контакты', '#Contacts'],
     ],
-    // w: w,
-    // data: data,
     lgView: w >= 900,
-    // theme: theme('green'),
     ...props,
   };
 
   return (
-    w && (
-      <>
+    <>
       <Head head={app.content.head} theme={theme}></Head>
-        <Header {...newProps} />
-        <motion.div
-          className={``}
-          initial='initial'
-          animate='animate'
-          exit='exit'
-          variants={animations.opacity.variants}
-          transition={animations.opacity.transition}
-        >
-          <FullPage {...newProps} />
-        </motion.div>
-        <Footer theme={theme} app={app} />
-        {app.api.ym && <YM ymNum={app.api.ym} />}
-      </>
-    )
+      <Header {...newProps} />
+      <motion.div
+        className={``}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        variants={animations.opacity.variants}
+        transition={animations.opacity.transition}
+      >
+        <FullPage {...newProps} />
+      </motion.div>
+      <Footer theme={theme} app={app} />
+      {app.api.ym && <YM ymNum={app.api.ym} />}
+    </>
   );
 }
 
 export async function getStaticProps() {
-  const resProducts = await fetch(
-    `https://xn--j1ano.com/uploads/staticsites/pilomateriali.site.json`
-  )
+  const resProducts = await fetch(`https://xn--j1ano.com/uploads/staticsites/pilomateriali.site.json`)
     .then((res) => res.json())
     .catch((err) => {
       return null;
     });
-  
-    let app = JSON.parse(fs.readFileSync('pilomateriali/app.ru.json', 'utf8'));
-    const datafromDB = transform(resProducts.filter((item) => item.visible));
-    // let pages = JSON.parse(fs.readFileSync('pilomateriali/pages.ru.json', 'utf8'));
-    console.log(app)
-  
+
+  let app = JSON.parse(fs.readFileSync('pilomateriali/app.ru.json', 'utf8'));
+  const datafromDB = transform(resProducts.filter((item) => item.visible));
+  // let pages = JSON.parse(fs.readFileSync('pilomateriali/pages.ru.json', 'utf8'));
+  console.log(app);
+
   return {
     revalidate: 10,
     props: {
       app,
-      datafromDB
+      datafromDB,
     },
   };
 }
