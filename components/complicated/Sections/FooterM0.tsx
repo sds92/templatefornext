@@ -11,7 +11,8 @@ type FooterProps = {
 const FooterM0 = (props: FooterProps) => {
   const { theme, w, data } = props;
   const { app } = data;
-  const Logo = Logos[app.logo] || null;
+  // @ts-ignore
+  const Logo = Logos[app?.logo] || null;
   return (
     <footer className={`bg-${theme.bg.footer.color.main} overflow-hidden relative z-20`}>
       <div className={`flex flex-col md:flex-row justify-between items-center h-full`}>

@@ -20,7 +20,7 @@ const MainScreenM2 = (props: SectionProps) => {
       <SectionWrapper id={content.id} theme={theme} w={w} minH>
         <div className={`absolute w-full h-full`}>
           <div className={`absolute h-full w-full z-10 bg-black bg-opacity-50 ${w < 1480 ? '' : ''}`}></div>
-          <img alt='' className={`min-h-full w-auto object-cover`} src={`${content.images[0]}`}></img>
+          <img alt='' className={`min-h-full w-auto object-cover`} src={`${content.images?.[0]}`}></img>
         </div>
 
         <div

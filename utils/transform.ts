@@ -88,8 +88,10 @@ export const makeFilters = (input: IProduct[]) => {
     .reduce(
       (pre, cur) => {
         pre.find((item) => item.title === cur.info.title)
-          ? pre.find((item) => item.title === cur.info.title)?.ids.push(cur.id)
-          : pre.push({ title: cur.info.title, ids: [cur.id] });
+          ? // @ts-ignore
+            pre.find((item) => item.title === cur.info.title)?.ids.push(cur.id)
+          : // @ts-ignore
+            pre.push({ title: cur.info.title, ids: [cur.id] });
         return pre;
       },
       [_filter]

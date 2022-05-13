@@ -55,7 +55,8 @@ const ContactsM1 = (props: ContactsProps) => {
                 </div>
               ))}
             </div>
-            {contacts.requisites.length > 0 && <div className={`w-full my-1 flex flex-col`}>
+            {/* @ts-ignore */}
+            {contacts.requisites?.length > 0 && <div className={`w-full my-1 flex flex-col`}>
               <div className={`flex flex-col`}>
                 <Text className={classes.contactsTitle}>РЕКВИЗИТЫ:</Text>
                 <table className={`md:mr-auto zero:mr-auto`}>
