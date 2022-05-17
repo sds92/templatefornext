@@ -7,6 +7,7 @@ import { Icons } from '../../';
 
 export default function CatalogAlt1(props) {
   const { w, lgView, app, theme, products } = props;
+  console.log("🚀 ~ file: CatalogAlt1.js ~ line 10 ~ CatalogAlt1 ~ products", products)
   const content = props.content.content.catalog;
   const [state, setState] = React.useState({
     chosenType: 'flexible',
@@ -76,7 +77,7 @@ export default function CatalogAlt1(props) {
                 <div className={`max-w-7xl mx-auto flex flex-wrap justify-start px-2`}>
                   {products
                     .map((item, productIndex) => ({ ...item, type: item.type[0], productIndex }))
-                    .filter((item) => item.type === 'Многослойная')
+                    .filter((item) => item.type === 'Двухслойная')
                     .map((item, index) => (
                       <div
                         className={`cursor-pointer text-xl  font-light px-2`}
