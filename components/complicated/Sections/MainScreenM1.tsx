@@ -14,7 +14,6 @@ type SectionProps = {
 
 const MainScreenM1 = (props: SectionProps) => {
   const { theme, w, h, data, app } = props;
-  console.log("🚀 ~ file: MainScreenM1.tsx ~ line 17 ~ MainScreenM1 ~ theme", theme)
   const [content, contacts] = data;
   return (
     <>

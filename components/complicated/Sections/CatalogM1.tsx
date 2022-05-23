@@ -69,9 +69,7 @@ const CatalogM1 = (props: CatalogProps) => {
             ?.values.map((filter, i) => {
               return (
                 <div key={`filter${i}`} className={`w-full`}>
-                  <Text className={`font-mont text-2xl font-bold leading-7`}>
-                    {filter === 'Однослойная' ? 'Гибкая черепица' : `${filter} черепица`}
-                  </Text>
+                  <Text className={`font-mont text-2xl font-bold leading-7`}>{`${filter} черепица`}</Text>
                   <div className={`w-full flex flex-col pl-2 py-2`}>
                     {filters
                       .find((item) => item.key === 'structure')
@@ -111,42 +109,41 @@ const CatalogM1 = (props: CatalogProps) => {
           {open && (
             <div className={`rounded-md absolute bg-white z-50 inset-x-0 p-4 shadow-xl mx-4`}>
               {filters
-            .find((item) => item.title === 'Количество слоев')
-            ?.values.map((filter, i) => {
-              return (
-                <div key={`filter${i}`} className={`w-full`}>
-                  <Text className={`font-mont text-2xl font-bold leading-7`}>
-                    {filter === 'Однослойная' ? 'Гибкая черепица' : `${filter} черепица`}
-                  </Text>
-                  <div className={`w-full flex flex-col pl-2 py-2`}>
-                    {filters
-                      .find((item) => item.key === 'structure')
-                      // @ts-ignore
-                      ?.values[i].map((filter: string, i: number) => {
-                        return (
-                          <div
-                            key={`filter${i}`}
-                            onClick={() => {
-                              setCollection(filter);
-                              setSelectedColor(
-                                products.find((item) => item.options[0].collection === filter)?.options[0]
-                                  .color
-                              );
-                              setOpen(false)
-                            }}
-                            className={`uppercase ${
-                              filter === collection ? 'font-bold text-bp_red_2' : ''
-                            } hover:font-bold cursor-pointer mr-auto hover:scale-105 `}
-                          >
-                            {filter}
-                          </div>
-                        );
-                      })}
-                  </div>
-                </div>
-              );
-            })}
-
+                .find((item) => item.title === 'Количество слоев')
+                ?.values.map((filter, i) => {
+                  return (
+                    <div key={`filter${i}`} className={`w-full`}>
+                      <Text className={`font-mont text-2xl font-bold leading-7`}>
+                        {`${filter} черепица`}
+                      </Text>
+                      <div className={`w-full flex flex-col pl-2 py-2`}>
+                        {filters
+                          .find((item) => item.key === 'structure')
+                          // @ts-ignore
+                          ?.values[i].map((filter: string, i: number) => {
+                            return (
+                              <div
+                                key={`filter${i}`}
+                                onClick={() => {
+                                  setCollection(filter);
+                                  setSelectedColor(
+                                    products.find((item) => item.options[0].collection === filter)?.options[0]
+                                      .color
+                                  );
+                                  setOpen(false);
+                                }}
+                                className={`uppercase ${
+                                  filter === collection ? 'font-bold text-bp_red_2' : ''
+                                } hover:font-bold cursor-pointer mr-auto hover:scale-105 `}
+                              >
+                                {filter}
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  );
+                })}
             </div>
           )}
           <div className={`w-full text-3xl font-bold flex`}>
@@ -155,7 +152,7 @@ const CatalogM1 = (props: CatalogProps) => {
 
           <div className={`flex zero:flex-col md:flex-row`}>
             <div className={`zero:w-full md:w-7/12`}>
-              <div className={`h-96 w-full border relative`}>
+              <div className={`h-96 w-full relative`}>
                 <div className={`absolute inline h-full w-full transition-all duration-1000 overflow-hidden`}>
                   <img
                     style={{
@@ -183,6 +180,8 @@ const CatalogM1 = (props: CatalogProps) => {
                 {products
                   .filter((item) => item.options[0].collection === collection)
                   .map((product, i) => {
+                    console.log(`/images/shinglas.site/products/${product.options[0].slices}/${product.options[0].collection}/${product.options[0].color}sm.jpg`)
+                    console.log(product)
                     return (
                       <div
                         style={{
@@ -191,10 +190,11 @@ const CatalogM1 = (props: CatalogProps) => {
                           filter: `drop-shadow( 0px 3px 10px rgba(63, 63, 70, 0.5) )`,
                         }}
                         key={`product${i}`}
-                        className={`w-24 h-24 mx-3 mb-6 border cursor-pointer hover:scale-105 transition-all `}
+                        className={`w-24 h-24 mx-3 mb-6 cursor-pointer hover:scale-105 transition-all `}
                         onClick={() => setSelectedColor(product.options[0].color)}
                       >
                         <img
+                          alt={product.options[0].color}
                           src={`/images/shinglas.site/products/${product.options[0].slices}/${product.options[0].collection}/${product.options[0].color}sm.jpg`}
                           className={`min-h-full w-auto object-cover rounded-sm`}
                         />
