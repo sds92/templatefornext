@@ -84,7 +84,6 @@ export async function getStaticProps({ params, ...props }) {
   }
   
   let filters = utils.makeFilters(products);
-  console.log("🚀 ~ file: index.tsx ~ line 87 ~ getStaticProps ~ filters", filters[3])
   let pages = JSON.parse(fs.readFileSync('data/pages.ru.json', 'utf8'));
   let theme = JSON.parse(fs.readFileSync('data/theme.json', 'utf8'));
   return {

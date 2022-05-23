@@ -180,8 +180,6 @@ const CatalogM1 = (props: CatalogProps) => {
                 {products
                   .filter((item) => item.options[0].collection === collection)
                   .map((product, i) => {
-                    console.log(`/images/shinglas.site/products/${product.options[0].slices}/${product.options[0].collection}/${product.options[0].color}sm.jpg`)
-                    console.log(product)
                     return (
                       <div
                         style={{
