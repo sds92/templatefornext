@@ -1,79 +1,47 @@
 // import fs from 'fs';
 // import products from './products.json'
-type Input = {
-  article: number;
-  visible: boolean;
-  id: string;
-  title: string;
-  cost: number;
-  club_cost: number;
-  options: { key: string; value: string }[];
-  images: string[];
-  path: string;
-  unit: string;
-  coef: number;
-  description: string;
-  slug: string;
-};
 
-interface Option extends IProductOption {
-  slices: string;
-  collection: string;
-  color: string;
-}
-
-export const transform = (input: Input[]) => {
-  return input.reduce(
-    // @ts-ignore
-    (pre: IProduct[], cur: Input, i: number) => {
-      let _newOption = {} as Option;
-      // @ts-ignore
-      _newOption = {
-        slices: cur.options.find(({ key }) => key === 'Количество слоев')?.value as string,
-        collection: cur.options.find(({ key }) => key === 'Коллекция')?.value as string,
-        // @ts-ignore
-        color: cur.options.find(({ key }) => key === 'Оттенок')?.value || null,
-        formSlices: cur.options.find(({ key }) => key === 'Форма нарезки')?.value || null,
-        prices: [
-          {
-            city: 'square',
-            value: cur.cost,
-          },
-        ],
-      };
-      let _product: IProduct = {
-        id: `${i}`,
-        info: {
-          position: i,
-          slug: `${i}`,
-          title: cur.title,
-          userTitle: cur.title,
+export const transform = (input) => {
+  return input.reduce((pre, cur, i) => {
+    let _newOption = {};
+    _newOption = {
+      slices: cur.options.find(({ key }) => key === 'Количество слоев')?.value,
+      collection: cur.options.find(({ key }) => key === 'Коллекция')?.value,
+      color: cur.options.find(({ key }) => key === 'Оттенок')?.value || null,
+      formSlices: cur.options.find(({ key }) => key === 'Форма нарезки')?.value || null,
+      prices: [
+        {
+          city: 'square',
+          value: cur.cost,
         },
-        desc: [{title: 'Описание', value: cur.description}],
-        options: [_newOption],
-      };
-      return pre.concat(_product);
-    },
-    [] as IProduct[]
-  );
+      ],
+    };
+    let _product = {
+      id: `${i}`,
+      info: {
+        position: i,
+        slug: `${i}`,
+        title: cur.title,
+        userTitle: cur.title,
+      },
+      desc: [{ title: 'Описание', value: cur.description }],
+      options: [_newOption],
+    };
+    return pre.concat(_product);
+  }, []);
 };
 
-export const makeFilters = (input: IProduct[]) => {
-  // @ts-ignore
+export const makeFilters = (input) => {
   return input.reduce(
-    // @ts-ignore
     (pre, cur, i) => {
-      // @ts-ignore
       let _res = [];
       for (const [key, value] of Object.entries(cur.options[0])) {
         switch (key) {
           case 'slices':
             {
               let _slices = pre.find((item) => item.key === key);
-              // @ts-ignore
               let _values = new Set(_slices.values);
               _values.add(value);
-              // @ts-ignore
               _slices.values = [..._values];
               _res.push(_slices);
             }
@@ -81,10 +49,8 @@ export const makeFilters = (input: IProduct[]) => {
           case 'collection':
             {
               let _slices = pre.find((item) => item.key === key);
-              // @ts-ignore
               let _values = new Set(_slices.values);
               _values.add(value);
-              // @ts-ignore
               _slices.values = [..._values];
               _res.push(_slices);
             }
@@ -92,10 +58,8 @@ export const makeFilters = (input: IProduct[]) => {
           case 'color':
             {
               let _slices = pre.find((item) => item.key === key);
-              // @ts-ignore
               let _values = new Set(_slices.values);
               _values.add(value);
-              // @ts-ignore
               _slices.values = [..._values];
               _res.push(_slices);
             }
@@ -110,22 +74,28 @@ export const makeFilters = (input: IProduct[]) => {
           {
             let _structure = pre.find((item) => item.key === 'structure');
             let _values = new Set(_structure?.values[0]);
-            // @ts-ignore
             _values.add(cur.options[0].collection);
-             // @ts-ignore
-            _structure?.values[0] = [..._values];
+            _structure?.values.splice(0, 1, [..._values]);
             _res.push(_structure);
           }
 
           break;
-        case 'Многослойная':
+        case 'Двухслойная':
           {
             let _structure = pre.find((item) => item.key === 'structure');
             let _values = new Set(_structure?.values[1]);
-             // @ts-ignore
             _values.add(cur.options[0].collection);
-             // @ts-ignore
-            _structure?.values[1] = [..._values];
+            _structure?.values.splice(1, 1, [..._values]);
+            _res.push(_structure);
+          }
+
+          break;
+        case 'Трехслойная':
+          {
+            let _structure = pre.find((item) => item.key === 'structure');
+            let _values = new Set(_structure?.values[1]);
+            _values.add(cur.options[0].collection);
+            _structure?.values.splice(2, 1, [..._values]);
             _res.push(_structure);
           }
 
@@ -153,7 +123,7 @@ export const makeFilters = (input: IProduct[]) => {
       },
       {
         key: 'structure',
-        values: [[], []],
+        values: [[], [], []],
       },
     ]
   );

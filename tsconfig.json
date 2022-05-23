@@ -17,6 +17,6 @@
     "incremental": true,
     "typeRoots": ["./types/index.d.ts"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "db/mongodb.еs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "db/mongodb.еs", "utils/transform.js"],
   "exclude": ["node_modules"]
 }
