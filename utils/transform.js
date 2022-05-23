@@ -93,7 +93,7 @@ export const makeFilters = (input) => {
         case 'Трехслойная':
           {
             let _structure = pre.find((item) => item.key === 'structure');
-            let _values = new Set(_structure?.values[1]);
+            let _values = new Set(_structure?.values[2]);
             _values.add(cur.options[0].collection);
             _structure?.values.splice(2, 1, [..._values]);
             _res.push(_structure);
