@@ -26,7 +26,7 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas.site.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
     res.json()
   );
   const products = v3(res);

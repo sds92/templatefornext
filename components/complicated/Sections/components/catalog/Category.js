@@ -19,7 +19,7 @@ export default function Category({ lgView, products, categoryName, onChangeCateg
                         ...state,
                         category: categoryName,
                         subCategory: productTitle,
-                        color: product[0].color,
+                        color: product[0].colors,
                       };
                     });
                   }}
@@ -62,7 +62,7 @@ export default function Category({ lgView, products, categoryName, onChangeCateg
                           ...state,
                           category: categoryName,
                           subCategory: productTitle,
-                          color: product[0].color,
+                          color: product[0].colors,
                           menuOpen: false
                         };
                       });
