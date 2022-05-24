@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Title, SubTitle, Text } from '../../../lib';
+import Category from './catalog/Category';
+import Colors from './catalog/Colors';
 // react-menu
 import '@szhsin/react-menu/dist/index.css';
 
@@ -7,22 +9,18 @@ import { Icons } from '../../';
 
 export default function CatalogAlt1(props) {
   const { w, lgView, app, theme, products } = props;
-  console.log("🚀 ~ file: CatalogAlt1.js ~ line 10 ~ CatalogAlt1 ~ products", products)
   const content = props.content.content.catalog;
   const [state, setState] = React.useState({
-    chosenType: 'flexible',
-    chosenColor: [0, 'Зеленый'],
-    chosenOption: 1,
-    chosen: 0,
-    hover: null,
-    show: false,
+    category: products[0][0],
+    subCategory: products[0][1][0][0],
     menuOpen: false,
+    color: products[0][1][0][1].color,
   });
 
-  const product = products[state.chosen];
-  const price = products[state.chosen].prices[state.chosenOption];
-  const title = product.titles[state.chosenOption];
-  const color = product.colours[state.chosenOption];
+  // const product = products[state.chosen];
+  // const price = products[state.chosen].prices[state.chosenOption];
+  // const title = product.titles[state.chosenOption];
+  // const color = product.colours[state.chosenOption];
 
   return (
     <>
@@ -37,168 +35,42 @@ export default function CatalogAlt1(props) {
           </Text>
         </div>
         <div className={`w-full`}>
-          {lgView ? (
-            <>
-              <div className={`max-w-7xl mx-auto px-4`}>
-                <div className={`text-xl font-bold my-4`}>Однослойная черепица:</div>
-                <div className={`max-w-7xl mx-auto flex flex-wrap justify-start px-2`}>
-                  {products
-                    .map((item, productIndex) => ({ ...item, type: item.type[0], productIndex }))
-                    .filter((item) => item.type === 'Однослойная')
-                    .map((item, index) => (
-                      <div
-                        className={`cursor-pointer text-xl text-slate-700 font-light px-2`}
-                        key={`LINK${item.productIndex}`}
-                        onClick={() => {
-                          setState((state) => {
-                            return {
-                              ...state,
-                              chosen: item.productIndex,
-                              chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
-                              chosenColor: [0, product.colours[0]],
-                            };
-                          });
-                        }}
-                      >
-                        <div
-                          className={`flex flex-col transition-all whitespace-nowrap ${
-                            state.chosen === item.productIndex
-                              ? 'text-zinc-900'
-                              : 'text-zinc-300 hover:text-belplit24_2'
-                          } text-left `}
-                        >
-                          <div className={`text-base`}>{item.title}</div>
-                          <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-                <div className={`text-xl font-bold my-4`}>Многослойная черепица:</div>
-                <div className={`max-w-7xl mx-auto flex flex-wrap justify-start px-2`}>
-                  {products
-                    .map((item, productIndex) => ({ ...item, type: item.type[0], productIndex }))
-                    .filter((item) => item.type === 'Двухслойная')
-                    .map((item, index) => (
-                      <div
-                        className={`cursor-pointer text-xl  font-light px-2`}
-                        key={`LINK${item.productIndex}`}
-                        onClick={() => {
-                          setState((state) => {
-                            return {
-                              ...state,
-                              chosen: item.productIndex,
-                              chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
-                            };
-                          });
-                        }}
-                      >
-                        <div
-                          className={`flex flex-col transition-all whitespace-nowrap ${
-                            state.chosen === item.productIndex
-                              ? 'text-zinc-900'
-                              : 'text-zinc-300 hover:text-belplit24_2'
-                          } text-left `}
-                        >
-                          <div className={`text-base`}>{item.title}</div>
-                          <div className={`font-semibold`}>от {item.prices[0]}₽/м²</div>
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              </div>
-
-              <br />
-            </>
-          ) : (
-            <>
-              <div className={`mx-auto max-w-fit`}>
-                <Button
-                  style={{ border: 'none' }}
-                  onClick={() =>
-                    setState((state) => {
-                      return { ...state, menuOpen: !state.menuOpen };
-                    })
-                  }
-                >
-                  Выбрать коллецию
-                  <Icons.ChevronDown
-                    extraClasses={`w-6 h-6 transition-all ${state.menuOpen ? `rotate-180` : ''}`}
-                  />
-                </Button>
-              </div>
-              {state.menuOpen && (
-                <div className={`rounded-md absolute bg-white z-50 inset-x-0 p-4 shadow-xl mx-4`}>
-                  <div className={`text-xl mt-4 font-medium`}>Однослойная черепица:</div>
-                  <hr />
-                  <div className={`mt-2 flex flex-wrap mx-auto`}>
-                    {products
-                      .map((item, productIndex) => ({ ...item, type: item.type[0], productIndex }))
-                      .filter((item) => item.type === 'Однослойная')
-                      .map((item, index) => (
-                        <div
-                          className={`cursor-pointer text-xl font-light px-2`}
-                          key={`LINK${item.productIndex}`}
-                          onClick={() => {
-                            setState((state) => {
-                              return {
-                                ...state,
-                                menuOpen: !state.menuOpen,
-                                chosen: item.productIndex,
-                                chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
-                              };
-                            });
-                          }}
-                        >
-                          <div
-                            className={`flex flex-col transition-all whitespace-nowrap ${
-                              state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
-                            } text-left `}
-                          >
-                            <div className={`text-base`}>{item.title}</div>
-                            <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                  <div className={`text-xl mt-4 font-medium`}>Многослойная черепица:</div>
-                  <hr />
-                  <div className={`mt-2 flex flex-wrap`}>
-                    {products
-                      .map((item, productIndex) => ({ ...item, type: item.type[0], productIndex }))
-                      .filter((item) => item.type === 'Многослойная')
-                      .map((item, index) => (
-                        <div
-                          className={`cursor-pointer text-xl  font-light px-2`}
-                          key={`LINK${item.productIndex}`}
-                          onClick={() => {
-                            setState((state) => {
-                              return {
-                                ...state,
-                                menuOpen: !state.menuOpen,
-                                chosen: item.productIndex,
-                                chosenType: item.type === 'Однослойная' ? 'flexible' : 'multilayer',
-                              };
-                            });
-                          }}
-                        >
-                          <div
-                            className={`flex flex-col transition-all whitespace-nowrap ${
-                              state.chosen === item.productIndex ? 'text-belplit24_2' : 'text-zinc-900'
-                            } text-left `}
-                          >
-                            <div className={`text-base`}>{item.title}</div>
-                            <div className={`font-semibold`}>{item.prices[0]}₽/м²</div>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              )}
-            </>
+          <div className={`w-full ${lgView ? '' : 'absolute z-50'}`}>
+            {products.map((category, i) => {
+              return (
+                <Category
+                  key={`category${i}`}
+                  lgView={lgView}
+                  products={category[1]}
+                  categoryName={category[0]}
+                  onChangeCategory={setState}
+                  state={state}
+                />
+              );
+            })}
+          </div>
+          {!lgView && !state.menuOpen && (
+            <div className={`mx-auto max-w-fit`}>
+              <Button
+                style={{ border: 'none' }}
+                onClick={() =>
+                  setState((state) => {
+                    return { ...state, menuOpen: !state.menuOpen };
+                  })
+                }
+              >
+                Выбрать коллецию
+                <Icons.ChevronDown
+                  extraClasses={`w-6 h-6 transition-all ${state.menuOpen ? `rotate-180` : ''}`}
+                />
+              </Button>
+            </div>
           )}
+
           <br />
-          <div className={`max-w-7xl mx-auto text-3xl font-bold my-4 px-4`}>
-            <div className={`my-4 zero:text-center sm:text-left`}>Коллекция {title}</div>
+          <Colors state={state} products={products} />
+          {/* <div className={`max-w-7xl mx-auto text-3xl font-bold my-4 px-4`}>
+            <div className={`my-4 zero:text-center sm:text-left`}>Коллекция {subCategory}</div>
             <div className={`text-xl font-light flex flex-wrap gap-2 zero:justify-center sm:justify-start`}>
               {products
                 .find((item, i) => i === state.chosen)
@@ -234,8 +106,8 @@ export default function CatalogAlt1(props) {
                   );
                 })}
             </div>
-          </div>
-          <div className={`max-w-7xl mx-auto z-10 my-4 flex flex-wrap px-4`}>
+          </div> */}
+          {/* <div className={`max-w-7xl mx-auto z-10 my-4 flex flex-wrap px-4`}>
             <div
               className={`relative overflow-hidden zero:w-full sm:w-2/3`}
               style={{height: '307px'}}
@@ -261,7 +133,7 @@ export default function CatalogAlt1(props) {
                 </Button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

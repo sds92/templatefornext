@@ -1,6 +1,6 @@
 import React from 'react';
 import { FullPage, Header } from '../components/complicated';
-import { v2 } from '../utils/functions';
+import { v2, v3 } from '../utils/functions';
 
 export default function Home({ w, lgView, app, menu, input, theme, products }) {
   return (
@@ -26,10 +26,10 @@ export default function Home({ w, lgView, app, menu, input, theme, products }) {
 export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas-rus.ru.json`).then((res) =>
+  const res = await fetch(`https://xn--j1ano.com/uploads/staticsites/shinglas.site.json`).then((res) =>
     res.json()
   );
-  const products = v2(res);
+  const products = v3(res);
   // By returning { props: { posts } }, the Blog component
   // will receive posts as a prop at build time
   return {

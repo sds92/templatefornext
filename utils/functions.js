@@ -1,10 +1,14 @@
 export const v2 = (inputArr) => {
+  // console.log("🚀 ~ file: functions.js ~ line 2 ~ v2 ~ inputArr", inputArr)
   let arr = [];
   return inputArr
     .map((item) => ({
       title: item.options.find(({ key }) => key === 'Коллекция').value,
       type: item.options.find(({ key }) => key === 'Количество слоев').value,
-      colours: item.options.find(({ key }) => key ===  "Оттенок")?.value || '',
+      colours:
+        item.options.find(({ key }) => key === 'Оттенок')?.value ||
+        item.options.find(({ key }) => key === 'Цвет')?.value ||
+        '',
       options: item.options,
       infos: item.title,
       prices: item.cost,
@@ -17,9 +21,14 @@ export const v2 = (inputArr) => {
       return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
     })
     .reduce((pre, cur, i) => {
+      // console.log("🚀 ~ file: functions.js ~ line 21 ~ .reduce ~ pre", pre)
       if (cur.title === pre.title || cur.title === pre.reverse()[0]?.title) {
         if (i === inputArr.length - 1) {
-          arr.push(Array.prototype.concat(cur, pre).sort((a, b) => a.colours === b.colours ? 0 : a.colours < b.colours ? -1 : 1));
+          arr.push(
+            Array.prototype
+              .concat(cur, pre)
+              .sort((a, b) => (a.colours === b.colours ? 0 : a.colours < b.colours ? -1 : 1))
+          );
           return arr;
         } else {
           return Array.prototype.concat(cur, pre);
@@ -32,10 +41,10 @@ export const v2 = (inputArr) => {
     .map((item) =>
       item.reduce(
         (pre, cur) => {
-          pre.titles.push(cur.title)
-          pre.colours.push(cur.colours)
-          pre.type.push(cur.type)
-          pre.options.push(cur.options)
+          pre.titles.push(cur.title);
+          pre.colours.push(cur.colours);
+          pre.type.push(cur.type);
+          pre.options.push(cur.options);
           pre.infos.push(cur.infos);
           pre.prices.push(cur.prices);
           pre.priceFor.push(cur.priceFor);
@@ -60,6 +69,7 @@ export const v2 = (inputArr) => {
         }
       )
     );
+
   // return inputArr.map((inputArrItem) => {
   //   let tmpSizes = inputArrItem.sizes.map((tmpSizesItem) => {
   //     return tmpSizesItem[0]?.slice(0, tmpSizesItem[0].indexOf('мм')).split(/х|x/);
@@ -78,95 +88,152 @@ export const v2 = (inputArr) => {
   // });
 };
 
+export const v3 = (inputArr) => {
+  return Array.from(
+    inputArr
+      .map((item) => ({
+        title: item.title,
+        category: item.options.find(({ key }) => key === 'Количество слоев').value,
+        subCategory: item.options.find(({ key }) => key === 'Коллекция').value,
+        colors:
+          item.options.find(({ key }) => key === 'Оттенок')?.value ||
+          item.options.find(({ key }) => key === 'Цвет')?.value ||
+          '',
+        options: item.options,
+        infos: item.title,
+        prices: item.cost,
+        priceFor: item.unit,
+        show: item.visible,
+        imgs: item.images,
+        paths: item.path,
+      }))
+      .reduce((acc, cur, i) => {
+        if (i === 1) {
+          const map = new Map();
+          map.set(cur.category, [cur]);
+          return map;
+        }
+        if (acc.has(cur.category)) {
+          const arr = acc.get(cur.category);
+          acc.set(cur.category, [...arr, cur]);
+        } else {
+          acc.set(cur.category, [cur]);
+        }
+
+        return acc;
+      })
+  ).map(([key, val]) => {
+    return [key, Array.from(val.reduce((acc, cur, i) => {
+
+      if (i === 1) {
+        const map = new Map();
+        map.set(cur.subCategory, [cur]);
+        return map
+      }
+
+      if (acc.has(cur.subCategory)) {
+        const arr = acc.get(cur.subCategory);
+        acc.set(cur.subCategory, [...arr, cur]);
+      } else {
+        acc.set(cur.subCategory, [cur]);
+      }
+
+      return acc
+    }))];
+  });
+};
+
 export const belplit24ru = (inputArr) => {
   // console.log("🚀 ~ file: functions.js ~ line 83 ~ belplit24ru ~ inputArr", inputArr)
   let arr = [];
-  return inputArr
-    .map((item) => ({
-      title: item.options.find(({ key }) => key === 'Серия').value,
-      infos: item.title,
-      sizes: {
-        a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
-        b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
-        h: parseInt(item.options.find(({ key }) => key === 'Толщина').value.replace(' мм', '')),
-      },
-      connectionType: item.options.find(({ key }) => key === 'Вид кромки').value,
-      prices: item.cost,
-      priceFor: item.unit,
-      density: item.options.find(({ key }) => key === 'Плотность').value,
-      show: item.visible,
-      articles: item.article,
-      ids: item.id,
-      coef: item.coef,
-      imgs: item.images,
-      paths: item.path,
-    }))
-    .sort((a, b) => {
-      return a.colours === b.colours ? 0 : a.colours < b.colours ? -1 : 1;
-    })
-    // .sort((a, b) => {
-    //   return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
-    // })
-    .reduce((pre, cur, i) => {
-      let preTitle = null;
-      if (pre.title) {
-        preTitle = pre.title;
-      }
-      if (pre[0]?.title) {
-        preTitle = pre[0]?.title;
-      }
-      if (cur.title === preTitle) {
-        if (i === inputArr.length - 1) {
-          arr.push(Array.prototype.concat(cur, pre));
-          return arr;
-        } else {
-          return Array.prototype.concat(cur, pre);
+  return (
+    inputArr
+      .map((item) => ({
+        title: item.options.find(({ key }) => key === 'Серия').value,
+        infos: item.title,
+        sizes: {
+          a: parseInt(item.options.find(({ key }) => key === 'Длина').value.replace(' мм', '')),
+          b: parseInt(item.options.find(({ key }) => key === 'Ширина').value.replace(' мм', '')),
+          h: parseInt(item.options.find(({ key }) => key === 'Толщина').value.replace(' мм', '')),
+        },
+        connectionType: item.options.find(({ key }) => key === 'Вид кромки').value,
+        prices: item.cost,
+        priceFor: item.unit,
+        density: item.options.find(({ key }) => key === 'Плотность').value,
+        show: item.visible,
+        articles: item.article,
+        ids: item.id,
+        coef: item.coef,
+        imgs: item.images,
+        paths: item.path,
+      }))
+      .sort((a, b) => {
+        return a.colours === b.colours ? 0 : a.colours < b.colours ? -1 : 1;
+      })
+      // .sort((a, b) => {
+      //   return a.title === b.title ? 0 : a.title < b.title ? -1 : 1;
+      // })
+      .reduce((pre, cur, i) => {
+        let preTitle = null;
+        if (pre.title) {
+          preTitle = pre.title;
         }
-      } else {
-        if (pre[0]) {
-          arr.push(pre);
-        } else {
-          arr.push([pre]);
+        if (pre[0]?.title) {
+          preTitle = pre[0]?.title;
         }
-        return cur;
-      }
-    })
-    .map((item) =>
-      item
-        .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
-        .reduce(
-          (pre, cur) => {
-            pre.infos.push(cur.infos);
-            pre.sizes.push(cur.sizes);
-            pre.prices.push(cur.prices);
-            pre.density.push(cur.density);
-            pre.connectionType.push(cur.connectionType);
-            pre.priceFor.push(cur.priceFor);
-            pre.show.push(cur.show);
-            pre.articles.push(cur.articles);
-            pre.ids.push(cur.ids);
-            pre.coef.push(cur.coef);
-            pre.imgs.push(cur.imgs);
-            pre.paths.push(cur.paths);
-            return pre;
-          },
-          {
-            infos: [],
-            title: item[0].title,
-            sizes: [],
-            prices: [],
-            density: [],
-            connectionType: [],
-            priceFor: [],
-            show: [],
-            articles: [],
-            ids: [],
-            coef: [],
-            imgs: [],
-            paths: [],
+        if (cur.title === preTitle) {
+          if (i === inputArr.length - 1) {
+            arr.push(Array.prototype.concat(cur, pre));
+            return arr;
+          } else {
+            return Array.prototype.concat(cur, pre);
           }
-        )
-    );
+        } else {
+          if (pre[0]) {
+            arr.push(pre);
+          } else {
+            arr.push([pre]);
+          }
+          return cur;
+        }
+      })
+      .map((item) =>
+        item
+          .sort((a, b) => a.sizes.h - b.sizes.h || a.sizes.a - b.sizes.a || a.sizes.b - b.sizes.b)
+          .reduce(
+            (pre, cur) => {
+              pre.infos.push(cur.infos);
+              pre.sizes.push(cur.sizes);
+              pre.prices.push(cur.prices);
+              pre.density.push(cur.density);
+              pre.connectionType.push(cur.connectionType);
+              pre.priceFor.push(cur.priceFor);
+              pre.show.push(cur.show);
+              pre.articles.push(cur.articles);
+              pre.ids.push(cur.ids);
+              pre.coef.push(cur.coef);
+              pre.imgs.push(cur.imgs);
+              pre.paths.push(cur.paths);
+              return pre;
+            },
+            {
+              infos: [],
+              title: item[0].title,
+              sizes: [],
+              prices: [],
+              density: [],
+              connectionType: [],
+              priceFor: [],
+              show: [],
+              articles: [],
+              ids: [],
+              coef: [],
+              imgs: [],
+              paths: [],
+            }
+          )
+      )
+  );
   // .reduce((pre, cur, i) => {
   //   let index = null;
   //   let temp = pre.find((item, curI) => {
