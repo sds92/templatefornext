@@ -1,10 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import Router from 'next/router';
-import withYM from 'next-ym';
-=======
->>>>>>> 7c47222b852ebcc1e8e9374f1be83b0de8d1c15a
-
 import '../styles/tailwind.css';
 import { Footer, Head, Preloader } from '../components/complicated';
 import pages from '../data/pages.json';
@@ -50,7 +44,6 @@ function MyApp({ Component, pageProps }) {
     <>
       {loading && <Preloader />}
       {!loading && (
-
         <div>
           <Head head={newProps.input.head}></Head>
           <Component {...newProps} />
@@ -72,7 +65,7 @@ function MyApp({ Component, pageProps }) {
                   webvisor:true,
                   trackHash:true
              });
-  `,
+        `,
         }}
       />
     </>
