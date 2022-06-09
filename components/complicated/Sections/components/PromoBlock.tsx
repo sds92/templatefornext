@@ -74,9 +74,9 @@ const PromoBlock = (props: PromoBlockProps) => {
           </div>
           <Text
             className={`border-t mt-2 text-${
-              theme.text.sections[model].color.s1
+              theme.text.sections[model].color.s2
             } border-${
-              theme.borders.sections[model].color.s1
+              theme.borders.sections[model].color.s2
             } zero:text-sm md:text-lg font-light ${a === 'item' ? 'text-left' : 'text-left'}`}
           >
             {block.text}

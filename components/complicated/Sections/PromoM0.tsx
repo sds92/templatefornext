@@ -61,7 +61,7 @@ const PromoM0 = (props: SectionProps) => {
             {section?.footer?.text}
           </Text>
         </div>
-        <div className={`px-4`}>
+        <div className={`px-4 hover:scale-105 active:scale-105 transition-all`}>
           {section?.footer?.buttons?.map((button: Button, i: number) => {
             return button.pseudo ? (
               <div
@@ -75,25 +75,19 @@ const PromoM0 = (props: SectionProps) => {
                   // TODO fix
                   // @ts-ignore
                   section.buttons[i + 1]?.pseudo ? 'mt-4' : 'mt-0'
-                } ml-2 whitespace-nowrap text-lg hover:scale-105 transition-all cursor-pointer text-${
-                  theme.text.sections[section.model].color.s2
-                }  `}
+                } ml-2 whitespace-nowrap text-lg hover:scale-105 transition-all cursor-pointer text-zinc-800`}
               >
                 {button.buttonText}
               </div>
             ) : (
               <a
                 key={`button${i}`}
-                className={`${theme.styles.buttons} text-${
-                  theme.text.sections[section.model].color.buttons
-                } bg-${theme.bg.sections[section.model].color.main} hover:bg-${
-                  theme.bg.sections[section.model].color.hover
-                } active:scale-105`}
+                className={`${theme.styles.buttons} text-zinc-800 bg-zinc-100 `}
                 href={`${button.link}`}
               >
                 {button.buttonText}
               </a>
-            );
+            )
           })}
         </div>
       </div>
