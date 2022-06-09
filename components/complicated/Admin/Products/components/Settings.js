@@ -113,12 +113,12 @@ export default function Settings(props) {
           onSubmit={(a) => setUserTitle(a)}
           initValue={values.info.userTitle}
         />
-        <InputSwitch
+        {/* <InputSwitch
           type='textarea'
           title={'ОПИСАНИЕ ТОВАРА'}
           onSubmit={(a) => addDesk({ title: 'main', value: a })}
           initValue={values.desc.main}
-        />
+        /> */}
       </div>
     </div>
   );
