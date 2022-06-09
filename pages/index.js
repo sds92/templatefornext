@@ -33,7 +33,7 @@ export default function Home(props) {
   };
 
   return (
-    w && <>
+    <>
       <Head head={app.content.head} theme={theme}></Head>
       <Header {...newProps} />
       <motion.div
