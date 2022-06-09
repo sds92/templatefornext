@@ -33,7 +33,7 @@ export default function Home(props) {
   };
 
   return (
-    <>
+    w && <>
       <Head head={app.content.head} theme={theme}></Head>
       <Header {...newProps} />
       <motion.div
@@ -54,13 +54,14 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const resProducts = await fetch(`https://xn--j1ano.com/uploads/staticsites/pilomateriali.site.json`)
-    .then((res) => res.json())
-    .catch((err) => {
-      return null;
-    });
-
+  .then((res) => res.json())
+  .catch((err) => {
+    return null;
+  });
+  
   let app = JSON.parse(fs.readFileSync('pilomateriali/app.ru.json', 'utf8'));
-  const datafromDB = transform(resProducts.filter((item) => item.visible));
+  const datafromDB = transform(resProducts);
+  // console.log("🚀 ~ file: index.js ~ line 64 ~ getStaticProps ~ datafromDB", datafromDB)
   // let pages = JSON.parse(fs.readFileSync('pilomateriali/pages.ru.json', 'utf8'));
   console.log(app);
 
