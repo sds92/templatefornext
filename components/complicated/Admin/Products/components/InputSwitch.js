@@ -29,7 +29,7 @@ export default function InputSwitch(props) {
           {type === 'textarea' ? (
             <textarea
               onChange={(e) => {
-                setValues((s) => ({ ...s, desc: { ...s.desc, main: e.target.value } }));
+                setState((s) => ({ ...s, input: e.target.value, }));
               }}
               className={`w-full`}
               value={state.input}

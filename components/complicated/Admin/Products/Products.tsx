@@ -35,7 +35,7 @@ const Products = () => {
     fetch('api/products')
       .then((res) => res.json())
       .then((res) => {
-        dispatch(importInitProducts(res));
+        dispatch(importInitProducts(JSON.parse(res)));
       })
       .catch((err) => console.log(err));
   };

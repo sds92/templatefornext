@@ -39,7 +39,8 @@ export default function Settings(props) {
   }
 
   function setUserTitle(a) {
-    let _products = productList.setUserTitle(products, a, product.id);
+    let _products = productsController.copy(products);
+    _products = productsController.setUserTitle(_products,product.id, a);
     dispatch(updateProducts(_products));
     saveProducts(_products);
     dispatch(setIsChanged(false));
@@ -107,6 +108,7 @@ export default function Settings(props) {
       </div> */}
       <div className={`border border-zinc-500 bg-slate-100 w-full p-2 mt-1 rounded-sm`}>
         <InputSwitch
+          type='textarea'
           title={'ЗАГОЛОВОК'}
           onSubmit={(a) => setUserTitle(a)}
           initValue={values.info.userTitle}
