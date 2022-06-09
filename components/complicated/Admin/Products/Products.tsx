@@ -30,12 +30,12 @@ const Products = () => {
   const toDeleteProducts = useSelector(selectToDeleteProducts);
   const pages = useSelector(selectPages);
   const [settings, setSettings] = React.useState(null);
-
+  
   const getProducts = () => {
     fetch('api/products')
       .then((res) => res.json())
       .then((res) => {
-        dispatch(importInitProducts(res));
+        dispatch(importInitProducts(JSON.parse(res)));
       })
       .catch((err) => console.log(err));
   };
@@ -75,20 +75,20 @@ const Products = () => {
     } else {
       _t = pages;
     }
-
+    
     await fetch(`api/pages`, {
       method: 'POST',
       body: JSON.stringify(_t),
     })
-      .then((res) => res.json())
-      .then((res) => {
+    .then((res) => res.json())
+    .then((res) => {
         if (res.status === 'ok') {
           getPages();
         }
       })
       .catch((err) => console.log(err));
-  };
-
+    };
+    
   function addProduct(a:any) {
     const [pr, id] = productsController.addProduct(products, a);
     dispatch(updateProducts(pr));
