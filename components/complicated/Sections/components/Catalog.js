@@ -225,8 +225,8 @@ export default function Catalog(props) {
                         >
                           <img
                             className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                            src={app.api.serv + item.imgs[0]}
-                            alt
+                            src={`/images/item.jpg`}
+                            alt='Пиломатериалы'
                             width='370'
                             height='256'
                           />
@@ -285,8 +285,8 @@ export default function Catalog(props) {
                       >
                         <img
                           className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                          src={app.api.serv + item.imgs[0]}
-                          alt
+                          src={`/images/item.jpg`}
+                            alt='Пиломатериалы'
                           width='370'
                           height='256'
                         />
