@@ -24,6 +24,7 @@ module.exports = {
     'min-w-xs',
     'min-w-content',
     'w-min',
+    'w-max',
     'whitespace-nowrap',
     'uppercase',
     'cursor-pointer',

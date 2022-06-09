@@ -32,6 +32,7 @@ const PromoM3: React.FC<SectionProps> = (props: SectionProps) => {
       >
         <Text className={`py-4`}>{section.title}</Text>
       </motion.div>
+      <Text className={`text-center font-bold zero:text-xl sm:text-2xl md:text-3xl text-zinc-800`}>{section.subTitle}</Text>
       <div
         className={`flex flex-wrap justify-center max-w-7xl mx-auto py-10 relative`}
         style={{
