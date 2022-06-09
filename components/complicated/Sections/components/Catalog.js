@@ -204,7 +204,7 @@ export default function Catalog(props) {
                   return (
                     state.chosen === `${item.category}_${item.subcategory}` && (
                       <motion.div
-                      key={`sdkfj${index}`}
+                        key={`sdkfj${index}`}
                         initial='initial'
                         animate='animate'
                         variants={animations.opacity.variants}
@@ -225,7 +225,7 @@ export default function Catalog(props) {
                         >
                           <img
                             className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                            src={`/images/item.jpg`}
+                            src={app.api.serv + item.imgs[0] || `/images/item.jpg`}
                             alt='Пиломатериалы'
                             width='370'
                             height='256'
@@ -261,6 +261,8 @@ export default function Catalog(props) {
               </>
             ) : (
               arr.map((item, index) => {
+                console.log('🚀 ~ file: Catalog.js ~ line 204 ~ {arr.map ~ item', item);
+
                 return (
                   state.chosen === item.category && (
                     <motion.div
@@ -285,8 +287,8 @@ export default function Catalog(props) {
                       >
                         <img
                           className={`${state.hover === index && `scale-105`} duration-1000 transition-all`}
-                          src={`/images/item.jpg`}
-                            alt='Пиломатериалы'
+                          src={app.api.serv + item.imgs[0] || `/images/item.jpg`}
+                          alt='Пиломатериалы'
                           width='370'
                           height='256'
                         />
